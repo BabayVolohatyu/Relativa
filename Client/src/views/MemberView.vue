@@ -347,12 +347,12 @@ onMounted(async () => {
         <h2 class="text-lg font-semibold text-ink-900 mb-4">{{ t('member.profile') }}</h2>
         <div class="grid grid-cols-2 gap-3">
           <div class="flex flex-col gap-1.5">
-            <label class="text-xs font-medium text-ink-600">{{ t('members.firstName') }}</label>
-            <InputText v-model="editFirstName" maxlength="100" :disabled="!canEditOtherProfiles || isSelf" />
+            <label for="member-first-name" class="text-xs font-medium text-ink-600">{{ t('members.firstName') }}</label>
+            <InputText id="member-first-name" v-model="editFirstName" type="text" maxlength="100" :disabled="!canEditOtherProfiles || isSelf" />
           </div>
           <div class="flex flex-col gap-1.5">
-            <label class="text-xs font-medium text-ink-600">{{ t('members.lastName') }}</label>
-            <InputText v-model="editLastName" maxlength="100" :disabled="!canEditOtherProfiles || isSelf" />
+            <label for="member-last-name" class="text-xs font-medium text-ink-600">{{ t('members.lastName') }}</label>
+            <InputText id="member-last-name" v-model="editLastName" type="text" maxlength="100" :disabled="!canEditOtherProfiles || isSelf" />
           </div>
         </div>
         <div class="mt-4 flex justify-end">
@@ -369,8 +369,10 @@ onMounted(async () => {
         <h2 class="text-lg font-semibold text-ink-900 mb-4">{{ t('member.orgAccess') }}</h2>
         <div class="grid grid-cols-[1fr_auto] items-end gap-3">
           <div class="flex flex-col gap-1.5">
-            <label class="text-xs font-medium text-ink-600">{{ t('members.role') }}</label>
+            <label for="member-org-role" class="text-xs font-medium text-ink-600">{{ t('members.role') }}</label>
             <Select
+              id="member-org-role"
+              input-id="member-org-role"
               v-model="selectedOrgRoleId"
               :options="orgRoleOptions"
               option-label="label"
@@ -433,7 +435,10 @@ onMounted(async () => {
                 {{ workspaceMemberFor(ws.id) ? t('member.hasAccess') : t('member.noAccess') }}
               </p>
             </div>
+            <label class="sr-only" :for="`member-ws-role-${ws.id}`">{{ ws.name }}</label>
             <Select
+              :id="`member-ws-role-${ws.id}`"
+              :input-id="`member-ws-role-${ws.id}`"
               v-model="selectedWorkspaceRole[ws.id]"
               :options="workspaceRoleOptions(ws.id)"
               option-label="label"

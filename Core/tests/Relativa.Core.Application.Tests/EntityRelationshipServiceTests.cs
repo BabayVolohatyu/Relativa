@@ -210,7 +210,7 @@ public sealed class EntityRelationshipServiceTests
         (await act.Should().ThrowAsync<AppException>()).Which.Code.Should().Be("target_cardinality_violation");
     }
 
-    private EntityRelationship StoredRel(RelationshipCardinality cardinality = RelationshipCardinality.ManyToOne, bool required = false, int inWorkspace = Ws)
+    private static EntityRelationship StoredRel(RelationshipCardinality cardinality = RelationshipCardinality.ManyToOne, bool required = false, int inWorkspace = Ws)
     {
         var relType = RelType(cardinality, required);
         var source = LinkEntity(1, SourceTypeId, inWorkspace: inWorkspace);

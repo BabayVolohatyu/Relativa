@@ -116,7 +116,7 @@ public sealed class OrganizationService(
 
     public async Task<OrganizationDto> GetByIdAsync(int organizationId, int userId, CancellationToken ct = default)
     {
-        await RequireOrgMembership(userId, organizationId, ct);
+        await OrgAccess.RequireMembership(orgMemberRepository, userId, organizationId, ct);
 
         var organization = await organizationRepository.GetByIdAsync(organizationId, ct)
             ?? throw new AppException("organization_not_found", 404, "Organization not found.");
@@ -141,7 +141,7 @@ public sealed class OrganizationService(
     public async Task UpdateAsync(int organizationId, int userId, UpdateOrganizationRequest request, CancellationToken ct = default)
     {
         await updateValidator.ValidateAndThrowAsync(request, ct);
-        await RequireOrgPermission(userId, organizationId, "manage_org_settings", ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, userId, organizationId, "manage_org_settings", ct);
 
         var organization = await organizationRepository.GetByIdAsync(organizationId, ct)
             ?? throw new AppException("organization_not_found", 404, "Organization not found.");
@@ -180,7 +180,7 @@ public sealed class OrganizationService(
 
     public async Task<List<OrgMemberDto>> GetMembersAsync(int organizationId, int userId, CancellationToken ct = default)
     {
-        await RequireOrgMembership(userId, organizationId, ct);
+        await OrgAccess.RequireMembership(orgMemberRepository, userId, organizationId, ct);
 
         var members = await orgMemberRepository.GetByOrganizationIdAsync(organizationId, ct);
         return members
@@ -227,7 +227,7 @@ public sealed class OrganizationService(
             return;
         }
 
-        await RequireOrgPermission(callerUserId, organizationId, "remove_org_members", ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, "remove_org_members", ct);
 
         var callerMembership = await orgMemberRepository.GetAsync(callerUserId, organizationId, ct)
             ?? throw new AppException("not_org_member", 403, "You are not a member of this organization.");
@@ -264,7 +264,7 @@ public sealed class OrganizationService(
 
     public async Task ChangeMemberRoleAsync(int organizationId, int targetUserId, int callerUserId, ChangeOrgMemberRoleRequest request, CancellationToken ct = default)
     {
-        await RequireOrgPermission(callerUserId, organizationId, "assign_org_roles", ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, "assign_org_roles", ct);
 
         var targetMember = await orgMemberRepository.GetAsync(targetUserId, organizationId, ct)
             ?? throw new AppException("target_not_org_member", 404, "Target user is not a member of this organization.");
@@ -300,7 +300,7 @@ public sealed class OrganizationService(
 
     public async Task<OrganizationSettingsDto> GetSettingsAsync(int organizationId, int userId, CancellationToken ct = default)
     {
-        await RequireOrgMembership(userId, organizationId, ct);
+        await OrgAccess.RequireMembership(orgMemberRepository, userId, organizationId, ct);
 
         var settings = await organizationSettingsRepository.GetByOrganizationIdAsync(organizationId, ct)
             ?? throw new AppException("organization_settings_not_found", 404, "Organization settings not found.");
@@ -339,7 +339,7 @@ public sealed class OrganizationService(
     public async Task UpdateSettingsAsync(int organizationId, int userId, UpdateOrganizationSettingsRequest request, CancellationToken ct = default)
     {
         await updateSettingsValidator.ValidateAndThrowAsync(request, ct);
-        await RequireOrgPermission(userId, organizationId, OrganizationPermissions.ManageOrgSettings, ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, userId, organizationId, OrganizationPermissions.ManageOrgSettings, ct);
 
         var settings = await organizationSettingsRepository.GetByOrganizationIdAsync(organizationId, ct)
             ?? throw new AppException("organization_settings_not_found", 404, "Organization settings not found.");
@@ -413,18 +413,4 @@ public sealed class OrganizationService(
         }
     }
 
-    private async Task<UserRoleOrganization> RequireOrgMembership(int userId, int orgId, CancellationToken ct)
-    {
-        return await orgMemberRepository.GetAsync(userId, orgId, ct)
-            ?? throw new AppException("not_org_member", 403, "You are not a member of this organization.");
-    }
-
-    private async Task RequireOrgPermission(int userId, int orgId, string permission, CancellationToken ct)
-    {
-        var membership = await RequireOrgMembership(userId, orgId, ct);
-        var hasPermission = membership.Role?.RolePermissions
-            .Any(rp => rp.Permission?.Name == permission) ?? false;
-        if (!hasPermission)
-            throw new AppException("permission_denied", 403, $"You do not have the '{permission}' permission in this organization.");
-    }
 }

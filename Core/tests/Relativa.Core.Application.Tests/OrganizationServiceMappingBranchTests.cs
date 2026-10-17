@@ -73,7 +73,7 @@ public sealed class OrganizationServiceMappingBranchTests
                 [
                     new OrganizationRolePermission { Permission = new Permission { Name = "manage_org_settings" } },
                     new OrganizationRolePermission { Permission = new Permission { Name = "   " } },
-                    new OrganizationRolePermission { Permission = null },
+                    new OrganizationRolePermission { Permission = null! },
                 ]
             }
         };
@@ -89,7 +89,7 @@ public sealed class OrganizationServiceMappingBranchTests
     [Fact]
     public async Task GetById_MembershipRoleNull_MapsNullRoleAndEmptyPermissions()
     {
-        var membership = new UserRoleOrganization { UserId = 7, OrganizationId = 5, Role = null };
+        var membership = new UserRoleOrganization { UserId = 7, OrganizationId = 5, Role = null! };
         _orgMemberRepo.Setup(r => r.GetAsync(7, 5, It.IsAny<CancellationToken>())).ReturnsAsync(membership);
         _orgRepo.Setup(r => r.GetByIdAsync(5, It.IsAny<CancellationToken>())).ReturnsAsync(new Organization { Id = 5, Name = "Roleless" });
         _orgMemberRepo.Setup(r => r.GetByOrganizationIdAsync(5, It.IsAny<CancellationToken>())).ReturnsAsync([membership]);
@@ -104,7 +104,7 @@ public sealed class OrganizationServiceMappingBranchTests
     [Fact]
     public async Task Update_MembershipRoleNull_DeniesPermission()
     {
-        var membership = new UserRoleOrganization { UserId = 7, OrganizationId = 5, Role = null };
+        var membership = new UserRoleOrganization { UserId = 7, OrganizationId = 5, Role = null! };
         _orgMemberRepo.Setup(r => r.GetAsync(7, 5, It.IsAny<CancellationToken>())).ReturnsAsync(membership);
 
         await _sut.Invoking(s => s.UpdateAsync(5, 7, new UpdateOrganizationRequest("New Name")))

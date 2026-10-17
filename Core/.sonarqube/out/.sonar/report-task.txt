@@ -1,6 +1,0 @@
-projectKey=Relativa
-serverUrl=http://localhost:9000
-serverVersion=26.10.0.133078
-dashboardUrl=http://localhost:9000/dashboard?id=Relativa
-ceTaskId=f838e8a0-ba9b-4d0c-b3a9-908abfd0e617
-ceTaskUrl=http://localhost:9000/api/ce/task?id=f838e8a0-ba9b-4d0c-b3a9-908abfd0e617

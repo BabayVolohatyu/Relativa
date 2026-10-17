@@ -14,6 +14,8 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
+USER app
+
 EXPOSE 8083
 
 ENTRYPOINT ["dotnet", "Relativa.Graph.dll"]

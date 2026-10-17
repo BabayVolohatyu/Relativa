@@ -405,6 +405,15 @@ def _ensure_deal_analysis_entities(deal_ids, config, deadline, created_by_user_i
                 )
 
 
+def _assign_matched_property(row, property_id, bindings):
+    if property_id is None:
+        return
+    for bound_id, row_key, value in bindings:
+        if bound_id is not None and property_id == bound_id:
+            row[row_key] = value
+            return
+
+
 def _load_analysis_state(deal_ids, config):
     rel_type_id = config["rel_ids"][REL_DEAL_ANALYSIS]
     prop_ids = config["prop_ids"]
@@ -422,26 +431,18 @@ def _load_analysis_state(deal_ids, config):
         )
         for deal_id, analysis_id, property_id, value_int, value_decimal, value_date in cursor.fetchall():
             row = analysis_by_deal.setdefault(deal_id, {"analysis_entity_id": analysis_id})
-            if property_id == prop_ids.get(ANALYSIS_PROP_DAYS_SINCE_CREATED):
-                row[ANALYSIS_PROP_DAYS_SINCE_CREATED] = value_int
-            elif property_id == prop_ids.get(ANALYSIS_PROP_STAGE_ENCODED):
-                row[ANALYSIS_PROP_STAGE_ENCODED] = value_int
-            elif property_id == prop_ids.get(ANALYSIS_PROP_NUM_INTERACTIONS):
-                row[ANALYSIS_PROP_NUM_INTERACTIONS] = value_int
-            elif property_id == prop_ids.get(ANALYSIS_PROP_DAYS_SINCE_LAST_CONTACT):
-                row[ANALYSIS_PROP_DAYS_SINCE_LAST_CONTACT] = value_int
-            elif property_id == prop_ids.get(ANALYSIS_PROP_NUM_OPEN_DEALS):
-                row[ANALYSIS_PROP_NUM_OPEN_DEALS] = value_int
-            elif property_id == prop_ids.get(ANALYSIS_PROP_AVG_DEAL_VALUE):
-                row[ANALYSIS_PROP_AVG_DEAL_VALUE] = float(value_decimal) if value_decimal is not None else None
-            elif property_id == prop_ids.get(ANALYSIS_PROP_DAYS_UNTIL_CLOSE):
-                row[ANALYSIS_PROP_DAYS_UNTIL_CLOSE] = value_int
-            elif property_id == prop_ids.get(ANALYSIS_PROP_HIST_CLOSE_RATE):
-                row[ANALYSIS_PROP_HIST_CLOSE_RATE] = float(value_decimal) if value_decimal is not None else None
-            elif property_id == prop_ids.get(ANALYSIS_PROP_SOURCE_UPDATED_AT):
-                row[ANALYSIS_PROP_SOURCE_UPDATED_AT] = value_date
-            elif property_id == prop_ids.get(ANALYSIS_PROP_CALCULATED_AT):
-                row[ANALYSIS_PROP_CALCULATED_AT] = value_date
+            _assign_matched_property(row, property_id, [
+                (prop_ids.get(ANALYSIS_PROP_DAYS_SINCE_CREATED), ANALYSIS_PROP_DAYS_SINCE_CREATED, value_int),
+                (prop_ids.get(ANALYSIS_PROP_STAGE_ENCODED), ANALYSIS_PROP_STAGE_ENCODED, value_int),
+                (prop_ids.get(ANALYSIS_PROP_NUM_INTERACTIONS), ANALYSIS_PROP_NUM_INTERACTIONS, value_int),
+                (prop_ids.get(ANALYSIS_PROP_DAYS_SINCE_LAST_CONTACT), ANALYSIS_PROP_DAYS_SINCE_LAST_CONTACT, value_int),
+                (prop_ids.get(ANALYSIS_PROP_NUM_OPEN_DEALS), ANALYSIS_PROP_NUM_OPEN_DEALS, value_int),
+                (prop_ids.get(ANALYSIS_PROP_AVG_DEAL_VALUE), ANALYSIS_PROP_AVG_DEAL_VALUE, float(value_decimal) if value_decimal is not None else None),
+                (prop_ids.get(ANALYSIS_PROP_DAYS_UNTIL_CLOSE), ANALYSIS_PROP_DAYS_UNTIL_CLOSE, value_int),
+                (prop_ids.get(ANALYSIS_PROP_HIST_CLOSE_RATE), ANALYSIS_PROP_HIST_CLOSE_RATE, float(value_decimal) if value_decimal is not None else None),
+                (prop_ids.get(ANALYSIS_PROP_SOURCE_UPDATED_AT), ANALYSIS_PROP_SOURCE_UPDATED_AT, value_date),
+                (prop_ids.get(ANALYSIS_PROP_CALCULATED_AT), ANALYSIS_PROP_CALCULATED_AT, value_date),
+            ])
     return analysis_by_deal
 
 
@@ -468,14 +469,12 @@ def _load_deal_inputs(deal_ids, config):
         )
         for entity_id, property_id, value_string, value_decimal, value_date in cursor.fetchall():
             row = deal_by_id.setdefault(entity_id, {})
-            if property_id == prop_ids.get(DEAL_PROP_CREATED_AT):
-                row[DEAL_PROP_CREATED_AT] = value_date
-            elif property_id == prop_ids.get(DEAL_PROP_STATUS):
-                row[DEAL_PROP_STATUS] = value_string
-            elif property_id == prop_ids.get(DEAL_PROP_EXPECTED_CLOSE):
-                row[DEAL_PROP_EXPECTED_CLOSE] = value_date
-            elif property_id == prop_ids.get("deal_value"):
-                row["deal_value"] = float(value_decimal) if value_decimal is not None else None
+            _assign_matched_property(row, property_id, [
+                (prop_ids.get(DEAL_PROP_CREATED_AT), DEAL_PROP_CREATED_AT, value_date),
+                (prop_ids.get(DEAL_PROP_STATUS), DEAL_PROP_STATUS, value_string),
+                (prop_ids.get(DEAL_PROP_EXPECTED_CLOSE), DEAL_PROP_EXPECTED_CLOSE, value_date),
+                (prop_ids.get("deal_value"), "deal_value", float(value_decimal) if value_decimal is not None else None),
+            ])
     return deal_by_id
 
 
@@ -501,14 +500,12 @@ def _load_contract_inputs(deal_ids, config):
         for deal_id, contract_id, property_id, value_string, value_decimal, value_date in cursor.fetchall():
             key = (deal_id, contract_id)
             row = contracts.setdefault(key, {"deal_id": deal_id, "contract_id": contract_id})
-            if property_id == prop_ids.get(CONTRACT_PROP_AMOUNT):
-                row[CONTRACT_PROP_AMOUNT] = float(value_decimal) if value_decimal is not None else None
-            elif property_id == prop_ids.get(CONTRACT_PROP_STATUS):
-                row[CONTRACT_PROP_STATUS] = value_string
-            elif property_id == prop_ids.get(CONTRACT_PROP_END_DATE):
-                row[CONTRACT_PROP_END_DATE] = value_date
-            elif property_id == prop_ids.get(CONTRACT_PROP_SIGNED_AT):
-                row[CONTRACT_PROP_SIGNED_AT] = value_date
+            _assign_matched_property(row, property_id, [
+                (prop_ids.get(CONTRACT_PROP_AMOUNT), CONTRACT_PROP_AMOUNT, float(value_decimal) if value_decimal is not None else None),
+                (prop_ids.get(CONTRACT_PROP_STATUS), CONTRACT_PROP_STATUS, value_string),
+                (prop_ids.get(CONTRACT_PROP_END_DATE), CONTRACT_PROP_END_DATE, value_date),
+                (prop_ids.get(CONTRACT_PROP_SIGNED_AT), CONTRACT_PROP_SIGNED_AT, value_date),
+            ])
         result.extend(contracts.values())
     return result
 
@@ -539,10 +536,10 @@ def _load_client_inputs(deal_ids, config):
         )
         for client_id, property_id, value_decimal, value_int in cursor.fetchall():
             row = client_by_id.setdefault(client_id, {})
-            if property_id == lifetime_prop:
-                row[CLIENT_PROP_LIFETIME_VALUE] = float(value_decimal) if value_decimal is not None else None
-            elif property_id == tenure_prop:
-                row[CLIENT_PROP_TENURE_DAYS] = value_int
+            _assign_matched_property(row, property_id, [
+                (lifetime_prop, CLIENT_PROP_LIFETIME_VALUE, float(value_decimal) if value_decimal is not None else None),
+                (tenure_prop, CLIENT_PROP_TENURE_DAYS, value_int),
+            ])
 
     deal_client_values = {}
     for deal_id, client_id in deal_client_map.items():

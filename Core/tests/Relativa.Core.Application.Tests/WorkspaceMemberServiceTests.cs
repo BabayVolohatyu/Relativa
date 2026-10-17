@@ -33,8 +33,7 @@ public sealed class WorkspaceMemberServiceTests
         _workspaceAccessEvaluator = new WorkspaceAccessEvaluator(
             _memberRepo.Object,
             _orgMemberRepo.Object,
-            _workspaceRepo.Object,
-            _roleRepo.Object);
+            _workspaceRepo.Object);
 
         _sut = new WorkspaceMemberService(
             _memberRepo.Object,
@@ -45,7 +44,7 @@ public sealed class WorkspaceMemberServiceTests
             _auditOutboxWriter.Object);
     }
 
-    private UserRoleWorkspace MemberWithPermission(int userId, int workspaceId, string permission) =>
+    private static UserRoleWorkspace MemberWithPermission(int userId, int workspaceId, string permission) =>
         new()
         {
             UserId = userId,
@@ -60,7 +59,7 @@ public sealed class WorkspaceMemberServiceTests
             }
         };
 
-    private UserRoleOrganization OrgMember(int userId, int orgId) =>
+    private static UserRoleOrganization OrgMember(int userId, int orgId) =>
         new() { UserId = userId, OrganizationId = orgId, User = new User { Id = userId, FirstName = "A", LastName = "B", Email = "a@b.io" } };
 
     [Fact]

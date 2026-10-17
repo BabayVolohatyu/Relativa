@@ -22,7 +22,7 @@ public sealed class OpenIdConnectIdentityVerifier : IExternalIdentityVerifier
     private static readonly ConcurrentDictionary<string, IssuerValidator?> IssuerValidators = new();
 
     private readonly HttpClient _http = new() { Timeout = TimeSpan.FromSeconds(10) };
-    private readonly IReadOnlyDictionary<string, ProviderContext> _providers;
+    private readonly Dictionary<string, ProviderContext> _providers;
 
     public OpenIdConnectIdentityVerifier(IOptions<OAuthOptions> options)
     {
@@ -51,7 +51,7 @@ public sealed class OpenIdConnectIdentityVerifier : IExternalIdentityVerifier
             : VerifyIdTokenAsync(provider, context, token, ct);
     }
 
-    private async Task<ExternalIdentity> VerifyIdTokenAsync(string provider, ProviderContext context, string idToken, CancellationToken ct)
+    private static async Task<ExternalIdentity> VerifyIdTokenAsync(string provider, ProviderContext context, string idToken, CancellationToken ct)
     {
         var config = await context.ConfigManager.GetConfigurationAsync(ct);
 
@@ -154,9 +154,8 @@ public sealed class OpenIdConnectIdentityVerifier : IExternalIdentityVerifier
             }
 
             var pattern = "^" + Regex.Escape(issuerTemplate).Replace(Regex.Escape(TenantPlaceholder), "[0-9a-fA-F-]+") + "$";
-            var compiled = new Regex(pattern, RegexOptions.Compiled);
 
-            return (issuer, _, _) => compiled.IsMatch(issuer)
+            return (issuer, _, _) => Regex.IsMatch(issuer, pattern, RegexOptions.CultureInvariant, TimeSpan.FromMilliseconds(250))
                 ? issuer
                 : throw new SecurityTokenInvalidIssuerException($"Issuer '{issuer}' is not trusted.");
         });

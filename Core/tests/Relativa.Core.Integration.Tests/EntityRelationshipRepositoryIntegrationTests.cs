@@ -68,7 +68,7 @@ public sealed class EntityRelationshipRepositoryIntegrationTests : IAsyncLifetim
     public async Task DisposeAsync() => await _postgres.DisposeAsync();
 
     private RelativaDbContext Db() => new(_opts);
-    private EntityRepository Sut(RelativaDbContext db) => new(db);
+    private static EntityRepository Sut(RelativaDbContext db) => new(db);
 
     private async Task<int> AddRelationshipAsync(int sourceId, int targetId)
     {

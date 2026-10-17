@@ -21,7 +21,7 @@ public sealed class WorkspaceAccessEvaluatorTests
     private const int OrgId = 3;
 
     private WorkspaceAccessEvaluator CreateSut(bool withPermissionRepository = true) =>
-        new(_members.Object, _orgMembers.Object, _workspaces.Object, null,
+        new(_members.Object, _orgMembers.Object, _workspaces.Object,
             withPermissionRepository ? _permissions.Object : null);
 
     private void WorkspaceExists() =>

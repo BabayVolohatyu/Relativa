@@ -20,7 +20,7 @@ public sealed class OrgRoleService(
 {
     public async Task<List<OrgRoleDto>> GetByOrganizationAsync(int organizationId, int userId, CancellationToken ct = default)
     {
-        await RequireOrgMembership(userId, organizationId, ct);
+        await OrgAccess.RequireMembership(orgMemberRepository, userId, organizationId, ct);
 
         var roles = await orgRoleRepository.GetByOrganizationIdAsync(organizationId, ct);
         return roles
@@ -41,7 +41,7 @@ public sealed class OrgRoleService(
     public async Task<OrgRoleDto> CreateAsync(int organizationId, int userId, CreateOrgRoleRequest request, CancellationToken ct = default)
     {
         await createValidator.ValidateAndThrowAsync(request, ct);
-        await RequireOrgPermission(userId, organizationId, "manage_org_roles", ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, userId, organizationId, "manage_org_roles", ct);
 
         var permissions = await permissionRepository.GetByIdsAsync(request.PermissionIds, ct);
         if (permissions.Count != request.PermissionIds.Count)
@@ -98,7 +98,7 @@ public sealed class OrgRoleService(
     public async Task UpdateAsync(int organizationId, int roleId, int userId, UpdateOrgRoleRequest request, CancellationToken ct = default)
     {
         await updateValidator.ValidateAndThrowAsync(request, ct);
-        await RequireOrgPermission(userId, organizationId, "manage_org_roles", ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, userId, organizationId, "manage_org_roles", ct);
 
         var role = await orgRoleRepository.GetByIdAsync(roleId, ct)
             ?? throw new AppException("role_not_found", 404, "Role not found.");
@@ -162,7 +162,7 @@ public sealed class OrgRoleService(
 
     public async Task ArchiveAsync(int organizationId, int roleId, int userId, CancellationToken ct = default)
     {
-        await RequireOrgPermission(userId, organizationId, "manage_org_roles", ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, userId, organizationId, "manage_org_roles", ct);
 
         var role = await orgRoleRepository.GetByIdAsync(roleId, ct)
             ?? throw new AppException("role_not_found", 404, "Role not found.");
@@ -195,18 +195,4 @@ public sealed class OrgRoleService(
         }
     }
 
-    private async Task<UserRoleOrganization> RequireOrgMembership(int userId, int orgId, CancellationToken ct)
-    {
-        return await orgMemberRepository.GetAsync(userId, orgId, ct)
-            ?? throw new AppException("not_org_member", 403, "You are not a member of this organization.");
-    }
-
-    private async Task RequireOrgPermission(int userId, int orgId, string permission, CancellationToken ct)
-    {
-        var membership = await RequireOrgMembership(userId, orgId, ct);
-        var hasPermission = membership.Role?.RolePermissions
-            .Any(rp => rp.Permission?.Name == permission) ?? false;
-        if (!hasPermission)
-            throw new AppException("permission_denied", 403, $"You do not have the '{permission}' permission in this organization.");
-    }
 }

@@ -118,7 +118,7 @@ try
     app.MapOrgRoleEndpoints();
     app.MapOrganizationUserEndpoints();
 
-    app.Run();
+    await app.RunAsync();
 }
 catch (Exception ex)
 {
@@ -126,5 +126,5 @@ catch (Exception ex)
 }
 finally
 {
-    Log.CloseAndFlush();
+    await Log.CloseAndFlushAsync();
 }

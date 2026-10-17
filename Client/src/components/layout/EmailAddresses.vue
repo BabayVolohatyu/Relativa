@@ -199,11 +199,13 @@ async function remove(address: string) {
         <div v-else-if="!e.isVerified" class="px-3 pb-3 pt-1 flex flex-col gap-2 border-t border-line bg-surface">
           <p class="text-[12px] text-ink-500 pt-2">{{ t('account.emails.enterCodeHint') }}</p>
           <div class="flex gap-2">
+            <label class="sr-only" :for="`email-code-${e.address}`">{{ t('account.emails.codePlaceholder') }}</label>
             <InputText
+              :id="`email-code-${e.address}`"
               v-model="codes[e.address]"
+              type="text"
               class="!h-9 flex-1 text-center !tracking-[0.3em] !font-semibold"
               :placeholder="t('account.emails.codePlaceholder')"
-              autocomplete="one-time-code"
               @keyup.enter="submitVerify(e.address)"
             />
             <button class="btn btn-primary btn-sm" :disabled="busy || (codes[e.address]?.trim().length ?? 0) < 6" @click="submitVerify(e.address)">

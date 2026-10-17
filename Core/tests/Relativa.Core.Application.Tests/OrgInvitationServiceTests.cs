@@ -39,7 +39,7 @@ public sealed class OrgInvitationServiceTests
             .ReturnsAsync(new ValidationResult());
     }
 
-    private UserRoleOrganization OrgMemberWithPermission(int userId, int orgId, string permission) =>
+    private static UserRoleOrganization OrgMemberWithPermission(int userId, int orgId, string permission) =>
         new()
         {
             UserId = userId,

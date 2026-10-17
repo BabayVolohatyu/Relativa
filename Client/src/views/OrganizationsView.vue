@@ -162,7 +162,9 @@ onMounted(async () => {
     <div v-else class="border border-line bg-white">
       <div class="flex items-center gap-2.5 border-b border-line px-4">
         <i class="pi pi-search text-ink-400 text-sm shrink-0" />
+        <label for="organization-search" class="sr-only">{{ t('organizations.searchPlaceholder') }}</label>
         <input
+          id="organization-search"
           v-model="search"
           type="text"
           :placeholder="t('organizations.searchPlaceholder')"

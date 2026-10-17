@@ -35,8 +35,10 @@ async function onLocaleChange(next: AppLocale) {
   >
     <div class="flex flex-col gap-5">
       <div class="flex flex-col gap-1.5">
-        <label class="text-xs font-medium text-ink-600">{{ t('language.label') }}</label>
+        <label for="settings-language" class="text-xs font-medium text-ink-600">{{ t('language.label') }}</label>
         <Select
+          id="settings-language"
+          input-id="settings-language"
           :model-value="current"
           :options="localeOptions"
           option-label="label"

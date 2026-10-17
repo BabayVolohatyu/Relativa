@@ -38,8 +38,7 @@ public sealed class RoleServiceTests
         _workspaceAccessEvaluator = new WorkspaceAccessEvaluator(
             _memberRepo.Object,
             _orgMemberRepo.Object,
-            _workspaceRepo.Object,
-            _roleRepo.Object);
+            _workspaceRepo.Object);
 
         _sut = new RoleService(
             _roleRepo.Object,
@@ -56,7 +55,7 @@ public sealed class RoleServiceTests
                 It.IsAny<CancellationToken>()))
             .ReturnsAsync(new ValidationResult());
 
-    private UserRoleWorkspace MemberWithPermission(int userId, int workspaceId, string permission) =>
+    private static UserRoleWorkspace MemberWithPermission(int userId, int workspaceId, string permission) =>
         new()
         {
             UserId = userId,
@@ -71,7 +70,7 @@ public sealed class RoleServiceTests
             }
         };
 
-    private UserRoleWorkspace MemberWithNoPermissions(int userId, int workspaceId) =>
+    private static UserRoleWorkspace MemberWithNoPermissions(int userId, int workspaceId) =>
         new()
         {
             UserId = userId,

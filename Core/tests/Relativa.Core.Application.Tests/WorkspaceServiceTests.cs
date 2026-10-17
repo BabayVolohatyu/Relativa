@@ -33,8 +33,7 @@ public sealed class WorkspaceServiceTests
         _workspaceAccessEvaluator = new WorkspaceAccessEvaluator(
             _memberRepo.Object,
             _orgMemberRepo.Object,
-            _workspaceRepo.Object,
-            _roleRepo.Object);
+            _workspaceRepo.Object);
 
         _sut = new WorkspaceService(
             _workspaceRepo.Object,
@@ -63,7 +62,7 @@ public sealed class WorkspaceServiceTests
             .Setup(v => v.ValidateAsync(It.IsAny<ValidationContext<UpdateWorkspaceRequest>>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(new ValidationResult());
 
-    private UserRoleWorkspace MemberWithPermission(int userId, int workspaceId, string permission) =>
+    private static UserRoleWorkspace MemberWithPermission(int userId, int workspaceId, string permission) =>
         new()
         {
             UserId = userId,
@@ -78,7 +77,7 @@ public sealed class WorkspaceServiceTests
             }
         };
 
-    private UserRoleWorkspace AdminMember(int userId, int workspaceId) =>
+    private static UserRoleWorkspace AdminMember(int userId, int workspaceId) =>
         new()
         {
             UserId = userId,
@@ -86,7 +85,7 @@ public sealed class WorkspaceServiceTests
             Role = new WorkspaceRole { Name = "ws_admin", RolePermissions = [] }
         };
 
-    private UserRoleOrganization OrgMemberWithPermission(int userId, int orgId, string permission) =>
+    private static UserRoleOrganization OrgMemberWithPermission(int userId, int orgId, string permission) =>
         new()
         {
             UserId = userId,
@@ -261,7 +260,7 @@ public sealed class WorkspaceServiceTests
         var sut = new WorkspaceService(
             _workspaceRepo.Object, _memberRepo.Object, _roleRepo.Object,
             _orgMemberRepo.Object, _workspaceAccessEvaluator,
-            _workspaceSettingsRepo.Object, _createValidator.Object, _updateValidator.Object, null);
+            _workspaceSettingsRepo.Object, _createValidator.Object, _updateValidator.Object, null!);
 
         SetupValidCreate();
         _orgMemberRepo.Setup(r => r.GetAsync(1, 1, It.IsAny<CancellationToken>())).ReturnsAsync(OrgMemberWithPermission(1, 1, "create_workspaces"));

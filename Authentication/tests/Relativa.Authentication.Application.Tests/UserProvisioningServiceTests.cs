@@ -203,7 +203,7 @@ public sealed class UserProvisioningServiceCreateBranchTests
 
         await _sut.CreateUserAsync(request, auditActorUserId: null, CancellationToken.None);
 
-        captured!.Settings.Locale.Should().Be("uk");
+        captured!.Settings!.Locale.Should().Be("uk");
     }
 
     [Fact]
@@ -216,7 +216,7 @@ public sealed class UserProvisioningServiceCreateBranchTests
 
         await _sut.CreateUserAsync(request, auditActorUserId: null, CancellationToken.None);
 
-        captured!.Settings.Locale.Should().Be("en");
+        captured!.Settings!.Locale.Should().Be("en");
     }
 
     [Fact]

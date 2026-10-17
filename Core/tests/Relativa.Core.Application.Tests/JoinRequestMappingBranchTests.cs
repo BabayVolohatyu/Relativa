@@ -61,7 +61,7 @@ public sealed class JoinRequestMappingBranchTests
         [
             new OrganizationJoinRequest { Id = 1, UserId = 20, OrganizationId = Org, Status = "Pending",
                 User = new User { Id = 20, FirstName = "Jane", LastName = "Doe", Email = "jane@test.io" } },
-            new OrganizationJoinRequest { Id = 2, UserId = 21, OrganizationId = Org, Status = "Pending", User = null },
+            new OrganizationJoinRequest { Id = 2, UserId = 21, OrganizationId = Org, Status = "Pending", User = null! },
         ]);
 
         var result = await _sut.GetByOrganizationAsync(Org, Caller);
@@ -75,7 +75,7 @@ public sealed class JoinRequestMappingBranchTests
     public async Task GetByOrganization_MembershipRoleNull_DeniesPermission()
     {
         _orgMemberRepo.Setup(r => r.GetAsync(Caller, Org, It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new UserRoleOrganization { UserId = Caller, OrganizationId = Org, Role = null });
+            .ReturnsAsync(new UserRoleOrganization { UserId = Caller, OrganizationId = Org, Role = null! });
 
         await _sut.Invoking(s => s.GetByOrganizationAsync(Org, Caller))
             .Should().ThrowAsync<AppException>()
@@ -90,7 +90,7 @@ public sealed class JoinRequestMappingBranchTests
             new OrganizationJoinRequest { Id = 1, UserId = 20, OrganizationId = Org, Status = "Pending",
                 User = new User { Id = 20, FirstName = "Jane", LastName = "Doe", Email = "jane@test.io" },
                 Organization = new Organization { Id = Org, Name = "Org" } },
-            new OrganizationJoinRequest { Id = 2, UserId = 20, OrganizationId = Org, Status = "Cancelled", User = null },
+            new OrganizationJoinRequest { Id = 2, UserId = 20, OrganizationId = Org, Status = "Cancelled", User = null! },
         ]);
 
         var result = await _sut.GetMyRequestsAsync(20);

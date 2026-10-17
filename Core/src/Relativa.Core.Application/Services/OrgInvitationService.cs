@@ -23,7 +23,7 @@ public sealed class OrgInvitationService(
     public async Task<OrgInvitationDto> InviteAsync(int organizationId, int callerUserId, InviteToOrgRequest request, CancellationToken ct = default)
     {
         await inviteValidator.ValidateAndThrowAsync(request, ct);
-        await RequireOrgPermission(callerUserId, organizationId, "invite_to_org", ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, "invite_to_org", ct);
 
         var role = await ResolveInviteRoleAsync(organizationId, callerUserId, request.OrgRoleId, ct);
         var normalizedEmail = request.Email.Trim().ToLowerInvariant();
@@ -67,7 +67,7 @@ public sealed class OrgInvitationService(
 
     public async Task<List<OrgInvitationDto>> GetByOrganizationAsync(int organizationId, int callerUserId, CancellationToken ct = default)
     {
-        await RequireOrgPermission(callerUserId, organizationId, "invite_to_org", ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, "invite_to_org", ct);
 
         var now = DateTime.UtcNow;
         var invitations = await invitationRepository.GetByOrganizationIdAsync(organizationId, ct);
@@ -88,7 +88,7 @@ public sealed class OrgInvitationService(
 
     public async Task CancelAsync(int organizationId, int invitationId, int callerUserId, CancellationToken ct = default)
     {
-        await RequireOrgPermission(callerUserId, organizationId, "invite_to_org", ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, "invite_to_org", ct);
 
         var invitation = await invitationRepository.GetByIdAsync(invitationId, ct)
             ?? throw new AppException("invitation_not_found", 404, "Invitation not found.");
@@ -113,7 +113,7 @@ public sealed class OrgInvitationService(
 
     public async Task<OrgInvitationDto> ResendAsync(int organizationId, int invitationId, int callerUserId, CancellationToken ct = default)
     {
-        await RequireOrgPermission(callerUserId, organizationId, "invite_to_org", ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, "invite_to_org", ct);
 
         var invitation = await invitationRepository.GetByIdAsync(invitationId, ct)
             ?? throw new AppException("invitation_not_found", 404, "Invitation not found.");
@@ -271,7 +271,7 @@ public sealed class OrgInvitationService(
 
         if (defaultRole is null || role.Id != defaultRole.Id)
         {
-            await RequireOrgPermission(callerUserId, organizationId, "assign_org_roles", ct);
+            await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, "assign_org_roles", ct);
         }
 
         return role;
@@ -321,18 +321,4 @@ public sealed class OrgInvitationService(
             ct);
     }
 
-    private async Task<UserRoleOrganization> RequireOrgMembership(int userId, int orgId, CancellationToken ct)
-    {
-        return await orgMemberRepository.GetAsync(userId, orgId, ct)
-            ?? throw new AppException("not_org_member", 403, "You are not a member of this organization.");
-    }
-
-    private async Task RequireOrgPermission(int userId, int orgId, string permission, CancellationToken ct)
-    {
-        var membership = await RequireOrgMembership(userId, orgId, ct);
-        var hasPermission = membership.Role?.RolePermissions
-            .Any(rp => rp.Permission?.Name == permission) ?? false;
-        if (!hasPermission)
-            throw new AppException("permission_denied", 403, $"You do not have the '{permission}' permission in this organization.");
-    }
 }

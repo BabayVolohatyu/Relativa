@@ -24,7 +24,7 @@ public sealed class SupportService(
     {
         await validator.ValidateAndThrowAsync(request, ct);
 
-        if (string.IsNullOrWhiteSpace(_opts.DevEmail) || !Regex.IsMatch(_opts.DevEmail, EmailValidation.Pattern))
+        if (string.IsNullOrWhiteSpace(_opts.DevEmail) || !Regex.IsMatch(_opts.DevEmail, EmailValidation.Pattern, RegexOptions.None, TimeSpan.FromMilliseconds(250)))
         {
             throw new ConfigurationException("Support:DevEmail is not configured with a valid email address.");
         }

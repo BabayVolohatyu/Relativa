@@ -83,7 +83,7 @@ async function parseResponse<T>(res: Response, silent = false): Promise<T> {
     if (res.status === HttpStatus.Unauthorized) {
       const auth = useAuthStore();
       auth.clearSession();
-      import('@/router').then(({ default: r }) => r.push({ name: 'login' }));
+      void import('@/router').then(({ default: r }) => r.push({ name: 'login' }));
     }
 
     const apiError = new ApiError(res.status, message, body);

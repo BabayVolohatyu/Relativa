@@ -9,6 +9,7 @@ import InputText from 'primevue/inputtext';
 import Message from 'primevue/message';
 import Select from 'primevue/select';
 import { normalizeError } from '@/api/errors';
+import { isValidEmail } from '@/utils/email';
 import { roleBadgeFullClass, roleLabel } from '@/utils/roleBadge';
 import { useApiErrorHandler } from '@/api/errorToast';
 import { orgApi, type JoinRequestDto } from '@/api/organizations';
@@ -117,7 +118,7 @@ const canSubmitCreate = computed(() => {
   return (
     f.firstName.trim().length > 0 &&
     f.lastName.trim().length > 0 &&
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim()) &&
+    isValidEmail(f.email) &&
     f.password.length >= 8 &&
     !createSubmitting.value
   );
@@ -160,7 +161,7 @@ const inviteSuccess = ref<string | null>(null);
 const inviteError = ref<string | null>(null);
 
 const canInvite = computed(
-  () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inviteEmail.value) && !inviteSending.value,
+  () => isValidEmail(inviteEmail.value) && !inviteSending.value,
 );
 
 function openInviteDialog() {
@@ -291,7 +292,9 @@ onMounted(async () => {
       <div class="border border-line bg-white">
         <div class="flex items-center gap-2 border-b border-line px-4 py-2.5">
           <i class="pi pi-search text-sm text-ink-400" />
+          <label for="member-search" class="sr-only">{{ t('members.searchPlaceholder') }}</label>
           <input
+            id="member-search"
             v-model="memberSearch"
             :placeholder="t('members.searchPlaceholder')"
             class="w-full bg-transparent text-sm text-ink-900 outline-none placeholder:text-ink-400"

@@ -9,6 +9,7 @@ import AuthLayout from '@/layouts/AuthLayout.vue';
 import FormError from '@/components/feedback/FormError.vue';
 import { authApi } from '@/api/auth';
 import { normalizeError } from '@/api/errors';
+import { isValidEmail } from '@/utils/email';
 
 const { t } = useI18n();
 
@@ -17,9 +18,8 @@ const submitting = ref(false);
 const submitted = ref(false);
 const serverError = ref<string | null>(null);
 
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const emailInvalid = computed(() => email.value.length > 0 && !emailPattern.test(email.value));
-const isValid = computed(() => emailPattern.test(email.value));
+const emailInvalid = computed(() => email.value.length > 0 && !isValidEmail(email.value));
+const isValid = computed(() => isValidEmail(email.value));
 
 async function handleSubmit() {
   if (!isValid.value || submitting.value) return;

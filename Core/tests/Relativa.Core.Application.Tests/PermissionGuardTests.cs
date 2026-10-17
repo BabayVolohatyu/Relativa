@@ -64,8 +64,7 @@ public sealed class PermissionGuardTests
         var access = new WorkspaceAccessEvaluator(
             memberRepo.Object,
             orgMemberRepo.Object,
-            workspaceRepo.Object,
-            wsRoleRepo.Object);
+            workspaceRepo.Object);
 
         return new WorkspaceService(
             workspaceRepo.Object,
@@ -105,8 +104,7 @@ public sealed class PermissionGuardTests
         var access = new WorkspaceAccessEvaluator(
             memberRepo.Object,
             orgMemRepo.Object,
-            wsRepo.Object,
-            roleRepoImpl.Object);
+            wsRepo.Object);
 
         return new WorkspaceMemberService(
             memberRepo.Object,
@@ -134,8 +132,7 @@ public sealed class PermissionGuardTests
         var access = new WorkspaceAccessEvaluator(
             memberRepo.Object,
             orgMemRepo.Object,
-            wsRepo.Object,
-            roleRepo.Object);
+            wsRepo.Object);
 
         return new RoleService(
             roleRepo.Object,

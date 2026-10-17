@@ -1,4 +1,3 @@
-using System.Text.Json.Nodes;
 using Microsoft.AspNetCore.Mvc;
 using Relativa.Core.Application.DTOs.Entity;
 using Relativa.Core.Application.Interfaces;
@@ -39,11 +38,9 @@ public static class EntityEndpoints
             return Results.Ok(result);
         })
         .WithName("ListEntities")
+        .WithSummary("List entities — combined filtering, sorting, and pagination")
         .Produces<EntityPagedResult>()
-        .WithOpenApi(op =>
-        {
-            op.Summary = "List entities — combined filtering, sorting, and pagination";
-            op.Description = """
+        .WithDescription("""
                 Returns non-archived entities visible to the caller within the given workspace.
 
                 ### Visibility (RBAC)
@@ -81,84 +78,7 @@ public static class EntityEndpoints
                 | 400 | Malformed `f` / `sort` string; unknown propertyId for entityType; operator incompatible with data type; unparseable value |
                 | 403 | Missing `view_entities` permission or not a workspace member |
                 | 404 | `entityTypeId` does not exist (only when `entityTypeId` is supplied with filters) |
-                """;
-
-            foreach (var p in op.Parameters)
-            {
-                p.Description = p.Name switch
-                {
-                    "workspaceId" =>
-                        "ID of the workspace to query. Example: `42`.",
-                    "entityTypeId" =>
-                        "Limit results to a single entity type. Required when `f` or `sort` are present. Example: `3`.",
-                    "q" =>
-                        "Free-text search — case-sensitive `contains` across all String property values. Example: `?q=Acme`.",
-                    "skip" =>
-                        "Offset for pagination. Default: `0`. Example: `?skip=50` (skips the first 50 records).",
-                    "take" =>
-                        "Page size. Default: `50`, max: `500`. Example: `?take=25`.",
-                    "f" =>
-                        "Repeatable. Combined AND-filter. Format: `propertyId:op[:value]`.\n\n" +
-                        "| Data type | Operators |\n|---|---|\n" +
-                        "| String | `eq`, `neq`, `contains`, `startsWith` |\n" +
-                        "| Int / Decimal | `eq`, `neq`, `gt`, `lt`, `gte`, `lte` |\n" +
-                        "| Bool | `eq`, `neq` |\n" +
-                        "| Date (yyyy-MM-dd) | `eq`, `neq`, `gt`, `lt`, `gte`, `lte` |\n\n" +
-                        "Examples: `?f=7:gt:0.75` · `?f=5:eq:Acme Corp` · `?f=11:eq:true` · `?f=9:gte:2026-01-01`\n\n" +
-                        "**RBAC**: conditions targeting `IsReadonly` properties are silently dropped without `view_analytics`.",
-                    "sort" =>
-                        "Repeatable. Sort field. Format: `propertyId:asc` or `propertyId:desc`, applied left-to-right.\n\n" +
-                        "Example: `?sort=7:desc&sort=5:asc` — by closure_score desc, then name asc.\n\n" +
-                        "Default: entity `id` ascending. Same `IsReadonly` RBAC drop rule applies.",
-                    "excludeLinkedSourceRelTypeId" =>
-                        "Exclude entities already linked as the **source** of this relationship type. Use for link-candidate pickers. Example: `12`.",
-                    "excludeLinkedTargetRelTypeId" =>
-                        "Exclude entities already linked as the **target** of this relationship type. Example: `15`.",
-                    _ => p.Description
-                };
-            }
-
-            if (op.Responses.TryGetValue("200", out var ok200))
-            {
-                ok200.Description = "Matching entities with pagination metadata. Empty results return HTTP 200 with `items: []`.";
-                if (ok200.Content.TryGetValue("application/json", out var media))
-                {
-                    media.Example = JsonNode.Parse("""
-                        {
-                          "items": [
-                            {
-                              "id": 101,
-                              "entityTypeId": 3,
-                              "entityTypeName": "Deal",
-                              "propertyValues": [
-                                { "propertyId": 5, "propertyName": "name",          "dataType": "String",  "value": "Acme Corp",   "isReadonly": false },
-                                { "propertyId": 7, "propertyName": "closure_score", "dataType": "Decimal", "value": 0.92,          "isReadonly": true  },
-                                { "propertyId": 9, "propertyName": "close_date",    "dataType": "Date",    "value": "2026-06-30",  "isReadonly": false },
-                                { "propertyId": 11,"propertyName": "is_priority",   "dataType": "Bool",    "value": true,          "isReadonly": false }
-                              ]
-                            },
-                            {
-                              "id": 87,
-                              "entityTypeId": 3,
-                              "entityTypeName": "Deal",
-                              "propertyValues": [
-                                { "propertyId": 5, "propertyName": "name",          "dataType": "String",  "value": "Acme Corp Q2", "isReadonly": false },
-                                { "propertyId": 7, "propertyName": "closure_score", "dataType": "Decimal", "value": 0.81,           "isReadonly": true  },
-                                { "propertyId": 9, "propertyName": "close_date",    "dataType": "Date",    "value": "2026-07-15",   "isReadonly": false },
-                                { "propertyId": 11,"propertyName": "is_priority",   "dataType": "Bool",    "value": false,          "isReadonly": false }
-                              ]
-                            }
-                          ],
-                          "total": 2,
-                          "skip": 0,
-                          "take": 50
-                        }
-                        """);
-                }
-            }
-
-            return op;
-        });
+                """);
 
         group.MapGet("/{entityId:int}", async (int workspaceId, int entityId, IEntityService service, HttpContext httpContext, CancellationToken ct) =>
         {

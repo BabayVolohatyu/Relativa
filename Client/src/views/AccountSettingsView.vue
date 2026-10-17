@@ -204,7 +204,7 @@ async function handleConfirmDelete() {
         <div class="grid grid-cols-2 gap-3">
           <div class="flex flex-col gap-1.5">
             <div class="flex items-center gap-1.5">
-              <label class="text-xs font-medium text-ink-600">{{ t('account.phone') }}</label>
+              <span class="text-xs font-medium text-ink-600">{{ t('account.phone') }}</span>
               <FieldInfo :text="t('auth.phoneInfo')" />
             </div>
             <PhoneInput v-model="profileForm.phone" dense @update:model-value="clearProfileField('phone')" />

@@ -13,7 +13,11 @@ COPY manage.py ./
 
 RUN python -m pip install --no-cache-dir --upgrade pip \
     && python -m pip install --no-cache-dir -e . \
-    && chmod +x scripts/run_api_and_consumer.sh
+    && chmod +x scripts/run_api_and_consumer.sh \
+    && useradd --create-home --uid 10001 --shell /usr/sbin/nologin mluser \
+    && chown -R mluser:mluser /app
+
+USER mluser
 
 EXPOSE 8084
 

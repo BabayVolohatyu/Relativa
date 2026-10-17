@@ -249,11 +249,13 @@ function downloadCodes() {
           : pending === 'backup' ? t('settings.twoFactor.regeneratePrompt')
           : t('settings.twoFactor.masterRegenPrompt') }}
       </p>
+      <label for="two-factor-challenge" class="sr-only">{{ t('settings.twoFactor.codePlaceholder') }}</label>
       <InputText
+        id="two-factor-challenge"
         v-model="challengeCode"
+        type="text"
         class="!h-11 w-full text-center !tracking-[0.3em] !font-semibold"
         :placeholder="t('settings.twoFactor.codePlaceholder')"
-        autocomplete="one-time-code"
         @keyup.enter="confirmPrompt"
       />
       <FormError v-if="error" :message="error" />

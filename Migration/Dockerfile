@@ -18,7 +18,11 @@ COPY Migration/entrypoint.sh /app/entrypoint.sh
 RUN apt-get update \
     && apt-get install -y --no-install-recommends postgresql-client \
     && rm -rf /var/lib/apt/lists/* \
-    && chmod +x /app/entrypoint.sh
+    && chmod +x /app/entrypoint.sh \
+    && useradd --create-home --shell /usr/sbin/nologin relativa \
+    && chown -R relativa:relativa /app
+
+USER relativa
 
 ENV DOTNET_NOLOGO=1
 

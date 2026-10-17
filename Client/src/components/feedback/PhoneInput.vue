@@ -33,16 +33,17 @@ function onInput(_: string, phone: PhoneObject) {
 
 <template>
   <div class="phone-field" :class="{ 'phone-field--invalid': invalid, 'phone-field--dense': dense }">
+    <input id="phone-number" v-model="display" type="tel" autocomplete="tel" class="sr-only" />
     <VueTelInput
       v-model="display"
       mode="international"
       default-country="UA"
       :auto-default-country="false"
       :ignored-countries="['RU', 'BY']"
-      :input-options="{ placeholder: '' }"
+      :input-options="{ placeholder: '', id: 'phone-number', autocomplete: 'tel' }"
       @on-input="onInput"
     />
-    <label v-if="label" class="phone-label">{{ label }}</label>
+    <label v-if="label" for="phone-number" class="phone-label">{{ label }}</label>
   </div>
 </template>
 

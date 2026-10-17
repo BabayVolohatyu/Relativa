@@ -25,7 +25,7 @@ public sealed class OrganizationUserAdminService(
     public async Task<RegisterResponseDto> CreateOrgUserAsync(int organizationId, int callerUserId, CreateOrgUserRequest request, CancellationToken ct = default)
     {
         await createOrgUserValidator.ValidateAndThrowAsync(request, ct);
-        await RequireOrgPermission(callerUserId, organizationId, OrganizationPermissions.CreateOrgUsers, ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, OrganizationPermissions.CreateOrgUsers, ct);
 
         var registerRequest = new RegisterRequestDto(
             request.FirstName,
@@ -71,7 +71,7 @@ public sealed class OrganizationUserAdminService(
     public async Task<UserProfileDto> UpdateOtherUserProfileAsync(int organizationId, int targetUserId, int callerUserId, UpdateOrgUserProfileRequest request, CancellationToken ct = default)
     {
         await updateOrgUserValidator.ValidateAndThrowAsync(request, ct);
-        await RequireOrgPermission(callerUserId, organizationId, OrganizationPermissions.EditOtherOrgUsersProfile, ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, OrganizationPermissions.EditOtherOrgUsersProfile, ct);
 
         if (targetUserId == callerUserId)
             throw new AppException("edit_own_profile_via_account", 403, "Edit your own profile via the account settings endpoint.");
@@ -87,7 +87,7 @@ public sealed class OrganizationUserAdminService(
         if (targetUserId == callerUserId)
             throw new AppException("archive_own_account_via_account", 403, "Archive your own account via the account settings endpoint.");
 
-        await RequireOrgPermission(callerUserId, organizationId, OrganizationPermissions.DeleteOrgUsers, ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, OrganizationPermissions.DeleteOrgUsers, ct);
 
         var targetMembership = await orgMemberRepository.GetAsync(targetUserId, organizationId, ct)
             ?? throw new AppException("target_not_org_member", 404, "Target user is not a member of this organization.");
@@ -145,7 +145,7 @@ public sealed class OrganizationUserAdminService(
         if (!requestedRoleId.HasValue || requestedRoleId.Value == defaultRole.Id)
             return defaultRole;
 
-        await RequireOrgPermission(callerUserId, organizationId, OrganizationPermissions.AssignOrgRoles, ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, OrganizationPermissions.AssignOrgRoles, ct);
         var requestedRole = await orgRoleRepository.GetByIdAsync(requestedRoleId.Value, ct)
             ?? throw new AppException("role_not_found", 400, "The specified role does not exist.");
         if (requestedRole.IsArchived)
@@ -169,18 +169,4 @@ public sealed class OrganizationUserAdminService(
         return ExtractDomain(leftEmail) == ExtractDomain(rightEmail);
     }
 
-    private async Task<UserRoleOrganization> RequireOrgMembership(int userId, int orgId, CancellationToken ct)
-    {
-        return await orgMemberRepository.GetAsync(userId, orgId, ct)
-            ?? throw new AppException("not_org_member", 403, "You are not a member of this organization.");
-    }
-
-    private async Task RequireOrgPermission(int userId, int orgId, string permission, CancellationToken ct)
-    {
-        var membership = await RequireOrgMembership(userId, orgId, ct);
-        var hasPermission = membership.Role?.RolePermissions
-            .Any(rp => rp.Permission?.Name == permission) ?? false;
-        if (!hasPermission)
-            throw new AppException("permission_denied", 403, $"You do not have the '{permission}' permission in this organization.");
-    }
 }

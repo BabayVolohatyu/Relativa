@@ -690,13 +690,15 @@ watch(
 
       <template v-for="rel in requiredOutgoing" :key="rel.relationshipTypeId">
         <div class="flex flex-col gap-1.5">
-          <label class="text-xs font-medium text-ink-600">
+          <label class="text-xs font-medium text-ink-600" :for="`link-rel-${rel.relationshipTypeId}`">
             {{ rel.displayName }}
             <span class="text-danger">*</span>
             <span class="text-ink-400 font-normal normal-case">
               → {{ rel.targetEntityTypeDisplayName }}</span>
           </label>
           <Select
+            :id="`link-rel-${rel.relationshipTypeId}`"
+            :input-id="`link-rel-${rel.relationshipTypeId}`"
             v-model="linkPick[rel.relationshipTypeId]"
             :options="linkSelectOptions(rel.relationshipTypeId)"
             option-label="label"
@@ -875,13 +877,15 @@ watch(
 
         <template v-for="ir in nestedRequiredOutgoing" :key="ir.relationshipTypeId">
           <div class="flex flex-col gap-1.5">
-            <label class="text-xs font-medium text-ink-600">
+            <label class="text-xs font-medium text-ink-600" :for="`nested-link-rel-${ir.relationshipTypeId}`">
               {{ ir.displayName }}
               <span class="text-danger">*</span>
               <span class="text-ink-400 font-normal normal-case">
                 → {{ ir.targetEntityTypeDisplayName }}</span>
             </label>
             <Select
+              :id="`nested-link-rel-${ir.relationshipTypeId}`"
+              :input-id="`nested-link-rel-${ir.relationshipTypeId}`"
               v-model="nestedLinkPick[ir.relationshipTypeId]"
               :options="nestedLinkSelectOptions(ir.relationshipTypeId)"
               option-label="label"

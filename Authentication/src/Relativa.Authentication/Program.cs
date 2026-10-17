@@ -13,7 +13,6 @@ using Relativa.Authentication.Infrastructure.Services;
 using Relativa.Authentication.Infrastructure.Data;
 using Relativa.Authentication.Infrastructure.Repositories;
 using Relativa.Authentication.Infrastructure.Services.Audit;
-using Relativa.Authentication.Infrastructure.Services;
 using Relativa.Authentication.Middleware;
 using Relativa.Messaging;
 using Relativa.Persistence.Contracts;

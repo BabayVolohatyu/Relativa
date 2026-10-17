@@ -36,7 +36,7 @@ public sealed class EmailAddressService(
     public async Task AddAsync(int userId, string address, CancellationToken ct = default)
     {
         var normalized = EmailNormalizer.Normalize(address);
-        if (!Regex.IsMatch(normalized, EmailValidation.Pattern))
+        if (!Regex.IsMatch(normalized, EmailValidation.Pattern, RegexOptions.None, TimeSpan.FromMilliseconds(250)))
         {
             throw new AuthException("email_invalid", 400, EmailValidation.Message);
         }

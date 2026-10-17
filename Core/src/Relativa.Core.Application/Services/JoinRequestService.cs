@@ -80,7 +80,7 @@ public sealed class JoinRequestService(
 
     public async Task<List<JoinRequestDto>> GetByOrganizationAsync(int organizationId, int callerUserId, CancellationToken ct = default)
     {
-        await RequireOrgPermission(callerUserId, organizationId, "manage_join_requests", ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, "manage_join_requests", ct);
 
         var requests = await joinRequestRepository.GetByOrganizationIdAsync(organizationId, ct);
         return requests
@@ -102,7 +102,7 @@ public sealed class JoinRequestService(
 
     public async Task ReviewAsync(int organizationId, int requestId, int callerUserId, ReviewJoinRequestRequest request, CancellationToken ct = default)
     {
-        await RequireOrgPermission(callerUserId, organizationId, "manage_join_requests", ct);
+        await OrgAccess.RequirePermission(orgMemberRepository, callerUserId, organizationId, "manage_join_requests", ct);
 
         var joinRequest = await joinRequestRepository.GetByIdAsync(requestId, ct)
             ?? throw new AppException("join_request_not_found", 404, "Join request not found.");
@@ -241,18 +241,4 @@ public sealed class JoinRequestService(
         }
     }
 
-    private async Task<UserRoleOrganization> RequireOrgMembership(int userId, int orgId, CancellationToken ct)
-    {
-        return await orgMemberRepository.GetAsync(userId, orgId, ct)
-            ?? throw new AppException("not_org_member", 403, "You are not a member of this organization.");
-    }
-
-    private async Task RequireOrgPermission(int userId, int orgId, string permission, CancellationToken ct)
-    {
-        var membership = await RequireOrgMembership(userId, orgId, ct);
-        var hasPermission = membership.Role?.RolePermissions
-            .Any(rp => rp.Permission?.Name == permission) ?? false;
-        if (!hasPermission)
-            throw new AppException("permission_denied", 403, $"You do not have the '{permission}' permission in this organization.");
-    }
 }

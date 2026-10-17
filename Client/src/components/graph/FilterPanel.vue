@@ -167,10 +167,12 @@ const hasAnyFilter = computed(
 
     <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
       <div v-if="canManagerFilter" class="flex items-center gap-2">
-        <span class="text-xs font-semibold text-ink-600 uppercase tracking-wide">
+        <label for="graph-manager" class="text-xs font-semibold text-ink-600 uppercase tracking-wide">
           {{ t('graph.manager') }}
-        </span>
+        </label>
         <Select
+          id="graph-manager"
+          input-id="graph-manager"
           :model-value="modelValue.managerUserId"
           :options="managerOptions"
           option-label="label"
@@ -184,10 +186,12 @@ const hasAnyFilter = computed(
       </div>
 
       <div class="flex items-center gap-2">
-        <span class="text-xs font-semibold text-ink-600 uppercase tracking-wide">
+        <label for="graph-workspace" class="text-xs font-semibold text-ink-600 uppercase tracking-wide">
           {{ t('graph.workspace') }}
-        </span>
+        </label>
         <Select
+          id="graph-workspace"
+          input-id="graph-workspace"
           :model-value="modelValue.workspaceId"
           :options="workspaceOptions"
           option-label="label"

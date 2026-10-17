@@ -292,7 +292,9 @@ onMounted(loadAll);
     <div v-else class="border border-line bg-white">
       <div class="flex items-center gap-2 border-b border-line px-4 py-2.5">
         <i class="pi pi-search text-sm text-ink-400" />
+        <label for="workspace-member-search" class="sr-only">{{ t('members.searchPlaceholder') }}</label>
         <input
+          id="workspace-member-search"
           v-model="memberSearch"
           :placeholder="t('members.searchPlaceholder')"
           class="w-full bg-transparent text-sm text-ink-900 outline-none placeholder:text-ink-400"
@@ -328,8 +330,11 @@ onMounted(loadAll);
             </td>
             <td class="px-5 py-3 text-ink-600">{{ member.email }}</td>
             <td class="px-5 py-3">
+              <label class="sr-only" :for="`ws-member-role-${member.userId}`">{{ member.email }}</label>
               <Select
                 v-if="roleOptions.length && canAssignRoles"
+                :id="`ws-member-role-${member.userId}`"
+                :input-id="`ws-member-role-${member.userId}`"
                 :key="`role-${member.userId}-${member.roleName}-${roleSelectVersion}`"
                 :model-value="roleIdByName(member.roleName)"
                 :options="roleOptions"
@@ -383,10 +388,12 @@ onMounted(loadAll);
         </p>
 
         <div class="flex flex-col gap-1.5">
-          <label class="text-xs font-medium text-ink-600">
+          <label for="add-ws-member" class="text-xs font-medium text-ink-600">
             {{ t('wsMembers.memberLabel') }} <span class="text-danger">*</span>
           </label>
           <Select
+            id="add-ws-member"
+            input-id="add-ws-member"
             v-model="addMemberUserId"
             :options="orgMemberOptions"
             option-label="label"
@@ -398,10 +405,12 @@ onMounted(loadAll);
         </div>
 
         <div class="flex flex-col gap-1.5">
-          <label class="text-xs font-medium text-ink-600">
+          <label for="add-ws-role" class="text-xs font-medium text-ink-600">
             {{ t('wsMembers.workspaceRole') }} <span class="text-danger">*</span>
           </label>
           <Select
+            id="add-ws-role"
+            input-id="add-ws-role"
             v-model="addMemberRoleId"
             :options="roleOptions"
             option-label="label"

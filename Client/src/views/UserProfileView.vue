@@ -262,8 +262,10 @@ onMounted(loadAll);
           class="grid grid-cols-[1fr_auto] items-end gap-3"
         >
           <div class="flex flex-col gap-1.5">
-            <label class="text-xs font-medium text-ink-600">{{ t('members.role') }}</label>
+            <label for="profile-org-role" class="text-xs font-medium text-ink-600">{{ t('members.role') }}</label>
             <Select
+              id="profile-org-role"
+              input-id="profile-org-role"
               v-model="selectedRoleId"
               :options="roleOptions"
               option-label="label"

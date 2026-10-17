@@ -8,7 +8,7 @@ public sealed class JsonEmailLocalizer : IEmailLocalizer
 {
     private const string DefaultLocale = "en";
 
-    private readonly IReadOnlyDictionary<string, IReadOnlyDictionary<string, string>> _catalogs;
+    private readonly Dictionary<string, IReadOnlyDictionary<string, string>> _catalogs;
 
     public JsonEmailLocalizer()
     {

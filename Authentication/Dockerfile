@@ -20,6 +20,8 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
+USER app
+
 EXPOSE 8081
 
 ENTRYPOINT ["dotnet", "Relativa.Authentication.dll"]

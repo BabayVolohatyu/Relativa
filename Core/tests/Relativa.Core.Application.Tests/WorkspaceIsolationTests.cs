@@ -48,8 +48,7 @@ public sealed class WorkspaceIsolationTests
         _workspaceAccessEvaluator = new WorkspaceAccessEvaluator(
             _memberRepo.Object,
             _orgRepo.Object,
-            _workspaceRepo.Object,
-            _workspaceRoleRepo.Object);
+            _workspaceRepo.Object);
 
         _workspaceSvc = new WorkspaceService(
             _workspaceRepo.Object,

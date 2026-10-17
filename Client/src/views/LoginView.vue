@@ -199,7 +199,6 @@ onMounted(() => {
             input-id="password"
             :feedback="false"
             toggle-mask
-            autocomplete="current-password"
             input-class="!h-11 w-full"
             class="w-full"
             :invalid="showValidation && !form.password"

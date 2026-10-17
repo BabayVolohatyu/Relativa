@@ -50,7 +50,7 @@ public sealed class OrganizationServiceTests
             .ReturnsAsync(new ValidationResult());
     }
 
-    private UserRoleOrganization OrgMemberWithPermission(int userId, int orgId, string permission) =>
+    private static UserRoleOrganization OrgMemberWithPermission(int userId, int orgId, string permission) =>
         new()
         {
             UserId = userId,
@@ -66,7 +66,7 @@ public sealed class OrganizationServiceTests
             }
         };
 
-    private UserRoleOrganization OrgMemberNoPermissions(int userId, int orgId) =>
+    private static UserRoleOrganization OrgMemberNoPermissions(int userId, int orgId) =>
         new()
         {
             UserId = userId,

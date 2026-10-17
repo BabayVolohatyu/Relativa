@@ -65,9 +65,11 @@ watch(
 
 <template>
   <div class="flex justify-center gap-2" @paste="onPaste">
+    <label v-for="(d, i) in digits()" :key="i" class="sr-only" :for="`code-digit-${i}`">Code digit {{ i + 1 }}</label>
     <input
       v-for="(d, i) in digits()"
-      :key="i"
+      :key="`digit-${i}`"
+      :id="`code-digit-${i}`"
       :ref="(el) => { if (el) boxes[i] = el as HTMLInputElement; }"
       type="text"
       :inputmode="numeric ? 'numeric' : 'text'"

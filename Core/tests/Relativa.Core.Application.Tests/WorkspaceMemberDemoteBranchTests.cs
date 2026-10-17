@@ -29,7 +29,7 @@ public sealed class WorkspaceMemberDemoteBranchTests
             .ReturnsAsync((UserRoleOrganization?)null);
 
         var evaluator = new WorkspaceAccessEvaluator(
-            _memberRepo.Object, _orgMemberRepo.Object, _workspaceRepo.Object, _roleRepo.Object);
+            _memberRepo.Object, _orgMemberRepo.Object, _workspaceRepo.Object);
 
         _sut = new WorkspaceMemberService(
             _memberRepo.Object, _roleRepo.Object, _orgMemberRepo.Object,

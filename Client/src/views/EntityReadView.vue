@@ -1126,8 +1126,11 @@ onUnmounted(() => stopHub());
               </dt>
               <dd class="mt-1 text-sm text-ink-900">
                 <template v-if="editMode && !p.isReadonly">
+                  <label class="sr-only" :for="`edit-prop-${p.propertyId}`">{{ p.displayName }}</label>
                   <Select
                     v-if="p.dataType === 'String' && allowedValuesFor(p.propertyId).length > 0"
+                    :id="`edit-prop-${p.propertyId}`"
+                    :input-id="`edit-prop-${p.propertyId}`"
                     v-model="editValues[p.propertyId] as string"
                     :options="allowedValuesFor(p.propertyId)"
                     option-label="displayName"
@@ -1392,10 +1395,12 @@ onUnmounted(() => stopHub());
     <div v-if="createLinkTargetType" class="flex flex-col gap-4 py-2">
       <template v-for="r in createLinkOtherRequired" :key="r.relationshipTypeId">
         <div class="flex flex-col gap-1.5">
-          <label class="text-xs font-medium text-ink-600">
+          <label class="text-xs font-medium text-ink-600" :for="`create-link-rel-${r.relationshipTypeId}`">
             {{ r.displayName }} <span class="text-danger">*</span>
           </label>
           <Select
+            :id="`create-link-rel-${r.relationshipTypeId}`"
+            :input-id="`create-link-rel-${r.relationshipTypeId}`"
             v-model="createLinkOtherRelPick[r.relationshipTypeId]"
             :options="createLinkRelOptions(r.relationshipTypeId)"
             option-label="label"

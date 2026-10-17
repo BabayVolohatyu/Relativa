@@ -300,7 +300,9 @@ function toggle(rowId: string, slot: 'old' | 'next') {
     <template v-else-if="canViewPage">
       <div class="mb-4 flex flex-wrap items-end gap-3 border border-line bg-white p-4">
         <FloatLabel variant="on">
+          <label for="auditScope" class="sr-only">Scope</label>
           <Select
+            id="auditScope"
             input-id="auditScope"
             v-model="scope"
             :options="scopeOptions"
@@ -312,7 +314,9 @@ function toggle(rowId: string, slot: 'old' | 'next') {
         </FloatLabel>
 
         <FloatLabel v-if="showWorkspacePicker" variant="on">
+          <label for="auditWorkspace" class="sr-only">Workspace</label>
           <Select
+            id="auditWorkspace"
             input-id="auditWorkspace"
             v-model="selectedWorkspaceId"
             :options="workspaceOptions"

@@ -141,7 +141,7 @@ async function onVerified() {
           <div class="grid grid-cols-2 gap-3">
             <div class="flex flex-col gap-1.5">
               <FloatLabel variant="on">
-                <InputText id="firstName" v-model="form.firstName" autocomplete="given-name" class="!h-11 w-full" :invalid="firstNameTooShort" />
+                <InputText id="firstName" v-model="form.firstName" type="text" class="!h-11 w-full" :invalid="firstNameTooShort" />
                 <label for="firstName">{{ t('auth.firstNameLabel') }}</label>
               </FloatLabel>
               <small v-if="firstNameTooShort" class="text-xs text-danger">
@@ -150,7 +150,7 @@ async function onVerified() {
             </div>
             <div class="flex flex-col gap-1.5">
               <FloatLabel variant="on">
-                <InputText id="lastName" v-model="form.lastName" autocomplete="family-name" class="!h-11 w-full" :invalid="lastNameTooShort" />
+                <InputText id="lastName" v-model="form.lastName" type="text" class="!h-11 w-full" :invalid="lastNameTooShort" />
                 <label for="lastName">{{ t('auth.lastNameLabel') }}</label>
               </FloatLabel>
               <small v-if="lastNameTooShort" class="text-xs text-danger">
@@ -215,7 +215,7 @@ async function onVerified() {
 
           <div class="flex flex-col gap-1.5">
             <div class="flex items-center gap-1.5">
-              <label class="text-xs font-medium text-ink-600">{{ t('auth.phoneLabel') }}</label>
+              <span class="text-xs font-medium text-ink-600">{{ t('auth.phoneLabel') }}</span>
               <FieldInfo :text="t('auth.phoneInfo')" />
             </div>
             <PhoneInput v-model="form.phone" />
@@ -230,7 +230,6 @@ async function onVerified() {
                 v-model="form.password"
                 input-id="password"
                 toggle-mask
-                autocomplete="new-password"
                 input-class="!h-11 w-full"
                 class="w-full"
                 :invalid="passwordTooShort"

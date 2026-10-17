@@ -47,11 +47,13 @@ function switchMode(next: 'totp' | 'backup') {
       <CodeInput v-model="code" numeric :disabled="loading" @complete="submit" />
     </div>
     <div v-else class="mt-5 w-full">
+      <label for="backup-code" class="sr-only">{{ t('auth.twoFactorBackupPlaceholder') }}</label>
       <InputText
+        id="backup-code"
         v-model="backupCode"
+        type="text"
         class="!h-12 w-full text-center !tracking-[0.3em] !font-semibold !text-lg"
         :placeholder="t('auth.twoFactorBackupPlaceholder')"
-        autocomplete="one-time-code"
         @keyup.enter="submit"
       />
     </div>

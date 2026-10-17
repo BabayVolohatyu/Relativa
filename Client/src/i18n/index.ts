@@ -9,7 +9,8 @@ const localeModules = import.meta.glob('../locales/*.json', { eager: true, impor
 function buildMessages(): Record<string, LocaleMessageTree> {
   const messages: Record<string, LocaleMessageTree> = {};
   for (const path in localeModules) {
-    const code = path.match(/([^/]+)\.json$/)?.[1];
+    const fileName = path.slice(path.lastIndexOf('/') + 1);
+    const code = fileName.endsWith('.json') ? fileName.slice(0, -'.json'.length) : undefined;
     if (code) messages[code] = localeModules[path] as LocaleMessageTree;
   }
   return messages;

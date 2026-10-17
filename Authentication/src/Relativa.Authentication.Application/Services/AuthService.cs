@@ -11,7 +11,7 @@ using Relativa.Authentication.Domain.Interfaces;
 
 namespace Relativa.Authentication.Application.Services;
 
-public sealed class AuthService(
+public sealed partial class AuthService(
     IUserRepository userRepository,
     IUserProvisioningService userProvisioning,
     ITokenService tokenService,
@@ -161,7 +161,8 @@ public sealed class AuthService(
         return userProvisioning.CreateUserAsync(request, auditActorUserId: null, ct);
     }
 
-    private static readonly Regex PhoneRegex = new(@"^\+[1-9]\d{6,14}$", RegexOptions.Compiled);
+    [GeneratedRegex(@"^\+[1-9]\d{6,14}$", RegexOptions.CultureInvariant, matchTimeoutMilliseconds: 250)]
+    private static partial Regex PhonePattern();
 
     private static void ValidateSelfRegistration(RegisterRequestDto request)
     {
@@ -171,7 +172,7 @@ public sealed class AuthService(
         {
             failures.Add(new ValidationFailure(nameof(request.Phone), "Phone number is required.") { ErrorCode = "phone_required" });
         }
-        else if (!PhoneRegex.IsMatch(request.Phone))
+        else if (!PhonePattern().IsMatch(request.Phone))
         {
             failures.Add(new ValidationFailure(nameof(request.Phone), "A valid phone number is required.") { ErrorCode = "phone_invalid" });
         }

@@ -10,7 +10,6 @@ public sealed class WorkspaceAccessEvaluator(
     IUserRoleWorkspaceRepository memberRepository,
     IUserRoleOrganizationRepository orgMemberRepository,
     IWorkspaceRepository workspaceRepository,
-    IWorkspaceRoleRepository? workspaceRoleRepository = null,
     IPermissionRepository? permissionRepository = null) : IWorkspaceAccessEvaluator
 {
     public const string OrgOwnerRoleName = "org_owner";
@@ -105,7 +104,7 @@ public sealed class WorkspaceAccessEvaluator(
             .ToHashSet(StringComparer.Ordinal);
     }
 
-    private static IReadOnlyList<string> MapRolePermissionNames(UserRoleWorkspace? membership)
+    private static List<string> MapRolePermissionNames(UserRoleWorkspace? membership)
     {
         if (membership?.Role?.RolePermissions is null)
             return [];

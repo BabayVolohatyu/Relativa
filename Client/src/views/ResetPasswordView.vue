@@ -116,7 +116,6 @@ async function handleSubmit() {
             input-id="newPassword"
             :feedback="false"
             toggle-mask
-            autocomplete="new-password"
             :placeholder="t('auth.passwordMinPlaceholder')"
             input-class="!h-10 w-full"
             class="w-full"
@@ -135,7 +134,6 @@ async function handleSubmit() {
             input-id="confirmPassword"
             :feedback="false"
             toggle-mask
-            autocomplete="new-password"
             input-class="!h-10 w-full"
             class="w-full"
             :invalid="confirmMismatch"

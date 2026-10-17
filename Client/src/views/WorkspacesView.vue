@@ -144,7 +144,9 @@ onMounted(async () => {
     <div v-else class="border border-line bg-white">
       <div class="flex items-center gap-2.5 border-b border-line px-4">
         <i class="pi pi-search text-ink-400 text-sm shrink-0" />
+        <label for="workspace-search" class="sr-only">{{ t('workspace.searchPlaceholder') }}</label>
         <input
+          id="workspace-search"
           v-model="search"
           type="text"
           :placeholder="t('workspace.searchPlaceholder')"

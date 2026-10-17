@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Core/">
+    <Project Path="Core/src/Relativa.Core/Relativa.Core.csproj" />
+    <Project Path="Core/src/Relativa.Core.Application/Relativa.Core.Application.csproj" />
+    <Project Path="Core/src/Relativa.Core.Domain/Relativa.Core.Domain.csproj" />
+    <Project Path="Core/src/Relativa.Core.Infrastructure/Relativa.Core.Infrastructure.csproj" />
+    <Project Path="Core/tests/Relativa.Core.Application.Tests/Relativa.Core.Application.Tests.csproj" />
+    <Project Path="Core/tests/Relativa.Core.Integration.Tests/Relativa.Core.Integration.Tests.csproj" />
+    <Project Path="Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj" />
+    <Project Path="Messaging/src/Relativa.Messaging/Relativa.Messaging.csproj" />
+    <Project Path="Authentication/src/Relativa.Authentication.Application/Relativa.Authentication.Application.csproj" />
+    <Project Path="Authentication/src/Relativa.Authentication.Domain/Relativa.Authentication.Domain.csproj" />
+    <Project Path="Authentication/src/Relativa.Authentication.Infrastructure/Relativa.Authentication.Infrastructure.csproj" />
+  </Folder>
+</Solution>

@@ -176,7 +176,9 @@ async function handleSave() {
 
         <div class="mt-5 flex flex-col gap-1.5">
           <FloatLabel variant="on">
+            <label for="joinPolicy" class="sr-only">Join policy</label>
             <Select
+              id="joinPolicy"
               input-id="joinPolicy"
               v-model="form.joinPolicy"
               :options="joinPolicyOptions"
@@ -199,7 +201,9 @@ async function handleSave() {
 
         <div class="mt-5 flex flex-col gap-1.5">
           <FloatLabel variant="on">
+            <label for="defaultRole" class="sr-only">Default role</label>
             <Select
+              id="defaultRole"
               input-id="defaultRole"
               v-model="form.defaultOrgRoleId"
               :options="defaultRoleOptions"

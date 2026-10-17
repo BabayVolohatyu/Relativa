@@ -11,6 +11,7 @@ import { useAuthStore } from '@/stores/auth';
 import { useOrganizationStore } from '@/stores/organization';
 import { useWorkspaceStore } from '@/stores/workspace';
 import { useDashboardStore } from '@/stores/dashboard';
+import { buildTrendsChartData, buildTrendsChartOptions, formatCurrency, priorityClass, riskClass, scoreBar } from '@/utils/dashboardCharts';
 import { roleLabel } from '@/utils/roleBadge';
 
 const { t } = useI18n();
@@ -272,111 +273,8 @@ const riskChartOptions = {
   },
 };
 
-const trendsChartData = computed(() => {
-  const tr = dashStore.trends;
-  if (!tr) return null;
-  return {
-    labels: tr.months.map((m) => m.label),
-    datasets: [
-      {
-        label: t('home.dsPipelineDeals'),
-        data: tr.months.map((m) => m.newDeals),
-        borderColor: '#3b82f6',
-        backgroundColor: 'rgba(59,130,246,0.08)',
-        fill: true,
-        tension: 0.3,
-        yAxisID: 'y',
-      },
-      {
-        label: t('home.dsWon'),
-        data: tr.months.map((m) => m.closedWon),
-        borderColor: '#10b981',
-        backgroundColor: 'transparent',
-        fill: false,
-        tension: 0.3,
-        yAxisID: 'y',
-      },
-      {
-        label: t('home.dsLost'),
-        data: tr.months.map((m) => m.closedLost),
-        borderColor: '#ef4444',
-        backgroundColor: 'transparent',
-        fill: false,
-        tension: 0.3,
-        yAxisID: 'y',
-      },
-      {
-        label: t('home.dsWonRevenue'),
-        data: tr.months.map((m) => m.wonRevenue),
-        borderColor: '#8b5cf6',
-        backgroundColor: 'transparent',
-        fill: false,
-        tension: 0.3,
-        yAxisID: 'y1',
-        borderDash: [4, 4],
-      },
-    ],
-  };
-});
-
-const trendsChartOptions = computed(() => ({
-  responsive: true,
-  maintainAspectRatio: false,
-  interaction: { mode: 'index' as const, intersect: false },
-  plugins: {
-    legend: { position: 'top' as const, labels: { color: '#334155', boxWidth: 12 } },
-  },
-  scales: {
-    y: {
-      type: 'linear' as const,
-      position: 'left' as const,
-      grid: { color: '#f1f5f9' },
-      ticks: { color: '#64748b', stepSize: 1 },
-      title: { display: true, text: t('home.axisDeals'), color: '#94a3b8' },
-    },
-    y1: {
-      type: 'linear' as const,
-      position: 'right' as const,
-      grid: { drawOnChartArea: false },
-      ticks: {
-        color: '#8b5cf6',
-        callback: (v: number) => `€${(v / 1000).toFixed(0)}k`,
-      },
-      title: { display: true, text: t('home.axisRevenue'), color: '#8b5cf6' },
-    },
-    x: { grid: { display: false }, ticks: { color: '#64748b' } },
-  },
-}));
-
-function formatCurrency(v: number) {
-  return new Intl.NumberFormat('de-DE', {
-    style: 'currency',
-    currency: 'EUR',
-    maximumFractionDigits: 0,
-  }).format(v);
-}
-
-function priorityClass(priority?: string) {
-  switch (priority?.toLowerCase()) {
-    case 'high':   return 'danger';
-    case 'medium': return 'warn';
-    case 'low':    return 'secondary';
-    default:       return 'secondary';
-  }
-}
-
-function riskClass(bucket: string) {
-  switch (bucket) {
-    case 'high':   return 'danger';
-    case 'medium': return 'warn';
-    case 'low':    return 'success';
-    default:       return 'secondary';
-  }
-}
-
-function scoreBar(score?: number) {
-  return score != null ? Math.round(score * 100) : null;
-}
+const trendsChartData = computed(() => buildTrendsChartData(dashStore.trends, t));
+const trendsChartOptions = computed(() => buildTrendsChartOptions(t));
 </script>
 
 <template>

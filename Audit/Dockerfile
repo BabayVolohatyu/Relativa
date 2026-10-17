@@ -18,6 +18,8 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
+USER app
+
 EXPOSE 8086
 
 ENTRYPOINT ["dotnet", "Relativa.Audit.dll"]
