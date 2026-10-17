@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>Relativa.Core.Application</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Product</ProjectType>
+  <ProjectGuid>b1b2c3d4-1111-2222-3333-444455557777</ProjectGuid>
+  <FullPath>C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Relativa.Core.Application.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResultFiles>
+    <AnalysisResultFile Id="FilesToAnalyze" Location="C:\Users\babay\myrepos\testing\Relativa\Core\.sonarqube\conf\4\FilesToAnalyze.txt" />
+  </AnalysisResultFiles>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">C:\Users\babay\myrepos\testing\Relativa\Core\.sonarqube\out\4\Issues.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">C:\Users\babay\myrepos\testing\Relativa\Core\.sonarqube\out\4</Property>
+    <Property Name="sonar.cs.scanner.telemetry">C:\Users\babay\myrepos\testing\Relativa\Core\.sonarqube\out\4\Telemetry.json</Property>
+  </AnalysisSettings>
+  <Configuration>Release</Configuration>
+  <Platform>AnyCPU</Platform>
+  <TargetFramework>net10.0</TargetFramework>
+</ProjectInfo>

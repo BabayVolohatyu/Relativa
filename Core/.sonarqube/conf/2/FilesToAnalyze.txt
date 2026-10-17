@@ -1,0 +1,7 @@
+﻿C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Domain\Interfaces\IEmailSender.cs
+C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Domain\Interfaces\IPasswordHasher.cs
+C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Domain\Interfaces\ISmsSender.cs
+C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Domain\Interfaces\ITokenService.cs
+C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Domain\Interfaces\ITotpProvider.cs
+C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Domain\Interfaces\IUserRepository.cs
+C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Domain\Interfaces\IUserSettingsRepository.cs

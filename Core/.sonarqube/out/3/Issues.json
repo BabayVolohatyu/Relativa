@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "5.9.0.0",
+        "fileVersion": "5.9.0-1.26505.111 (a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e)",
+        "semanticVersion": "5.9.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "SYSLIB1045",
+          "level": "note",
+          "message": "Use 'GeneratedRegexAttribute' to generate the regular expression implementation at compile-time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Authentication/src/Relativa.Authentication.Application/Services/AuthService.cs",
+                "region": {
+                  "startLine": 164,
+                  "startColumn": 48,
+                  "endLine": 164,
+                  "endColumn": 96
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "SYSLIB1045",
+          "level": "note",
+          "message": "Use 'GeneratedRegexAttribute' to generate the regular expression implementation at compile-time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Authentication/src/Relativa.Authentication.Application/Services/SupportService.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 59,
+                  "endLine": 27,
+                  "endColumn": 113
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "SYSLIB1045",
+          "level": "note",
+          "message": "Use 'GeneratedRegexAttribute' to generate the regular expression implementation at compile-time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Authentication/src/Relativa.Authentication.Application/Services/EmailAddressService.cs",
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 14,
+                  "endLine": 39,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Authentication/src/Relativa.Authentication.Application/Services/EmailAddressService.cs",
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 14,
+                  "endLine": 39,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Authentication/src/Relativa.Authentication.Application/Services/SupportService.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 59,
+                  "endLine": 27,
+                  "endColumn": 113
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Authentication/src/Relativa.Authentication.Application/Services/AuthService.cs",
+                "region": {
+                  "startLine": 164,
+                  "startColumn": 48,
+                  "endLine": 164,
+                  "endColumn": 96
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "S6444": {
+          "id": "S6444",
+          "shortDescription": "Regular expressions should be executed with a timeout",
+          "fullDescription": "Regular expressions without a timeout can be exploited to cause a Denial-of-Service attack.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay",
+              "CompilationEnd"
+            ]
+          }
+        },
+        "SYSLIB1045": {
+          "id": "SYSLIB1045",
+          "shortDescription": "Convert to 'GeneratedRegexAttribute'.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/syslib-diagnostics/syslib1045",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true
+          }
+        }
+      }
+    }
+  ]
+}

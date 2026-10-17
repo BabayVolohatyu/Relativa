@@ -1,0 +1,1 @@
+~RqC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Infrastructure\Relativa.Core.Infrastructure.csprojòCSharp14

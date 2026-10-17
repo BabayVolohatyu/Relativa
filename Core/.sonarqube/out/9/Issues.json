@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "5.9.0.0",
+        "fileVersion": "5.9.0-1.26505.111 (a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e)",
+        "semanticVersion": "5.9.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'Sut' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/tests/Relativa.Core.Integration.Tests/EntityRelationshipRepositoryIntegrationTests.cs",
+                "region": {
+                  "startLine": 71,
+                  "startColumn": 30,
+                  "endLine": 71,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "xUnit1031",
+          "level": "warning",
+          "message": "Test methods should not use blocking task operations, as they can cause deadlocks. Use an async test method and await instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/tests/Relativa.Core.Integration.Tests/EntityFilterIntegrationTests.cs",
+                "region": {
+                  "startLine": 509,
+                  "startColumn": 67,
+                  "endLine": 509,
+                  "endColumn": 78
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "xUnit1031",
+          "level": "warning",
+          "message": "Test methods should not use blocking task operations, as they can cause deadlocks. Use an async test method and await instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/tests/Relativa.Core.Integration.Tests/EntityFilterIntegrationTests.cs",
+                "region": {
+                  "startLine": 536,
+                  "startColumn": 67,
+                  "endLine": 536,
+                  "endColumn": 78
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "CA1822": {
+          "id": "CA1822",
+          "shortDescription": "Mark members as static",
+          "fullDescription": "Members that do not access instance data or call instance methods can be marked as static. After you mark the methods as static, the compiler will emit nonvirtual call sites to these members. This can give you a measurable performance gain for performance-sensitive code.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1822",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "PortedFromFxCop",
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "xUnit1031": {
+          "id": "xUnit1031",
+          "shortDescription": "Do not use blocking task operations in test method",
+          "defaultLevel": "warning",
+          "helpUri": "https://xunit.net/xunit.analyzers/rules/xUnit1031",
+          "properties": {
+            "category": "Usage",
+            "isEnabledByDefault": true
+          }
+        }
+      }
+    }
+  ]
+}

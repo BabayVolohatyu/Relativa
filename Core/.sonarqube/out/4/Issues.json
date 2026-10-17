@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "5.9.0.0",
+        "fileVersion": "5.9.0-1.26505.111 (a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e)",
+        "semanticVersion": "5.9.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "CS9113",
+          "level": "warning",
+          "message": "Parameter 'workspaceRoleRepository' is unread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/WorkspaceAccessEvaluator.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 31,
+                  "endLine": 13,
+                  "endColumn": 54
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1859",
+          "level": "note",
+          "message": "Change return type of method 'MapRolePermissionNames' from 'System.Collections.Generic.IReadOnlyList<string>' to 'System.Collections.Generic.List<string>' for improved performance",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/WorkspaceAccessEvaluator.cs",
+                "region": {
+                  "startLine": 108,
+                  "startColumn": 42,
+                  "endLine": 108,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "CA1859": {
+          "id": "CA1859",
+          "shortDescription": "Use concrete types when possible for improved performance",
+          "fullDescription": "Using concrete types avoids virtual or interface call overhead and enables inlining.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1859",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CS9113": {
+          "id": "CS9113",
+          "shortDescription": "Parameter is unread.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS9113)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

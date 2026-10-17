@@ -1,0 +1,1 @@
+nRaC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Domain\Relativa.Core.Domain.csprojòCSharp14
