@@ -85,6 +85,6 @@ rC:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\Co
 C:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\Configurations\AuditProcessedEventConfiguration.csutf-8‡
 ~C:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\Configurations\AuditOutboxMessageConfiguration.csutf-8‘
 ‡C:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\Configurations\AuditLogs\WorkspaceAuditLogConfiguration.csutf-8Œ
-‚C:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\Configurations\AuditLogs\UserAuditLogConfiguration.csutf-8Ž
-„C:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\Configurations\AuditLogs\EntityAuditLogConfiguration.csutf-8”
-ŠC:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\Configurations\AuditLogs\OrganizationAuditLogConfiguration.csutf-8
+‚C:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\Configurations\AuditLogs\UserAuditLogConfiguration.csutf-8”
+ŠC:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\Configurations\AuditLogs\OrganizationAuditLogConfiguration.csutf-8Ž
+„C:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\Configurations\AuditLogs\EntityAuditLogConfiguration.csutf-8

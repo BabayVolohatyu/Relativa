@@ -920,16 +920,7 @@ zC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
 
  
 
- $™
-xC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\SupportOptions.cs
-
- "
-
- "
-
- 
-
- ◊
+ $◊
 uC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\SmtpOptions.cs
 
  
@@ -948,7 +939,53 @@ uC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
 
  
 
-  
+ ™
+xC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\SupportOptions.cs
+
+ "
+
+ "
+
+ 
+
+ ‚
+ÖC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IUserProvisioningService.cs
+
+ )
+
+		 -
+
+		A H
+
+		O _
+
+		s u
+
+ &
+
+8 @
+
+T V
+
+ /
+
+4 @
+
+I R
+
+[ c
+
+i y
+
+ç è
+
+	 
+
+ *
+
+0 @
+
+T V 
 tC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\SmsOptions.cs
 
  
@@ -965,29 +1002,7 @@ tC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
 
  
 
- ä
-vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\OAuthOptions.cs
-  = I8 D
-
- "
-		4 =0 9
- (		 2
- 3 <
- ""3 ;
-
- 
- '' '
- $''N _
-
- )
-
-! )
-
-2 6
-E L( /<
-  $$ )) -- ..) 1(
- 0 3$$0 3))0 32
- #* 2""* 2'' ''E MÒ
+ Ò
 ÇC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\EmailVerificationOptions.cs
 
  ,
@@ -1028,44 +1043,29 @@ vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
 
 V ]
 
-q s‚
-ÖC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IUserProvisioningService.cs
+q sä
+vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\OAuthOptions.cs
+  = I8 D
 
- )
+ "
+		4 =0 9
+ (		 2
+ 3 <
+ ""3 ;
 
-		 -
+ 
+ '' '
+ $''N _
 
-		A H
+ )
 
-		O _
+! )
 
-		s u
-
- &
-
-8 @
-
-T V
-
- /
-
-4 @
-
-I R
-
-[ c
-
-i y
-
-ç è
-
-	 
-
- *
-
-0 @
-
-T Vƒ
+2 6
+E L( /<
+  $$ )) -- ..) 1(
+ 0 3$$0 3))0 32
+ #* 2""* 2'' ''E Mƒ
 ~C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\ITwoFactorService.cs
 
  "
@@ -1128,18 +1128,7 @@ vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
 
 - 1
 
-E G∫
-|C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\ISupportService.cs
-
-  
-
-	 
-
-0 7
-
-A I
-
-d fó
+E Gó
 ÜC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IExternalIdentityVerifier.cs
  %	 
 
@@ -1192,7 +1181,18 @@ vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
 
 8 @
 
-T Vº
+T V∫
+|C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\ISupportService.cs
+
+  
+
+	 
+
+0 7
+
+A I
+
+d fº
 ~C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IEmailRateLimiter.cs
 
  "
@@ -1358,17 +1358,33 @@ yC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
 
 ( -
 
-A Cñ
-áC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\TwoFactorRequiredException.cs
-
- .¨
+A C¨
 áC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\RateLimitExceededException.cs
 
  .
-6 =K Rú
+6 =K Rñ
+áC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\TwoFactorRequiredException.cs
+
+ .ú
 çC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\InvalidVerificationCodeException.cs
 
- 4‚
+ 4ô
+äC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\InvalidTwoFactorCodeException.cs
+
+ 1∑
+ÜC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\EmailNotVerifiedException.cs
+
+ -
+5 :# (
+
+ ®
+ÉC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\ConfigurationException.cs
+
+ *
+2 9G Nñ
+áC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\EmailAddressTakenException.cs
+
+ .‚
 zC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\AuthException.cs
 
  
@@ -1378,23 +1394,7 @@ zC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
 
  
 
- ñ
-áC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\EmailAddressTakenException.cs
-
- .®
-ÉC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\ConfigurationException.cs
-
- *
-2 9G Nô
-äC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\InvalidTwoFactorCodeException.cs
-
- 1∑
-ÜC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\EmailNotVerifiedException.cs
-
- -
-5 :# (
-
- ü
+ ü
 {C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Emails\PasswordResetEmail.cs
 
  &
@@ -1413,14 +1413,24 @@ zC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
  F N
  P V/ 5
   
-  #ü
-yC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\VerifyEmailRequest.cs
+  #œ
+C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Emails\EmailVerificationEmail.cs
 
- '
+ *
 
-/ 4
-
-= A‰
+= B2
+ !    2
+		 $ *" (! '# )
+
+
+ C L
+ 7 ;  $
+  
+ * /
+ 1 5 
+ = C* 0
+  
+  #‰
 tC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Emails\EmailLayout.cs
 
  
@@ -1450,24 +1460,14 @@ qC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
  #
 
  "
-* / œ
-C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Emails\EmailVerificationEmail.cs
+* / ü
+yC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\VerifyEmailRequest.cs
 
- *
+ '
 
-= B2
- !    2
-		 $ *" (! '# )
-
-
- C L
- 7 ;  $
-  
- * /
- 1 5 
- = C* 0
-  
-  #ê
+/ 4
+
+= Aê
 vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\UserSettingsDto.cs
 
  $
@@ -1501,14 +1501,7 @@ uC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
 
  .
 
-6 <°
-{C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\ResetPasswordRequest.cs
-
- )
-
-1 6
-
-? Jª
+6 <ª
 }C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\UpdateMyProfileRequest.cs
 
  +
@@ -1519,20 +1512,7 @@ uC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
 
  
 
- ∆
-|C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\SupportContactRequest.cs
-
- *
-
- 
-
- 
-
- 
-
- 
-
- û
+ û
 tC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\TwoFactorDtos.cs
 
  '
@@ -1561,30 +1541,34 @@ tC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
 
  )
 
-1 5ß
+1 5∆
+|C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\SupportContactRequest.cs
+
+ *
+
+ 
+
+ 
+
+ 
+
+ 
+
+ °
+{C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\ResetPasswordRequest.cs
+
+ )
+
+1 6
+
+? Jß
 ÄC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\ResendVerificationRequest.cs
 
  .
 
 6 ;
 
-E L®
-vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\LoginRequestDto.cs
-
- $
-
-, 1
-
-: B
-
-L Yù
-wC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\LoginResponseDto.cs
-
- %
-
-- 8
-
-C L∏
+E L∏
 zC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\RegisterResponseDto.cs
 
  (
@@ -1620,7 +1604,23 @@ yC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticat
 
  )
 
-1 6ñ
+1 6ù
+wC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\LoginResponseDto.cs
+
+ %
+
+- 8
+
+C L®
+vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\LoginRequestDto.cs
+
+ $
+
+, 1
+
+: B
+
+L Yñ
 |C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\ForgotPasswordRequest.cs
 
  *

@@ -4,6 +4,7 @@
 ¬C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\obj\Debug\net10.0\Relativa.Authentication.Infrastructure.GlobalUsings.g.csutf-8„
 {C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\SmtpSmsSender.csutf-8†
 }C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\SmtpEmailSender.csutf-8Š
+€C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\QualityGateJwtDemo.csutf-8Š
 €C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\OtpNetTotpProvider.csutf-8•
 ‹C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\OpenIdConnectIdentityVerifier.csutf-8Ž
 „C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\MemoryEmailRateLimiter.csutf-8†

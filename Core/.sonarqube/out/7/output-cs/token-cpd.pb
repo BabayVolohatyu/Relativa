@@ -363,7 +363,113 @@ SmtpClient!! )
 )..3 4
 ;..4 5
 }// 
-}00 ä
+}00 Õ
+€C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\QualityGateJwtDemo.cs
+	namespace 	
+Relativa
+ 
+. 
+Authentication !
+.! "
+Infrastructure" 0
+.0 1
+Services1 9
+;9 :
+public 
+static 
+class 
+QualityGateJwtDemo &
+{		 
+public
+
+ 
+
+static
+
+ 
+ClaimsPrincipal
+
+ !
+AcceptUnsigned
+
+" 0
+(
+
+0 1
+string
+
+1 7
+token
+
+8 =
+)
+
+= >
+{ 
+var 
+handler 
+= 
+new #
+JwtSecurityTokenHandler 1
+(1 2
+)2 3
+;3 4
+var 
+
+parameters 
+= 
+new %
+TokenValidationParameters 6
+{ 	$
+ValidateIssuerSigningKey $
+=% &
+false' ,
+,, -
+RequireSignedTokens 
+=  !
+false" '
+,' (
+ValidateIssuer 
+= 
+false "
+," #
+ValidateAudience 
+= 
+false $
+,$ %
+SignatureValidator 
+=  
+(! "
+received" *
+,* +
+_, -
+)- .
+=>/ 1
+new2 5
+JwtSecurityToken6 F
+(F G
+receivedG O
+)O P
+,P Q
+} 	
+;	 
+
+return 
+handler 
+. 
+ValidateToken $
+($ %
+token% *
+,* +
+
+parameters, 6
+,6 7
+out8 ;
+_< =
+)= >
+;> ?
+} 
+} ä
 €C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\OtpNetTotpProvider.cs
 	namespace 	
 Relativa

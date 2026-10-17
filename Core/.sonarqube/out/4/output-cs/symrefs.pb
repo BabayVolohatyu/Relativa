@@ -908,7 +908,26 @@ bC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Serv
 ææ+ ,
 ææ1 2
 ææ9 :
-ææe f©
+ææe f…
+sC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Services\QualityGateFailureAspNetDemo.cs
+
+
+
+ 0
+
+  
+7 >  
+) 0 
+! ( 
+1 7 
+
+ *
+: =  
+
+"" )
+""6 =$$ 
+
+-- 0©
 eC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Services\OrgRoleService.cs
 
  "V
@@ -3566,7 +3585,54 @@ hC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Inte
 
 : @
 
-T V¸
+T V 
+vC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Interfaces\IOrganizationUserAdminService.cs
+
+ .
+
+ 0
+
+5 C
+
+I U
+
+l s
+
+á â
+
+
+
+ 4
+
+
+
+9 G
+
+
+
+M Y
+
+
+
+_ k
+
+
+
+â ê
+
+
+
+§ ¶
+
+	 
+
+  .
+
+4 @
+
+F R
+
+f h¸
 nC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Interfaces\IOrgInvitationService.cs
 
  &
@@ -3643,54 +3709,7 @@ nC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Inte
 
 E N
 
-b d 
-vC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Interfaces\IOrganizationUserAdminService.cs
-
- .
-
- 0
-
-5 C
-
-I U
-
-l s
-
-á â
-
-
-
- 4
-
-
-
-9 G
-
-
-
-M Y
-
-
-
-_ k
-
-
-
-â ê
-
-
-
-§ ¶
-
-	 
-
-  .
-
-4 @
-
-F R
-
-f hÅ
+b dÅ
 mC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Interfaces\IOrganizationService.cs
 
  %
@@ -3848,22 +3867,7 @@ kC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Inte
 
  )
 
-< >≤
-tC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Interfaces\IEntityRelationshipNotifier.cs
-
- ,
-
-	 
-
-  +
-
-? A
-
-P Yï
-qC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Exceptions\ForbiddenAccessException.cs
-
- ,
-4 ;I P…
+< >…
 gC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Interfaces\IEntityService.cs
 
  
@@ -3966,12 +3970,52 @@ gC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Inte
 
 ê ó
 
-´ ≠™
+´ ≠≤
+tC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Interfaces\IEntityRelationshipNotifier.cs
+
+ ,
+
+	 
+
+  +
+
+? A
+
+P Yï
+qC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Exceptions\ForbiddenAccessException.cs
+
+ ,
+4 ;I P™
 pC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Exceptions\EntityNotFoundException.cs
 
  +
 0 8% -
-> IG RÀ
+> IG R◊
+eC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Exceptions\AppException.cs
+
+  
+( , " &
+2 <% /
+F M 
+
+ 
+
+ «
+qC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Workspace\WorkspaceSettingsDto.cs
+
+ )
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+			 À
 iC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Workspace\WorkspaceDto.cs
 
  !
@@ -3991,70 +4035,14 @@ iC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs
 
 
 
- '«
-qC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Workspace\WorkspaceSettingsDto.cs
+ 'è
+iC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Role\CreateRoleRequest.cs
 
- )
+ &
 
- 
+. 2
 
- 
-
- 
-
- 
-
- 
-
-			 ô
-sC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Workspace\CreateWorkspaceRequest.cs
-
- +
-
-3 7
-
-= K◊
-eC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Exceptions\AppException.cs
-
-  
-( , " &
-2 <% /
-F M 
-
- 
-
- °
-oC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\OrgRole\CreateOrgRoleRequest.cs
-
- )
-
-1 5
-
-A N
-
-T \°
-oC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\OrgRole\UpdateOrgRoleRequest.cs
-
- )
-
-2 6
-
-C P
-
-W _≈
-{C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Workspace\UpdateWorkspaceSettingsRequest.cs
-
- 3
-
- 
-
- 
-
- 
-
- 
-
-	 ç
+> Kç
 sC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Workspace\UpdateWorkspaceRequest.cs
 
  +
@@ -4089,14 +4077,27 @@ eC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs
 
 2 6
 
-? Jè
-iC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Role\CreateRoleRequest.cs
+? J≈
+{C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Workspace\UpdateWorkspaceSettingsRequest.cs
 
- &
+ 3
 
-. 2
+ 
 
-> Kô
+ 
+
+ 
+
+ 
+
+	 ô
+sC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Workspace\CreateWorkspaceRequest.cs
+
+ +
+
+3 7
+
+= Kô
 sC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\OrgInvitation\InviteToOrgRequest.cs
 
  '
@@ -4117,18 +4118,32 @@ eC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs
 N V
 
 \ d
-	z Ö¿
-ÅC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Organization\UpdateOrganizationSettingsRequest.cs
+	z Ö°
+oC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\OrgRole\UpdateOrgRoleRequest.cs
 
- 6
+ )
 
- 
+2 6
 
- 
+C P
 
- 
+W _°
+{C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Organization\UpdateOrgUserProfileRequest.cs
 
-	 Î
+ 0
+
+8 A
+
+J R°
+oC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\OrgRole\CreateOrgRoleRequest.cs
+
+ )
+
+1 5
+
+A N
+
+T \Î
 qC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\OrgInvitation\OrgInvitationDto.cs
 
  %
@@ -4152,19 +4167,23 @@ qC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs
 
  
 
- °
-{C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Organization\UpdateOrgUserProfileRequest.cs
-
- 0
-
-8 A
-
-J Rï
+ ï
 {C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\OrgInvitation\AcceptOrgInvitationRequest.cs
 
  /
 
-7 <ì
+7 <¿
+ÅC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Organization\UpdateOrganizationSettingsRequest.cs
+
+ 6
+
+ 
+
+ 
+
+ 
+
+	 ì
 yC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Organization\UpdateOrganizationRequest.cs
 
  .
@@ -4200,12 +4219,7 @@ wC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs
 
 	 
 
-		 ë
-wC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\JoinRequest\CreateJoinRequestRequest.cs
-
- -
-
-6 =π
+		 π
 {C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Organization\OrganizationSearchResultDto.cs
 
  0
@@ -4288,7 +4302,19 @@ qC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs
 
  ,
 
-1 7â
+1 7ô
+sC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Member\AddWorkspaceMemberRequest.cs
+
+ .
+
+3 9
+
+? Eë
+wC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\JoinRequest\ReviewJoinRequestRequest.cs
+
+ -
+
+5 =â
 mC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\JoinRequest\JoinRequestDto.cs
 
  #
@@ -4313,26 +4339,12 @@ mC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs
 
 ¡ œ
 
-ÿ Ëô
-sC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Member\AddWorkspaceMemberRequest.cs
-
- .
-
-3 9
-
-? Eë
-wC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\JoinRequest\ReviewJoinRequestRequest.cs
+ÿ Ëë
+wC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\JoinRequest\CreateJoinRequestRequest.cs
 
  -
 
-5 =ì
-mC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\EntityType\AllowedValueDto.cs
-
- $
-
-, 1
-
-: Eà
+6 =à
 nC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\Invitation\MyInvitationsDto.cs
 
  %
@@ -4556,7 +4568,14 @@ kC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs
 
 
 
-  *í
+  *ì
+mC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\DTOs\EntityType\AllowedValueDto.cs
+
+ $
+
+, 1
+
+: Eí
 pC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Authorization\WorkspacePermissions.cs
 
  (
@@ -4575,7 +4594,34 @@ pC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Auth
  % 
  ' 
 
-1 Gπ
+1 GÖ
+sC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Authorization\OrganizationPermissions.cs
+
+ +
+
+ )
+
+ #
+
+ *
+
+ (
+
+		 &
+
+
+
+ &
+
+ (
+
+ 1
+
+ &
+
+ 0
+
+ &π
 sC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Authorization\RolePermissionEvaluator.cs
 
  +
@@ -4608,31 +4654,4 @@ sC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Auth
 ] p- @&& "
    &&' 6
 !! !! 
-"" ""3 4Ö
-sC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Authorization\OrganizationPermissions.cs
-
- +
-
- )
-
- #
-
- *
-
- (
-
-		 &
-
-
-
- &
-
- (
-
- 1
-
- &
-
- 0
-
- &
+"" ""3 4

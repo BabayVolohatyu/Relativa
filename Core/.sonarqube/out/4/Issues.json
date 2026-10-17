@@ -33,6 +33,784 @@
           }
         },
         {
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 22451,
+                  "startColumn": 42,
+                  "endLine": 22451,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "SYSLIB0060",
+          "level": "warning",
+          "message": "'Rfc2898DeriveBytes.Rfc2898DeriveBytes(byte[], byte[], int, HashAlgorithmName)' is obsolete: 'The constructors on Rfc2898DeriveBytes are obsolete. Use the static Pbkdf2 method instead.'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 26,
+                  "endLine": 70,
+                  "endColumn": 118
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 2
+          }
+        },
+        {
+          "ruleId": "SYSLIB0039",
+          "level": "warning",
+          "message": "'SslProtocols.Tls' is obsolete: 'TLS versions 1.0 and 1.1 have known vulnerabilities and are not recommended. Use a newer TLS version instead, or use SslProtocols.None to defer to OS defaults.'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 28,
+                  "endLine": 78,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 2
+          }
+        },
+        {
+          "ruleId": "SYSLIB0039",
+          "level": "warning",
+          "message": "'SslProtocols.Tls11' is obsolete: 'TLS versions 1.0 and 1.1 have known vulnerabilities and are not recommended. Use a newer TLS version instead, or use SslProtocols.None to defer to OS defaults.'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 47,
+                  "endLine": 78,
+                  "endColumn": 65
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 2
+          }
+        },
+        {
+          "ruleId": "SYSLIB0014",
+          "level": "warning",
+          "message": "'ServicePointManager' is obsolete: 'WebRequest, HttpWebRequest, ServicePoint, and WebClient are obsolete. Use HttpClient instead. Settings on ServicePointManager no longer affect SslStream or HttpClient.'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 89,
+                  "startColumn": 9,
+                  "endLine": 89,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 2
+          }
+        },
+        {
+          "ruleId": "SYSLIB0014",
+          "level": "warning",
+          "message": "'ServicePointManager' is obsolete: 'WebRequest, HttpWebRequest, ServicePoint, and WebClient are obsolete. Use HttpClient instead. Settings on ServicePointManager no longer affect SslStream or HttpClient.'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 23,
+                  "endLine": 90,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 2
+          }
+        },
+        {
+          "ruleId": "CS1718",
+          "level": "warning",
+          "message": "Comparison made to same variable; did you mean to compare something else?",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 13,
+                  "endLine": 150,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 3
+          }
+        },
+        {
+          "ruleId": "CS1717",
+          "level": "warning",
+          "message": "Assignment made to same variable; did you mean to assign something else?",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 160,
+                  "startColumn": 9,
+                  "endLine": 160,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 3
+          }
+        },
+        {
+          "ruleId": "CS0162",
+          "level": "warning",
+          "message": "Unreachable code detected",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 166,
+                  "startColumn": 32,
+                  "endLine": 166,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 2
+          }
+        },
+        {
+          "ruleId": "S4502",
+          "level": "warning",
+          "message": "Ensure CSRF protection is not disabled.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureAspNetDemo.cs",
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 2,
+                  "endLine": 44,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 25,
+                  "endLine": 19,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA2211",
+          "level": "note",
+          "message": "Non-constant fields should not be visible",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 23,
+                  "endLine": 22,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2996",
+          "level": "warning",
+          "message": "Remove this initialization of 'ThreadLocalSeed' or make it lazy.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 39,
+                  "endLine": 22,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA2019",
+          "level": "note",
+          "message": "'ThreadStatic' fields should not use inline initialization",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 39,
+                  "endLine": 22,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S5122",
+          "level": "warning",
+          "message": "Restrict this CORS policy to trusted origins.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureAspNetDemo.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 17,
+                  "endLine": 23,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4507",
+          "level": "warning",
+          "message": "Disable this debug feature in production.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureAspNetDemo.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 9,
+                  "endLine": 30,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3330",
+          "level": "warning",
+          "message": "Set the 'HttpOnly' flag on this cookie.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureAspNetDemo.cs",
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 74,
+                  "endLine": 40,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2092",
+          "level": "warning",
+          "message": "Set the 'Secure' flag on this cookie.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureAspNetDemo.cs",
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 74,
+                  "endLine": 40,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2551",
+          "level": "warning",
+          "message": "Lock on a dedicated object instance instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 22422,
+                  "startColumn": 15,
+                  "endLine": 22422,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2551",
+          "level": "warning",
+          "message": "Lock on a dedicated object instance instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 22427,
+                  "startColumn": 15,
+                  "endLine": 22427,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2551",
+          "level": "warning",
+          "message": "Lock on a dedicated object instance instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 22432,
+                  "startColumn": 15,
+                  "endLine": 22432,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3875",
+          "level": "warning",
+          "message": "Remove this overload of 'operator =='.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 22443,
+                  "startColumn": 33,
+                  "endLine": 22443,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2445",
+          "level": "warning",
+          "message": "Do not lock on strings as they can be interned, use a readonly field instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 22427,
+                  "startColumn": 15,
+                  "endLine": 22427,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2225",
+          "level": "warning",
+          "message": "Return an empty string instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 22451,
+                  "startColumn": 39,
+                  "endLine": 22451,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4830",
+          "level": "warning",
+          "message": "Enable server certificate validation on this SSL/TLS connection",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 13,
+                  "endLine": 77,
+                  "endColumn": 54
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 80,
+                  "endLine": 77,
+                  "endColumn": 84
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "This function trusts all certificates."
+            }
+          }
+        },
+        {
+          "ruleId": "S3923",
+          "level": "warning",
+          "message": "Remove this conditional structure or edit its code blocks so that they're not all the same.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 9,
+                  "endLine": 124,
+                  "endColumn": 11
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1862",
+          "level": "warning",
+          "message": "This branch duplicates the one on line 136.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 140,
+                  "startColumn": 18,
+                  "endLine": 140,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 136,
+                  "startColumn": 13,
+                  "endLine": 136,
+                  "endColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "S5332",
+          "level": "warning",
+          "message": "Using http protocol is insecure. Use https instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 52,
+                  "endLine": 82,
+                  "endColumn": 91
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1764",
+          "level": "warning",
+          "message": "Correct one of the identical expressions on both sides of operator '=='.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 22,
+                  "endLine": 150,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 13,
+                  "endLine": 150,
+                  "endColumn": 18
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "S4036",
+          "level": "warning",
+          "message": "Use an absolute path for this command.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 104,
+                  "startColumn": 30,
+                  "endLine": 104,
+                  "endColumn": 78
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4790",
+          "level": "warning",
+          "message": "Use a stronger hashing algorithm.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 26,
+                  "endLine": 33,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4790",
+          "level": "warning",
+          "message": "Use a stronger hashing algorithm.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 27,
+                  "endLine": 38,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4790",
+          "level": "warning",
+          "message": "Use a stronger hashing algorithm.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 27,
+                  "endLine": 43,
+                  "endColumn": 72
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1656",
+          "level": "warning",
+          "message": "Remove or correct this useless self-assignment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 160,
+                  "startColumn": 9,
+                  "endLine": 160,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 160,
+                  "startColumn": 17,
+                  "endLine": 160,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
           "ruleId": "CA1859",
           "level": "note",
           "message": "Change return type of method 'MapRolePermissionNames' from 'System.Collections.Generic.IReadOnlyList<string>' to 'System.Collections.Generic.List<string>' for improved performance",
@@ -52,9 +830,1040 @@
           "properties": {
             "warningLevel": 1
           }
+        },
+        {
+          "ruleId": "S4426",
+          "level": "warning",
+          "message": "Use a key length of at least 2048 bits for RSA cipher algorithm.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 26,
+                  "endLine": 64,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1751",
+          "level": "warning",
+          "message": "Refactor the containing loop to do more than one iteration.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 169,
+                  "startColumn": 13,
+                  "endLine": 169,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2123",
+          "level": "warning",
+          "message": "Remove this increment or correct the code not to waste it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 189,
+                  "startColumn": 19,
+                  "endLine": 189,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1244",
+          "level": "warning",
+          "message": "Do not check floating point equality with exact values, use a range instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 202,
+                  "startColumn": 19,
+                  "endLine": 202,
+                  "endColumn": 21
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 26,
+                  "endLine": 27,
+                  "endColumn": 100
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2757",
+          "level": "warning",
+          "message": "Was '+=' meant instead?",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 196,
+                  "startColumn": 18,
+                  "endLine": 196,
+                  "endColumn": 19
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2190",
+          "level": "warning",
+          "message": "Add a way to break out of this method's recursion.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 235,
+                  "startColumn": 23,
+                  "endLine": 235,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2201",
+          "level": "warning",
+          "message": "Use the return value of method 'ToUpperInvariant'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 212,
+                  "startColumn": 9,
+                  "endLine": 212,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1806",
+          "level": "note",
+          "message": "IgnoredReturn calls ToUpperInvariant but does not use the new string instance that the method returns. Pass the instance as an argument to another method, assign the instance to a variable, or remove the call if it is unnecessary.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 212,
+                  "startColumn": 9,
+                  "endLine": 212,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3984",
+          "level": "warning",
+          "message": "Throw this exception or remove this useless statement.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 218,
+                  "startColumn": 9,
+                  "endLine": 218,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S5856",
+          "level": "warning",
+          "message": "Fix the syntax error inside this regex: Invalid pattern '[' at offset 1. Unterminated [] set.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 239,
+                  "startColumn": 23,
+                  "endLine": 239,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2688",
+          "level": "warning",
+          "message": "Use double.IsNaN() instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 258,
+                  "startColumn": 13,
+                  "endLine": 258,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1244",
+          "level": "warning",
+          "message": "Do not check floating point equality with exact values, use 'double.IsNaN()' instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 258,
+                  "startColumn": 20,
+                  "endLine": 258,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA2242",
+          "level": "note",
+          "message": "Test for NaN correctly",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 258,
+                  "startColumn": 13,
+                  "endLine": 258,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2761",
+          "level": "warning",
+          "message": "Use the '~' operator just once or not at all.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 268,
+                  "startColumn": 23,
+                  "endLine": 268,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2761",
+          "level": "warning",
+          "message": "Use the '!' operator just once or not at all.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 269,
+                  "startColumn": 20,
+                  "endLine": 269,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4143",
+          "level": "warning",
+          "message": "Verify this is the index/key that was intended; a value has already been set for it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 283,
+                  "startColumn": 9,
+                  "endLine": 283,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 282,
+                  "startColumn": 9,
+                  "endLine": 282,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "The index/key set here gets set again later."
+            }
+          }
+        },
+        {
+          "ruleId": "S1848",
+          "level": "warning",
+          "message": "Either remove this useless object instantiation of class 'InvalidOperationException' or use it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 218,
+                  "startColumn": 9,
+                  "endLine": 218,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1848",
+          "level": "warning",
+          "message": "Either remove this useless object instantiation of class 'object' or use it.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 219,
+                  "startColumn": 9,
+                  "endLine": 219,
+                  "endColumn": 21
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1806",
+          "level": "note",
+          "message": "UnthrownException creates a new instance of InvalidOperationException which is never used. Pass the instance as an argument to another method, assign the instance to a variable, or remove the object creation if it is unnecessary.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 218,
+                  "startColumn": 9,
+                  "endLine": 218,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1806",
+          "level": "note",
+          "message": "UnthrownException creates a new instance of Object which is never used. Pass the instance as an argument to another method, assign the instance to a variable, or remove the object creation if it is unnecessary.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 219,
+                  "startColumn": 9,
+                  "endLine": 219,
+                  "endColumn": 21
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2995",
+          "level": "warning",
+          "message": "Use a different kind of comparison for these value types.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 275,
+                  "startColumn": 13,
+                  "endLine": 275,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA2013",
+          "level": "warning",
+          "message": "Do not pass an argument with value type 'int' to 'ReferenceEquals'. Due to value boxing, this call to 'ReferenceEquals' can return an unexpected result. Consider using 'Equals' instead, or pass reference type arguments if you intend to use 'ReferenceEquals'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 275,
+                  "startColumn": 36,
+                  "endLine": 275,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA2013",
+          "level": "warning",
+          "message": "Do not pass an argument with value type 'int' to 'ReferenceEquals'. Due to value boxing, this call to 'ReferenceEquals' can return an unexpected result. Consider using 'Equals' instead, or pass reference type arguments if you intend to use 'ReferenceEquals'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 275,
+                  "startColumn": 43,
+                  "endLine": 275,
+                  "endColumn": 48
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3981",
+          "level": "warning",
+          "message": "The 'Length' of 'Array' always evaluates as 'True' regardless the size.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 290,
+                  "startColumn": 13,
+                  "endLine": 290,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2368",
+          "level": "warning",
+          "message": "Make this method private or simplify its parameters to not use multidimensional/jagged arrays.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 298,
+                  "startColumn": 23,
+                  "endLine": 298,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2245",
+          "level": "warning",
+          "message": "Use a cryptographically strong random number generator.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 22,
+                  "endLine": 30,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3168",
+          "level": "warning",
+          "message": "Return 'Task' instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 230,
+                  "startColumn": 25,
+                  "endLine": 230,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2275",
+          "level": "warning",
+          "message": "Invalid string format, the highest string format item index should not be greater than the arguments count.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 245,
+                  "startColumn": 13,
+                  "endLine": 245,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA2241",
+          "level": "note",
+          "message": "Provide correct arguments to formatting methods",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 245,
+                  "startColumn": 13,
+                  "endLine": 245,
+                  "endColumn": 74
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S5547",
+          "level": "warning",
+          "message": "Use a strong cipher algorithm.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 26,
+                  "endLine": 48,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S5445",
+          "level": "warning",
+          "message": "'Path.GetTempFileName()' is insecure. Use 'Path.GetRandomFileName()' instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 92,
+                  "startColumn": 24,
+                  "endLine": 92,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S5344",
+          "level": "warning",
+          "message": "Use at least 100,000 iterations here.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 89,
+                  "endLine": 70,
+                  "endColumn": 93
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4423",
+          "level": "warning",
+          "message": "Change this code to use a stronger protocol.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 41,
+                  "endLine": 78,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4423",
+          "level": "warning",
+          "message": "Change this code to use a stronger protocol.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 60,
+                  "endLine": 78,
+                  "endColumn": 65
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4423",
+          "level": "warning",
+          "message": "Change this code to use a stronger protocol.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 89,
+                  "startColumn": 69,
+                  "endLine": 89,
+                  "endColumn": 72
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4423",
+          "level": "warning",
+          "message": "Change this code to use a stronger protocol.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 89,
+                  "startColumn": 96,
+                  "endLine": 89,
+                  "endColumn": 101
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2755",
+          "level": "warning",
+          "message": "Disable access to external entities in XML parsing.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 114,
+                  "startColumn": 29,
+                  "endLine": 114,
+                  "endColumn": 84
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 111,
+                  "startColumn": 13,
+                  "endLine": 111,
+                  "endColumn": 48
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 112,
+                  "startColumn": 13,
+                  "endLine": 112,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "This value enables external entities in XML parsing.",
+              "1": "This value enables external entities in XML parsing."
+            }
+          }
+        },
+        {
+          "ruleId": "CA1416",
+          "level": "warning",
+          "message": "This call site is reachable on all platforms. 'File.SetUnixFileMode(string, UnixFileMode)' is unsupported on: 'windows'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 9,
+                  "endLine": 96,
+                  "endColumn": 138
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1850",
+          "level": "note",
+          "message": "Prefer static 'System.Security.Cryptography.MD5.HashData' method over 'ComputeHash'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 22,
+                  "endLine": 35,
+                  "endColumn": 71
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 20,
+                  "endLine": 33,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "ComputeTypePropertyKey": "ComputeHash",
+              "DeleteHashCreationPropertyKey": "DeleteHashCreationPropertyKey",
+              "HashCreationIndexPropertyKey": "0",
+              "TargetHashTypeDiagnosticPropertyKey": "MD5"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1850",
+          "level": "note",
+          "message": "Prefer static 'System.Security.Cryptography.SHA1.HashData' method over 'ComputeHash'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 22,
+                  "endLine": 40,
+                  "endColumn": 72
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 20,
+                  "endLine": 38,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "ComputeTypePropertyKey": "ComputeHash",
+              "DeleteHashCreationPropertyKey": "DeleteHashCreationPropertyKey",
+              "HashCreationIndexPropertyKey": "0",
+              "TargetHashTypeDiagnosticPropertyKey": "SHA1"
+            }
+          }
+        },
+        {
+          "ruleId": "S6966",
+          "level": "warning",
+          "message": "Await WriteAllTextAsync instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 9,
+                  "endLine": 93,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core.Application/Services/QualityGateFailureDemo.cs",
+                "region": {
+                  "startLine": 239,
+                  "startColumn": 13,
+                  "endLine": 239,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
         }
       ],
       "rules": {
+        "CA1416": {
+          "id": "CA1416",
+          "shortDescription": "Validate platform compatibility",
+          "fullDescription": "Using platform dependent API on a component makes the code no longer work across all platforms.",
+          "defaultLevel": "warning",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1416",
+          "properties": {
+            "category": "Interoperability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA1806": {
+          "id": "CA1806",
+          "shortDescription": "Do not ignore method results",
+          "fullDescription": "A new object is created but never used; or a method that creates and returns a new string is called and the new string is never used; or a COM or P/Invoke method returns an HRESULT or error code that is never used.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1806",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "PortedFromFxCop",
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA1850": {
+          "id": "CA1850",
+          "shortDescription": "Prefer static 'HashData' method over 'ComputeHash'",
+          "fullDescription": "It is more efficient to use the static 'HashData' method over creating and managing a HashAlgorithm instance to call 'ComputeHash'.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1850",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
         "CA1859": {
           "id": "CA1859",
           "shortDescription": "Use concrete types when possible for improved performance",
@@ -70,6 +1879,140 @@
             ]
           }
         },
+        "CA2013": {
+          "id": "CA2013",
+          "shortDescription": "Do not use ReferenceEquals with value types",
+          "fullDescription": "Value type typed arguments are uniquely boxed for each call to this method, therefore the result can be unexpected.",
+          "defaultLevel": "warning",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2013",
+          "properties": {
+            "category": "Reliability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA2019": {
+          "id": "CA2019",
+          "shortDescription": "Improper 'ThreadStatic' field initialization",
+          "fullDescription": "'ThreadStatic' fields should be initialized lazily on use, not with inline initialization nor explicitly in a static constructor, which would only initialize the field on the thread that runs the type's static constructor.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2019",
+          "properties": {
+            "category": "Reliability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA2211": {
+          "id": "CA2211",
+          "shortDescription": "Non-constant fields should not be visible",
+          "fullDescription": "Static fields that are neither constants nor read-only are not thread-safe. Access to such a field must be carefully controlled and requires advanced programming techniques to synchronize access to the class object.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2211",
+          "properties": {
+            "category": "Usage",
+            "isEnabledByDefault": true,
+            "tags": [
+              "PortedFromFxCop",
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA2241": {
+          "id": "CA2241",
+          "shortDescription": "Provide correct arguments to formatting methods",
+          "fullDescription": "The format argument that is passed to System.String.Format does not contain a format item that corresponds to each object argument, or vice versa.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2241",
+          "properties": {
+            "category": "Usage",
+            "isEnabledByDefault": true,
+            "tags": [
+              "PortedFromFxCop",
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA2242": {
+          "id": "CA2242",
+          "shortDescription": "Test for NaN correctly",
+          "fullDescription": "This expression tests a value against Single.Nan or Double.Nan. Use Single.IsNan(Single) or Double.IsNan(Double) to test the value.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2242",
+          "properties": {
+            "category": "Usage",
+            "isEnabledByDefault": true,
+            "tags": [
+              "PortedFromFxCop",
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CS0162": {
+          "id": "CS0162",
+          "shortDescription": "Unreachable code detected",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS0162)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "CS1717": {
+          "id": "CS1717",
+          "shortDescription": "Assignment made to same variable",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS1717)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "CS1718": {
+          "id": "CS1718",
+          "shortDescription": "Comparison made to same variable",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS1718)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "CS8603": {
+          "id": "CS8603",
+          "shortDescription": "Possible null reference return.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8603)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
         "CS9113": {
           "id": "CS9113",
           "shortDescription": "Parameter is unread.",
@@ -81,6 +2024,749 @@
             "tags": [
               "Compiler",
               "Telemetry"
+            ]
+          }
+        },
+        "S1244": {
+          "id": "S1244",
+          "shortDescription": "Floating point numbers should not be tested for equality",
+          "fullDescription": "Floating point numbers in C# (and in most other programming languages) are not precise. They are a binary approximation of the actual value. This means that even if two floating point numbers appear to be equal, they might not be due to the tiny differences in their binary representation.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1656": {
+          "id": "S1656",
+          "shortDescription": "Variables should not be self-assigned",
+          "fullDescription": "Re-assigning a variable to itself is a defect as it has no actual effect and indicates meaning to do something else. It usually means that:",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1751": {
+          "id": "S1751",
+          "shortDescription": "Loops with at most one iteration should be refactored",
+          "fullDescription": "A loop statement with at most one iteration is equivalent to an if statement; the following block is executed only once.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1764": {
+          "id": "S1764",
+          "shortDescription": "Identical expressions should not be used on both sides of operators",
+          "fullDescription": "Using the same value on both sides of certain operators is a code defect. In the case of logical operators, it is either a copy/paste error and, therefore, a bug, or it is simply duplicated code and should be simplified. For bitwise operators and most binary mathematical operators, having the same value on both sides of an operator yields predictable results and should be simplified as well to avoid further code defects.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1848": {
+          "id": "S1848",
+          "shortDescription": "Objects should not be created to be dropped immediately without being used",
+          "fullDescription": "Creating objects that are not used is a vulnerability that can lead to unexpected behavior.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1862": {
+          "id": "S1862",
+          "shortDescription": "Related \"if/else if\" statements should not have the same condition",
+          "fullDescription": "A chain of if/else if statements is evaluated from top to bottom. At most, only one branch will be executed: the first statement with a condition that evaluates to true. Therefore, duplicating a condition leads to unreachable code inside the duplicated condition block. Usually, this is due to a copy/paste error.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2068": {
+          "id": "S2068",
+          "shortDescription": "Credentials should not be hard-coded",
+          "fullDescription": "Hard-coding credentials in source code or binaries makes it easy for attackers to extract sensitive information, especially in distributed or open-source applications. This practice exposes your application to significant security risks.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2092": {
+          "id": "S2092",
+          "shortDescription": "Cookies should have the \"secure\" flag",
+          "fullDescription": "When a cookie is protected with the secure attribute set to true it will not be send by the browser over an unencrypted HTTP request and thus cannot be observed by an unauthorized person during a man-in-the-middle attack.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2123": {
+          "id": "S2123",
+          "shortDescription": "Values should not be uselessly incremented",
+          "fullDescription": "When using the postfix increment operator, it is important to know that the result of the expression x++ is the value before the operation x.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2190": {
+          "id": "S2190",
+          "shortDescription": "Loops and recursions should not be infinite",
+          "fullDescription": "Having an infinite loop or recursion will lead to a program failure or a program never finishing the execution.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Blocker Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2201": {
+          "id": "S2201",
+          "shortDescription": "Methods without side effects should not have their return values ignored",
+          "fullDescription": "When you do not use the return value of a method with no side effects, it indicates that something is wrong. Either this method is unnecessary, or the source code does not behave as expected and could lead to code defects. For example, there are methods, such as DateTime.AddYears, that don’t change the value of the input object, but instead, they return a new object whose value is the result of this operation, and as a result that you will have unexpected effects if you do not use the return value.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2225": {
+          "id": "S2225",
+          "shortDescription": "\"ToString()\" method should not return null",
+          "fullDescription": "Calling ToString() on an object should always return a string. Thus, overriding the ToString method should never return null, as it breaks the method’s implicit contract, and as a result the consumer’s expectations.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2245": {
+          "id": "S2245",
+          "shortDescription": "Pseudorandom number generators (PRNGs) should not be used in security contexts",
+          "fullDescription": "Pseudorandom number generators (PRNGs) produce sequences that only approximate true randomness and are not suitable for security-sensitive contexts.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2275": {
+          "id": "S2275",
+          "shortDescription": "Composite format strings should not lead to unexpected behavior at runtime",
+          "fullDescription": "Composite format strings in C# are evaluated at runtime, which means they are not verified by the compiler. Introducing an ill-formed format item, or indexing mismatch can lead to unexpected behaviors or runtime errors. The purpose of this rule is to perform static validation on composite format strings used in various string formatting functions to ensure their correct usage. This rule validates the proper behavior of composite formats when invoking the following methods:",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Blocker Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2368": {
+          "id": "S2368",
+          "shortDescription": "Public methods should not have multidimensional array parameters",
+          "fullDescription": "Using multidimensional and jagged arrays as method parameters in C# can be challenging for developers.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Blocker Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2445": {
+          "id": "S2445",
+          "shortDescription": "Blocks should be synchronized on read-only fields",
+          "fullDescription": "Locking on a class field synchronizes not on the field itself, but on the object assigned to it. Thus, there are some good practices to follow to avoid problems related to thread synchronization.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2551": {
+          "id": "S2551",
+          "shortDescription": "Shared resources should not be used for locking",
+          "fullDescription": "The instance passed to the lock statement should be a dedicated private field.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Critical Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2688": {
+          "id": "S2688",
+          "shortDescription": "\"NaN\" should not be used in comparisons",
+          "fullDescription": "double.NaN and float.NaN are not equal to anything, not even themselves.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2755": {
+          "id": "S2755",
+          "shortDescription": "XML parsers should not be vulnerable to XXE attacks",
+          "fullDescription": "This vulnerability allows the usage of external entities in XML.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Blocker Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2757": {
+          "id": "S2757",
+          "shortDescription": "Non-existent operators like \"=+\" should not be used",
+          "fullDescription": "Using operator pairs (=+, =-, or =!) that look like reversed single operators (+=, -= or !=) is confusing. They compile and run but do not produce the same result as their mirrored counterpart.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2761": {
+          "id": "S2761",
+          "shortDescription": "Doubled prefix operators \"!!\" and \"~~\" should not be used",
+          "fullDescription": "The repetition of a prefix operator (!, or ~) is usually a typo. The second operator invalidates the first one.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2995": {
+          "id": "S2995",
+          "shortDescription": "\"Object.ReferenceEquals\" should not be used for value types",
+          "fullDescription": "In C#, the Object.ReferenceEquals method is used to compare two reference type variables. If you use this method to compare two value types, such as int, float, or bool you will not get the expected results because value type variables contain an instance of the type and not a reference to it.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2996": {
+          "id": "S2996",
+          "shortDescription": "\"ThreadStatic\" fields should not be initialized",
+          "fullDescription": "When an object has a field annotated with ThreadStatic, that field is shared within a given thread, but unique across threads. Since a class' static initializer is only invoked for the first thread created, it also means that only the first thread will have the expected initial values.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3168": {
+          "id": "S3168",
+          "shortDescription": "\"async\" methods should not return \"void\"",
+          "fullDescription": "An async method with a void return type does not follow the task asynchronous programming (TAP) model since the return type should be Task or Task<TResult>",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3330": {
+          "id": "S3330",
+          "shortDescription": "Cookies should have the \"HttpOnly\" flag",
+          "fullDescription": "Setting the HttpOnly attribute on cookies prevents client-side scripts from reading their values, limiting the damage that cross-site scripting (XSS) attacks can cause.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3875": {
+          "id": "S3875",
+          "shortDescription": "\"operator==\" should not be overloaded on reference types",
+          "fullDescription": "The use of == to compare two objects is expected to do a reference comparison. That is, it is expected to return true if and only if they are the same object instance. Overloading the operator to do anything else will inevitably lead to the introduction of bugs by callers.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Blocker Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3923": {
+          "id": "S3923",
+          "shortDescription": "All branches in a conditional structure should not have exactly the same implementation",
+          "fullDescription": "Having all branches of a switch or if chain with the same implementation indicates a problem.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3981": {
+          "id": "S3981",
+          "shortDescription": "Collection sizes and array length comparisons should make sense",
+          "fullDescription": "The size of a collection and the length of an array are always greater than or equal to zero. Testing it doesn’t make sense, since the result is always true.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3984": {
+          "id": "S3984",
+          "shortDescription": "Exceptions should not be created without being thrown",
+          "fullDescription": "Creating a new Exception without actually throwing does not achieve the intended purpose.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4036": {
+          "id": "S4036",
+          "shortDescription": "OS commands should not rely on PATH resolution",
+          "fullDescription": "Executing an OS command without specifying an absolute or relative path exposes the application to PATH-hijacking attacks.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4143": {
+          "id": "S4143",
+          "shortDescription": "Collection elements should not be replaced unconditionally",
+          "fullDescription": "Storing a value inside a collection at a given key or index and then unconditionally overwriting it without reading the initial value is a case of a \"dead store\".",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4423": {
+          "id": "S4423",
+          "shortDescription": "Weak SSL/TLS protocols should not be used",
+          "fullDescription": "This vulnerability exposes encrypted data to a number of attacks whose goal is to recover the plaintext.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Critical Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4426": {
+          "id": "S4426",
+          "shortDescription": "Cryptographic keys should be robust",
+          "fullDescription": "This vulnerability exposes encrypted data to attacks whose goal is to recover the plaintext.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Critical Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4502": {
+          "id": "S4502",
+          "shortDescription": "CSRF protections should not be disabled",
+          "fullDescription": "Cross-site request forgery (CSRF) forces an authenticated user to perform unintended state-changing actions in a web application. This rule detects when CSRF protection is explicitly disabled or missing from an application.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Critical Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4507": {
+          "id": "S4507",
+          "shortDescription": "Debugging features should not be enabled in production",
+          "fullDescription": "Development tools and frameworks usually have options to make debugging easier for developers, but these features should never be enabled for applications deployed in production.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4790": {
+          "id": "S4790",
+          "shortDescription": "Weak hashing algorithms should not be used",
+          "fullDescription": "Using a weak hashing algorithm to protect sensitive data can compromise the security guarantees the hash is meant to provide.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Critical Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4830": {
+          "id": "S4830",
+          "shortDescription": "Server certificates should be verified during SSL/TLS connections",
+          "fullDescription": "This vulnerability makes it possible that an encrypted communication is intercepted.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Critical Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S5122": {
+          "id": "S5122",
+          "shortDescription": "Cross-Origin Resource Sharing (CORS) policy should be restricted to trusted origins",
+          "fullDescription": "Setting an overly permissive Cross-Origin Resource Sharing (CORS) policy allows malicious websites to read responses from your application on behalf of authenticated users.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S5332": {
+          "id": "S5332",
+          "shortDescription": "Clear-text protocols should not be used",
+          "fullDescription": "Using clear-text protocols exposes data in transit to eavesdropping and man-in-the-middle attacks.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S5344": {
+          "id": "S5344",
+          "shortDescription": "Passwords should not be stored in plaintext or with a fast hashing algorithm",
+          "fullDescription": "The improper storage of passwords poses a significant security risk to software applications. This vulnerability arises when passwords are stored in plaintext or with a fast hashing algorithm. To exploit this vulnerability, an attacker typically requires access to the stored passwords.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Critical Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S5445": {
+          "id": "S5445",
+          "shortDescription": "Insecure temporary file creation methods should not be used",
+          "fullDescription": "Temporary files are considered insecurely created when the file existence check is performed separately from the actual file creation. Such a situation can occur when creating temporary files using normal file handling functions or when using dedicated temporary file handling functions that are not atomic.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Critical Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S5547": {
+          "id": "S5547",
+          "shortDescription": "Cipher algorithms should be robust",
+          "fullDescription": "This vulnerability makes it possible that the cleartext of the encrypted message might be recoverable without prior knowledge of the key.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Critical Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S5856": {
+          "id": "S5856",
+          "shortDescription": "Regular expressions should be syntactically valid",
+          "fullDescription": "Regular expressions have their own syntax that is understood by regular expression engines. Those engines will throw an exception at runtime if they are given a regular expression that does not conform to that syntax.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Critical Bug",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6444": {
+          "id": "S6444",
+          "shortDescription": "Regular expressions should be executed with a timeout",
+          "fullDescription": "Regular expressions without a timeout can be exploited to cause a Denial-of-Service attack.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay",
+              "CompilationEnd"
+            ]
+          }
+        },
+        "S6966": {
+          "id": "S6966",
+          "shortDescription": "Awaitable method should be used",
+          "fullDescription": "In an async method, any blocking operations should be avoided.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "SYSLIB0014": {
+          "id": "SYSLIB0014",
+          "shortDescription": "Type or member is obsolete",
+          "defaultLevel": "warning",
+          "helpUri": "https://aka.ms/dotnet-warnings/SYSLIB0014",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry",
+              "CustomObsolete"
+            ]
+          }
+        },
+        "SYSLIB0039": {
+          "id": "SYSLIB0039",
+          "shortDescription": "Type or member is obsolete",
+          "defaultLevel": "warning",
+          "helpUri": "https://aka.ms/dotnet-warnings/SYSLIB0039",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry",
+              "CustomObsolete"
+            ]
+          }
+        },
+        "SYSLIB0060": {
+          "id": "SYSLIB0060",
+          "shortDescription": "Type or member is obsolete",
+          "defaultLevel": "warning",
+          "helpUri": "https://aka.ms/dotnet-warnings/SYSLIB0060",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry",
+              "CustomObsolete"
             ]
           }
         }

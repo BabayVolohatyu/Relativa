@@ -75,6 +75,8 @@ C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Servi
 C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Services\OrganizationUserAdminService.cs
 C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Services\OrgInvitationService.cs
 C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Services\OrgRoleService.cs
+C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Services\QualityGateFailureAspNetDemo.cs
+C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Services\QualityGateFailureDemo.cs
 C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Services\RoleService.cs
 C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Services\WorkspaceAccessEvaluator.cs
 C:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core.Application\Services\WorkspaceMemberService.cs

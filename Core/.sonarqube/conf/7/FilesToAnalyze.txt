@@ -10,6 +10,7 @@ C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authenticati
 C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\MemoryEmailRateLimiter.cs
 C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\OpenIdConnectIdentityVerifier.cs
 C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\OtpNetTotpProvider.cs
+C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\QualityGateJwtDemo.cs
 C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\SmtpEmailSender.cs
 C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Services\SmtpSmsSender.cs
 C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Infrastructure\Emails\locales\en.json

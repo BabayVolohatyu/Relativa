@@ -41,63 +41,63 @@ r
 xC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\SupportOptions.cs 8r	Çí
 uC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\SmtpOptions.cs 8r	
 Ç	
-à
+ô
+ÖC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IUserProvisioningService.csjr
+	à
 tC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\SmsOptions.cs 
 8
 r
 	
-π
-vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\OAuthOptions.cs	 8r(	
- "#$%'()*+-./01xÇ
-"$')-./ô
+ô
 ÇC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\EmailVerificationOptions.cs 8r	
 ã
 ÄC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\VerificationChannel.csrè
-ÅC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IUserSettingsService.csr	ô
-ÖC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IUserProvisioningService.csjr
-	ë
+ÅC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IUserSettingsService.csr	π
+vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Options\OAuthOptions.cs	 8r(	
+ "#$%'()*+-./01xÇ
+"$')-./ë
 ~C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\ITwoFactorService.csr	
-à
-|C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\ISupportService.csrò
+ò
 ÜC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IExternalIdentityVerifier.csr
 î
-ÜC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IEmailVerificationService.csrâ
+ÜC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IEmailVerificationService.csrà
+|C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\ISupportService.csrâ
 ~C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IEmailRateLimiter.csrá
 |C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IEmailLocalizer.csrì
 ÅC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IEmailAddressService.csr	
 è
 yC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IAuthService.csr	
-ë
-áC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\TwoFactorRequiredException.csrê
-áC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\RateLimitExceededException.csró
+ê
+áC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\RateLimitExceededException.csrë
+áC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\TwoFactorRequiredException.csró
 çC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\InvalidVerificationCodeException.csrî
 äC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\InvalidTwoFactorCodeException.csró
-ÜC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\EmailNotVerifiedException.cs 8rë
-áC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\EmailAddressTakenException.csrå
-ÉC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\ConfigurationException.csrä
+ÜC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\EmailNotVerifiedException.cs 8rå
+ÉC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\ConfigurationException.csrë
+áC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\EmailAddressTakenException.csrä
 zC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\AuthException.cs 8rß
 {C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Emails\PasswordResetEmail.cs	 8r	
-ÇÅ
-yC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\VerifyEmailRequest.csrﬂ
+Çß
+C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Emails\EmailVerificationEmail.cs 8r	
+Çﬂ
 tC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Emails\EmailLayout.cs 8rW
  !"#$%&'()*+,-.012345678:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]Ç8:â
-qC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\EmailNormalizer.cs 8r	Çß
-C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Emails\EmailVerificationEmail.cs 8r	
-Ç~
+qC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\EmailNormalizer.cs 8r	ÇÅ
+yC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\VerifyEmailRequest.csr~
 vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\UserSettingsDto.csrÜ
 uC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\UserProfileDto.csr	
 â
-ÄC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\UpdateUserSettingsRequest.csrÉ
-{C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\ResetPasswordRequest.csrâ
-}C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\UpdateMyProfileRequest.csrâ
-|C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\SupportContactRequest.csrÅ
+ÄC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\UpdateUserSettingsRequest.csrâ
+}C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\UpdateMyProfileRequest.csrÅ
 tC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\TwoFactorDtos.csr	â
-ÄC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\ResendVerificationRequest.csr~
-vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\LoginRequestDto.csr
-wC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\LoginResponseDto.csrÜ
+|C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\SupportContactRequest.csrÉ
+{C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\ResetPasswordRequest.csrâ
+ÄC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\ResendVerificationRequest.csrÜ
 zC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\RegisterResponseDto.csrà
 yC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\RegisterRequestDto.csr		
 É
-{C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\OAuthLoginRequestDto.csrÑ
+{C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\OAuthLoginRequestDto.csr
+wC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\LoginResponseDto.csr~
+vC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\LoginRequestDto.csrÑ
 |C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\ForgotPasswordRequest.csrÇ
 wC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\DTOs\EmailAddressDtos.csr	

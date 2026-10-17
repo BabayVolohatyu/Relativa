@@ -11256,42 +11256,7 @@ Interfaces. 8
 defaultJ Q
 )Q R
 ;R S
-} ò
-|C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\ISupportService.cs
-	namespace 	
-Relativa
- 
-. 
-Authentication !
-.! "
-Application" -
-.- .
-
-Interfaces. 8
-;8 9
-public 
-	interface 
-ISupportService  
-{ 
-Task 
-SendContactAsync	 
-( !
-SupportContactRequest /
-request0 7
-,7 8
-string9 ?
-?? @
-clientIpA I
-=J K
-nullL P
-,P Q
-CancellationTokenR c
-ctd f
-=g h
-defaulti p
-)p q
-;q r
-} ­	
+} ­	
 †C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IExternalIdentityVerifier.cs
 	namespace 	
 Relativa
@@ -11432,6 +11397,41 @@ Interfaces. 8
 defaultY `
 )` a
 ;a b
+} ò
+|C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\ISupportService.cs
+	namespace 	
+Relativa
+ 
+. 
+Authentication !
+.! "
+Application" -
+.- .
+
+Interfaces. 8
+;8 9
+public 
+	interface 
+ISupportService  
+{ 
+Task 
+SendContactAsync	 
+( !
+SupportContactRequest /
+request0 7
+,7 8
+string9 ?
+?? @
+clientIpA I
+=J K
+nullL P
+,P Q
+CancellationTokenR c
+ctd f
+=g h
+defaulti p
+)p q
+;q r
 } „
 ~C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Interfaces\IEmailRateLimiter.cs
 	namespace 	
@@ -11990,31 +11990,7 @@ Exceptions. 8
 =! "
 email# (
 ;( )
-} ¢
-‡C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\EmailAddressTakenException.cs
-	namespace 	
-Relativa
- 
-. 
-Authentication !
-.! "
-Application" -
-.- .
-
-Exceptions. 8
-;8 9
-public 
-sealed 
-class &
-EmailAddressTakenException .
-(. /
-)/ 0
-: 
-	Exception 
-( 
-$str 7
-)7 8
-;8 9Æ
+} Æ
 ƒC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\ConfigurationException.cs
 	namespace 	
 Relativa
@@ -12040,7 +12016,31 @@ Exceptions. 8
 (F G
 messageG N
 )N O
-;O Pð
+;O P¢
+‡C:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\EmailAddressTakenException.cs
+	namespace 	
+Relativa
+ 
+. 
+Authentication !
+.! "
+Application" -
+.- .
+
+Exceptions. 8
+;8 9
+public 
+sealed 
+class &
+EmailAddressTakenException .
+(. /
+)/ 0
+: 
+	Exception 
+( 
+$str 7
+)7 8
+;8 9ð
 zC:\Users\babay\myrepos\testing\Relativa\Authentication\src\Relativa.Authentication.Application\Exceptions\AuthException.cs
 	namespace 	
 Relativa

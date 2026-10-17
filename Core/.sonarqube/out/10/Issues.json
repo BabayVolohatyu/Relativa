@@ -1,0 +1,448 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "5.9.0.0",
+        "fileVersion": "5.9.0-1.26505.111 (a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e)",
+        "semanticVersion": "5.9.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "ASPDEPR002",
+          "level": "warning",
+          "message": "'OpenApiEndpointConventionBuilderExtensions.WithOpenApi<TBuilder>(TBuilder, Func<OpenApiOperation, OpenApiOperation>)' is obsolete: 'WithOpenApi is deprecated and will be removed in a future release. For more information, visit https://aka.ms/aspnet/deprecate/002.'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/Endpoints/EntityEndpoints.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 9,
+                  "endLine": 161,
+                  "endColumn": 11
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 2
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Dereference of a possibly null reference.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/Endpoints/EntityEndpoints.cs",
+                "region": {
+                  "startLine": 86,
+                  "startColumn": 31,
+                  "endLine": 86,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Dereference of a possibly null reference.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/Endpoints/EntityEndpoints.cs",
+                "region": {
+                  "startLine": 121,
+                  "startColumn": 17,
+                  "endLine": 121,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Dereference of a possibly null reference.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/Endpoints/EntityEndpoints.cs",
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 21,
+                  "endLine": 124,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/appsettings.json",
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 17,
+                  "endLine": 4,
+                  "endColumn": 95
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/appsettings.json",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 18,
+                  "endLine": 10,
+                  "endColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2068",
+          "level": "warning",
+          "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/appsettings.json",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 18,
+                  "endLine": 19,
+                  "endColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4502",
+          "level": "warning",
+          "message": "Ensure CSRF protection is not disabled.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/QualityGateFailureWebDemo.cs",
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 2,
+                  "endLine": 40,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4507",
+          "level": "warning",
+          "message": "Disable this debug feature in production.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/QualityGateFailureWebDemo.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 9,
+                  "endLine": 26,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3330",
+          "level": "warning",
+          "message": "Set the 'HttpOnly' flag on this cookie.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/QualityGateFailureWebDemo.cs",
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 74,
+                  "endLine": 36,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2092",
+          "level": "warning",
+          "message": "Set the 'Secure' flag on this cookie.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/QualityGateFailureWebDemo.cs",
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 74,
+                  "endLine": 36,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S5122",
+          "level": "warning",
+          "message": "Restrict this CORS policy to trusted origins.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/QualityGateFailureWebDemo.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 17,
+                  "endLine": 19,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6966",
+          "level": "warning",
+          "message": "Await RunAsync instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/Program.cs",
+                "region": {
+                  "startLine": 121,
+                  "startColumn": 5,
+                  "endLine": 121,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6966",
+          "level": "warning",
+          "message": "Await CloseAndFlushAsync instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/babay/myrepos/testing/Relativa/Core/src/Relativa.Core/Program.cs",
+                "region": {
+                  "startLine": 129,
+                  "startColumn": 5,
+                  "endLine": 129,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "ASPDEPR002": {
+          "id": "ASPDEPR002",
+          "shortDescription": "Type or member is obsolete",
+          "defaultLevel": "warning",
+          "helpUri": "https://aka.ms/aspnet/deprecate/002",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry",
+              "CustomObsolete"
+            ]
+          }
+        },
+        "CS8602": {
+          "id": "CS8602",
+          "shortDescription": "Dereference of a possibly null reference.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8602)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "S2068": {
+          "id": "S2068",
+          "shortDescription": "Credentials should not be hard-coded",
+          "fullDescription": "Hard-coding credentials in source code or binaries makes it easy for attackers to extract sensitive information, especially in distributed or open-source applications. This practice exposes your application to significant security risks.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2092": {
+          "id": "S2092",
+          "shortDescription": "Cookies should have the \"secure\" flag",
+          "fullDescription": "When a cookie is protected with the secure attribute set to true it will not be send by the browser over an unencrypted HTTP request and thus cannot be observed by an unauthorized person during a man-in-the-middle attack.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3330": {
+          "id": "S3330",
+          "shortDescription": "Cookies should have the \"HttpOnly\" flag",
+          "fullDescription": "Setting the HttpOnly attribute on cookies prevents client-side scripts from reading their values, limiting the damage that cross-site scripting (XSS) attacks can cause.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4502": {
+          "id": "S4502",
+          "shortDescription": "CSRF protections should not be disabled",
+          "fullDescription": "Cross-site request forgery (CSRF) forces an authenticated user to perform unintended state-changing actions in a web application. This rule detects when CSRF protection is explicitly disabled or missing from an application.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Critical Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4507": {
+          "id": "S4507",
+          "shortDescription": "Debugging features should not be enabled in production",
+          "fullDescription": "Development tools and frameworks usually have options to make debugging easier for developers, but these features should never be enabled for applications deployed in production.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S5122": {
+          "id": "S5122",
+          "shortDescription": "Cross-Origin Resource Sharing (CORS) policy should be restricted to trusted origins",
+          "fullDescription": "Setting an overly permissive Cross-Origin Resource Sharing (CORS) policy allows malicious websites to read responses from your application on behalf of authenticated users.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Vulnerability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6966": {
+          "id": "S6966",
+          "shortDescription": "Awaitable method should be used",
+          "fullDescription": "In an async method, any blocking operations should be avoided.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

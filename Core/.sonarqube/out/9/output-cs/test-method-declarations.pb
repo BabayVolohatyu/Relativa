@@ -87,7 +87,16 @@ lC:\Users\babay\myrepos\testing\Relativa\Core\tests\Relativa.Core.Integration.Te
 6Relativa.Core.Integration.Tests.EntityIntegrationTests2CreateAsync_ClientEntity_CreatesEntityWorkspaceRowu
 6Relativa.Core.Integration.Tests.EntityIntegrationTests;CreateAsync_DealEntity_PersistsDecimalAndDatePropertyValuesx
 6Relativa.Core.Integration.Tests.EntityIntegrationTests>GetByIdInWorkspaceAsync_EntityInDifferentWorkspace_ReturnsNullx
-6Relativa.Core.Integration.Tests.EntityIntegrationTests>CreateAsync_OnTransactionFailure_DoesNotLeaveOrphanedEntityRow²
+6Relativa.Core.Integration.Tests.EntityIntegrationTests>CreateAsync_OnTransactionFailure_DoesNotLeaveOrphanedEntityRowƒ
+wC:\Users\babay\myrepos\testing\Relativa\Core\tests\Relativa.Core.Integration.Tests\AuditOutboxWriterIntegrationTests.csRelativa.Core.Integration.Testsv
+ARelativa.Core.Integration.Tests.AuditOutboxWriterIntegrationTests1EnqueueAsync_PersistsMessageWithCorrectRoutingKeyy
+ARelativa.Core.Integration.Tests.AuditOutboxWriterIntegrationTests4EnqueueAsync_PayloadJsonRoundTripsToOriginalContractt
+ARelativa.Core.Integration.Tests.AuditOutboxWriterIntegrationTests/EnqueueAsync_EachScopeProducesCorrectRoutingKeyþ
+uC:\Users\babay\myrepos\testing\Relativa\Core\tests\Relativa.Core.Integration.Tests\EntityGraphCommandConsumerTests.csRelativa.Core.Integration.Tests
+?Relativa.Core.Integration.Tests.EntityGraphCommandConsumerTests>ValidCreate_ServiceSucceeds_RepliesSuccessWithEntityDetailJsons
+?Relativa.Core.Integration.Tests.EntityGraphCommandConsumerTests0ServiceThrows_RepliesFailureWithExceptionMessage~
+?Relativa.Core.Integration.Tests.EntityGraphCommandConsumerTests;InvalidCreateEntityJson_RepliesFailureWithoutCallingServicek
+?Relativa.Core.Integration.Tests.EntityGraphCommandConsumerTests(NullCommandPayload_RepliesInvalidPayload²
 rC:\Users\babay\myrepos\testing\Relativa\Core\tests\Relativa.Core.Integration.Tests\EntityFilterIntegrationTests.csRelativa.Core.Integration.Testsp
 <Relativa.Core.Integration.Tests.EntityFilterIntegrationTests0NoFilters_ReturnsAllNonArchivedWorkspaceEntitiesh
 <Relativa.Core.Integration.Tests.EntityFilterIntegrationTests(EntityTypeFilter_ReturnsOnlyMatchingTypek
@@ -124,13 +133,4 @@ rC:\Users\babay\myrepos\testing\Relativa\Core\tests\Relativa.Core.Integration.Te
 <Relativa.Core.Integration.Tests.EntityFilterIntegrationTestsDateFilter_Lte_ReturnsMatching\
 <Relativa.Core.Integration.Tests.EntityFilterIntegrationTestsMultiFieldSort_AppliesThenByn
 <Relativa.Core.Integration.Tests.EntityFilterIntegrationTests.ExcludeLinkedSourceRelType_OmitsLinkedEntitiesn
-<Relativa.Core.Integration.Tests.EntityFilterIntegrationTests.ExcludeLinkedTargetRelType_OmitsLinkedEntitiesþ
-uC:\Users\babay\myrepos\testing\Relativa\Core\tests\Relativa.Core.Integration.Tests\EntityGraphCommandConsumerTests.csRelativa.Core.Integration.Tests
-?Relativa.Core.Integration.Tests.EntityGraphCommandConsumerTests>ValidCreate_ServiceSucceeds_RepliesSuccessWithEntityDetailJsons
-?Relativa.Core.Integration.Tests.EntityGraphCommandConsumerTests0ServiceThrows_RepliesFailureWithExceptionMessage~
-?Relativa.Core.Integration.Tests.EntityGraphCommandConsumerTests;InvalidCreateEntityJson_RepliesFailureWithoutCallingServicek
-?Relativa.Core.Integration.Tests.EntityGraphCommandConsumerTests(NullCommandPayload_RepliesInvalidPayloadƒ
-wC:\Users\babay\myrepos\testing\Relativa\Core\tests\Relativa.Core.Integration.Tests\AuditOutboxWriterIntegrationTests.csRelativa.Core.Integration.Testsv
-ARelativa.Core.Integration.Tests.AuditOutboxWriterIntegrationTests1EnqueueAsync_PersistsMessageWithCorrectRoutingKeyy
-ARelativa.Core.Integration.Tests.AuditOutboxWriterIntegrationTests4EnqueueAsync_PayloadJsonRoundTripsToOriginalContractt
-ARelativa.Core.Integration.Tests.AuditOutboxWriterIntegrationTests/EnqueueAsync_EachScopeProducesCorrectRoutingKey
+<Relativa.Core.Integration.Tests.EntityFilterIntegrationTests.ExcludeLinkedTargetRelType_OmitsLinkedEntities
