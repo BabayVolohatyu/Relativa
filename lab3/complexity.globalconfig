@@ -1,0 +1,7 @@
+is_global = true
+
+dotnet_diagnostic.S3776.severity = warning
+dotnet_diagnostic.S3776.parameters.threshold = 1
+
+dotnet_diagnostic.S1541.severity = warning
+dotnet_diagnostic.S1541.parameters.maximumFunctionComplexityThreshold = 1

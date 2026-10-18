@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Lab3 complexity" ToolsVersion="17.0">
+  <Rules AnalyzerId="SonarAnalyzer.CSharp" RuleNamespace="SonarAnalyzer.CSharp">
+    <Rule Id="S3776" Action="Warning">
+      <Parameters>
+        <Parameter Key="threshold" Value="1" />
+      </Parameters>
+    </Rule>
+    <Rule Id="S1541" Action="Warning">
+      <Parameters>
+        <Parameter Key="maximumFunctionComplexityThreshold" Value="1" />
+      </Parameters>
+    </Rule>
+  </Rules>
+</RuleSet>

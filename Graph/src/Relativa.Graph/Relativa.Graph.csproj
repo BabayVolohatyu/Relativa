@@ -12,6 +12,20 @@
     <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
   </ItemGroup>
 
+  <!-- Lab 3 only. Absent from normal builds and CI. Threshold 1 keeps the numeric warning after complexity drops. -->
+  <PropertyGroup Condition="'$(Lab3Complexity)' == 'true'">
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)..\..\..\lab3\complexity.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(Lab3Complexity)' == 'true'">
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.35.0.4138">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)..\..\..\lab3\complexity.globalconfig" />
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)..\..\..\lab3\SonarLint.xml" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\..\Persistence\src\Relativa.Persistence\Relativa.Persistence.csproj" />
   </ItemGroup>
