@@ -543,3 +543,17 @@ jobs:
       - name: Teardown
         if: always()
         run: docker compose down -v
+
+  supply-chain:
+    name: Supply chain
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: NuGet vulnerability audit
+        shell: pwsh
+        run: ./lab3/sca.ps1 -Phase ci -FailOnUnresolvedHigh
