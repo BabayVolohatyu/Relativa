@@ -1,3 +1,0 @@
-﻿C:\Users\babay\myrepos\testing\Relativa\Messaging\src\Relativa.Messaging\OutboxRabbitMqPublisher.cs
-C:\Users\babay\myrepos\testing\Relativa\Messaging\src\Relativa.Messaging\RabbitMqExchangeRouter.cs
-C:\Users\babay\myrepos\testing\Relativa\Messaging\src\Relativa.Messaging\RabbitMqPublishingOptions.cs

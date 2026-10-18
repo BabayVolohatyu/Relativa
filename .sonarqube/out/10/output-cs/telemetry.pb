@@ -1,1 +1,0 @@
-`RSC:\Users\babay\myrepos\testing\Relativa\Core\src\Relativa.Core\Relativa.Core.csprojòCSharp14

@@ -1,1 +1,0 @@
-uRhC:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\Relativa.Persistence.csprojòCSharp14

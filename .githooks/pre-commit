@@ -1,0 +1,21 @@
+#!/bin/sh
+# Block staged secrets before they become a commit. Exit code is gitleaks' code.
+if ! command -v gitleaks >/dev/null 2>&1; then
+  if [ -n "$LOCALAPPDATA" ] && [ -x "$LOCALAPPDATA/Microsoft/WinGet/Links/gitleaks.exe" ]; then
+    PATH="$LOCALAPPDATA/Microsoft/WinGet/Links:$PATH"
+    export PATH
+  fi
+fi
+
+if command -v gitleaks >/dev/null 2>&1; then
+  GITLEAKS=gitleaks
+elif [ -x "$LOCALAPPDATA/Microsoft/WinGet/Links/gitleaks.exe" ]; then
+  GITLEAKS="$LOCALAPPDATA/Microsoft/WinGet/Links/gitleaks.exe"
+else
+  echo "gitleaks is not installed; refusing to commit." >&2
+  exit 1
+fi
+
+cd "$(git rev-parse --show-toplevel)" || exit 1
+"$GITLEAKS" protect --staged --redact --no-banner --verbose --config .gitleaks.toml
+exit $?

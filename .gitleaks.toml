@@ -1,0 +1,28 @@
+title = "Relativa"
+
+[extend]
+useDefault = true
+
+# The built-in AWS rule ignores Amazon's published documentation key.
+# This rule uses the same AKIA shape so that sample still fails the hook.
+[[rules]]
+id = "aws-access-key-id"
+description = "AWS access key id"
+regex = '''\bAKIA[0-9A-Z]{16}\b'''
+keywords = ["AKIA"]
+
+[[allowlists]]
+description = "Local SonarScanner working files, not application source."
+paths = ['''(^|[\\/])\.sonarqube[\\/]''']
+
+[[allowlists]]
+description = "HS256 fixture used only by Audit integration tests. It does not sign production tokens."
+paths = ['''Audit[\\/]tests[\\/]Relativa\.Audit\.Integration\.Tests[\\/]AuditApiFactory\.cs''']
+
+[[allowlists]]
+description = "Documented API examples in guides, not live credentials."
+paths = ['''(^|[\\/])SCALAR-GUIDE\.md$''', '''(^|[\\/])FRONTEND-HANDOFF\.md$''']
+
+[[allowlists]]
+description = "Crash-test script stores Amazon's published sample so the hook can be demonstrated. The generated trap file is not allowlisted."
+paths = ['''(^|[\\/])lab3[\\/]demo-secrets\.ps1$''']

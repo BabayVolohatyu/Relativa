@@ -1,1 +1,0 @@
-†RyC:\Users\babay\myrepos\testing\Relativa\Core\tests\Relativa.Core.Application.Tests\Relativa.Core.Application.Tests.csprojòCSharp14

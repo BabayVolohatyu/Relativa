@@ -1,6 +1,12 @@
 # Local environment overrides
 .env
 
+# SonarScanner working directory. It can contain the analysis token.
+.sonarqube/
+
+# Lab 3 crash-test file. The pre-commit hook must see it only when it is force-staged.
+lab3/secrets-trap/
+
 # Visual Studio / Rider IDE folders
 .vs/
 .idea/
