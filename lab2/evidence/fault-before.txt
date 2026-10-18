@@ -1,0 +1,12 @@
+﻿resilience_enabled=false
+warmup_status=504 warmup_time=5.172902
+status=504
+time_total=2.141535
+
+--- graph logs ---
+      ML scoring RPC timed out after 2000ms
+      Handled Graph exception
+      System.TimeoutException: Timed out waiting for ML scoring RPC reply after 2000ms.
+      ML scoring RPC timed out after 2000ms
+      Handled Graph exception
+      System.TimeoutException: Timed out waiting for ML scoring RPC reply after 2000ms.

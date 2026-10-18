@@ -10,7 +10,8 @@ namespace Relativa.Graph.ML;
 
 public sealed class RabbitMqMlScoringClient(
     IOptions<RabbitMqGraphConsumerOptions> opts,
-    ILogger<RabbitMqMlScoringClient> logger) : IMlScoringClient
+    ILogger<RabbitMqMlScoringClient> logger,
+    IOptions<MlScoringResilienceOptions> resilience) : IMlScoringClient
 {
     private static readonly JsonSerializerOptions Json = new()
     {
@@ -18,29 +19,14 @@ public sealed class RabbitMqMlScoringClient(
         PropertyNameCaseInsensitive = true,
     };
 
-    private const int TimeoutSeconds = 8;
-
-    public async Task<IReadOnlyDictionary<int, MlScoreDto>> ScoreBatchAsync(
+    public Task<IReadOnlyDictionary<int, MlScoreDto>> ScoreBatchAsync(
         IReadOnlyList<int> dealEntityIds,
         CancellationToken ct = default)
     {
         if (dealEntityIds.Count == 0)
-            return new Dictionary<int, MlScoreDto>();
+            return Task.FromResult<IReadOnlyDictionary<int, MlScoreDto>>(new Dictionary<int, MlScoreDto>());
 
-        try
-        {
-            return await SendRpcAsync(dealEntityIds, ct);
-        }
-        catch (TimeoutException)
-        {
-            logger.LogWarning("ML scoring RPC timed out after {Seconds}s — graph renders without highlights", TimeoutSeconds);
-            return new Dictionary<int, MlScoreDto>();
-        }
-        catch (Exception ex)
-        {
-            logger.LogWarning(ex, "ML scoring RPC failed — graph renders without highlights");
-            return new Dictionary<int, MlScoreDto>();
-        }
+        return SendRpcAsync(dealEntityIds, ct);
     }
 
     private async Task<IReadOnlyDictionary<int, MlScoreDto>> SendRpcAsync(
@@ -48,12 +34,14 @@ public sealed class RabbitMqMlScoringClient(
         CancellationToken ct)
     {
         var o = opts.Value;
+        var timeoutMs = AttemptTimeoutMs();
         var factory = new ConnectionFactory
         {
             HostName = o.Host,
             Port = o.Port,
             UserName = o.Username,
             Password = o.Password,
+            RequestedConnectionTimeout = TimeSpan.FromMilliseconds(timeoutMs),
         };
 
         await using var connection = await factory.CreateConnectionAsync(ct);
@@ -94,7 +82,7 @@ public sealed class RabbitMqMlScoringClient(
             body: body,
             cancellationToken: ct);
 
-        var deadline = DateTime.UtcNow.AddSeconds(TimeoutSeconds);
+        var deadline = DateTime.UtcNow.AddMilliseconds(timeoutMs);
         while (DateTime.UtcNow < deadline)
         {
             ct.ThrowIfCancellationRequested();
@@ -112,8 +100,9 @@ public sealed class RabbitMqMlScoringClient(
             var reply = JsonSerializer.Deserialize<MlScoreRpcReplyV1>(replyJson, Json);
             if (reply is null || reply.ErrorMessage is not null)
             {
-                logger.LogWarning("ML scoring RPC returned error: {Error}", reply?.ErrorMessage ?? "null reply");
-                return new Dictionary<int, MlScoreDto>();
+                var reason = reply?.ErrorMessage ?? "null reply";
+                logger.LogWarning("ML scoring RPC returned error: {Error}", reason);
+                throw new MlScoringFailedException(reason);
             }
 
             return reply.Scores.ToDictionary(
@@ -121,6 +110,14 @@ public sealed class RabbitMqMlScoringClient(
                 s => new MlScoreDto(s.EntityId, s.ClosureScore, s.ChurnScore, s.UnavailableReason));
         }
 
-        throw new TimeoutException($"Timed out waiting for ML scoring RPC reply after {TimeoutSeconds}s.");
+        logger.LogWarning("ML scoring RPC timed out after {TimeoutMs}ms", timeoutMs);
+        throw new TimeoutException($"Timed out waiting for ML scoring RPC reply after {timeoutMs}ms.");
+    }
+
+    private int AttemptTimeoutMs()
+    {
+        var settings = resilience.Value;
+        var configured = settings.Enabled ? settings.PerAttemptTimeoutMs : settings.UnprotectedTimeoutMs;
+        return Math.Max(1, configured);
     }
 }

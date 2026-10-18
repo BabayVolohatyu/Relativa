@@ -18,7 +18,10 @@ public sealed class MlClientResilienceTests
     [Fact]
     public async Task ScoringClient_EmptyInput_ReturnsEmptyWithoutContactingBroker()
     {
-        var client = new RabbitMqMlScoringClient(DeadBroker(), Substitute.For<ILogger<RabbitMqMlScoringClient>>());
+        var client = new RabbitMqMlScoringClient(
+            DeadBroker(),
+            Substitute.For<ILogger<RabbitMqMlScoringClient>>(),
+            Options.Create(new MlScoringResilienceOptions()));
 
         var result = await client.ScoreBatchAsync([]);
 
@@ -26,13 +29,17 @@ public sealed class MlClientResilienceTests
     }
 
     [Fact]
-    public async Task ScoringClient_BrokerUnavailable_DegradesToEmptyScores()
+    public async Task ScoringClient_BrokerUnavailable_Propagates()
     {
-        var client = new RabbitMqMlScoringClient(DeadBroker(), Substitute.For<ILogger<RabbitMqMlScoringClient>>());
+        var client = new RabbitMqMlScoringClient(
+            DeadBroker(),
+            Substitute.For<ILogger<RabbitMqMlScoringClient>>(),
+            Options.Create(new MlScoringResilienceOptions { PerAttemptTimeoutMs = 300 }));
 
-        var result = await client.ScoreBatchAsync([1, 2, 3], Bounded());
+        var act = () => client.ScoreBatchAsync([1, 2, 3], Bounded());
 
-        result.Should().BeEmpty("when the ML broker is unreachable the graph must still render, just without ML highlights");
+        await act.Should().ThrowAsync<Exception>(
+            "the raw RPC client must surface a dead broker so the resilience decorator can decide to retry or fall back");
     }
 
     [Fact]

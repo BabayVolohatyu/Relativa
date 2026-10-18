@@ -160,6 +160,12 @@ services:
       RabbitMqGraph__Port: 5672
       RabbitMqGraph__Username: "${RABBITMQ_USER:-relativa}"
       RabbitMqGraph__Password: "${RABBITMQ_PASS:-relativa}"
+      MlScoringResilience__Enabled: "${ML_SCORING_RESILIENCE_ENABLED:-true}"
+      MlScoringResilience__MaxAttempts: "${ML_SCORING_MAX_ATTEMPTS:-3}"
+      MlScoringResilience__PerAttemptTimeoutMs: "${ML_SCORING_PER_ATTEMPT_TIMEOUT_MS:-200}"
+      MlScoringResilience__BaseDelayMs: "${ML_SCORING_BASE_DELAY_MS:-50}"
+      MlScoringResilience__MaxDelayMs: "${ML_SCORING_MAX_DELAY_MS:-400}"
+      MlScoringResilience__UnprotectedTimeoutMs: "${ML_SCORING_UNPROTECTED_TIMEOUT_MS:-2000}"
     ports:
       - "8083:8083"
     depends_on:

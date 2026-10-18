@@ -219,15 +219,7 @@ public sealed class GraphDataService(GraphQueryDbContext db, IMlScoringClient ml
             .Where(id => string.Equals(entityTypeNameMap.GetValueOrDefault(id), "deal", StringComparison.OrdinalIgnoreCase))
             .ToList();
 
-        IReadOnlyDictionary<int, MlScoreDto> mlScores;
-        try
-        {
-            mlScores = await mlClient.ScoreBatchAsync(dealEntityIds, ct);
-        }
-        catch
-        {
-            mlScores = new Dictionary<int, MlScoreDto>();
-        }
+        var mlScores = await mlClient.ScoreBatchAsync(dealEntityIds, ct);
 
         if (riskLevel is not null)
         {

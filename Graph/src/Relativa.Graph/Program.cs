@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Relativa.Graph;
 using Relativa.Graph.Dashboard;
 using Relativa.Graph.Data;
@@ -24,7 +25,23 @@ builder.Services.AddScoped<IGraphDataService, GraphDataService>();
 builder.Services.AddScoped<IDashboardService, DashboardService>();
 builder.Services.AddScoped<IWorkspaceDashboardService, WorkspaceDashboardService>();
 
-builder.Services.AddSingleton<IMlScoringClient, RabbitMqMlScoringClient>();
+builder.Services.Configure<MlScoringResilienceOptions>(
+    builder.Configuration.GetSection(MlScoringResilienceOptions.SectionKey));
+builder.Services.AddSingleton<IAsyncDelay, SystemAsyncDelay>();
+builder.Services.AddSingleton<RabbitMqMlScoringClient>();
+builder.Services.AddSingleton<IMlScoringClient>(sp =>
+{
+    var raw = sp.GetRequiredService<RabbitMqMlScoringClient>();
+    var resilience = sp.GetRequiredService<IOptions<MlScoringResilienceOptions>>();
+    if (!resilience.Value.Enabled)
+        return raw;
+
+    return new ResilientMlScoringClient(
+        raw,
+        resilience,
+        sp.GetRequiredService<IAsyncDelay>(),
+        sp.GetRequiredService<ILogger<ResilientMlScoringClient>>());
+});
 builder.Services.AddSingleton<IMlRecalculationClient, RabbitMqMlRecalculationClient>();
 
 builder.Services.Configure<RabbitMqGraphConsumerOptions>(

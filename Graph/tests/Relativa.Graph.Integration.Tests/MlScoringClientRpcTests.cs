@@ -64,7 +64,10 @@ public sealed class MlScoringClientRpcTests : IAsyncLifetime
             Username = Uri.UnescapeDataString(rmqUri.UserInfo.Split(':')[0]),
             Password = Uri.UnescapeDataString(rmqUri.UserInfo.Split(':')[1]),
         });
-        _client = new RabbitMqMlScoringClient(options, Substitute.For<ILogger<RabbitMqMlScoringClient>>());
+        _client = new RabbitMqMlScoringClient(
+            options,
+            Substitute.For<ILogger<RabbitMqMlScoringClient>>(),
+            Options.Create(new MlScoringResilienceOptions { PerAttemptTimeoutMs = 5000 }));
     }
 
     public async Task DisposeAsync()
@@ -89,13 +92,14 @@ public sealed class MlScoringClientRpcTests : IAsyncLifetime
     }
 
     [Fact]
-    public async Task ScoreBatchAsync_ResponderReturnsError_DegradesToEmpty()
+    public async Task ScoreBatchAsync_ResponderReturnsError_Propagates()
     {
         _replyFactory = _ => new MlScoreRpcReplyV1([], ErrorMessage: "scoring model unavailable");
 
-        var result = await _client.ScoreBatchAsync([10, 20]);
+        var act = () => _client.ScoreBatchAsync([10, 20]);
 
-        result.Should().BeEmpty("an error reply from the ML service must degrade to no highlights, not propagate");
+        await act.Should().ThrowAsync<MlScoringFailedException>(
+            "an error reply is a failed dependency response; fallback belongs to the resilience decorator");
     }
 
     [Fact]
@@ -107,12 +111,13 @@ public sealed class MlScoringClientRpcTests : IAsyncLifetime
     }
 
     [Fact]
-    public async Task ScoreBatchAsync_NullReplyBody_DegradesToEmpty()
+    public async Task ScoreBatchAsync_NullReplyBody_Propagates()
     {
         _replyFactory = _ => null;
 
-        var result = await _client.ScoreBatchAsync([10, 20]);
+        var act = () => _client.ScoreBatchAsync([10, 20]);
 
-        result.Should().BeEmpty("a null reply payload must degrade to no highlights, not throw");
+        await act.Should().ThrowAsync<MlScoringFailedException>(
+            "a null reply payload is a failed dependency response and must propagate");
     }
 }
