@@ -142,31 +142,16 @@ public sealed class WorkspaceDashboardService(
         {
             var basicDealProps   = await GetPropertyValuesAsync(dealIds,   ["status"],        ct);
             var basicClientProps = await GetPropertyValuesAsync(clientIds, ["client_status"], ct);
-
-            int wonDeals = 0, lostDeals = 0, openDeals = 0;
-            foreach (var id in dealIds)
-            {
-                switch ((basicDealProps.GetValueOrDefault(id)?.GetValueOrDefault("status") ?? "").ToLowerInvariant())
-                {
-                    case "closed":  wonDeals++;  break;
-                    case "revoked": lostDeals++; break;
-                    default:        openDeals++; break;
-                }
-            }
-
-            var activeClients = clientIds.Count(id => string.Equals(
-                basicClientProps.GetValueOrDefault(id)?.GetValueOrDefault("client_status"),
-                "active", StringComparison.OrdinalIgnoreCase));
+            var outcomes = CountDealStatuses(dealIds, basicDealProps);
 
             return new WorkspaceSummaryDto(
                 workspace.Id, workspace.Name,
-                dealIds.Count, openDeals, wonDeals, lostDeals,
+                dealIds.Count, outcomes.Open, outcomes.Won, outcomes.Lost,
                 null, null, null,
-                clientIds.Count, activeClients,
+                clientIds.Count, CountActiveClients(clientIds, basicClientProps),
                 null, null, memberCount, "basic");
         }
 
-        // Full analytics
         var today          = DateOnly.FromDateTime(DateTime.UtcNow);
         var thisMonthStart = new DateOnly(today.Year, today.Month, 1);
         var nextMonthStart = thisMonthStart.AddMonths(1);
@@ -176,59 +161,102 @@ public sealed class WorkspaceDashboardService(
         var taskIds     = await GetEntityIdsAsync(workspaceId, "task", ct);
         var taskProps   = await GetPropertyValuesAsync(taskIds, ["task_status", "due_date"], ct);
 
-        int totalDeals = dealIds.Count, wonDeals2 = 0, lostDeals2 = 0, openDeals2 = 0, closingThisMonth = 0;
-        decimal totalDealValue = 0m;
+        var outcomesFull   = CountDealStatuses(dealIds, dealProps);
+        var totalDealValue = SumDealValues(dealIds, dealProps);
+        var closedOrLost   = outcomesFull.Won + outcomesFull.Lost;
+        var winRate        = closedOrLost > 0 ? Math.Round((double)outcomesFull.Won / closedOrLost, 4) : 0.0;
+        var avgDealSize    = dealIds.Count > 0 ? Math.Round(totalDealValue / dealIds.Count, 2) : 0m;
 
+        return new WorkspaceSummaryDto(
+            workspace.Id, workspace.Name,
+            dealIds.Count, outcomesFull.Open, outcomesFull.Won, outcomesFull.Lost,
+            totalDealValue, winRate, avgDealSize,
+            clientIds.Count, CountActiveClients(clientIds, clientProps),
+            CountClosingThisMonth(dealIds, dealProps, thisMonthStart, nextMonthStart),
+            CountOverdueTasks(taskIds, taskProps, today),
+            memberCount, "full");
+    }
+
+    private readonly record struct DealStatusCounts(int Won, int Lost, int Open);
+
+    private static DealStatusCounts CountDealStatuses(
+        IReadOnlyList<int> dealIds,
+        IReadOnlyDictionary<int, Dictionary<string, string?>> props)
+    {
+        int won = 0, lost = 0, open = 0;
         foreach (var id in dealIds)
         {
-            var p      = dealProps.GetValueOrDefault(id);
-            var status = (p?.GetValueOrDefault("status") ?? "").ToLowerInvariant();
-            var value  = decimal.TryParse(p?.GetValueOrDefault("deal_value"), out var dv) ? dv : 0m;
-            totalDealValue += value;
-
-            switch (status)
+            switch (DealStatus(props, id))
             {
-                case "closed":  wonDeals2++;  break;
-                case "revoked": lostDeals2++; break;
-                default:        openDeals2++; break;
+                case "closed":  won++;  break;
+                case "revoked": lost++; break;
+                default:        open++; break;
             }
-
-            var rawClose = p?.GetValueOrDefault("expected_close");
-            if (rawClose is not null && DateOnly.TryParse(rawClose, out var closeDate)
-                && closeDate >= thisMonthStart && closeDate < nextMonthStart)
-                closingThisMonth++;
         }
 
-        int totalClients2 = clientIds.Count, activeClients2 = 0;
-        foreach (var id in clientIds)
+        return new DealStatusCounts(won, lost, open);
+    }
+
+    private static string DealStatus(
+        IReadOnlyDictionary<int, Dictionary<string, string?>> props, int id) =>
+        (props.GetValueOrDefault(id)?.GetValueOrDefault("status") ?? "").ToLowerInvariant();
+
+    private static decimal SumDealValues(
+        IReadOnlyList<int> dealIds,
+        IReadOnlyDictionary<int, Dictionary<string, string?>> props)
+    {
+        decimal total = 0m;
+        foreach (var id in dealIds)
         {
-            if (string.Equals(clientProps.GetValueOrDefault(id)?.GetValueOrDefault("client_status"),
-                "active", StringComparison.OrdinalIgnoreCase))
-                activeClients2++;
+            var raw = props.GetValueOrDefault(id)?.GetValueOrDefault("deal_value");
+            total += decimal.TryParse(raw, out var value) ? value : 0m;
         }
 
-        int tasksOverdue = 0;
+        return total;
+    }
+
+    private static int CountClosingThisMonth(
+        IReadOnlyList<int> dealIds,
+        IReadOnlyDictionary<int, Dictionary<string, string?>> props,
+        DateOnly monthStart,
+        DateOnly nextMonthStart)
+    {
+        int closing = 0;
+        foreach (var id in dealIds)
+        {
+            var rawClose = props.GetValueOrDefault(id)?.GetValueOrDefault("expected_close");
+            if (rawClose is not null && DateOnly.TryParse(rawClose, out var closeDate)
+                && closeDate >= monthStart && closeDate < nextMonthStart)
+                closing++;
+        }
+
+        return closing;
+    }
+
+    private static int CountActiveClients(
+        IReadOnlyList<int> clientIds,
+        IReadOnlyDictionary<int, Dictionary<string, string?>> props) =>
+        clientIds.Count(id => string.Equals(
+            props.GetValueOrDefault(id)?.GetValueOrDefault("client_status"),
+            "active", StringComparison.OrdinalIgnoreCase));
+
+    private static int CountOverdueTasks(
+        IReadOnlyList<int> taskIds,
+        IReadOnlyDictionary<int, Dictionary<string, string?>> props,
+        DateOnly today)
+    {
+        int overdue = 0;
         foreach (var id in taskIds)
         {
-            var p = taskProps.GetValueOrDefault(id);
+            var p = props.GetValueOrDefault(id);
             if (string.Equals(p?.GetValueOrDefault("task_status"), "done", StringComparison.OrdinalIgnoreCase))
                 continue;
             var rawDue = p?.GetValueOrDefault("due_date");
             if (rawDue is not null && DateOnly.TryParse(rawDue, out var due) && due < today)
-                tasksOverdue++;
+                overdue++;
         }
 
-        var closedOrLost = wonDeals2 + lostDeals2;
-        var winRate      = closedOrLost > 0 ? Math.Round((double)wonDeals2 / closedOrLost, 4) : 0.0;
-        var avgDealSize  = totalDeals > 0 ? Math.Round(totalDealValue / totalDeals, 2) : 0m;
-
-        return new WorkspaceSummaryDto(
-            workspace.Id, workspace.Name,
-            totalDeals, openDeals2, wonDeals2, lostDeals2,
-            totalDealValue, winRate, avgDealSize,
-            totalClients2, activeClients2,
-            closingThisMonth, tasksOverdue,
-            memberCount, "full");
+        return overdue;
     }
 
     // ──────────────────────────────────────────────────────────────────────────

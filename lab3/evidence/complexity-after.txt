@@ -1,0 +1,10 @@
+﻿method=WorkspaceDashboardService.GetSummaryAsync
+file=Graph/src/Relativa.Graph/Dashboard/WorkspaceDashboardService.cs
+lines=115-178
+line_count=64
+cognitive_complexity=7
+cyclomatic_complexity=9
+analyzer=SonarAnalyzer.CSharp 10.35.0.4138
+rules=S3776 threshold=1; S1541 threshold=1
+dotnet=10.0.402
+command=dotnet build Graph/src/Relativa.Graph/Relativa.Graph.csproj --configuration Release -p:Lab3Complexity=true
