@@ -1,0 +1,16 @@
+  Determining projects to restore...
+C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\Relativa.Graph.Integration.Tests.csproj : warning NU1903: Package 'SSH.NET' 2024.2.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mggc-4xg6-vcxf
+C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\Relativa.Graph.Integration.Tests.csproj : warning NU1903: Package 'SSH.NET' 2024.2.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284
+  All projects are up-to-date for restore.
+C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\Relativa.Graph.Integration.Tests.csproj : warning NU1903: Package 'SSH.NET' 2024.2.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mggc-4xg6-vcxf
+C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\Relativa.Graph.Integration.Tests.csproj : warning NU1903: Package 'SSH.NET' 2024.2.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284
+  Sonar: (Relativa.Persistence.csproj) The analysis targets file not found: C:\Users\babay\myrepos\testing\Relativa\.sonarqube\bin\targets\SonarQube.Integration.targets
+  Relativa.Persistence -> C:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\bin\Debug\net10.0\Relativa.Persistence.dll
+  Sonar: (Relativa.Graph.csproj) The analysis targets file not found: C:\Users\babay\myrepos\testing\Relativa\.sonarqube\bin\targets\SonarQube.Integration.targets
+  Relativa.Graph -> C:\Users\babay\myrepos\testing\Relativa\Graph\src\Relativa.Graph\bin\Debug\net10.0\Relativa.Graph.dll
+  Sonar: (Relativa.Graph.Integration.Tests.csproj) The analysis targets file not found: C:\Users\babay\myrepos\testing\Relativa\.sonarqube\bin\targets\SonarQube.Integration.targets
+  Relativa.Graph.Integration.Tests -> C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\bin\Debug\net10.0\Relativa.Graph.Integration.Tests.dll
+Test run for C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\bin\Debug\net10.0\Relativa.Graph.Integration.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:     7, Skipped:     0, Total:     7, Duration: 30 ms - Relativa.Graph.Integration.Tests.dll (net10.0)

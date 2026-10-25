@@ -1,0 +1,31 @@
+name: Lab 7 hotspot scan
+
+on:
+  push:
+    branches: [lab7]
+  workflow_dispatch:
+
+jobs:
+  scan:
+    name: Lizard complexity artifact
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Lizard
+        run: pip install lizard==1.24.3
+
+      - name: Scan repository
+        run: python lab7/scan-hotspots.py --out lab7/out
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapin-hotspot-report
+          path: lab7/out/
+          retention-days: 14
