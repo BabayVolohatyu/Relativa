@@ -1,0 +1,20 @@
+================================================
+  NLOC    CCN   token  PARAM  length  location  
+------------------------------------------------
+      26     18    206      6      32 DealCommercialOption::Evaluate@8-39@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+1 file analyzed.
+==============================================================
+NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
+--------------------------------------------------------------
+     30      26.0    18.0      206.0         1     Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+
+==============================================================================================================
+!!!! Warnings (cyclomatic_complexity > 15 or length > 99999 or nloc > 1000000 or parameter_count > 99999) !!!!
+================================================
+  NLOC    CCN   token  PARAM  length  location  
+------------------------------------------------
+      26     18    206      6      32 DealCommercialOption::Evaluate@8-39@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+==========================================================================================
+Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
+------------------------------------------------------------------------------------------
+        30      26.0    18.0      206.0        1            1      1.00    1.00

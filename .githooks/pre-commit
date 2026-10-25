@@ -1,5 +1,5 @@
 #!/bin/sh
-# Block staged secrets before they become a commit. Exit code is gitleaks' code.
+# Block staged secrets, then block staged C# whose cyclomatic complexity exceeds 10.
 if ! command -v gitleaks >/dev/null 2>&1; then
   if [ -n "$LOCALAPPDATA" ] && [ -x "$LOCALAPPDATA/Microsoft/WinGet/Links/gitleaks.exe" ]; then
     PATH="$LOCALAPPDATA/Microsoft/WinGet/Links:$PATH"
@@ -18,4 +18,47 @@ fi
 
 cd "$(git rev-parse --show-toplevel)" || exit 1
 "$GITLEAKS" protect --staged --redact --no-banner --verbose --config .gitleaks.toml
-exit $?
+gitleaks_code=$?
+if [ "$gitleaks_code" -ne 0 ]; then
+  exit "$gitleaks_code"
+fi
+
+if [ -n "$LOCALAPPDATA" ] && [ -x "$LOCALAPPDATA/Programs/Python/Python312/python.exe" ]; then
+  PYTHON="$LOCALAPPDATA/Programs/Python/Python312/python.exe"
+elif command -v python >/dev/null 2>&1; then
+  PYTHON=python
+elif command -v py >/dev/null 2>&1; then
+  PYTHON=py
+else
+  echo "python is not installed; refusing to commit." >&2
+  exit 1
+fi
+
+if ! "$PYTHON" -c "import lizard" >/dev/null 2>&1; then
+  echo "lizard is not installed; refusing to commit." >&2
+  exit 1
+fi
+
+set --
+while IFS= read -r file; do
+  case "$file" in
+    ''|*/Migrations/*|*.Designer.cs|*/bin/*|*/obj/*) continue ;;
+  esac
+  set -- "$@" "$file"
+done <<EOF
+$(git diff --cached --name-only --diff-filter=ACM -- '*.cs')
+EOF
+
+if [ "$#" -eq 0 ]; then
+  exit 0
+fi
+
+echo "lizard cyclomatic gate (CC>10 blocks the commit)"
+"$PYTHON" -m lizard -C 10 -L 99999 -a 99999 -l csharp "$@"
+lizard_code=$?
+if [ "$lizard_code" -ne 0 ]; then
+  printf '\033[31mcomplexity gate: a staged method has cyclomatic complexity above 10. Commit rejected.\033[0m\n' >&2
+  exit 1
+fi
+
+exit 0

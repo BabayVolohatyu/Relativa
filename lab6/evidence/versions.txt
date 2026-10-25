@@ -1,0 +1,21 @@
+Name: lizard
+Version: 1.24.3
+Summary: A code analyzer without caring the C/C++ header files. It works with Java, C/C++, JavaScript, Python, Ruby, Swift, Objective C. Metrics includes cyclomatic complexity number etc.
+Home-page: http://www.lizard.ws
+Author: Terry Yin
+Author-email: terry@odd-e.com
+License: MIT
+Location: C:\Users\babay\AppData\Local\Programs\Python\Python312\Lib\site-packages
+Requires: pathspec, pygments
+Required-by: 
+---
+Name: multimetric
+Version: 2.4.5
+Summary: Calculate code metrics in various languages
+Home-page: https://github.com/priv-kweihmann/multimetric
+Author: 
+Author-email: 
+License-Expression: Zlib
+Location: C:\Users\babay\AppData\Local\Programs\Python\Python312\Lib\site-packages
+Requires: chardet, pygments
+Required-by: 

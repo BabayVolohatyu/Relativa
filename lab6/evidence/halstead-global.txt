@@ -1,0 +1,75 @@
+sha=d7dea04f019d10034c489f015d02b4fde7412944
+files=401
+overall_operators_uniq=639
+overall_operands_uniq=4491
+overall_operators_sum=58917
+overall_operands_sum=39353
+overall_eta=5130.000
+overall_length=98270.000
+overall_volume=1211152.505
+overall_difficulty=2799.662
+overall_effort=3390818038.964
+overall_bugs=403.718
+
+top_by_effort
+5740555.087	loc=596	Graph/src/Relativa.Graph/Dashboard/WorkspaceDashboardService.cs
+5610126.006	loc=762	Core/src/Relativa.Core.Application/Services/EntityService.cs
+4718969.180	loc=638	Graph/src/Relativa.Graph/Dashboard/DashboardService.cs
+3152306.101	loc=504	Audit/src/Relativa.Audit.Infrastructure/Services/AuditLogReadRepository.cs
+2065492.430	loc=273	Core/src/Relativa.Core.Infrastructure/Repositories/EntityRepository.cs
+1278798.663	loc=362	Core/src/Relativa.Core.Application/Services/OrganizationService.cs
+1207253.354	loc=378	Graph/src/Relativa.Graph/Graph/GraphDataService.cs
+1194958.402	loc=391	Authentication/src/Relativa.Authentication.Infrastructure/Privacy/PrivacyWorkflow.cs
+1068787.205	loc=652	Gateway/src/Relativa.Gateway/OpenApi/AggregatedOpenApiEndpoint.cs
+961543.205	loc=275	Core/src/Relativa.Core.Application/Services/OrgInvitationService.cs
+929269.168	loc=361	Core/src/Relativa.Core.Application/Services/WorkspaceService.cs
+759418.836	loc=234	Authentication/src/Relativa.Authentication.Application/Services/AuthService.cs
+736590.468	loc=345	Authentication/src/Relativa.Authentication/Endpoints/AuthEndpoints.cs
+578142.655	loc=215	Core/src/Relativa.Core.Application/Services/WorkspaceMemberService.cs
+460768.838	loc=217	Core/src/Relativa.Core.Application/Services/JoinRequestService.cs
+
+roles
+core_domain	{"path": "Graph/src/Relativa.Graph/Dashboard/DashboardService.cs", "loc": 638, "n1": 45.0, "n2": 353.0, "N1": 2690.0, "N2": 1877.0, "eta": 398.0, "length": 4567.0, "volume": 39443.464642022846, "difficulty": 119.63881019830029, "effort": 4718969.17987034, "bugs": 13.147821547340948, "cli_volume": 39443.465, "cli_difficulty": 119.639, "cli_effort": 4718969.18, "cli_bugs": 13.148}
+integration	{"path": "Graph/src/Relativa.Graph/ML/ResilientMlScoringClient.cs", "loc": 73, "n1": 29.0, "n2": 75.0, "N1": 224.0, "N2": 153.0, "eta": 104.0, "length": 377.0, "volume": 2526.0657737391916, "difficulty": 29.580000000000002, "effort": 74721.0255872053, "bugs": 0.8420219245797306, "cli_volume": 2526.066, "cli_difficulty": 29.58, "cli_effort": 74721.026, "cli_bugs": 0.842}
+utility	{"path": "Core/src/Relativa.Core.Application/Validators/CreateEntityRequestValidator.cs", "loc": 30, "n1": 14.0, "n2": 27.0, "N1": 110.0, "N2": 64.0, "eta": 41.0, "length": 174.0, "volume": 932.2140488035466, "difficulty": 16.59259259259259, "effort": 15467.847920888476, "bugs": 0.31073801626784886, "cli_volume": 932.214, "cli_difficulty": 16.593, "cli_effort": 15467.848, "cli_bugs": 0.311}
+
+inversion
+{
+  "shorter": {
+    "path": "Core/src/Relativa.Core.Infrastructure/Repositories/EntityRepository.cs",
+    "loc": 273,
+    "n1": 30.0,
+    "n2": 191.0,
+    "N1": 1581.0,
+    "N2": 1210.0,
+    "eta": 221.0,
+    "length": 2791.0,
+    "volume": 21736.036043261487,
+    "difficulty": 95.02617801047121,
+    "effort": 2065492.4302889844,
+    "bugs": 7.245345347753829,
+    "cli_volume": 21736.036,
+    "cli_difficulty": 95.026,
+    "cli_effort": 2065492.43,
+    "cli_bugs": 7.245
+  },
+  "longer": {
+    "path": "Gateway/src/Relativa.Gateway/OpenApi/AggregatedOpenApiEndpoint.cs",
+    "loc": 652,
+    "n1": 32.0,
+    "n2": 396.0,
+    "N1": 1644.0,
+    "N2": 1102.0,
+    "eta": 428.0,
+    "length": 2746.0,
+    "volume": 24004.06834465755,
+    "difficulty": 44.525252525252526,
+    "effort": 1068787.2046792977,
+    "bugs": 8.00135611488585,
+    "cli_volume": 24004.068,
+    "cli_difficulty": 44.525,
+    "cli_effort": 1068787.205,
+    "cli_bugs": 8.001
+  },
+  "effort_gap": 996705.2256096867
+}

@@ -1,0 +1,37 @@
+$ git add -- Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+$ git commit -m "feat: add messy code"
+10:31AM INF 0 commits scanned.
+10:31AM INF scanned ~445 bytes (445 bytes) in 213ms
+10:31AM INF no leaks found
+lizard cyclomatic gate (CC>10 blocks the commit)
+================================================
+  NLOC    CCN   token  PARAM  length  location  
+------------------------------------------------
+       6      1     27      0       6 DealCommercialOption::new@7-12@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       7      1     33      0       7 DealCommercialOption::new@14-20@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       6      1     28      0       6 DealCommercialOption::new@22-27@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       6      1     27      0       6 DealCommercialOption::new@29-34@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       4      1     16      0       4 DealCommercialOption::new@36-39@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       9      1     71      0       9 DealCommercialOption::new@43-51@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+      15      1     78      6      15 DealCommercialOption::Evaluate@53-67@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+      15     12    110      1      15 DealCommercialOption::ScoreLegacyTier@69-83@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+1 file analyzed.
+==============================================================
+NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
+--------------------------------------------------------------
+     72       8.5     2.4       48.8         8     Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+
+==============================================================================================================
+!!!! Warnings (cyclomatic_complexity > 10 or length > 99999 or nloc > 1000000 or parameter_count > 99999) !!!!
+================================================
+  NLOC    CCN   token  PARAM  length  location  
+------------------------------------------------
+      15     12    110      1      15 DealCommercialOption::ScoreLegacyTier@69-83@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+==========================================================================================
+Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
+------------------------------------------------------------------------------------------
+        72       8.5     2.4       48.8        8            1      0.12    0.22
+complexity gate: a staged method has cyclomatic complexity above 10. Commit rejected.
+exit=1
+$ git log -1 --oneline
+e67872a refactor(audit): eliminate conditional branches using lookup table, PASS

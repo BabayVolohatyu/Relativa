@@ -1,0 +1,8 @@
+* a4af9d2 refactor(audit): linearize legacy tier probe, PASS
+* e67872a refactor(audit): eliminate conditional branches using lookup table, PASS
+* fe15df3 feat(audit): simulate topological CC failure, FAIL
+* 535c237 chore(audit): baseline commercial-option control flow
+* d7dea04 lab5
+* b71a8fe lab4
+* 83d65b9 lab3: document maintainability and supply-chain results
+* 8dae8d6 lab3: block staged secrets with gitleaks
