@@ -75,6 +75,9 @@ public static class DealCommercialOption
         running = running + closingDelta;
         running = running + stackDelta;
 
+        decimal discount = statusDelta;
+        running = discount;
+
         decimal payable = running;
         payable = Math.Round(payable, 2);
         return payable;
