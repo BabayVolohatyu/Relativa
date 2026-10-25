@@ -1,0 +1,278 @@
+{
+  "definitions": {
+    "wmc": "Sum of Lizard CCN for the type, including the constructor. The syntax walker is the fallback when lizard is absent.",
+    "cbo": "Distinct user-declared types named in type syntax. Self, primitives, string, decimal, int, bool, DateTime, Guid, and CancellationToken are excluded. An ambiguous simple name is dropped.",
+    "lcom": "Henderson-Sellers LCOM, (M - mean field use) / (M - 1), on instance methods and instance fields. 0 when M \u003C 2 or F = 0. 1 means the methods do not share fields. This is not Sonar LCOM4.",
+    "dit": "1 when the type does not extend another class. Each resolved class base adds 1. An unresolved external class base yields 2. Interfaces do not add depth.",
+    "pim": "Distinct public instance method names declared on the type or inherited from a resolved class base.",
+    "overridden": "Methods on this type declared with override.",
+    "mhf": "100 * private methods / all methods, constructors excluded.",
+    "ahf": "100 * private fields / all fields, including primary-constructor parameters.",
+    "cof": "Directed user-type references / (TC * (TC - 1)). TC counts classes, records, structs, and interfaces under src."
+  },
+  "types": [
+    {
+      "name": "AccessWeight",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Collaborators.cs",
+      "kind": "class",
+      "wmc": 3,
+      "cbo": 1,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 3,
+      "overridden": 0,
+      "methods": 3,
+      "fields": 0,
+      "coupled": [
+        "IAccessWeight"
+      ]
+    },
+    {
+      "name": "ClosingWeight",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Collaborators.cs",
+      "kind": "class",
+      "wmc": 2,
+      "cbo": 1,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 1,
+      "overridden": 0,
+      "methods": 1,
+      "fields": 0,
+      "coupled": [
+        "IClosingWeight"
+      ]
+    },
+    {
+      "name": "IAccessWeight",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Contracts.cs",
+      "kind": "interface",
+      "wmc": 3,
+      "cbo": 0,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 3,
+      "overridden": 0,
+      "methods": 3,
+      "fields": 0,
+      "coupled": []
+    },
+    {
+      "name": "IClosingWeight",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Contracts.cs",
+      "kind": "interface",
+      "wmc": 1,
+      "cbo": 0,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 1,
+      "overridden": 0,
+      "methods": 1,
+      "fields": 0,
+      "coupled": []
+    },
+    {
+      "name": "IRiskDesk",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Contracts.cs",
+      "kind": "interface",
+      "wmc": 6,
+      "cbo": 0,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 6,
+      "overridden": 0,
+      "methods": 6,
+      "fields": 0,
+      "coupled": []
+    },
+    {
+      "name": "IRiskWeight",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Contracts.cs",
+      "kind": "interface",
+      "wmc": 3,
+      "cbo": 0,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 3,
+      "overridden": 0,
+      "methods": 3,
+      "fields": 0,
+      "coupled": []
+    },
+    {
+      "name": "IStageDesk",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Contracts.cs",
+      "kind": "interface",
+      "wmc": 6,
+      "cbo": 0,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 6,
+      "overridden": 0,
+      "methods": 6,
+      "fields": 0,
+      "coupled": []
+    },
+    {
+      "name": "IStageWeight",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Contracts.cs",
+      "kind": "interface",
+      "wmc": 5,
+      "cbo": 0,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 5,
+      "overridden": 0,
+      "methods": 5,
+      "fields": 0,
+      "coupled": []
+    },
+    {
+      "name": "IStatusDesk",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Contracts.cs",
+      "kind": "interface",
+      "wmc": 4,
+      "cbo": 0,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 4,
+      "overridden": 0,
+      "methods": 4,
+      "fields": 0,
+      "coupled": []
+    },
+    {
+      "name": "IStatusWeight",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Contracts.cs",
+      "kind": "interface",
+      "wmc": 1,
+      "cbo": 0,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 1,
+      "overridden": 0,
+      "methods": 1,
+      "fields": 0,
+      "coupled": []
+    },
+    {
+      "name": "QuoteDesk",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Desks.cs",
+      "kind": "class",
+      "wmc": 2,
+      "cbo": 3,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 1,
+      "overridden": 0,
+      "methods": 2,
+      "fields": 3,
+      "coupled": [
+        "IRiskDesk",
+        "IStageDesk",
+        "IStatusDesk"
+      ]
+    },
+    {
+      "name": "RiskDesk",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Desks.cs",
+      "kind": "class",
+      "wmc": 7,
+      "cbo": 3,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 6,
+      "overridden": 0,
+      "methods": 7,
+      "fields": 2,
+      "coupled": [
+        "IAccessWeight",
+        "IRiskDesk",
+        "IRiskWeight"
+      ]
+    },
+    {
+      "name": "RiskWeight",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Collaborators.cs",
+      "kind": "class",
+      "wmc": 3,
+      "cbo": 1,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 3,
+      "overridden": 0,
+      "methods": 3,
+      "fields": 0,
+      "coupled": [
+        "IRiskWeight"
+      ]
+    },
+    {
+      "name": "StageDesk",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Desks.cs",
+      "kind": "class",
+      "wmc": 7,
+      "cbo": 3,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 6,
+      "overridden": 0,
+      "methods": 7,
+      "fields": 2,
+      "coupled": [
+        "IClosingWeight",
+        "IStageDesk",
+        "IStageWeight"
+      ]
+    },
+    {
+      "name": "StageWeight",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Collaborators.cs",
+      "kind": "class",
+      "wmc": 7,
+      "cbo": 1,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 5,
+      "overridden": 0,
+      "methods": 6,
+      "fields": 0,
+      "coupled": [
+        "IStageWeight"
+      ]
+    },
+    {
+      "name": "StatusDesk",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Desks.cs",
+      "kind": "class",
+      "wmc": 5,
+      "cbo": 2,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 4,
+      "overridden": 0,
+      "methods": 5,
+      "fields": 1,
+      "coupled": [
+        "IStatusDesk",
+        "IStatusWeight"
+      ]
+    },
+    {
+      "name": "StatusWeight",
+      "file": "Graph/src/Relativa.Graph/DesignAudit/Collaborators.cs",
+      "kind": "class",
+      "wmc": 1,
+      "cbo": 1,
+      "lcom": 0,
+      "dit": 1,
+      "pim": 1,
+      "overridden": 0,
+      "methods": 1,
+      "fields": 0,
+      "coupled": [
+        "IStatusWeight"
+      ]
+    }
+  ]
+}
