@@ -75,7 +75,7 @@ public sealed class DesignAuditTests
 
 public sealed class DesignAuditHierarchyTests
 {
-    private readonly DeskQuoteRule _quote = new();
+    private readonly DeskQuote _quote = new(new QuoteMath(), new StageAdjustment());
 
     [Fact]
     public void Status_IsRewrittenAtBothLevels() => _quote.Status("closed").Should().Be(0.17m);

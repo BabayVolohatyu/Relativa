@@ -1,7 +1,7 @@
 {
   "definitions": {
     "wmc": "Sum of Lizard CCN for the type, including the constructor. The syntax walker is the fallback when lizard is absent.",
-    "cbo": "Distinct user-declared types named in type syntax. Self, primitives, string, decimal, int, bool, DateTime, Guid, and CancellationToken are excluded. An ambiguous simple name is dropped.",
+    "cbo": "Distinct user-declared types in type positions: bases, fields, parameters, returns, creation, casts. A member name that collides with a type is not counted. Self, primitives, string, decimal, int, bool, DateTime, Guid, and CancellationToken are excluded. An ambiguous simple name is dropped.",
     "lcom": "Henderson-Sellers LCOM, (M - mean field use) / (M - 1), on instance methods and instance fields. 0 when M \u003C 2 or F = 0. 1 means the methods do not share fields. This is not Sonar LCOM4.",
     "dit": "1 when the type does not extend another class. Each resolved class base adds 1. An unresolved external class base yields 2. Interfaces do not add depth.",
     "pim": "Distinct public instance method names declared on the type or inherited from a resolved class base.",
@@ -19,7 +19,7 @@
         "file": "Graph/src/Relativa.Graph/Dashboard/DashboardService.cs",
         "kind": "class",
         "wmc": 174,
-        "cbo": 20,
+        "cbo": 15,
         "lcom": 0.782,
         "dit": 1,
         "pim": 6,
@@ -41,12 +41,7 @@
           "WorkspaceComparisonDto",
           "IDashboardService",
           "GraphQueryDbContext",
-          "IMlScoringClient",
-          "Entity",
-          "EntityType",
-          "Permission",
-          "Property",
-          "Workspace"
+          "IMlScoringClient"
         ]
       },
       "declared": [
@@ -55,7 +50,7 @@
           "file": "Graph/src/Relativa.Graph/Dashboard/DashboardService.cs",
           "kind": "class",
           "wmc": 174,
-          "cbo": 20,
+          "cbo": 15,
           "lcom": 0.782,
           "dit": 1,
           "pim": 6,
@@ -77,12 +72,7 @@
             "WorkspaceComparisonDto",
             "IDashboardService",
             "GraphQueryDbContext",
-            "IMlScoringClient",
-            "Entity",
-            "EntityType",
-            "Permission",
-            "Property",
-            "Workspace"
+            "IMlScoringClient"
           ]
         }
       ]

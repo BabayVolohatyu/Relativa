@@ -133,7 +133,7 @@ static TypeModel ReadType(TypeDeclarationSyntax declaration, string file)
 
     model.TypeNames = declaration.DescendantNodes()
         .OfType<TypeSyntax>()
-        .Where(type => BelongsTo(type, declaration))
+        .Where(type => BelongsTo(type, declaration) && IsTypePosition(type))
         .SelectMany(NamesOf)
         .Distinct()
         .ToList();
@@ -294,6 +294,62 @@ static bool BelongsTo(SyntaxNode node, TypeDeclarationSyntax owner)
             return false;
     }
     return true;
+}
+
+static bool IsTypePosition(SyntaxNode type)
+{
+    var parent = type.Parent;
+    if (parent is BaseTypeSyntax)
+        return true;
+    if (parent is TypeArgumentListSyntax)
+        return true;
+    if (parent is VariableDeclarationSyntax)
+        return true;
+    if (parent is ParameterSyntax)
+        return true;
+    if (parent is MethodDeclarationSyntax)
+        return true;
+    if (parent is LocalFunctionStatementSyntax)
+        return true;
+    if (parent is ExplicitInterfaceSpecifierSyntax)
+        return true;
+    if (IsDeclaredType(parent))
+        return true;
+    return IsTypeOperator(parent);
+}
+
+static bool IsDeclaredType(SyntaxNode? parent)
+{
+    if (parent is PropertyDeclarationSyntax)
+        return true;
+    if (parent is EventDeclarationSyntax)
+        return true;
+    if (parent is IndexerDeclarationSyntax)
+        return true;
+    if (parent is ForEachStatementSyntax)
+        return true;
+    if (parent is ArrayTypeSyntax)
+        return true;
+    if (parent is NullableTypeSyntax)
+        return true;
+    if (parent is AttributeSyntax)
+        return true;
+    return parent is CatchDeclarationSyntax;
+}
+
+static bool IsTypeOperator(SyntaxNode? parent)
+{
+    if (parent is CastExpressionSyntax)
+        return true;
+    if (parent is ObjectCreationExpressionSyntax)
+        return true;
+    if (parent is TypeOfExpressionSyntax)
+        return true;
+    if (parent is not BinaryExpressionSyntax binary)
+        return false;
+    if (binary.IsKind(SyntaxKind.IsExpression))
+        return true;
+    return binary.IsKind(SyntaxKind.AsExpression);
 }
 
 static string KindOf(TypeDeclarationSyntax declaration) => declaration switch
@@ -794,7 +850,7 @@ static object MoodPayload(MoodModel mood) => new
 static object Definitions() => new
 {
     wmc = "Sum of Lizard CCN for the type, including the constructor. The syntax walker is the fallback when lizard is absent.",
-    cbo = "Distinct user-declared types named in type syntax. Self, primitives, string, decimal, int, bool, DateTime, Guid, and CancellationToken are excluded. An ambiguous simple name is dropped.",
+    cbo = "Distinct user-declared types in type positions: bases, fields, parameters, returns, creation, casts. A member name that collides with a type is not counted. Self, primitives, string, decimal, int, bool, DateTime, Guid, and CancellationToken are excluded. An ambiguous simple name is dropped.",
     lcom = "Henderson-Sellers LCOM, (M - mean field use) / (M - 1), on instance methods and instance fields. 0 when M < 2 or F = 0. 1 means the methods do not share fields. This is not Sonar LCOM4.",
     dit = "1 when the type does not extend another class. Each resolved class base adds 1. An unresolved external class base yields 2. Interfaces do not add depth.",
     pim = "Distinct public instance method names declared on the type or inherited from a resolved class base.",
