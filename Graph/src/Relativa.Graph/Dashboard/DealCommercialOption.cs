@@ -1,10 +1,33 @@
 namespace Relativa.Graph.Dashboard;
 
-// Linear quote. Status, stage, risk, access, and the closed-or-negotiation
-// pair stay in lookup tables. The closing pair is a predicate so the method
-// has real control variables while cyclomatic complexity stays at 3.
-public static class DealCommercialOption
+// Immutable quote. Evaluate only forwards its inputs. The adjustment is a
+// value object: the closing predicate and the lookup tables live inside it,
+// and the rounded total is fixed at construction.
+public readonly record struct DealAdjustment(decimal Rounded)
 {
+    public static DealAdjustment From(
+        string status,
+        string stage,
+        string riskBand,
+        string accessLevel,
+        bool closingThisMonth,
+        bool clientActive)
+    {
+        decimal closingDelta = 0m;
+        if (closingThisMonth && clientActive)
+            closingDelta = 0.07m;
+
+        decimal rounded = Math.Round(
+            StatusDelta.GetValueOrDefault(status)
+            + StageDelta.GetValueOrDefault(stage)
+            + RiskDelta.GetValueOrDefault(riskBand)
+            + AccessDelta.GetValueOrDefault(accessLevel)
+            + closingDelta
+            + ClosedOrNegotiation.GetValueOrDefault((status, stage)),
+            2);
+        return new DealAdjustment(rounded);
+    }
+
     private static readonly Dictionary<string, decimal> StatusDelta = new()
     {
         ["closed"] = 0.15m,
@@ -45,7 +68,10 @@ public static class DealCommercialOption
         [("open", "Negotiation")] = 0.04m,
         [("revoked", "Negotiation")] = 0.04m,
     };
+}
 
+public static class DealCommercialOption
+{
     public static decimal Evaluate(
         string status,
         string stage,
@@ -56,31 +82,13 @@ public static class DealCommercialOption
     {
         string traceToken = "deal-option";
         RecordTrace(traceToken);
-
-        decimal statusDelta = StatusDelta.GetValueOrDefault(status);
-        decimal stageDelta = StageDelta.GetValueOrDefault(stage);
-        decimal riskDelta = RiskDelta.GetValueOrDefault(riskBand);
-        decimal accessDelta = AccessDelta.GetValueOrDefault(accessLevel);
-        decimal stackDelta = ClosedOrNegotiation.GetValueOrDefault((status, stage));
-
-        decimal closingDelta = 0m;
-        if (closingThisMonth && clientActive)
-            closingDelta = 0.07m;
-
-        decimal running = 0m;
-        running = running + statusDelta;
-        running = running + stageDelta;
-        running = running + riskDelta;
-        running = running + accessDelta;
-        running = running + closingDelta;
-        running = running + stackDelta;
-
-        decimal discount = statusDelta;
-        running = discount;
-
-        decimal payable = running;
-        payable = Math.Round(payable, 2);
-        return payable;
+        return DealAdjustment.From(
+            status,
+            stage,
+            riskBand,
+            accessLevel,
+            closingThisMonth,
+            clientActive).Rounded;
     }
 
     private static void RecordTrace(string token) => _ = token.Length;
