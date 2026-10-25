@@ -1,40 +1,68 @@
 namespace Relativa.Graph.Dashboard;
 
-// Monolithic commercial-option quote. Status, stage, risk band and access level are the
-// vocabulary DashboardService already uses. The body is one function on purpose: the
-// audit simulates a cyclomatic-complexity failure before the lookup-table rewrite.
+// Lookup-table quote. The same deal vocabulary as DashboardService, with no
+// conditional branches: each rule is a key in a static dictionary.
 public static class DealCommercialOption
 {
+    private static readonly Dictionary<string, decimal> StatusDelta = new()
+    {
+        ["closed"] = 0.15m,
+        ["revoked"] = -0.20m,
+        ["open"] = 0.00m,
+    };
+
+    private static readonly Dictionary<string, decimal> StageDelta = new()
+    {
+        ["Prospecting"] = 0.02m,
+        ["Qualification"] = 0.05m,
+        ["Proposal"] = 0.08m,
+        ["Negotiation"] = 0.12m,
+    };
+
+    private static readonly Dictionary<string, decimal> RiskDelta = new()
+    {
+        ["high"] = -0.10m,
+        ["medium"] = -0.04m,
+        ["low"] = 0.03m,
+    };
+
+    private static readonly Dictionary<string, decimal> AccessDelta = new()
+    {
+        ["basic"] = -0.05m,
+        ["full"] = 0.01m,
+        ["full_org"] = 0.02m,
+    };
+
+    private static readonly Dictionary<(bool Closing, bool Active), decimal> ClosingDelta = new()
+    {
+        [(true, true)] = 0.07m,
+    };
+
+    // status == "closed" || stage == "Negotiation", enumerated for the three statuses
+    // and four stages the dashboard already writes.
+    private static readonly Dictionary<(string Status, string Stage), decimal> ClosedOrNegotiation = new()
+    {
+        [("closed", "Prospecting")] = 0.04m,
+        [("closed", "Qualification")] = 0.04m,
+        [("closed", "Proposal")] = 0.04m,
+        [("closed", "Negotiation")] = 0.04m,
+        [("open", "Negotiation")] = 0.04m,
+        [("revoked", "Negotiation")] = 0.04m,
+    };
+
     public static decimal Evaluate(
         string status,
         string stage,
         string riskBand,
         string accessLevel,
         bool closingThisMonth,
-        bool clientActive)
-    {
-        decimal option = 0m;
-
-        if (status == "closed") option += 0.15m;
-        if (status == "revoked") option -= 0.20m;
-        if (status == "open") option += 0.00m;
-
-        if (stage == "Prospecting") option += 0.02m;
-        if (stage == "Qualification") option += 0.05m;
-        if (stage == "Proposal") option += 0.08m;
-        if (stage == "Negotiation") option += 0.12m;
-
-        if (riskBand == "high") option -= 0.10m;
-        if (riskBand == "medium") option -= 0.04m;
-        if (riskBand == "low") option += 0.03m;
-
-        if (accessLevel == "basic") option -= 0.05m;
-        if (accessLevel == "full") option += 0.01m;
-        if (accessLevel == "full_org") option += 0.02m;
-
-        if (closingThisMonth && clientActive) option += 0.07m;
-        if (status == "closed" || stage == "Negotiation") option += 0.04m;
-
-        return Math.Round(option, 2);
-    }
+        bool clientActive) =>
+        Math.Round(
+            StatusDelta.GetValueOrDefault(status)
+            + StageDelta.GetValueOrDefault(stage)
+            + RiskDelta.GetValueOrDefault(riskBand)
+            + AccessDelta.GetValueOrDefault(accessLevel)
+            + ClosingDelta.GetValueOrDefault((closingThisMonth, clientActive))
+            + ClosedOrNegotiation.GetValueOrDefault((status, stage)),
+            2);
 }
