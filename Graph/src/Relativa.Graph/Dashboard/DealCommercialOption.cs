@@ -65,4 +65,22 @@ public static class DealCommercialOption
             + ClosingDelta.GetValueOrDefault((closingThisMonth, clientActive))
             + ClosedOrNegotiation.GetValueOrDefault((status, stage)),
             2);
+
+    private static readonly Dictionary<int, int> LegacyTierScore = new()
+    {
+        [0] = 0,
+        [1] = 1,
+        [2] = 2,
+        [3] = 3,
+        [4] = 4,
+        [5] = 5,
+        [6] = 6,
+        [7] = 7,
+        [8] = 8,
+        [9] = 9,
+        [10] = 10,
+    };
+
+    public static int ScoreLegacyTier(int tier) =>
+        LegacyTierScore.GetValueOrDefault(tier, -1);
 }

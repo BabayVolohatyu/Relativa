@@ -40,4 +40,16 @@ public sealed class DealCommercialOptionTests
         DealCommercialOption.Evaluate("pending", "Prospecting", "low", "basic", false, false)
             .Should().Be(0.00m);
     }
+
+    [Fact]
+    public void ScoreLegacyTier_KnownTier_ReadsTheTable()
+    {
+        DealCommercialOption.ScoreLegacyTier(10).Should().Be(10);
+    }
+
+    [Fact]
+    public void ScoreLegacyTier_UnknownTier_ReturnsSentinel()
+    {
+        DealCommercialOption.ScoreLegacyTier(11).Should().Be(-1);
+    }
 }
