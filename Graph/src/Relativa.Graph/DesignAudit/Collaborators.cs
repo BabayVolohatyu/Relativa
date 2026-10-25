@@ -22,7 +22,7 @@ public sealed class PendingWeight
 
 public sealed class StageWeight
 {
-    public decimal Weight(string stage) => stage == "Negotiation" ? 0.12m : 0.02m;
+    public decimal Weight(string stage, int month) => stage == "Negotiation" ? 0.12m : 0.02m;
 }
 
 public sealed class ProspectWeight
