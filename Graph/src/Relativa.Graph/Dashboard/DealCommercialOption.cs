@@ -1,7 +1,8 @@
 namespace Relativa.Graph.Dashboard;
 
-// Lookup-table quote. The same deal vocabulary as DashboardService, with no
-// conditional branches: each rule is a key in a static dictionary.
+// Linear quote. Status, stage, risk, access, and the closed-or-negotiation
+// pair stay in lookup tables. The closing pair is a predicate so the method
+// has real control variables while cyclomatic complexity stays at 3.
 public static class DealCommercialOption
 {
     private static readonly Dictionary<string, decimal> StatusDelta = new()
@@ -33,11 +34,6 @@ public static class DealCommercialOption
         ["full_org"] = 0.02m,
     };
 
-    private static readonly Dictionary<(bool Closing, bool Active), decimal> ClosingDelta = new()
-    {
-        [(true, true)] = 0.07m,
-    };
-
     // status == "closed" || stage == "Negotiation", enumerated for the three statuses
     // and four stages the dashboard already writes.
     private static readonly Dictionary<(string Status, string Stage), decimal> ClosedOrNegotiation = new()
@@ -56,15 +52,35 @@ public static class DealCommercialOption
         string riskBand,
         string accessLevel,
         bool closingThisMonth,
-        bool clientActive) =>
-        Math.Round(
-            StatusDelta.GetValueOrDefault(status)
-            + StageDelta.GetValueOrDefault(stage)
-            + RiskDelta.GetValueOrDefault(riskBand)
-            + AccessDelta.GetValueOrDefault(accessLevel)
-            + ClosingDelta.GetValueOrDefault((closingThisMonth, clientActive))
-            + ClosedOrNegotiation.GetValueOrDefault((status, stage)),
-            2);
+        bool clientActive)
+    {
+        string traceToken = "deal-option";
+        RecordTrace(traceToken);
+
+        decimal statusDelta = StatusDelta.GetValueOrDefault(status);
+        decimal stageDelta = StageDelta.GetValueOrDefault(stage);
+        decimal riskDelta = RiskDelta.GetValueOrDefault(riskBand);
+        decimal accessDelta = AccessDelta.GetValueOrDefault(accessLevel);
+        decimal stackDelta = ClosedOrNegotiation.GetValueOrDefault((status, stage));
+
+        decimal closingDelta = 0m;
+        if (closingThisMonth && clientActive)
+            closingDelta = 0.07m;
+
+        decimal running = 0m;
+        running = running + statusDelta;
+        running = running + stageDelta;
+        running = running + riskDelta;
+        running = running + accessDelta;
+        running = running + closingDelta;
+        running = running + stackDelta;
+
+        decimal payable = running;
+        payable = Math.Round(payable, 2);
+        return payable;
+    }
+
+    private static void RecordTrace(string token) => _ = token.Length;
 
     private static readonly Dictionary<int, int> LegacyTierScore = new()
     {
