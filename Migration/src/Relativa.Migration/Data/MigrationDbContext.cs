@@ -36,6 +36,9 @@ public sealed class MigrationDbContext(DbContextOptions<MigrationDbContext> opti
     public DbSet<EntityRelationship> EntityRelationships => Set<EntityRelationship>();
     public DbSet<EntityAuditLog> EntityAuditLogs => Set<EntityAuditLog>();
     public DbSet<WorkspaceAuditLog> WorkspaceAuditLogs => Set<WorkspaceAuditLog>();
+    public DbSet<UserConsent> UserConsents => Set<UserConsent>();
+    public DbSet<UserConsentEvent> UserConsentEvents => Set<UserConsentEvent>();
+    public DbSet<MarketingDispatch> MarketingDispatches => Set<MarketingDispatch>();
     public DbSet<UserAuditLog> UserAuditLogs => Set<UserAuditLog>();
     public DbSet<OrganizationAuditLog> OrganizationAuditLogs => Set<OrganizationAuditLog>();
     public DbSet<AuditOutboxMessage> AuditOutboxMessages => Set<AuditOutboxMessage>();

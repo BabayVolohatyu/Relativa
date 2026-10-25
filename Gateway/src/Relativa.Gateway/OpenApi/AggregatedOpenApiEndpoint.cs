@@ -108,7 +108,7 @@ public static class AggregatedOpenApiEndpoint
                 ["type"] = "http",
                 ["scheme"] = "bearer",
                 ["bearerFormat"] = "JWT",
-                ["description"] = "Paste JWT as: Bearer {token}"
+                ["description"] = "Paste the accessToken value only. Scalar adds the Bearer prefix."
             }
         };
 
@@ -234,6 +234,7 @@ public static class AggregatedOpenApiEndpoint
         ["actor_user_id"]     = JsonValue.Create(2)!,
         ["actorUserId"]       = JsonValue.Create(2)!,
         ["target_user_id"]    = JsonValue.Create(3)!,
+        ["purpose"]           = JsonValue.Create("MARKETING_EMAIL")!,
     };
 
     /// <summary>
@@ -282,6 +283,43 @@ public static class AggregatedOpenApiEndpoint
                 mediaType["example"] = JsonNode.Parse(bodyExample.ToJsonString())!;
             }
         }
+
+        ApplyLabPrivacyExamples(mergedPaths);
+    }
+
+    private static void ApplyLabPrivacyExamples(JsonObject mergedPaths)
+    {
+        foreach (var (path, pathNode) in mergedPaths)
+        {
+            if (pathNode is not JsonObject pathObj)
+                continue;
+
+            var privacy = path.Contains("/privacy/", StringComparison.OrdinalIgnoreCase)
+                || path.Contains("/personal-data", StringComparison.OrdinalIgnoreCase)
+                || path.Contains("/anonymize", StringComparison.OrdinalIgnoreCase)
+                || path.Contains("/consents/", StringComparison.OrdinalIgnoreCase)
+                || path.Contains("/marketing-email", StringComparison.OrdinalIgnoreCase);
+            if (!privacy)
+                continue;
+
+            foreach (var method in new[] { "get", "post", "put", "patch", "delete" })
+            {
+                if (pathObj[method] is not JsonObject op || op["parameters"] is not JsonArray parameters)
+                    continue;
+
+                foreach (var param in parameters)
+                {
+                    if (param is not JsonObject paramObj || paramObj["name"] is not JsonValue nameVal)
+                        continue;
+
+                    var name = nameVal.GetValue<string>();
+                    if (name.Equals("id", StringComparison.OrdinalIgnoreCase))
+                        paramObj["example"] = 91001;
+                    if (name.Equals("purpose", StringComparison.OrdinalIgnoreCase))
+                        paramObj["example"] = "MARKETING_EMAIL";
+                }
+            }
+        }
     }
 
     private static Dictionary<string, JsonNode> BuildBodyExamples() => new()
@@ -290,19 +328,35 @@ public static class AggregatedOpenApiEndpoint
         ["Auth_Login"] = new JsonObject
         {
             ["email"]    = "admin@relativa.com",
-            ["password"] = "Admin1234!"
+            ["password"] = "Demo1234!"
         },
         ["Auth_Register"] = new JsonObject
         {
             ["firstName"] = "Jane",
             ["lastName"]  = "Doe",
             ["email"]     = "jane.doe@example.com",
-            ["password"]  = "Admin1234!"
+            ["password"]  = "Demo1234!"
         },
         ["Auth_UpdateMyProfile"] = new JsonObject
         {
             ["firstName"] = "Jane",
             ["lastName"]  = "Doe"
+        },
+        ["Auth_LogProbe"] = new JsonObject
+        {
+            ["email"] = "ada.lovelace@example.test",
+            ["phone"] = "+15555550123",
+            ["password"] = "synthetic-password-not-real",
+            ["token"] = "synthetic-token-not-real"
+        },
+        ["Auth_GrantConsent"] = new JsonObject
+        {
+            ["policyVersion"] = "2026-10-01",
+            ["source"] = "settings-ui"
+        },
+        ["Auth_SendMarketingEmail"] = new JsonObject
+        {
+            ["purpose"] = "MARKETING_EMAIL"
         },
 
         // ── Organizations ───────────────────────────────────────────────────────
@@ -321,7 +375,7 @@ public static class AggregatedOpenApiEndpoint
             ["firstName"] = "Jane",
             ["lastName"]  = "Doe",
             ["email"]     = "jane.doe@example.com",
-            ["password"]  = "Admin1234!"
+            ["password"]  = "Demo1234!"
         },
         ["Core_UpdateOrgUserProfile"] = new JsonObject
         {

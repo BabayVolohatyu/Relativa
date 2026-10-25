@@ -201,7 +201,7 @@ public sealed class UserProvisioningService(
                     FieldName: null,
                     EntityType: null,
                     OldValueJson: null,
-                    NewValueJson: System.Text.Json.JsonSerializer.Serialize(new { user.Id, user.Email })),
+                    NewValueJson: System.Text.Json.JsonSerializer.Serialize(new { user.Id })),
                 ct);
         }
     }

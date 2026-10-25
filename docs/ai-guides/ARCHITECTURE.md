@@ -1,6 +1,6 @@
 # Architecture -- Patterns, Layers, and Conventions
 
-> **Last verified:** 2026-05-29 (Added `OrganizationSettings` entity (`organization_settings` table, one-to-one with `Organization`); expanded `WorkspaceSettings` with `description` + `risk_scoring_enabled`; 4 new settings endpoints; join-policy enforcement in `JoinRequestService`; frontend settings views.)
+> **Last verified:** 2026-10-25 (Authentication privacy controls: centralized Serilog sanitizer, personal-data export, irreversible anonymization, and purpose-specific consent. New tables `user_consents`, `user_consent_events`, `marketing_dispatches`; `users.anonymized_at`.)
 
 > **Maintenance obligation:** If you change architecture patterns, add or modify a layer, alter the persistence model, change validation or auth flows, or introduce new cross-cutting concerns, update this file and its "Last verified" date before finishing your task. See [AI-GUIDES-INDEX.md](../../AI-GUIDES-INDEX.md) for the full update matrix.
 
@@ -420,7 +420,7 @@ Authorization for workspace endpoints:
 
 | Concern | Implementation | Where |
 |---|---|---|
-| **Logging** | Serilog (console + rolling file) | Core, Authentication, Gateway |
+| **Logging** | Serilog (console + rolling file). Authentication writes both sinks through `PrivacyLogTextFormatter`, which masks email and phone and redacts secrets before the line is emitted. | Core, Authentication, Gateway |
 | **Exception handling** | `IExceptionHandler` + `GlobalExceptionHandler` + `AddProblemDetails()`. Core maps: `ValidationException` → 400, `ArgumentException` → 400, `KeyNotFoundException` → 404, `UnauthorizedAccessException` → 401, `ForbiddenAccessException` → 403, `InvalidOperationException` → 409. Authentication additionally maps: `KeyNotFoundException` → 404, PostgreSQL unique violations (`DbUpdateException`) → 409. Audit adds `ForbiddenAccessException` → 403. Backend services serialize errors as `{ status, title, detail }` (validation `detail` is `"Field: msg; Field2: msg"`). In Core, organization permission denials now use `ForbiddenAccessException` (403), while auth identity failures remain 401. The Vue client consumes that envelope through `Client/src/api/errors.ts` (`normalizeError` → `NormalizedError` with status flags + parsed `fieldErrors`) and `Client/src/api/errorToast.ts` (`useApiErrorHandler().notify` for toast dispatch). Forms render `fieldErrors` inline under inputs; non-form failures are surfaced via toasts. | Core, Authentication, Gateway, Audit (distinct implementations per host) |
 | **Health checks** | `/health` endpoint, EF Core DB checks on Auth and Core | All .NET services |
 | **API docs** | OpenAPI + Scalar (`/scalar/v1`, `/openapi/v1.json`) | Auth, Core, Gateway, Graph (dev) |

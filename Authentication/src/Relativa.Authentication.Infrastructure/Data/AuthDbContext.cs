@@ -12,6 +12,9 @@ public sealed class AuthDbContext(DbContextOptions<AuthDbContext> options) : DbC
     public DbSet<UserExternalLogin> UserExternalLogins => Set<UserExternalLogin>();
     public DbSet<UserBackupCode> UserBackupCodes => Set<UserBackupCode>();
     public DbSet<UserEmail> UserEmails => Set<UserEmail>();
+    public DbSet<UserConsent> UserConsents => Set<UserConsent>();
+    public DbSet<UserConsentEvent> UserConsentEvents => Set<UserConsentEvent>();
+    public DbSet<MarketingDispatch> MarketingDispatches => Set<MarketingDispatch>();
     public DbSet<UserAuditLog> UserAuditLogs => Set<UserAuditLog>();
     public DbSet<AuditOutboxMessage> AuditOutboxMessages => Set<AuditOutboxMessage>();
 

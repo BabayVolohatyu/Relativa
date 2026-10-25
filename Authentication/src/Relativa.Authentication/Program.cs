@@ -13,6 +13,8 @@ using Relativa.Authentication.Infrastructure.Services;
 using Relativa.Authentication.Infrastructure.Data;
 using Relativa.Authentication.Infrastructure.Repositories;
 using Relativa.Authentication.Infrastructure.Services.Audit;
+using Relativa.Authentication.Infrastructure.Logging;
+using Relativa.Authentication.Infrastructure.Privacy;
 using Relativa.Authentication.Middleware;
 using Relativa.Messaging;
 using Relativa.Persistence.Contracts;
@@ -23,8 +25,8 @@ Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .MinimumLevel.Override("Microsoft.AspNetCore", Serilog.Events.LogEventLevel.Warning)
     .MinimumLevel.Override("Microsoft.EntityFrameworkCore", Serilog.Events.LogEventLevel.Warning)
-    .WriteTo.Console()
-    .WriteTo.File("logs/auth-.log", rollingInterval: RollingInterval.Day)
+    .WriteTo.Console(new PrivacyLogTextFormatter())
+    .WriteTo.File(new PrivacyLogTextFormatter(), "logs/auth-.log", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 try
@@ -85,6 +87,13 @@ try
     builder.Services.AddScoped<IEmailAddressService, EmailAddressService>();
     builder.Services.AddSingleton<ITotpProvider, OtpNetTotpProvider>();
     builder.Services.Configure<TwoFactorOptions>(builder.Configuration.GetSection(TwoFactorOptions.SectionKey));
+    builder.Services.Configure<ConsentOptions>(builder.Configuration.GetSection(ConsentOptions.SectionKey));
+    builder.Services.AddScoped<ConsentPolicyGate>();
+    builder.Services.AddScoped<PrivacyWorkflow>();
+    builder.Services.AddScoped<IPersonalDataService>(sp => sp.GetRequiredService<PrivacyWorkflow>());
+    builder.Services.AddScoped<IAnonymizationService>(sp => sp.GetRequiredService<PrivacyWorkflow>());
+    builder.Services.AddScoped<IConsentService>(sp => sp.GetRequiredService<PrivacyWorkflow>());
+    builder.Services.AddScoped<IMarketingEmailService>(sp => sp.GetRequiredService<PrivacyWorkflow>());
     builder.Services.AddScoped<ISupportService, SupportService>();
     builder.Services.AddSingleton<IEmailLocalizer, JsonEmailLocalizer>();
     builder.Services.AddSingleton<IEmailRateLimiter, MemoryEmailRateLimiter>();
@@ -110,6 +119,7 @@ try
     var app = builder.Build();
 
     app.UseExceptionHandler();
+    app.UseMiddleware<CorrelationIdMiddleware>();
     app.UseSerilogRequestLogging();
 
     app.MapOpenApi();
@@ -120,6 +130,7 @@ try
 
     app.MapHealthChecks("/health");
     app.MapAuthEndpoints();
+    app.MapPrivacyEndpoints();
     app.MapSupportEndpoints();
 
     app.Run();

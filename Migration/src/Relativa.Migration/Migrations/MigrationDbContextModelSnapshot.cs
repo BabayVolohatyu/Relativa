@@ -564,6 +564,43 @@ namespace Relativa.Migration.Migrations
                     b.ToTable("entity_workspace", (string)null);
                 });
 
+            modelBuilder.Entity("Relativa.Persistence.Entities.MarketingDispatch", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CorrelationId")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)")
+                        .HasColumnName("correlation_id");
+
+                    b.Property<string>("Purpose")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)")
+                        .HasColumnName("purpose");
+
+                    b.Property<DateTimeOffset>("SentAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("sent_at");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId", "SentAt")
+                        .HasDatabaseName("ix_marketing_dispatches_user_sent_at");
+
+                    b.ToTable("marketing_dispatches", (string)null);
+                });
+
             modelBuilder.Entity("Relativa.Persistence.Entities.Organization", b =>
                 {
                     b.Property<int>("Id")
@@ -938,6 +975,10 @@ namespace Relativa.Migration.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTimeOffset?>("AnonymizedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("anonymized_at");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
@@ -1056,6 +1097,113 @@ namespace Relativa.Migration.Migrations
                         .HasDatabaseName("ix_user_backup_codes_user_id");
 
                     b.ToTable("user_backup_codes", (string)null);
+                });
+
+            modelBuilder.Entity("Relativa.Persistence.Entities.UserConsent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTimeOffset?>("GrantedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("granted_at");
+
+                    b.Property<string>("PolicyVersion")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)")
+                        .HasColumnName("policy_version");
+
+                    b.Property<string>("Purpose")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)")
+                        .HasColumnName("purpose");
+
+                    b.Property<string>("Source")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)")
+                        .HasColumnName("source");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)")
+                        .HasColumnName("status");
+
+                    b.Property<DateTimeOffset>("UpdatedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("updated_at");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
+
+                    b.Property<DateTimeOffset?>("WithdrawnAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("withdrawn_at");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId", "Purpose")
+                        .IsUnique()
+                        .HasDatabaseName("ux_user_consents_user_purpose");
+
+                    b.ToTable("user_consents", (string)null);
+                });
+
+            modelBuilder.Entity("Relativa.Persistence.Entities.UserConsentEvent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)")
+                        .HasColumnName("action");
+
+                    b.Property<DateTimeOffset>("OccurredAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("occurred_at");
+
+                    b.Property<string>("PolicyVersion")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)")
+                        .HasColumnName("policy_version");
+
+                    b.Property<string>("Purpose")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)")
+                        .HasColumnName("purpose");
+
+                    b.Property<string>("Source")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)")
+                        .HasColumnName("source");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId", "Purpose", "OccurredAt")
+                        .HasDatabaseName("ix_user_consent_events_user_purpose");
+
+                    b.ToTable("user_consent_events", (string)null);
                 });
 
             modelBuilder.Entity("Relativa.Persistence.Entities.UserEmail", b =>
@@ -1638,6 +1786,18 @@ namespace Relativa.Migration.Migrations
                     b.Navigation("Workspace");
                 });
 
+            modelBuilder.Entity("Relativa.Persistence.Entities.MarketingDispatch", b =>
+                {
+                    b.HasOne("Relativa.Persistence.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_marketing_dispatches_user");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Relativa.Persistence.Entities.OrganizationInvitation", b =>
                 {
                     b.HasOne("Relativa.Persistence.Entities.User", "InvitedBy")
@@ -1780,6 +1940,30 @@ namespace Relativa.Migration.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_user_backup_codes_user");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Relativa.Persistence.Entities.UserConsent", b =>
+                {
+                    b.HasOne("Relativa.Persistence.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_user_consents_user");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Relativa.Persistence.Entities.UserConsentEvent", b =>
+                {
+                    b.HasOne("Relativa.Persistence.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_user_consent_events_user");
 
                     b.Navigation("User");
                 });

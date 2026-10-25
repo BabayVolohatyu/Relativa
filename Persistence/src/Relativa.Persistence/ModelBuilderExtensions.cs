@@ -14,6 +14,9 @@ public static class PersistenceModelBuilderExtensions
         modelBuilder.ApplyConfiguration(new UserExternalLoginConfiguration());
         modelBuilder.ApplyConfiguration(new UserBackupCodeConfiguration());
         modelBuilder.ApplyConfiguration(new UserEmailConfiguration());
+        modelBuilder.ApplyConfiguration(new UserConsentConfiguration());
+        modelBuilder.ApplyConfiguration(new UserConsentEventConfiguration());
+        modelBuilder.ApplyConfiguration(new MarketingDispatchConfiguration());
         modelBuilder.ApplyConfiguration(new UserAuditLogConfiguration());
         modelBuilder.ApplyConfiguration(new AuditOutboxMessageConfiguration());
 
@@ -34,6 +37,9 @@ public static class PersistenceModelBuilderExtensions
         modelBuilder.ApplyConfiguration(new UserExternalLoginConfiguration());
         modelBuilder.ApplyConfiguration(new UserBackupCodeConfiguration());
         modelBuilder.ApplyConfiguration(new UserEmailConfiguration());
+        modelBuilder.ApplyConfiguration(new UserConsentConfiguration());
+        modelBuilder.ApplyConfiguration(new UserConsentEventConfiguration());
+        modelBuilder.ApplyConfiguration(new MarketingDispatchConfiguration());
         modelBuilder.ApplyConfiguration(new PermissionConfiguration());
 
         modelBuilder.ApplyConfiguration(new OrganizationConfiguration());

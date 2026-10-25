@@ -11,6 +11,7 @@ public class User
     public string? Password { get; set; }
     public DateTime CreatedAt { get; set; }
     public bool IsArchived { get; set; }
+    public DateTimeOffset? AnonymizedAt { get; set; }
     public string? PasswordResetToken { get; set; }
     public DateTime? PasswordResetTokenExpiresAt { get; set; }
     public bool EmailVerified { get; set; }

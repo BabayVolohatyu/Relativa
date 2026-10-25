@@ -34,6 +34,7 @@ Stores all user accounts.
 | `password` | varchar | No | — | bcrypt hash |
 | `created_at` | timestamptz | No | — | Set at registration |
 | `is_archived` | bool | No | false | Soft-delete flag |
+| `anonymized_at` | timestamptz | Yes | null | Set when the privacy workflow replaces direct identifiers. Distinct from soft archive. |
 | `password_reset_token` | varchar | Yes | null | One-time token |
 | `password_reset_token_expires_at` | timestamptz | Yes | null | Token TTL |
 
@@ -46,6 +47,50 @@ Stores all user accounts.
 - `first_name` and `last_name` must not be blank, max 100 chars each
 - Password must be at least 8 characters (hashed before storage)
 - Archiving a user cascades to their workspace/org memberships (via service layer, not DB cascade)
+- Privacy anonymization keeps the row, replaces name and email with non-reversible placeholders, nulls secrets, and sets both `is_archived` and `anonymized_at`
+
+---
+
+### `user_consents`
+Current purpose-specific consent. One row per user and purpose.
+
+| Column | Type | Nullable | Notes |
+|--------|------|:--------:|-------|
+| `id` | int (PK) | No | |
+| `user_id` | int (FK → users) | No | Cascade delete |
+| `purpose` | varchar(64) | No | `MARKETING_EMAIL` or `OPTIONAL_ANALYTICS` |
+| `status` | varchar(16) | No | `granted` or `withdrawn` |
+| `policy_version` | varchar(32) | No | Version the user accepted |
+| `granted_at` | timestamptz | Yes | |
+| `withdrawn_at` | timestamptz | Yes | |
+| `updated_at` | timestamptz | No | |
+| `source` | varchar(32) | No | `settings-ui` or `import` |
+
+Unique on `(user_id, purpose)`.
+
+### `user_consent_events`
+Append-only history of real grant and revoke transitions. A repeated grant or revoke does not insert another row.
+
+| Column | Type | Nullable | Notes |
+|--------|------|:--------:|-------|
+| `id` | int (PK) | No | |
+| `user_id` | int (FK → users) | No | |
+| `purpose` | varchar(64) | No | |
+| `action` | varchar(16) | No | `grant` or `revoke` |
+| `policy_version` | varchar(32) | No | |
+| `source` | varchar(32) | No | |
+| `occurred_at` | timestamptz | No | |
+
+### `marketing_dispatches`
+Side effect of a marketing send. Written only after the consent gate allows the purpose and policy version. No email address is stored.
+
+| Column | Type | Nullable | Notes |
+|--------|------|:--------:|-------|
+| `id` | int (PK) | No | |
+| `user_id` | int (FK → users) | No | |
+| `purpose` | varchar(64) | No | |
+| `sent_at` | timestamptz | No | |
+| `correlation_id` | varchar(64) | No | |
 
 ---
 

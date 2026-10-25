@@ -22,6 +22,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(e => e.Password).HasColumnName("password");
         builder.Property(e => e.CreatedAt).HasColumnName("created_at").IsRequired();
         builder.Property(e => e.IsArchived).HasColumnName("is_archived").HasDefaultValue(false);
+        builder.Property(e => e.AnonymizedAt).HasColumnName("anonymized_at").HasColumnType("timestamptz");
         builder.Property(e => e.PasswordResetToken).HasColumnName("password_reset_token");
         builder.Property(e => e.PasswordResetTokenExpiresAt).HasColumnName("password_reset_token_expires_at");
         builder.Property(e => e.EmailVerified).HasColumnName("email_verified").HasDefaultValue(false);
