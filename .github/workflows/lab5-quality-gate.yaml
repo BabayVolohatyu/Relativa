@@ -1,0 +1,29 @@
+name: Lab 5 balanced quality gate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  balanced-gate:
+    name: Messaging coverage AND mutation score
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore local tools
+        run: dotnet tool restore
+
+      - name: Ensure PowerShell
+        run: |
+          if ! command -v pwsh >/dev/null 2>&1; then
+            dotnet tool install --global PowerShell
+            echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+          fi
+
+      - name: Balanced gate
+        shell: pwsh
+        run: ./lab5/quality-gate.ps1 -Target messaging

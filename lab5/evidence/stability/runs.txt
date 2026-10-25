@@ -1,0 +1,3 @@
+﻿name=isolated-normal exit=0 nano_cpus=0 profile=normal
+name=cpus015-normal exit=0 nano_cpus=150000000 profile=normal
+name=cpus015-elevated exit=99 nano_cpus=150000000 profile=elevated

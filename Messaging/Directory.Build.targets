@@ -1,0 +1,8 @@
+<Project>
+  <!-- Stryker 5 looks up binaries under bin\$(Platform)\$(Configuration) while the SDK writes bin\$(Configuration).
+       Active only when the lab 5 gate sets LAB5_STRYKER. -->
+  <PropertyGroup Condition="'$(LAB5_STRYKER)' == 'true'">
+    <OutputPath>bin\Any CPU\$(Configuration)\$(TargetFramework)\</OutputPath>
+    <OutDir>$(OutputPath)</OutDir>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,1 @@
+﻿lf_crlf_pairs=0 crlf_pairs=701 lf_bytes=34069 crlf_bytes=34770

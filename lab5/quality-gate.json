@@ -1,0 +1,4 @@
+{
+  "minLineCoveragePercent": 80,
+  "minMutationScorePercent": 65
+}

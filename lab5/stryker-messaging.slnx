@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../Messaging/src/Relativa.Messaging/Relativa.Messaging.csproj" />
+  <Project Path="../Messaging/tests/Relativa.Messaging.Tests/Relativa.Messaging.Tests.csproj" />
+</Solution>
