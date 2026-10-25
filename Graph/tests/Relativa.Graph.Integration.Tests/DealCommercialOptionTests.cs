@@ -7,20 +7,37 @@ namespace Relativa.Graph.Integration.Tests;
 public sealed class DealCommercialOptionTests
 {
     [Fact]
-    public void Adjustment_Closed_ReturnsWonBonus()
+    public void Evaluate_ClosedProspectingHighBasic_AppliesClosedBonusWithoutClosingPair()
     {
-        DealCommercialOption.Adjustment("closed").Should().Be(0.15m);
+        DealCommercialOption.Evaluate("closed", "Prospecting", "high", "basic", false, false)
+            .Should().Be(0.06m);
     }
 
     [Fact]
-    public void Adjustment_Revoked_ReturnsLostPenalty()
+    public void Evaluate_RevokedNegotiationMediumFull_AppliesBothCompoundRules()
     {
-        DealCommercialOption.Adjustment("revoked").Should().Be(-0.20m);
+        DealCommercialOption.Evaluate("revoked", "Negotiation", "medium", "full", true, true)
+            .Should().Be(0.00m);
     }
 
     [Fact]
-    public void Adjustment_UnknownStatus_ReturnsZero()
+    public void Evaluate_OpenProposalLowFullOrg_SkipsBothCompoundRules()
     {
-        DealCommercialOption.Adjustment("open").Should().Be(0m);
+        DealCommercialOption.Evaluate("open", "Proposal", "low", "full_org", true, false)
+            .Should().Be(0.13m);
+    }
+
+    [Fact]
+    public void Evaluate_ClosedNegotiationLowFullOrg_StacksClosingPairAndClosedBonus()
+    {
+        DealCommercialOption.Evaluate("closed", "Negotiation", "low", "full_org", true, true)
+            .Should().Be(0.43m);
+    }
+
+    [Fact]
+    public void Evaluate_UnknownStatusOnProspecting_AddsOnlyTheKnownDeltas()
+    {
+        DealCommercialOption.Evaluate("pending", "Prospecting", "low", "basic", false, false)
+            .Should().Be(0.00m);
     }
 }

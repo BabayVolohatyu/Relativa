@@ -1,15 +1,40 @@
 namespace Relativa.Graph.Dashboard;
 
-// Baseline classifier for a deal status. The closed and revoked outcomes are the
-// same labels DashboardService uses when it tallies won and lost deals.
+// Monolithic commercial-option quote. Status, stage, risk band and access level are the
+// vocabulary DashboardService already uses. The body is one function on purpose: the
+// audit simulates a cyclomatic-complexity failure before the lookup-table rewrite.
 public static class DealCommercialOption
 {
-    public static decimal Adjustment(string status)
+    public static decimal Evaluate(
+        string status,
+        string stage,
+        string riskBand,
+        string accessLevel,
+        bool closingThisMonth,
+        bool clientActive)
     {
-        if (status == "closed")
-            return 0.15m;
-        if (status == "revoked")
-            return -0.20m;
-        return 0m;
+        decimal option = 0m;
+
+        if (status == "closed") option += 0.15m;
+        if (status == "revoked") option -= 0.20m;
+        if (status == "open") option += 0.00m;
+
+        if (stage == "Prospecting") option += 0.02m;
+        if (stage == "Qualification") option += 0.05m;
+        if (stage == "Proposal") option += 0.08m;
+        if (stage == "Negotiation") option += 0.12m;
+
+        if (riskBand == "high") option -= 0.10m;
+        if (riskBand == "medium") option -= 0.04m;
+        if (riskBand == "low") option += 0.03m;
+
+        if (accessLevel == "basic") option -= 0.05m;
+        if (accessLevel == "full") option += 0.01m;
+        if (accessLevel == "full_org") option += 0.02m;
+
+        if (closingThisMonth && clientActive) option += 0.07m;
+        if (status == "closed" || stage == "Negotiation") option += 0.04m;
+
+        return Math.Round(option, 2);
     }
 }
