@@ -1,0 +1,11 @@
+GET http://localhost:9000/api/components/tree?component=Relativa&q=DashboardService.cs&ps=50
+GET http://localhost:9000/api/measures/component?component=Relativa%3AGraph%2Fsrc%2FRelativa.Graph%2FDashboard%2FDashboardService.cs&metricKeys=class_complexity,coupling_between_objects,lcom4,dit,rfc,cohesion_in_methods,complexity,cognitive_complexity
+GET http://localhost:9000/api/measures/component?component=Relativa%3AGraph%2Fsrc%2FRelativa.Graph%2FDashboard%2FDashboardService.cs&metricKeys=ncloc,complexity,cognitive_complexity,functions,classes
+GET http://localhost:9000/api/components/tree?component=Relativa&q=ResilientMlScoringClient.cs&ps=50
+GET http://localhost:9000/api/measures/component?component=Relativa%3AGraph%2Fsrc%2FRelativa.Graph%2FML%2FResilientMlScoringClient.cs&metricKeys=class_complexity,coupling_between_objects,lcom4,dit,rfc,cohesion_in_methods,complexity,cognitive_complexity
+GET http://localhost:9000/api/measures/component?component=Relativa%3AGraph%2Fsrc%2FRelativa.Graph%2FML%2FResilientMlScoringClient.cs&metricKeys=ncloc,complexity,cognitive_complexity,functions,classes
+GET http://localhost:9000/api/components/tree?component=Relativa&q=CreateEntityRequestValidator.cs&ps=50
+GET http://localhost:9000/api/measures/component?component=Relativa%3ACore%2Fsrc%2FRelativa.Core.Application%2FValidators%2FCreateEntityRequestValidator.cs&metricKeys=class_complexity,coupling_between_objects,lcom4,dit,rfc,cohesion_in_methods,complexity,cognitive_complexity
+GET http://localhost:9000/api/measures/component?component=Relativa%3ACore%2Fsrc%2FRelativa.Core.Application%2FValidators%2FCreateEntityRequestValidator.cs&metricKeys=ncloc,complexity,cognitive_complexity,functions,classes
+GET http://localhost:9000/api/measures/component?component=Relativa&metricKeys=class_complexity,coupling_between_objects,lcom4,dit,rfc,cohesion_in_methods,complexity,cognitive_complexity,ncloc,classes,functions
+GET http://localhost:9000/api/measures/component?component=Relativa&metricKeys=ncloc,complexity,cognitive_complexity,classes,functions
