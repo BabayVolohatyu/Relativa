@@ -1,0 +1,1 @@
+{"component":{"id":"AXqrMPhllG1PxIkOFIS0","key":"jellyfin_jellyfin","name":"jellyfin","qualifier":"TRK","measures":[{"metric":"ncloc","value":"173818"},{"metric":"sqale_index","value":"13086","bestValue":false},{"metric":"sqale_rating","value":"1.0","bestValue":true}]}}

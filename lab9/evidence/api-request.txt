@@ -1,0 +1,1 @@
+GET https://sonarcloud.io/api/measures/component?component=jellyfin_jellyfin&metricKeys=sqale_index,ncloc,sqale_rating

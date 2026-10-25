@@ -1,0 +1,8 @@
+element,category,det,ret_or_ftr,complexity,weight
+User Id Username Password,ILF,3,RET 1,simple,7
+PasswordPinCreationResult PinFile ExpirationDate,ILF,2,RET 1,simple,7
+IAuthenticationProvider.ChangePassword,EI,3,FTR 1,simple,3
+IAuthenticationProvider.Authenticate,EQ,3,FTR 1,simple,3
+IPasswordResetProvider.StartForgotPasswordProcess,EO,6,FTR 2,average,5
+IPasswordResetProvider.RedeemPasswordResetPin,EI,3,FTR 2,simple,3
+TOTAL,FP,,,,28
