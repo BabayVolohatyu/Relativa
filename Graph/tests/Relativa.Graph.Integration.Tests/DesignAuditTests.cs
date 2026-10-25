@@ -1,5 +1,6 @@
 using FluentAssertions;
 using Relativa.Graph.DesignAudit;
+using Relativa.Graph.DesignAudit.Hierarchy;
 using Xunit;
 
 namespace Relativa.Graph.Integration.Tests;
@@ -70,4 +71,21 @@ public sealed class DesignAuditTests
         var quote = new QuoteDesk(_status, _stage, _risk);
         quote.Bundle("Negotiation", "high", "basic").Should().Be(0.12m);
     }
+}
+
+public sealed class DesignAuditHierarchyTests
+{
+    private readonly DeskQuoteRule _quote = new();
+
+    [Fact]
+    public void Status_IsRewrittenAtBothLevels() => _quote.Status("closed").Should().Be(0.17m);
+
+    [Fact]
+    public void Revoked_KeepsTheStageOverride() => _quote.Revoked("revoked").Should().Be(-0.19m);
+
+    [Fact]
+    public void BasicAccess_IsRewrittenOnTheLeaf() => _quote.BasicAccess("basic").Should().Be(-0.04m);
+
+    [Fact]
+    public void Residual_IsRewrittenOnTheLeaf() => _quote.Residual("x").Should().Be(0.02m);
 }
