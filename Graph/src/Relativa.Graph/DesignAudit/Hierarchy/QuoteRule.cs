@@ -2,7 +2,7 @@ namespace Relativa.Graph.DesignAudit.Hierarchy;
 
 public class QuoteRule
 {
-    public virtual decimal Status(string status) => 0.15m;
+    public virtual decimal Status(string status, bool closing) => 0.15m;
 
     public virtual decimal Revoked(string status) => -0.20m;
 
