@@ -1,0 +1,23 @@
+# Lab 3 - scale-out follow-up: cap every Graph instance's Npgsql connection pool at 30.
+#
+# Why: the first scale-out run (docker-compose.lab3-cpulimit.yml only) failed with "sorry, too many clients already":
+# PostgreSQL allows max_connections=100 in total, but every Graph instance may open up to 100 pooled connections
+# (Npgsql default Maximum Pool Size = 100). With 2-3 instances the sum exceeds the server limit under load.
+# With the cap, 3 instances x 30 = 90 connections stay under the server limit (the remaining few belong to Auth,
+# Core, Audit, migration), so any further limit that shows up is not the connection count.
+#
+#   docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f docker-compose.lab3.yml `
+#                  -f docker-compose.lab3-cpulimit.yml -f docker-compose.lab3-poolcap.yml up -d graph graph-2 graph-3
+
+x-graph-conn: &graph-conn "Host=postgres;Port=5432;Database=${DB_NAME};Username=${DB_USER};Password=${DB_PASS};Maximum Pool Size=30"
+
+services:
+  graph:
+    environment:
+      ConnectionStrings__Default: *graph-conn
+  graph-2:
+    environment:
+      ConnectionStrings__Default: *graph-conn
+  graph-3:
+    environment:
+      ConnectionStrings__Default: *graph-conn

@@ -586,3 +586,67 @@ curl -si "http://localhost:8090/api/v1/graph?organizationId=1" -H "X-User-Id: 1"
 ```
 
 Автоматизовані сценарії (PowerShell): `high-load-systems/evidence/lab2/scripts/`.
+
+---
+
+## Horizontal Scaling and Load Balancing (Lab 3, High Load Systems)
+
+Пул із **трьох екземплярів Graph** за єдиною точкою входу (nginx `graph-lb`, `:8090`). Екземпляри без стану (Lab 2), кожен повертає `X-Instance-ID`. Докази: `high-load-systems/evidence/lab3/`, план захисту: `high-load-systems/defence/lab3.md`, k6: `high-load-systems/evidence/lab3/k6/COMPARISON.md`.
+
+### Архітектура
+
+```mermaid
+flowchart LR
+    Client["Client / k6"] -->|"the only entry point :8090"| LB["nginx graph-lb<br/>Round Robin or Least Connections<br/>passive health checks"]
+    Client -. "extra :8091" .-> HP["HAProxy<br/>active GET /health every 2 s"]
+    subgraph pool [Private network: upstream pool]
+        G1["graph-1 /health"]
+        G2["graph-2 /health"]
+        G3["graph-3 /health"]
+    end
+    LB --> G1 & G2 & G3
+    HP --> G1 & G2 & G3
+    G1 & G2 & G3 --> R[(Redis)]
+    G1 & G2 & G3 --> PG[(PostgreSQL)]
+    G1 & G2 & G3 --> MQ[[RabbitMQ]]
+    MQ --> ML[ML service]
+```
+
+Порти graph-1/2/3 (`8083/8085/8086`) відкриті лише для налагодження стенду; клієнт працює тільки з `:8090` (у проді їх не публікують).
+
+### Що додано
+
+| Що | Де |
+|---|---|
+| `GET /health` (перевірка PostgreSQL через EF Core: 200 Healthy / 503 Unhealthy) | `Graph/src/Relativa.Graph/Program.cs` |
+| `ARTIFICIAL_DELAY_MS` (штучна затримка на екземплярі для експерименту) | `Program.cs`, `docker-compose.lab3-slow.yml` |
+| nginx: Round Robin і Least Connections (спільна зона, passive health check, retry) | `infra/nginx/graph-lb-lab3-rr.conf`, `infra/nginx/graph-lb-lab3-lc.conf` |
+| graph-3 та перемикання алгоритму | `docker-compose.lab3.yml` |
+| Додатково: HAProxy з active health check | `infra/haproxy/graph-lb.cfg`, `docker-compose.lab3-haproxy.yml` |
+
+### Запуск і перемикання алгоритму
+
+```powershell
+docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f docker-compose.lab3.yml up -d --build
+# live-перемикання Round Robin -> Least Connections
+docker exec relativa-graph-lb sh -c "cp /etc/nginx/lab3/lc.conf /etc/nginx/conf.d/default.conf && nginx -s reload"
+docker exec relativa-graph-lb sh -c "cp /etc/nginx/lab3/rr.conf /etc/nginx/conf.d/default.conf && nginx -s reload"
+```
+
+### Порівняння алгоритмів (один повільний вузол: graph-2, +500 мс; k6, 50 VU, 2 запуски на алгоритм)
+
+| | Round Robin | Least Connections |
+|---|---:|---:|
+| Частка запитів на повільний вузол | 33.3% | 24.6% |
+| Середній час відповіді (запуск 1 / 2) | 1020 / 967 мс | 956 / 927 мс |
+| p99 (запуск 1 / 2) | 1547 / 1348 мс | 1472 / 1377 мс |
+
+Least Connections стабільно зменшує частку повільного вузла і трохи знижує середній час, але p99 не покращується надійно (різниця менша за шум між запусками): хвіст визначає повільний вузол, поки він отримує хоч якийсь трафік.
+
+### Відмова вузла
+
+`docker kill` / `docker stop` одного екземпляра під навантаженням: 214 і 215 запитів, **0 відповідей не-200**, nginx повторює запит на живому вузлі, вузол повертається в пул сам (приблизно через 4 с після запуску). Зависання вузла (`docker pause`): nginx (passive) втратив 2 запити після 12 с, HAProxy (active `/health`) 0. Деталі: `high-load-systems/evidence/lab3/after/`.
+
+### Scale-out (1, 2, 3 екземпляри, насичуюче навантаження, 1 CPU на екземпляр)
+
+Пропускна здатність не зростає (≈23, 27, 15–25 req/s): наступні вузькі місця після масштабування Graph — ліміт підключень PostgreSQL (`too many clients already`, 1796 помилок) і спільний ML/RabbitMQ шлях; сам балансувальник не є обмеженням. Таблиці: `high-load-systems/evidence/lab3/k6/COMPARISON.md`.

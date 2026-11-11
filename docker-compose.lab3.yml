@@ -1,0 +1,61 @@
+# Lab 3 (High-Load Systems) - horizontal scaling: THREE Graph instances behind one load balancer.
+#
+# This is an OVERRIDE file that stacks on top of the base stack AND the Lab 2 overlay.
+# Neither docker-compose.yaml nor docker-compose.lab2.yml is modified.
+#
+#   Full speed (all instances equal, Round Robin):
+#       docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f docker-compose.lab3.yml up -d --build
+#
+#   + one slow instance (asymmetric-load experiment, graph-2 gets +500 ms per request):
+#       docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f docker-compose.lab3.yml `
+#                      -f docker-compose.lab3-slow.yml up -d
+#
+#   + CPU limit of 1 core per Graph instance (scale-out experiment, so that one instance can saturate):
+#       docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f docker-compose.lab3.yml `
+#                      -f docker-compose.lab3-cpulimit.yml up -d
+#
+# What this file changes compared to Lab 2:
+#   * adds graph-3 (INSTANCE_ID=graph-3, host port 8086 for direct debugging)
+#   * graph-lb now mounts infra/nginx/graph-lb-lab3-rr.conf (3 upstream servers, round robin,
+#     passive health checks, access log with the upstream that served each request)
+#
+# Host ports: nginx graph-lb 8090 (the single entry point) | graph-1 8083, graph-2 8085, graph-3 8086 (debug only)
+
+x-redis-conn: &redis-conn "redis:6379,abortConnect=false"
+
+services:
+  # ---- Graph instance 3: same Dockerfile / image recipe as graph-1 and graph-2 ----
+  graph-3:
+    extends:
+      file: docker-compose.yaml
+      service: graph
+    container_name: relativa-graph-3
+    environment:
+      INSTANCE_ID: graph-3
+      Redis__ConnectionString: *redis-conn
+    ports: !override
+      - "8086:8083"
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      migration:
+        condition: service_completed_successfully
+
+  # ---- Load balancer: the Lab 3 config (3 upstreams) replaces the Lab 2 one (2 upstreams) ----
+  # Both algorithm files are mounted read-only under /etc/nginx/lab3/. On start the Round Robin one is copied to the
+  # ACTIVE config path (a normal writable file, not a mount), so the algorithm can be switched live with one command:
+  #   docker exec relativa-graph-lb sh -c "cp /etc/nginx/lab3/lc.conf /etc/nginx/conf.d/default.conf && nginx -s reload"
+  #   docker exec relativa-graph-lb sh -c "cp /etc/nginx/lab3/rr.conf /etc/nginx/conf.d/default.conf && nginx -s reload"
+  graph-lb:
+    volumes: !override
+      - ./infra/nginx/graph-lb-lab3-rr.conf:/etc/nginx/lab3/rr.conf:ro
+      - ./infra/nginx/graph-lb-lab3-lc.conf:/etc/nginx/lab3/lc.conf:ro
+    command: ["sh", "-c", "cp /etc/nginx/lab3/rr.conf /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"]
+    depends_on:
+      - graph
+      - graph-2
+      - graph-3

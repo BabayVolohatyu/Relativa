@@ -74,6 +74,12 @@ else
     builder.Services.AddSignalR();
 }
 
+// ── Lab 3: readiness probe ───────────────────────────────────────────────────
+// GET /health runs a real PostgreSQL connectivity check through EF Core (can the DbContext reach the DB?).
+// 200 "Healthy" = ready for traffic, 503 "Unhealthy" = take this instance out of rotation.
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<GraphDbContext>("postgres");
+
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<GraphGlobalExceptionHandler>();
 
@@ -92,6 +98,20 @@ app.Use(async (ctx, next) =>
     await next(ctx);
 });
 
+// ── Lab 3: synthetic latency for the asymmetric-load experiment ──────────────
+// ARTIFICIAL_DELAY_MS > 0 makes THIS instance slow (every request waits that long before being handled),
+// which simulates a degraded node. Unset / 0 = no effect (the default in every normal run).
+var artificialDelayMs = int.TryParse(Environment.GetEnvironmentVariable("ARTIFICIAL_DELAY_MS"), out var delayMs) ? delayMs : 0;
+if (artificialDelayMs > 0)
+{
+    app.Logger.LogWarning("Graph instance {InstanceId} runs with ARTIFICIAL_DELAY_MS={DelayMs}.", instanceId, artificialDelayMs);
+    app.Use(async (ctx, next) =>
+    {
+        await Task.Delay(artificialDelayMs);
+        await next(ctx);
+    });
+}
+
 if (redisEnabled)
     app.Logger.LogInformation("Graph instance {InstanceId} started with Redis-backed shared state.", instanceId);
 else
@@ -108,6 +128,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapGet("/", () => Results.Ok(new { service = "relativa-graph" }));
+app.MapHealthChecks("/health");
 
 EntityGraphEndpoints.MapEntityGraphEndpoints(app);
 GraphQueryEndpoints.MapGraphQueryEndpoints(app);

@@ -1,0 +1,19 @@
+# Lab 3 - asymmetric-load overlay: graph-2 becomes a SLOW instance.
+#
+# Stack it on top of the Lab 3 files (see the header of docker-compose.lab3.yml):
+#   docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f docker-compose.lab3.yml `
+#                  -f docker-compose.lab3-slow.yml up -d graph-2
+#
+# ARTIFICIAL_DELAY_MS is read by the Graph middleware added in Lab 3: every request that reaches graph-2
+# waits that many milliseconds first (an async Task.Delay, it does not burn CPU). This simulates a degraded
+# node (noisy neighbour, GC pauses, slow disk). Remove this file from the command line (and recreate graph-2)
+# to get a full-speed instance again.
+
+x-redis-conn: &redis-conn "redis:6379,abortConnect=false"
+
+services:
+  graph-2:
+    environment:
+      INSTANCE_ID: graph-2
+      Redis__ConnectionString: *redis-conn
+      ARTIFICIAL_DELAY_MS: "500"

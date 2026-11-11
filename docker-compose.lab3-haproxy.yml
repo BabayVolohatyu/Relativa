@@ -1,0 +1,23 @@
+# Lab 3 (extra) - HAProxy with ACTIVE health checks next to nginx, in front of the same Graph instances.
+#
+# Stack on top of the Lab 3 files:
+#   docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f docker-compose.lab3.yml `
+#                  -f docker-compose.lab3-haproxy.yml up -d graph-lb-haproxy
+#
+# Ports: 8091 traffic (round robin + active GET /health checks), 8404 stats page.
+
+services:
+  graph-lb-haproxy:
+    image: haproxy:2.9-alpine
+    container_name: relativa-graph-lb-haproxy
+    volumes:
+      - ./infra/haproxy/graph-lb.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    ports:
+      - "8091:80"
+      - "8404:8404"
+    depends_on:
+      - graph
+      - graph-2
+      - graph-3
+    networks:
+      - relativa_net

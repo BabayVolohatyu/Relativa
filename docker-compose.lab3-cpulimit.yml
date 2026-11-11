@@ -1,0 +1,17 @@
+# Lab 3 - scale-out experiment overlay: every Graph instance is limited to ONE CPU core.
+#
+# Why: all containers share one 8-core laptop, and a single .NET process can already use every core, so
+# "adding an instance" adds no hardware. Capping each instance at 1 core makes an instance behave like a
+# small separate node, so that 1 vs 2 vs 3 instances is a fair compute-scaling test.
+# (This overlay is used ONLY for the scale-out runs in evidence/lab3/k6/scale-out/, not for pre/post-lab.)
+#
+#   docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f docker-compose.lab3.yml `
+#                  -f docker-compose.lab3-cpulimit.yml up -d graph graph-2 graph-3
+
+services:
+  graph:
+    cpus: 1.0
+  graph-2:
+    cpus: 1.0
+  graph-3:
+    cpus: 1.0
