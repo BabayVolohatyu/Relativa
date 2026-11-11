@@ -58,20 +58,26 @@ var redisConnection = builder.Configuration["Redis:ConnectionString"];
 var redisEnabled = !string.IsNullOrWhiteSpace(redisConnection);
 if (redisEnabled)
 {
+    // Lab 4: ONE shared connection for IDistributedCache (ML cooldown + graph cache) and the graph cache's SCAN/DEL.
+    var redisMultiplexer = RedisMultiplexerFactory.Create(redisConnection!);
+    builder.Services.AddSingleton(redisMultiplexer);
     builder.Services.AddStackExchangeRedisCache(o =>
     {
-        o.Configuration = redisConnection;
-        o.InstanceName = "relativa-graph:";
+        o.ConnectionMultiplexerFactory = () => Task.FromResult(redisMultiplexer);
+        o.InstanceName = RedisGraphCacheService.InstancePrefix;
     });
     builder.Services.AddSignalR().AddStackExchangeRedis(redisConnection!, o =>
     {
         o.Configuration.ChannelPrefix = StackExchange.Redis.RedisChannel.Literal("relativa-graph");
     });
+    // Lab 4: Cache-Aside for GET /api/v1/graph (key, TTL, invalidation: see RedisGraphCacheService).
+    builder.Services.AddSingleton<IGraphCacheService, RedisGraphCacheService>();
 }
 else
 {
     builder.Services.AddDistributedMemoryCache();
     builder.Services.AddSignalR();
+    builder.Services.AddSingleton<IGraphCacheService, NullGraphCacheService>();
 }
 
 // ── Lab 3: readiness probe ───────────────────────────────────────────────────

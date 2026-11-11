@@ -650,3 +650,68 @@ Least Connections стабільно зменшує частку повільн�
 ### Scale-out (1, 2, 3 екземпляри, насичуюче навантаження, 1 CPU на екземпляр)
 
 Пропускна здатність не зростає (≈23, 27, 15–25 req/s): наступні вузькі місця після масштабування Graph — ліміт підключень PostgreSQL (`too many clients already`, 1796 помилок) і спільний ML/RabbitMQ шлях; сам балансувальник не є обмеженням. Таблиці: `high-load-systems/evidence/lab3/k6/COMPARISON.md`.
+
+---
+
+## Distributed Caching (Lab 4, High Load Systems)
+
+Розподілений кеш у Redis (контейнер `relativa-redis` з Lab 2, спільний для всіх екземплярів Graph) для найважчого читального запиту системи. Докази: `high-load-systems/evidence/lab4/`, план захисту: `high-load-systems/defence/lab4.md`, k6: `high-load-systems/evidence/lab4/k6/COMPARISON.md`.
+
+### Обґрунтування вибору ендпоінта
+
+Кешується `GET /api/v1/graph?organizationId=N` (Graph): найважчий читальний запит (7+ SQL-запитів до EAV-моделі, RPC до ML через RabbitMQ з бюджетом 200 мс на спробу, відповідь ≈ 68 КБ), його викликають часто, а змінюється граф рідко (створення сутностей). Допустима застарілість це секунди, тож кеш із TTL і явною інвалідацією підходить. Записи (Auth, `POST .../entity-graph/create`) не кешуються.
+
+### Архітектура
+
+```mermaid
+flowchart LR
+    Client["Client / k6"] -->|":8090"| LB["nginx graph-lb<br/>Round Robin"]
+    subgraph pool [Upstream pool: stateless Graph]
+        G1["graph-1"]
+        G2["graph-2"]
+        G3["graph-3"]
+    end
+    LB --> G1 & G2 & G3
+    G1 & G2 & G3 -->|"1. GET graph:v1:user:org:risk"| R[("Redis<br/>distributed cache<br/>TTL 60 s")]
+    G1 & G2 & G3 -->|"2. MISS: SQL"| PG[(PostgreSQL)]
+    G1 & G2 & G3 -->|"2. MISS: RPC скорингу"| MQ[[RabbitMQ]]
+    MQ --> ML[ML service]
+    G1 & G2 & G3 -->|"3. SET з TTL"| R
+    Client -->|"POST entity-graph/create"| LB
+    G2 -->|"4. SCAN + DEL ключів організації"| R
+```
+
+### Схема ключів і TTL
+
+| Елемент | Значення |
+|---|---|
+| Ключ | `relativa-graph:graph:v1:{userId}:{organizationId}:{riskLevel або all}` (`relativa-graph:` додає `IDistributedCache`, `v1` версія формату) |
+| Чому `userId` у ключі | відповідь залежить від прав користувача; без нього був би витік даних між користувачами |
+| Значення | JSON `GraphResponseDto` (≈ 67 КБ) |
+| TTL | 60 с ±10% джиттера (`GraphCache:TtlSeconds`); джиттер проти Cache Avalanche |
+| Інвалідація | після успішного `POST /api/v1/workspaces/{id}/entity-graph/create`: `SCAN relativa-graph:graph:v1:*:{orgId}:*` і `DEL` до відповіді клієнту; наступний GET це MISS зі свіжими даними. Зміни повз Graph (Core, Auth) діють після TTL |
+| Метрики | заголовок `X-Cache: HIT / MISS / BYPASS` (BYPASS: Redis недоступний), лог `Graph cache invalidated ...` |
+| Fallback | усі виклики Redis у `try/catch`, `FailFast` multiplexer з таймаутом 1 с: при падінні Redis запит іде в PostgreSQL, система працює (0 помилок), кеш повертається сам |
+
+### Cold проти hot
+
+Послідовні запити (вільна система, 8 пар): **cold (MISS) медіана 182 мс** (153..777), **hot (HIT) медіана 7 мс** (6..27), у ≈ 26 разів швидше. k6 (3 екземпляри, 30→50 VU, 2 запуски на сторону, запуск 2):
+
+| | Без кешу | З кешем | Зміна |
+|---|---:|---:|---:|
+| Медіана | 810 мс | 4.5 мс | −99.4% |
+| p95 | 906 мс | 19.1 мс | −97.9% |
+| p99 | 987 мс | 39.1 мс | −96.0% |
+| `X-Cache` | немає | HIT 9546 / MISS 84 (99.1%) | — |
+| Повідомлень у черзі ML після запуску | 10 060 | 0 | — |
+
+Застереження: сценарій має один ключ (найкращий випадок кешу), приріст пропускної здатності це властивість замкненого циклу, а не межа потужності, перші MISS після старту і після кожного закінчення TTL дають невеликий cache stampede (≈ 80 MISS за запуск). Повні таблиці й шум між запусками: `high-load-systems/evidence/lab4/k6/COMPARISON.md`.
+
+### Запуск і демонстрація
+
+```powershell
+docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f docker-compose.lab3.yml up -d --build
+powershell -File high-load-systems/evidence/lab4/scripts/cold-hot-demo.ps1 -SkipExpiry   # MISS -> HIT
+powershell -File high-load-systems/evidence/lab4/scripts/invalidation-demo.ps1           # запис -> MISS зі свіжими даними
+powershell -File high-load-systems/evidence/lab4/scripts/fallback-demo.ps1               # docker stop redis -> BYPASS, 0 помилок
+```
