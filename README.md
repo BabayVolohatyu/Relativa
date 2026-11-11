@@ -460,3 +460,129 @@ Contributions are welcome! Please:
 <p align="center">
   <sub>Built with .NET 10, Vue 3, Django & a lot of graphs. · <em>Turn relationships into revenue.</em></sub>
 </p>
+
+---
+
+## Розгортання в Kubernetes
+
+Локальний кластер — minikube з драйвером Docker. У кластер потрапляють два компоненти: шлюз Gateway (образ з `Gateway/Dockerfile`, теги `1.0.0` і `1.1.0`) і PostgreSQL 16 з постійним томом. Решта мікросервісів CRM у цей кластер не входить. Усі об'єкти лежать у каталозі `k8s/`, по одному на файл, і створюються в namespace `relativa`.
+
+Потрібні Docker, kubectl і minikube. Тег `latest` не використовується.
+
+Зібрати обидві версії шлюзу і завантажити їх у minikube (кластер уже має бути запущений):
+
+```powershell
+docker build --build-arg APP_VERSION=1.0.0 -t relativa-gateway:1.0.0 -f Gateway/Dockerfile Gateway
+docker build --build-arg APP_VERSION=1.1.0 -t relativa-gateway:1.1.0 -f Gateway/Dockerfile Gateway
+minikube image load relativa-gateway:1.0.0
+minikube image load relativa-gateway:1.1.0
+```
+
+Запустити кластер, увімкнути додатки і застосувати маніфести однією командою з каталогу:
+
+```powershell
+minikube start --driver=docker --cpus=2 --memory=4096
+minikube addons enable metrics-server
+minikube addons enable ingress
+kubectl apply -f k8s/
+```
+
+Якщо Docker Desktop відмовляє 4096 МіБ (на цій машині доступно близько 3841 МіБ), кластер піднімається з `--memory=3072`.
+
+Перевірка готовності:
+
+```powershell
+kubectl rollout status deploy/relativa-postgres -n relativa
+kubectl rollout status deploy/relativa-gateway -n relativa
+```
+
+Відкрити шлюз з хоста:
+
+```powershell
+minikube service relativa-gateway -n relativa --url
+```
+
+До отриманої адреси додати шлях `/health`. Сервіс має тип NodePort (`30080`). Поруч описаний Ingress на хост `relativa.local`: додаток ingress увімкнений, а з Windows без підвищеного `minikube tunnel` надійний вхід — це NodePort.
+
+Образ `postgres:16-alpine` kubelet завантажує сам. Образи шлюзу в registry не публікуються: їх забирає `minikube image load`, а в Deployment стоїть `imagePullPolicy: IfNotPresent`.
+
+### ConfigMap `relativa-config`
+
+| Ключ | Значення | Змінна оточення | Куди потрапляє |
+|---|---|---|---|
+| `APP_NAME` | `Relativa` | `Relativa__AppName` | контейнер `gateway`; відповідь `/health` у полі `appName` |
+| `LOG_LEVEL` | `Information` | `Relativa__LogLevel` | контейнер `gateway` |
+| `JWT_ISSUER` | `relativa-auth` | `Jwt__Issuer` | контейнер `gateway`; перевірка видавця JWT |
+| `JWT_AUDIENCE` | `relativa` | `Jwt__Audience` | контейнер `gateway`; перевірка аудиторії JWT |
+| `DB_NAME` | `relativa` | `POSTGRES_DB` | контейнер `postgres` |
+| `DB_USER` | `relativa` | `POSTGRES_USER` | контейнер `postgres` |
+
+### Secret `relativa-secret`
+
+Значення синтетичні, це не паролі робочих систем. У відповідь `/health` вони не потрапляють. Усередині контейнера їх видно через `printenv`. Змінна оточення перекриває рядок із `appsettings.json`.
+
+| Ключ | Змінна оточення | Куди потрапляє |
+|---|---|---|
+| `JWT_SECRET` | `Jwt__SecretKey` | контейнер `gateway`; ключ підпису JWT, не коротший за 32 символи |
+| `POSTGRES_PASSWORD` | `POSTGRES_PASSWORD` | контейнер `postgres`; пароль користувача бази |
+
+Ім'я пода шлюз отримує окремо, не з ConfigMap: downward API пише `metadata.name` у змінну `POD_NAME`. Версію образу задає `App__Version` під час `docker build`, у маніфесті цієї змінної немає, тож rolling update змінює саме образ.
+
+
+---
+
+## Stateless Architecture (Lab 2, High Load Systems)
+
+Сервіси **Graph** і **Authentication** можна запускати у кількох екземплярах без sticky sessions: стан винесено з процесу в Redis (контейнер). Деталі й докази: `high-load-systems/defence/lab2.md`, `high-load-systems/evidence/lab2/`.
+
+### Аудит стану
+
+| Компонент | Що було в пам'яті | Клас | Рішення |
+|---|---|---|---|
+| Auth `MemoryEmailRateLimiter` | Лічильники rate limit | Shared | Redis (`RedisEmailRateLimiter`, Lua) |
+| Graph `WorkspaceDashboardService` | `IMemoryCache`, cooldown ML-перерахунку | Shared | `IDistributedCache` (Redis) |
+| Graph `GraphHub` (SignalR) | Групи й підключення | Shared | Redis backplane + клієнт без negotiate |
+| Core `EntityTypeService` | `IMemoryCache`, довідник типів (10 хв) | Ephemeral | Без змін |
+| Auth JWT, Gateway | — | Без стану | Без змін |
+| PostgreSQL, RabbitMQ | Бізнес-дані, черги | Critical stateful | Без змін |
+
+Прибрані in-memory залежності: `MemoryEmailRateLimiter` (лишився лише fallback без Redis), `IMemoryCache` у `WorkspaceDashboardService`, локальні групи SignalR, неявна affinity SignalR negotiate.
+
+### Діаграма (Component)
+
+```mermaid
+flowchart LR
+    Client[Client] --> LB[nginx round-robin :8090]
+    LB --> G1[Graph 1]
+    LB --> G2[Graph 2]
+    Client --> A1[Auth 1 :8081]
+    Client --> A2[Auth 2 :8087]
+    G1 & G2 & A1 & A2 --> R[(Redis)]
+    G1 & G2 & A1 & A2 --> PG[(PostgreSQL)]
+    G1 & G2 --> MQ[[RabbitMQ]]
+```
+
+### Запуск кількох екземплярів локально
+
+```powershell
+docker compose -f docker-compose.yaml -f docker-compose.lab2.yml up -d --build
+```
+
+nginx `:8090`, graph-1 `:8083`, graph-2 `:8085`, auth-1 `:8081`, auth-2 `:8087`. Кожна відповідь має заголовок `X-Instance-ID`.
+
+```bash
+# POST на екземпляр 1
+TOKEN=$(curl -s -X POST http://localhost:8081/api/v1/auth/login -H "Content-Type: application/json" \
+  -d '{"email":"admin@relativa.com","password":"Demo1234!"}' | jq -r .accessToken)
+# GET і PATCH на екземпляр 2, потім GET на екземпляр 1
+curl -si http://localhost:8087/api/v1/auth/me -H "Authorization: Bearer $TOKEN" | grep -i x-instance-id
+# PATCH приймає поля firstName, lastName, phone, dateOfBirth: надсилайте всі чотири (поточні значення з GET, змінений lastName)
+curl -si -X PATCH http://localhost:8087/api/v1/auth/me -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"firstName":"<current>","lastName":"Demo","phone":"<current>","dateOfBirth":"<current>"}'
+curl -s http://localhost:8081/api/v1/auth/me -H "Authorization: Bearer $TOKEN"
+# граф через балансувальник (бачимо graph-1 / graph-2 по черзі)
+curl -si "http://localhost:8090/api/v1/graph?organizationId=1" -H "X-User-Id: 1" | grep -i x-instance-id
+```
+
+Автоматизовані сценарії (PowerShell): `high-load-systems/evidence/lab2/scripts/`.

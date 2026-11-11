@@ -8,6 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.11" />
+    <!-- Lab 2: SignalR Redis backplane + IDistributedCache (Redis) so that no state lives in a single process. -->
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.StackExchangeRedis" Version="10.0.15" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="10.0.15" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.1" />
     <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
   </ItemGroup>

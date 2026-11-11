@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: relativa-config
+  namespace: relativa
+data:
+  APP_NAME: Relativa
+  LOG_LEVEL: Information
+  JWT_ISSUER: relativa-auth
+  JWT_AUDIENCE: relativa
+  DB_NAME: relativa
+  DB_USER: relativa

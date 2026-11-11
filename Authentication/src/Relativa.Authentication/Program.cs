@@ -20,6 +20,7 @@ using Relativa.Messaging;
 using Relativa.Persistence.Contracts;
 using Scalar.AspNetCore;
 using Serilog;
+using StackExchange.Redis;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
@@ -96,7 +97,19 @@ try
     builder.Services.AddScoped<IMarketingEmailService>(sp => sp.GetRequiredService<PrivacyWorkflow>());
     builder.Services.AddScoped<ISupportService, SupportService>();
     builder.Services.AddSingleton<IEmailLocalizer, JsonEmailLocalizer>();
-    builder.Services.AddSingleton<IEmailRateLimiter, MemoryEmailRateLimiter>();
+    // Lab 2: rate-limit counters must be shared by all Auth instances → Redis.
+    // Empty Redis:ConnectionString (running on the host without Docker) keeps the old per-process limiter.
+    var redisConnection = builder.Configuration["Redis:ConnectionString"];
+    if (!string.IsNullOrWhiteSpace(redisConnection))
+    {
+        // Lazy factory: the connection is opened on first use, so a slow Redis start never blocks service startup.
+        builder.Services.AddSingleton<IConnectionMultiplexer>(_ => ConnectionMultiplexer.Connect(redisConnection));
+        builder.Services.AddSingleton<IEmailRateLimiter, RedisEmailRateLimiter>();
+    }
+    else
+    {
+        builder.Services.AddSingleton<IEmailRateLimiter, MemoryEmailRateLimiter>();
+    }
     builder.Services.Configure<EmailVerificationOptions>(builder.Configuration.GetSection(EmailVerificationOptions.SectionKey));
     builder.Services.Configure<SupportOptions>(builder.Configuration.GetSection(SupportOptions.SectionKey));
     builder.Services.AddScoped<IEmailSender, SmtpEmailSender>();
@@ -117,6 +130,18 @@ try
     builder.Services.AddProblemDetails();
 
     var app = builder.Build();
+
+    // Lab 2: tell the caller which instance served the request (INSTANCE_ID per container, hostname as fallback).
+    var instanceId = Environment.GetEnvironmentVariable("INSTANCE_ID") ?? Environment.MachineName;
+    app.Use(async (ctx, next) =>
+    {
+        ctx.Response.OnStarting(() =>
+        {
+            ctx.Response.Headers["X-Instance-ID"] = instanceId;
+            return Task.CompletedTask;
+        });
+        await next(ctx);
+    });
 
     app.UseExceptionHandler();
     app.UseMiddleware<CorrelationIdMiddleware>();

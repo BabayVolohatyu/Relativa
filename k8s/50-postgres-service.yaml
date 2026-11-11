@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: relativa-postgres
+  namespace: relativa
+spec:
+  type: ClusterIP
+  selector:
+    app: relativa-postgres
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: 5432

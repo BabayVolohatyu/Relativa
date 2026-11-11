@@ -1,0 +1,106 @@
+﻿# Lab 2 (High-Load Systems) - multi-instance / stateless topology.
+#
+# This is an OVERRIDE file. The base stack stays in docker-compose.yaml and is NOT modified.
+#
+#   Pre-lab  (single Graph, original topology):
+#       docker compose up -d postgres rabbitmq migration graph ml
+#
+#   Post-lab (2x Graph + 2x Auth + Redis + nginx LB):
+#       docker compose -f docker-compose.yaml -f docker-compose.lab2.yml up -d --build
+#
+# Redis runs ONLY as a container (it is not installed on the host).
+# Host ports used by this file:
+#   8083 graph (instance 1, direct)   8085 graph-2 (instance 2, direct)
+#   8081 auth  (instance 1, direct)   8087 auth-2  (instance 2, direct)
+#   8090 nginx (round-robin over both Graph instances)
+
+x-redis-conn: &redis-conn "redis:6379,abortConnect=false"
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: relativa-redis
+    # No RDB/AOF persistence: Redis holds only short-lived coordination state
+    # (cooldown keys, rate-limit counters, SignalR pub/sub). Business data lives in PostgreSQL.
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks:
+      - relativa_net
+
+  # ---- Graph instance 1 (base service, extended with Redis + instance id) ----
+  graph:
+    environment:
+      INSTANCE_ID: graph-1
+      Redis__ConnectionString: *redis-conn
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  # ---- Graph instance 2: same Dockerfile / same image recipe, different id + host port ----
+  graph-2:
+    extends:
+      file: docker-compose.yaml
+      service: graph
+    container_name: relativa-graph-2
+    environment:
+      INSTANCE_ID: graph-2
+      Redis__ConnectionString: *redis-conn
+    ports: !override
+      - "8085:8083"
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      migration:
+        condition: service_completed_successfully
+
+  # ---- Auth instance 1 (base service, extended with Redis for the e-mail rate limiter) ----
+  auth:
+    environment:
+      INSTANCE_ID: auth-1
+      Redis__ConnectionString: *redis-conn
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  # ---- Auth instance 2 ----
+  auth-2:
+    extends:
+      file: docker-compose.yaml
+      service: auth
+    container_name: relativa-auth-2
+    environment:
+      INSTANCE_ID: auth-2
+      Redis__ConnectionString: *redis-conn
+    ports: !override
+      - "8087:8081"
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      migration:
+        condition: service_completed_successfully
+
+  # ---- Round-robin load balancer for the Graph instances (no sticky sessions) ----
+  graph-lb:
+    image: nginx:1.27-alpine
+    container_name: relativa-graph-lb
+    volumes:
+      - ./infra/nginx/graph-lb.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "8090:80"
+    depends_on:
+      - graph
+      - graph-2
+    networks:
+      - relativa_net

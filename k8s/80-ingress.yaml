@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: relativa-gateway
+  namespace: relativa
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: relativa.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: relativa-gateway
+                port:
+                  number: 8080

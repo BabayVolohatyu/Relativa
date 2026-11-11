@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
 using DotNet.Testcontainers.Builders;
 using FluentAssertions;
@@ -56,7 +57,7 @@ public sealed class WorkspaceDashboardPermissionTests : IAsyncLifetime
             _db,
             mlScoring,
             Substitute.For<IMlRecalculationClient>(),
-            new MemoryCache(new MemoryCacheOptions()));
+            new MemoryDistributedCache(Microsoft.Extensions.Options.Options.Create(new MemoryDistributedCacheOptions())));
 
         await _svc.GetSummaryAsync(_analystUserId, _targetWorkspaceId, CancellationToken.None);
     }

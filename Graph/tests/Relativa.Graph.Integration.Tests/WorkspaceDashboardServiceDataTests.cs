@@ -1,4 +1,5 @@
 using DotNet.Testcontainers.Builders;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
@@ -38,7 +39,7 @@ public sealed class WorkspaceDashboardServiceDataTests : IAsyncLifetime
             _db,
             ml,
             Substitute.For<IMlRecalculationClient>(),
-            new MemoryCache(new MemoryCacheOptions()));
+            new MemoryDistributedCache(Microsoft.Extensions.Options.Options.Create(new MemoryDistributedCacheOptions())));
     }
 
     public async Task DisposeAsync()

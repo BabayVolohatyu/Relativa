@@ -12,6 +12,9 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
+ARG APP_VERSION=1.0.0
+ENV App__Version=$APP_VERSION
+
 USER app
 
 EXPOSE 8080

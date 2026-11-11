@@ -155,7 +155,14 @@ try
         options.OpenApiRoutePattern = "/openapi/aggregated.json";
     });
 
-    app.MapGet("/health", () => Results.Ok(new { status = "ok", service = "relativa-gateway" }))
+    app.MapGet("/health", (IConfiguration config) => Results.Ok(new
+    {
+        status = "ok",
+        service = "relativa-gateway",
+        version = config["App:Version"] ?? "unknown",
+        pod = Environment.GetEnvironmentVariable("POD_NAME"),
+        appName = config["Relativa:AppName"]
+    }))
         .AllowAnonymous();
 
     app.UseAuthentication();

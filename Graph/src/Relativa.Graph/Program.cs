@@ -11,7 +11,6 @@ using Relativa.Graph.ML;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
-builder.Services.AddSignalR();
 
 var graphConnectionString = builder.Configuration.GetConnectionString("Default");
 if (string.IsNullOrWhiteSpace(graphConnectionString))
@@ -48,11 +47,58 @@ builder.Services.Configure<RabbitMqGraphConsumerOptions>(
     builder.Configuration.GetSection(RabbitMqGraphConsumerOptions.SectionKey));
 builder.Services.AddHostedService<DomainEventConsumerHostedService>();
 
-builder.Services.AddMemoryCache();
+// ── Lab 2: externalised state ────────────────────────────────────────────────
+// Everything that must be shared between Graph instances lives in Redis:
+//   * IDistributedCache  → ML-enqueue cooldown keys (WorkspaceDashboardService)
+//   * SignalR backplane  → group/broadcast fan-out across instances (GraphHub)
+// Redis runs only as a container; docker-compose injects Redis__ConnectionString.
+// An empty value (running the service on the host without Docker) falls back to the
+// old single-process behaviour and logs a warning - that mode is NOT safe for >1 instance.
+var redisConnection = builder.Configuration["Redis:ConnectionString"];
+var redisEnabled = !string.IsNullOrWhiteSpace(redisConnection);
+if (redisEnabled)
+{
+    builder.Services.AddStackExchangeRedisCache(o =>
+    {
+        o.Configuration = redisConnection;
+        o.InstanceName = "relativa-graph:";
+    });
+    builder.Services.AddSignalR().AddStackExchangeRedis(redisConnection!, o =>
+    {
+        o.Configuration.ChannelPrefix = StackExchange.Redis.RedisChannel.Literal("relativa-graph");
+    });
+}
+else
+{
+    builder.Services.AddDistributedMemoryCache();
+    builder.Services.AddSignalR();
+}
+
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<GraphGlobalExceptionHandler>();
 
 var app = builder.Build();
+
+// Instance identification: lets a client (and the lab demo) see WHICH instance served a request.
+// INSTANCE_ID is set per container by docker-compose; the hostname (= container id) is the fallback.
+var instanceId = Environment.GetEnvironmentVariable("INSTANCE_ID") ?? Environment.MachineName;
+app.Use(async (ctx, next) =>
+{
+    ctx.Response.OnStarting(() =>
+    {
+        ctx.Response.Headers["X-Instance-ID"] = instanceId;
+        return Task.CompletedTask;
+    });
+    await next(ctx);
+});
+
+if (redisEnabled)
+    app.Logger.LogInformation("Graph instance {InstanceId} started with Redis-backed shared state.", instanceId);
+else
+    app.Logger.LogWarning(
+        "Graph instance {InstanceId} started WITHOUT Redis (Redis:ConnectionString is empty): " +
+        "cache and SignalR are process-local. Do not run more than one instance in this mode.",
+        instanceId);
 
 app.UseExceptionHandler();
 
