@@ -715,3 +715,120 @@ powershell -File high-load-systems/evidence/lab4/scripts/cold-hot-demo.ps1 -Skip
 powershell -File high-load-systems/evidence/lab4/scripts/invalidation-demo.ps1           # запис -> MISS зі свіжими даними
 powershell -File high-load-systems/evidence/lab4/scripts/fallback-demo.ps1               # docker stop redis -> BYPASS, 0 помилок
 ```
+
+---
+
+## Load Performance Baseline (Lab 5, High Load Systems)
+
+Базова лінія продуктивності системи після Lab 2-4: 3 екземпляри Graph за nginx Round Robin, Redis Cache-Aside, PostgreSQL, RabbitMQ, ML, Core. **Код застосунку не змінювався**, це вимірювання. Скрипти навантаження: [`load-tests/`](load-tests/README.md) (`load-tests/lab5/`), докази і повні таблиці: `high-load-systems/evidence/lab5/` (`k6/COMPARISON.md`), план захисту: `high-load-systems/defence/lab5.md`.
+
+### Тестове середовище
+
+| Компонент | Значення |
+|---|---|
+| Хост | Intel i5-8300H (4 ядра / 8 логічних), 7.9 ГБ RAM, Windows 10, Docker Desktop (WSL2) |
+| VM Docker | 8 CPU, ~4 ГБ RAM для всіх контейнерів, **без лімітів на контейнер** |
+| Graph | 3 екземпляри (.NET 10), кеш Redis TTL 60 с, пул Npgsql за замовчуванням (100 на екземпляр) |
+| Балансувальник | nginx 1.27.5, Round Robin, `zone` в upstream |
+| База даних | PostgreSQL 16, `max_connections=100`, `shared_buffers=128MB`, `work_mem=4MB` |
+| Брокер, ML, Core | RabbitMQ 3.13.7; ML з одним споживачем; Core x1 (потрібен для запису) |
+| Генератор навантаження | k6 v2.3.0 **у контейнері** в мережі compose (`http://relativa-graph-lb`), на тій самій VM |
+
+Повний знімок: `high-load-systems/evidence/lab5/environment.txt`.
+
+### Сценарії і методика
+
+| Сценарій | Запит |
+|---|---|
+| **A Read-Intensive** | `GET /api/v1/graph?organizationId=1` (68 КБ), один кеш-ключ |
+| **B Write-Intensive** | `POST /api/v1/workspaces/1/entity-graph/create` (реальний запис: Graph -> RabbitMQ RPC -> Core -> PostgreSQL) |
+| **C Complex Workflow** | `GET graph` -> пауза 0.3 с -> `POST create` -> пауза 0.3 с (запис інвалідує кеш) |
+
+Closed model (`ramping-vus`), think time 0.5 с, **warm-up** 5 VUs 15 с (результати відкидаються), ramp-up 15 с + **60 с вимірювання** на кожен рівень 10 / 50 / 100 / 200 VUs (окремий запуск на рівень), без thresholds. Перед кожним запуском скрипт видаляє тестові дані, очищає черги RabbitMQ, чекає простою сервісів і скидає кеш (запис залишає наслідки, які псують наступні запуски). Throughput = кількість запитів у вимірюванні / 60 с.
+
+### Результати (окремі запуски на рівень)
+
+| VUs | A (кеш): req/s / p50 / p95 / p99 / помилки | B (запис) | C (суміш) |
+|---:|---|---|---|
+| 10 | 19.5 / 4.5 / 16.8 / 41.5 мс / 0% | 16.5 / 89 / 191 / 276 мс / 0% | 13.8 / 264 / 792 / 824 мс / 0% |
+| 50 | 96.8 / 6.2 / 19.4 / 36.0 мс / 0% | 26.6 / 1404 / 1687 / 1797 мс / 0% | 35.5 / 1120 / 2016 / 2478 мс / 0% |
+| 100 | 192.0 / 6.1 / 24.5 / 152.5 мс / 0% | 25.6 / 3559 / 4117 / 4232 мс / 0% | 34.8 / 3753 / 5281 / 5491 мс / 0% |
+| 200 | 364.4 / 8.1 / 51.4 / 692.8 мс / 0.08% | 24.8 / 8666 / 9022 / 9127 мс / 0% | 33.4 / 8306 / 12 536 / 12 895 мс / 0% |
+
+Для A на 200 VUs другий запуск дав 306 req/s, p99 8.5 с, 0.24% помилок: біля коліна розкид між запусками до 16%, на плато (B: 25.6 і 25.7 req/s) менше 1%. Додатково для A: на 300 VUs два запуски розійшлися втричі (173 req/s і p95 2.7 с проти 548 req/s і p95 65 мс; причина колапсу невідома, не відтворився), 500 VUs зависили Docker Desktop (запуск відкинуто).
+
+### Графіки
+
+Пропускна здатність (req/s) за кількістю VUs: A з кешем, B, C, A без кешу (довідково):
+
+```mermaid
+xychart-beta
+    title "Throughput (req/s) vs VUs: A cache, B write, C mixed, A no-cache"
+    x-axis [10, 50, 100, 200]
+    y-axis "req/s" 0 --> 400
+    line [19.5, 96.8, 192.0, 364.4]
+    line [16.5, 26.6, 25.6, 24.8]
+    line [13.8, 35.5, 34.8, 33.4]
+    line [7.9, 38.3, 41.3, 13.1]
+```
+
+p95 затримка (секунди) за кількістю VUs: B, C, A без кешу (A з кешем лишається нижче 0.06 с):
+
+```mermaid
+xychart-beta
+    title "p95 latency (s) vs VUs: B write, C mixed, A no-cache"
+    x-axis [10, 50, 100, 200]
+    y-axis "seconds" 0 --> 35
+    line [0.19, 1.69, 4.12, 9.02]
+    line [0.79, 2.02, 5.28, 12.54]
+    line [0.80, 0.91, 10.19, 30.20]
+```
+
+Для B і C плато пропускної здатності з 50 VUs і лінійне зростання затримки це сигнатура **Saturation Point**.
+
+### Вплив масштабування і кешування
+
+| Експеримент | Результат |
+|---|---|
+| 1 проти 3 екземплярів, A, 100 VUs | 189.6 / 193.0 проти 191.8 / 192.4 req/s: **різниці немає** (1 екземпляр не насичений) |
+| 1 проти 3 екземплярів, A, 300 VUs | 499 проти 548 req/s (+10%), p99 2735 проти 578 мс, CPU Graph 200% проти 84% на екземпляр; ефективність 37% |
+| 1 проти 3 екземплярів, A, 200 VUs | 368 / 338 проти 371 / 370 req/s; p99 164 / 2127 проти 170 / 207 мс: виграш у стабільності хвоста, не в пропускній здатності; CPU Graph 173% проти 63% на екземпляр |
+| Кеш вимкнено проти увімкнено, A, 50 VUs | 38 проти 97 req/s, p50 812 проти 6.2 мс, p95 892 проти 19 мс, **-95% транзакцій PostgreSQL** (49 527 проти 2 387) |
+| Без кешу, A, 100 / 200 VUs | p99 24 с і 1% помилок / 90% помилок: насичення на ~50 VUs |
+
+### SYSTEM PERFORMANCE BASELINE
+
+```
+=== SYSTEM PERFORMANCE BASELINE ===
+Environment Config: 1 VM Docker Desktop (8 логічних CPU, ~4 ГБ RAM, без лімітів); 3 x Graph (кеш Redis TTL 60 с)
+                    за nginx RR; PostgreSQL 16 (max_connections=100); RabbitMQ 3.13; ML (1 споживач); Core x1;
+                    k6 v2.3.0 в контейнері на тій самій VM, closed model, think 0.5 с
+Stable Throughput:  читання (кеш) ~190 req/s на 100 VUs (p95 25-35 мс); запис ~25 req/s; суміш ~30-35 req/s;
+                    читання без кешу ~38 req/s
+Saturation Point:   запис і суміш ≈25 VUs (staged-прогін; окремі запуски: між 10 і 50); читання без кешу ~50 VUs; читання з кешем не досягнута (до 300 VUs 548 req/s, хвіст
+                    нестабільний від 200 VUs; 500 VUs зависили Docker)
+p95 / p99 Latency:  A (кеш) 100 VUs 24.5 / 153 мс; B 100 VUs 4117 / 4232 мс; C 100 VUs 5281 / 5491 мс
+Error Rate:         A 0% до 100 VUs, 0.08-0.24% на 200 VUs; B і C 0% (черга, не відмови); A без кешу 1% на 100, 90% на 200
+Critical Scenario:  запис (B) і комплексний сценарій (C)
+Primary Bottleneck: запис: RPC Graph -> Core через RabbitMQ (нове з'єднання, канал і черга на кожен запит, CPU RabbitMQ
+                    росте з навантаженням); читання без кешу: ML + RabbitMQ; читання з кешем: спільний CPU
+                    і ліміт з'єднань PostgreSQL під час stampede
+```
+
+Застереження: closed model дає оптимістичні p95/p99 при насиченні (Coordinated Omission); сценарій A використовує один ключ кешу (найкращий випадок); вузьке місце запису не ізольоване експериментально (є кореляція CPU RabbitMQ і проба churn, немає експерименту "прибрати і перевимірити"); k6 і система на одній VM. Відкинуті та недійсні запуски збережені й описані в `COMPARISON.md` (розділ 9).
+
+### Запуск
+
+```powershell
+# стек і Core (для запису)
+docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f docker-compose.lab3.yml up -d --no-build
+docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f docker-compose.lab3.yml up -d --no-build core
+
+# один рівень: чистий стан + warm-up + k6 у контейнері (A|B|C, кількість VUs, тека результату, номер запуску)
+powershell -File high-load-systems/evidence/lab5/scripts/run-k6.ps1 -Scenario B -Vus 50 -OutDir scenario-b/vus-50 -Run 1
+
+# вся сітка, staged-прогін (10 -> 25 -> 50 -> 100 -> 200 VUs), таблиця з summary-файлів
+powershell -File high-load-systems/evidence/lab5/scripts/run-matrix.ps1 -Part main -Scenarios A,B,C -Levels 10,50,100,200 -Run 1
+powershell -File high-load-systems/evidence/lab5/scripts/run-staged.ps1 -Scenario C
+& high-load-systems/evidence/lab5/k6/build-baseline-table.ps1 -Dir high-load-systems/evidence/lab5/k6/scenario-b -Run 1
+```
