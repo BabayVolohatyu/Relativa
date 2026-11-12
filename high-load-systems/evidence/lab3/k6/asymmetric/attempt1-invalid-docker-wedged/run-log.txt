@@ -1,0 +1,31 @@
+﻿=== run1 / rr ===
+   nginx -t: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+   nginx -t: nginx: configuration file /etc/nginx/nginx.conf test is successful
+powershell : 2026/11/11 20:17:46 [notice] 34#34: signal process started
+At C:\Users\babay\AppData\Local\Temp\ps-script-a23345a3-a502-423c-b002-1134104b2753.ps1:80 char:1
++ powershell -NoProfile -File high-load-systems/evidence/lab3/scripts/a ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026/11/11 20:1...process started:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   nginx now runs: ROUND ROBIN
+finished run1 / rr
+=== run1 / lc ===
+   nginx -t: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+   nginx -t: nginx: configuration file /etc/nginx/nginx.conf test is successful
+2026/11/11 20:20:29 [notice] 60#60: signal process started
+   nginx now runs: LEAST CONNECTIONS
+finished run1 / lc
+=== run2 / rr ===
+   nginx -t: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+   nginx -t: nginx: configuration file /etc/nginx/nginx.conf test is successful
+2026/11/11 20:23:11 [notice] 86#86: signal process started
+   nginx now runs: ROUND ROBIN
+finished run2 / rr
+=== run2 / lc ===
+   nginx -t: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+   nginx -t: nginx: configuration file /etc/nginx/nginx.conf test is successful
+2026/11/11 20:29:50 [notice] 111#111: signal process started
+   nginx now runs: LEAST CONNECTIONS
+finished run2 / lc
+=== back to Round Robin ===

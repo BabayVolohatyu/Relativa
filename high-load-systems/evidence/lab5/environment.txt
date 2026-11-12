@@ -1,0 +1,59 @@
+﻿Captured 2026-11-11 15:09:10 on branch high-load-systems/lab5 @ cb9bd30
+--- host
+Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz, 4 cores / 8 logical
+RAM: 7.9 GB
+--- docker
+Docker Desktop engine 29.8.0, 8 CPUs, 4028272640 bytes RAM available to containers
+k6: k6.exe v2.2.0 (commit/00a9a1b7f5, go1.26.5, windows/amd64)
+--- containers (name image cpu-limit mem-limit; 0 = no limit)
+/relativa-auth-2 image=relativa-auth-2 nano_cpus=0 mem_limit=0
+/relativa-auth image=relativa-auth nano_cpus=0 mem_limit=0
+/relativa-graph-lb image=nginx:1.27-alpine nano_cpus=0 mem_limit=0
+/relativa-ml image=relativa-ml nano_cpus=0 mem_limit=0
+/relativa-core image=relativa-core nano_cpus=0 mem_limit=0
+/relativa-graph image=relativa-graph nano_cpus=0 mem_limit=0
+/relativa-graph-2 image=relativa-graph-2 nano_cpus=0 mem_limit=0
+/relativa-graph-3 image=relativa-graph-3 nano_cpus=0 mem_limit=0
+/relativa-rabbitmq image=rabbitmq:3.13-management-alpine nano_cpus=0 mem_limit=0
+/relativa-postgres image=postgres:16-alpine nano_cpus=0 mem_limit=0
+/relativa-redis image=redis:7-alpine nano_cpus=0 mem_limit=0
+/relativa-mailhog image=mailhog/mailhog:latest nano_cpus=0 mem_limit=0
+/relativa-sonarqube image=sonarqube:community nano_cpus=0 mem_limit=0
+--- PostgreSQL
+max_connections = 100
+shared_buffers = 128MB
+work_mem = 4MB
+effective_cache_size = 4GB
+--- Graph env (graph-1)
+
+INSTANCE_ID=graph-1
+Redis__ConnectionString=redis:6379,abortConnect=false
+ASPNETCORE_URLS=http://+:8083
+ASPNETCORE_ENVIRONMENT=Development
+ConnectionStrings__Default=Host=postgres;Port=5432;Database=relativa;Username=relativa;Password=relativa
+ASPNETCORE_HTTP_PORTS=8080
+Npgsql pool: connection string has no 'Maximum Pool Size' => Npgsql default 100 per Graph instance (x3 instances vs max_connections=100)
+--- Redis
+maxmemory
+0
+maxmemory-policy
+noeviction
+redis-cli 7.4.12
+--- nginx
+docker : nginx version: nginx/1.27.5
+At C:\Users\babay\AppData\Local\Temp\ps-script-adaf0bb3-9893-4ef8-bad9-f21378955028.ps1:92 char:27
++ ... -- nginx"; $o += (docker exec relativa-graph-lb nginx -v 2>&1); $o += ...
++                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (nginx version: nginx/1.27.5:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+8
+worker_processes  auto;
+--- RabbitMQ
+3.13.7
+--- test data
+entities (not archived): 1363
+--- other containers on the machine that compete for CPU/RAM
+relativa-sonarqube
+
+

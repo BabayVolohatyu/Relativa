@@ -1,0 +1,28 @@
+﻿=== Lab 4 demo 2: invalidation on write ===
+--- Prepare: 3 cached variants for organization 1 (all / high / low) and 1 for organization 2
+org 1, all   (1st)                 status=200 X-Cache=MISS   served by graph-1     149 ms   nodes=183 edges=291 body=67607 B
+org 1, all   (2nd)                 status=200 X-Cache=HIT    served by graph-2       8 ms   nodes=183 edges=291 body=67607 B
+org 1, high                        status=200 X-Cache=MISS   served by graph-3     158 ms   nodes=163 edges=240 body=58138 B
+org 1, low                         status=200 X-Cache=MISS   served by graph-1     151 ms   nodes=140 edges=161 body=45464 B
+org 2, all (other tenant)          status=200 X-Cache=MISS   served by graph-2      35 ms   nodes=1 edges=0 body=232 B
+--- Redis keys (before the write)
+    relativa-graph:graph:v1:1:1:all   TTL=55s
+    relativa-graph:graph:v1:1:1:high   TTL=57s
+    relativa-graph:graph:v1:1:1:low   TTL=64s
+    relativa-graph:graph:v1:1:2:all   TTL=58s
+org 1, all   (HIT, before write)   status=200 X-Cache=HIT    served by graph-3       8 ms   nodes=183 edges=291 body=67607 B
+
+--- WRITE: POST /api/v1/workspaces/1/entity-graph/create (through nginx, Round Robin picks any instance)
+create answer: id=1449  HTTP 200 0.121980s
+
+--- Redis keys (right after the write (org 1 keys must be gone, org 2 key must survive))
+    relativa-graph:graph:v1:1:2:all   TTL=58s
+
+--- READ after the write
+org 1, all   (after write)         status=200 X-Cache=MISS   served by graph-2     167 ms   nodes=184 edges=292 body=67921 B
+org 1, all   (next)                status=200 X-Cache=HIT    served by graph-3       8 ms   nodes=184 edges=292 body=67921 B
+org 1, high  (after write)         status=200 X-Cache=MISS   served by graph-1     153 ms   nodes=164 edges=241 body=58452 B
+org 2, all   (untouched)           status=200 X-Cache=HIT    served by graph-2       6 ms   nodes=1 edges=0 body=232 B
+
+FRESHNESS: nodes before=183 after=184; new label present in the response: True
+cleanup: entity 1449 archived, cache cleared.

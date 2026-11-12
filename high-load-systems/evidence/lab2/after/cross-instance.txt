@@ -1,0 +1,35 @@
+﻿=== Part A: Graph via nginx (http://localhost:8090) - 10 reads, no sticky sessions ===
+GET /api/v1/graph  -> HTTP 200  X-Instance-ID=graph-1  nodes=183 edges=291  structure-sha256[0..12]=53968252CFC4
+GET /api/v1/graph  -> HTTP 200  X-Instance-ID=graph-2  nodes=183 edges=291  structure-sha256[0..12]=53968252CFC4
+GET /api/v1/graph  -> HTTP 200  X-Instance-ID=graph-1  nodes=183 edges=291  structure-sha256[0..12]=53968252CFC4
+GET /api/v1/graph  -> HTTP 200  X-Instance-ID=graph-2  nodes=183 edges=291  structure-sha256[0..12]=53968252CFC4
+GET /api/v1/graph  -> HTTP 200  X-Instance-ID=graph-1  nodes=183 edges=291  structure-sha256[0..12]=53968252CFC4
+GET /api/v1/graph  -> HTTP 200  X-Instance-ID=graph-2  nodes=183 edges=291  structure-sha256[0..12]=53968252CFC4
+GET /api/v1/graph  -> HTTP 200  X-Instance-ID=graph-1  nodes=183 edges=291  structure-sha256[0..12]=53968252CFC4
+GET /api/v1/graph  -> HTTP 200  X-Instance-ID=graph-2  nodes=183 edges=291  structure-sha256[0..12]=53968252CFC4
+GET /api/v1/graph  -> HTTP 200  X-Instance-ID=graph-1  nodes=183 edges=291  structure-sha256[0..12]=53968252CFC4
+GET /api/v1/graph  -> HTTP 200  X-Instance-ID=graph-2  nodes=183 edges=291  structure-sha256[0..12]=53968252CFC4
+requests per instance : graph-1=5  graph-2=5
+distinct graph structures: 1  (1 => every instance returned the same nodes and edges)
+
+=== Part B: POST -> inst.1, GET -> inst.2, PATCH -> inst.2, GET -> inst.1 (Auth service) ===
+1. POST  http://localhost:8081/api/v1/auth/login          -> HTTP 200  X-Instance-ID=auth-1  (JWT issued)
+2. GET   http://localhost:8087/api/v1/auth/me             -> HTTP 200  X-Instance-ID=auth-2  lastName='Gray'  (token from inst.1 accepted by inst.2)
+3. PATCH http://localhost:8087/api/v1/auth/me             -> HTTP 200  X-Instance-ID=auth-2  lastName set to 'Lab2-112300'
+4. GET   http://localhost:8081/api/v1/auth/me             -> HTTP 200  X-Instance-ID=auth-1  lastName='Lab2-112300'
+RESULT consistent: instance 1 sees the write made through instance 2
+(seed value lastName='Gray' restored)
+
+=== Part C: keys held in Redis (shared state) ===
+relativa-auth:rate:support-ip:198.51.100.94
+relativa-auth:rate:support-ip:198.51.100.112
+relativa-graph:ml-enqueue-cooldown:3
+-- active pub/sub channels (SignalR backplane):
+relativa-graphRelativa.Graph.Hubs.GraphHub:internal:ack:4a0d36400942_26648073f91049c19f5d829102593f9e
+relativa-graphRelativa.Graph.Hubs.GraphHub:internal:return:4a0d36400942_26648073f91049c19f5d829102593f9e
+relativa-graph__Booksleeve_MasterChanged
+relativa-graphRelativa.Graph.Hubs.GraphHub:internal:groups
+relativa-graphRelativa.Graph.Hubs.GraphHub:internal:return:c180914b1f22_a3fd0cba178e4e4696f8f6670b258cae
+relativa-graphRelativa.Graph.Hubs.GraphHub:internal:ack:c180914b1f22_a3fd0cba178e4e4696f8f6670b258cae
+__Booksleeve_MasterChanged
+relativa-graphRelativa.Graph.Hubs.GraphHub:all

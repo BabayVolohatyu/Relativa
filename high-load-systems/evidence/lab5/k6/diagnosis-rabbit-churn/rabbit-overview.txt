@@ -1,0 +1,8 @@
+﻿19:50:29 conn_created/s=30.8 channel_created/s=30.8 queue_declared/s=29.8 publish/s=123.2 deliver_get/s=25.8 connections=246 channels=6 queues=35
+19:50:34 conn_created/s=30.8 channel_created/s=30.8 queue_declared/s=29.8 publish/s=105.4 deliver_get/s=26.4 connections=246 channels=6 queues=48
+19:50:39 conn_created/s=57.4 channel_created/s=57.4 queue_declared/s=55.6 publish/s=144.4 deliver_get/s=26.6 connections=246 channels=6 queues=48
+19:50:44 conn_created/s=27.2 channel_created/s=27.2 queue_declared/s=26.2 publish/s=106.0 deliver_get/s=27.2 connections=246 channels=6 queues=44
+19:50:49 conn_created/s=28.6 channel_created/s=28.6 queue_declared/s=27.4 publish/s=126.4 deliver_get/s=26.6 connections=246 channels=6 queues=50
+19:50:54 conn_created/s=27.4 channel_created/s=27.4 queue_declared/s=26.6 publish/s=120.2 deliver_get/s=27.2 connections=246 channels=6 queues=49
+19:50:59 conn_created/s=27.6 channel_created/s=27.6 queue_declared/s=26.6 publish/s=95.8 deliver_get/s=25.0 connections=246 channels=6 queues=47
+19:51:05 conn_created/s=0.0 channel_created/s=0.0 queue_declared/s=0.0 publish/s=133.0 deliver_get/s=26.4 connections=246 channels=6 queues=46

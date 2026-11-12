@@ -1,0 +1,46 @@
+﻿
+         /\      Grafana   /ΓÇ╛ΓÇ╛/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ΓÇ╛ΓÇ╛\ 
+  /          \   |   (  |  (ΓÇ╛)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: high-load-systems/evidence/lab2/k6/pre-lab/graph-load-test.js
+        output: -
+
+...(per-second progress lines removed)...
+
+  Γûê TOTAL RESULTS 
+
+    checks_total.......: 3587    29.851746/s
+    checks_succeeded...: 100.00% 3587 out of 3587
+    checks_failed......: 0.00%   0 out of 3587
+
+    Γ£ô status is 200
+
+    CUSTOM
+    served_by_none.................: 3587   29.851746/s
+
+    HTTP
+    http_req_duration..............: avg=886.88ms min=768.57ms med=839.98ms max=3.6s  p(90)=981.88ms p(95)=1.05s
+      { expected_response:true }...: avg=886.88ms min=768.57ms med=839.98ms max=3.6s  p(90)=981.88ms p(95)=1.05s
+    http_req_failed................: 0.00%  0 out of 3587
+    http_reqs......................: 3587   29.851746/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.38s    min=1.26s    med=1.34s    max=4.13s p(90)=1.48s    p(95)=1.55s
+    iterations.....................: 3587   29.851746/s
+    vus............................: 1      min=1         max=50
+    vus_max........................: 50     min=50        max=50
+
+    NETWORK
+    data_received..................: 243 MB 2.0 MB/s
+    data_sent......................: 405 kB 3.4 kB/s
+
+
+
+
+running (2m00.2s), 00/50 VUs, 3587 complete and 0 interrupted iterations
+graph_load Γ£ô [ 100% ] 00/50 VUs  2m0s

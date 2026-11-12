@@ -1,0 +1,18 @@
+﻿=== Lab 4 BEFORE: original code, no cache ===
+--- Redis keys (before the requests)
+    (none)
+request 1                          status=200 X-Cache=-      served by graph-2     467 ms   nodes=183 edges=291 body=67607 B
+request 2                          status=200 X-Cache=-      served by graph-3     789 ms   nodes=183 edges=291 body=67389 B
+request 3                          status=200 X-Cache=-      served by graph-1     418 ms   nodes=183 edges=291 body=67607 B
+request 4                          status=200 X-Cache=-      served by graph-2     479 ms   nodes=183 edges=291 body=67607 B
+request 5                          status=200 X-Cache=-      served by graph-3     159 ms   nodes=183 edges=291 body=67607 B
+request 6                          status=200 X-Cache=-      served by graph-1     163 ms   nodes=183 edges=291 body=67607 B
+request 7                          status=200 X-Cache=-      served by graph-2     465 ms   nodes=183 edges=291 body=67607 B
+request 8                          status=200 X-Cache=-      served by graph-3     221 ms   nodes=183 edges=291 body=67607 B
+request 9                          status=200 X-Cache=-      served by graph-1     206 ms   nodes=183 edges=291 body=67607 B
+--- Redis keys (after the requests (the original code writes nothing to Redis))
+    (none)
+latency of 9 identical requests: min=159 median=418 max=789 ms; X-Cache header present: no (shown as "-")
+
+--- Redis stopped: the original code does not use Redis for this endpoint, so nothing changes (it never benefited from it)
+redis DOWN request                 status=200 X-Cache=-      served by graph-2     227 ms   nodes=183 edges=291 body=67607 B

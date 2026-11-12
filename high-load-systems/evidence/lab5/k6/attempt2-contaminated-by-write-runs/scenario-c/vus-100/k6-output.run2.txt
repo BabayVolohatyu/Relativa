@@ -1,0 +1,46 @@
+﻿
+
+  Γûê TOTAL RESULTS 
+
+    checks_total.......: 648    7.648594/s
+    checks_succeeded...: 85.03% 551 out of 648
+    checks_failed......: 14.96% 97 out of 648
+
+    Γ£ù read: status is 200
+      Γå│  92% ΓÇö Γ£ô 299 / Γ£ù 25
+    Γ£ù write: status is 200
+      Γå│  77% ΓÇö Γ£ô 252 / Γ£ù 72
+
+    CUSTOM
+    cache_bypass...................: 4      0.047214/s
+    cache_hit......................: 129    1.522637/s
+    cache_miss.....................: 72     0.849844/s
+    cache_none.....................: 25     0.295085/s
+    duration_read..................: avg=3.65s  min=4.54ms med=785.03ms max=23.54s p(90)=16.39s p(95)=20.01s p(99)=22.9s 
+    duration_write.................: avg=20.36s min=3.72s  med=20.08s   max=57.98s p(90)=31.45s p(95)=35.2s  p(99)=50.26s
+    m_dur..........................: avg=12.94s min=4.54ms med=11.11s   max=57.98s p(90)=29.15s p(95)=31.81s p(99)=42.28s
+    m_dur_ok.......................: avg=11.92s min=4.54ms med=8.07s    max=57.98s p(90)=29.52s p(95)=32.47s p(99)=43.88s
+    m_failed.......................: 97     1.144928/s
+    m_reqs.........................: 518    6.114153/s
+    served_by_graph_1..............: 168    1.982969/s
+    served_by_graph_2..............: 177    2.089199/s
+    served_by_graph_3..............: 173    2.041986/s
+
+    HTTP
+    http_req_duration..............: avg=10.8s  min=3.23ms med=7.79s    max=57.98s p(90)=28.23s p(95)=30.59s p(99)=40.78s
+      { expected_response:true }...: avg=9.64s  min=3.23ms med=3.98s    max=57.98s p(90)=28.48s p(95)=31.56s p(99)=41.95s
+    http_req_failed................: 14.96% 97 out of 648
+    http_reqs......................: 648    7.648594/s
+
+    EXECUTION
+    iteration_duration.............: avg=22.33s min=2.08s  med=21.85s   max=59.4s  p(90)=35.53s p(95)=38.7s  p(99)=51.96s
+    iterations.....................: 324    3.824297/s
+    vus............................: 13     min=6         max=100
+    vus_max........................: 100    min=100       max=100
+
+    NETWORK
+    data_received..................: 27 MB  320 kB/s
+    data_sent......................: 131 kB 1.5 kB/s
+
+
+

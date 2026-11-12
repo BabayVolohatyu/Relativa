@@ -1,0 +1,225 @@
+﻿k6 : time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56696->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+At C:\Users\babay\myrepos\testing\Relativa\high-load-systems\evidence\lab5\scripts\run-k6.ps1:86 char:1
++ k6 run -q $stats -e "BASE_URL=$BaseUrl" -e "VUS=$Vus" -e "DURATION=$D ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (time="2026-11-1...e remote host.":String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56697->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56698->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56701->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56694->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56699->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56720->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56731->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56725->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56719->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56735->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56724->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56730->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56744->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56729->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56758->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56746->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56747->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56748->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56742->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56763->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56765->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56762->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56734->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56674->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56754->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56743->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56739->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56749->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56733->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56732->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56764->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56741->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56740->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56751->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56750->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56755->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56690->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56760->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56759->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56752->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56667->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56753->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56766->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56757->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56756->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56761->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:51-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56779->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:51-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56777->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:51-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56776->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:51-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56778->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:52-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56822->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:52-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56815->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:52-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56816->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:52-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56820->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:52-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56812->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:52-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56818->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:52-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56819->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:52-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56817->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T15:13:52-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:56811->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+
+
+  Γûê TOTAL RESULTS 
+
+    checks_total.......: 8018   131.196456/s
+    checks_succeeded...: 99.25% 7958 out of 8018
+    checks_failed......: 0.74%  60 out of 8018
+
+    Γ£ù read: status is 200
+      Γå│  99% ΓÇö Γ£ô 7958 / Γ£ù 60
+
+    CUSTOM
+    cache_hit......................: 7905   129.347466/s
+    cache_miss.....................: 53     0.867225/s
+    cache_none.....................: 60     0.981764/s
+    duration_read..................: avg=250.26ms min=1.88ms   med=7.41ms  max=30.06s p(90)=26.55ms p(95)=45.13ms  p(99)=1.86s   
+    served_by_graph_1..............: 2653   43.410351/s
+    served_by_graph_2..............: 2653   43.410351/s
+    served_by_graph_3..............: 2652   43.393989/s
+    served_by_other................: 60     0.981764/s
+
+    HTTP
+    http_req_duration..............: avg=250.26ms min=1.88ms   med=7.41ms  max=30.06s p(90)=26.55ms p(95)=45.13ms  p(99)=1.86s   
+      { expected_response:true }...: avg=25.61ms  min=1.88ms   med=7.3ms   max=2.67s  p(90)=25.63ms p(95)=37.98ms  p(99)=199.66ms
+    http_req_failed................: 0.74%  60 out of 8018
+    http_reqs......................: 8018   131.196456/s
+
+    EXECUTION
+    iteration_duration.............: avg=752.2ms  min=502.12ms med=508.7ms max=30.59s p(90)=529.1ms p(95)=550.44ms p(99)=2.38s   
+    iterations.....................: 8018   131.196456/s
+    vus............................: 13     min=13         max=100
+    vus_max........................: 100    min=100        max=100
+
+    NETWORK
+    data_received..................: 539 MB 8.8 MB/s
+    data_sent......................: 906 kB 15 kB/s
+
+
+

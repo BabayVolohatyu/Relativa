@@ -1,0 +1,45 @@
+﻿# t=5s
+relativa-graph  cpu=52.17%  mem=158.5MiB / 3.752GiB
+relativa-graph-2  cpu=74.59%  mem=176MiB / 3.752GiB
+relativa-graph-3  cpu=82.70%  mem=97.7MiB / 3.752GiB
+relativa-graph-lb  cpu=4.36%  mem=10.66MiB / 3.752GiB
+relativa-ml  cpu=56.77%  mem=440.6MiB / 3.752GiB
+relativa-postgres  cpu=145.60%  mem=253.2MiB / 3.752GiB
+relativa-rabbitmq  cpu=162.14%  mem=307.1MiB / 3.752GiB
+relativa-redis  cpu=0.92%  mem=10.18MiB / 3.752GiB
+# t=10s
+relativa-graph  cpu=38.32%  mem=156.6MiB / 3.752GiB
+relativa-graph-2  cpu=34.18%  mem=170.2MiB / 3.752GiB
+relativa-graph-3  cpu=93.17%  mem=114.4MiB / 3.752GiB
+relativa-graph-lb  cpu=6.41%  mem=9.898MiB / 3.752GiB
+relativa-ml  cpu=44.09%  mem=436.7MiB / 3.752GiB
+relativa-postgres  cpu=176.54%  mem=133.1MiB / 3.752GiB
+relativa-rabbitmq  cpu=104.00%  mem=362.2MiB / 3.752GiB
+relativa-redis  cpu=1.75%  mem=1.449MiB / 3.752GiB
+# t=15s
+relativa-graph  cpu=3.47%  mem=157.6MiB / 3.752GiB
+relativa-graph-2  cpu=3.86%  mem=171.6MiB / 3.752GiB
+relativa-graph-3  cpu=4.90%  mem=155.1MiB / 3.752GiB
+relativa-graph-lb  cpu=0.00%  mem=7.461MiB / 3.752GiB
+relativa-ml  cpu=69.95%  mem=444.1MiB / 3.752GiB
+relativa-postgres  cpu=23.61%  mem=202.1MiB / 3.752GiB
+relativa-rabbitmq  cpu=15.62%  mem=383.3MiB / 3.752GiB
+relativa-redis  cpu=0.39%  mem=4.047MiB / 3.752GiB
+# t=20s
+relativa-graph  cpu=3.40%  mem=154.8MiB / 3.752GiB
+relativa-graph-2  cpu=7.27%  mem=168.6MiB / 3.752GiB
+relativa-graph-3  cpu=2.75%  mem=135.5MiB / 3.752GiB
+relativa-graph-lb  cpu=0.00%  mem=7.441MiB / 3.752GiB
+relativa-ml  cpu=84.04%  mem=439.8MiB / 3.752GiB
+relativa-postgres  cpu=17.95%  mem=202MiB / 3.752GiB
+relativa-rabbitmq  cpu=146.83%  mem=386.8MiB / 3.752GiB
+relativa-redis  cpu=0.60%  mem=4.758MiB / 3.752GiB
+# t=25s
+relativa-graph  cpu=4.19%  mem=155.7MiB / 3.752GiB
+relativa-graph-2  cpu=4.62%  mem=168.6MiB / 3.752GiB
+relativa-graph-3  cpu=1.50%  mem=133.6MiB / 3.752GiB
+relativa-graph-lb  cpu=0.00%  mem=7.414MiB / 3.752GiB
+relativa-ml  cpu=66.76%  mem=442.8MiB / 3.752GiB
+relativa-postgres  cpu=21.46%  mem=200.9MiB / 3.752GiB
+relativa-rabbitmq  cpu=12.06%  mem=375.2MiB / 3.752GiB
+relativa-redis  cpu=0.47%  mem=3.641MiB / 3.752GiB

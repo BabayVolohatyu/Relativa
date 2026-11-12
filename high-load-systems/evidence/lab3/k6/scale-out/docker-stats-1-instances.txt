@@ -1,0 +1,126 @@
+﻿# t=5s
+relativa-graph  cpu=100.03%  mem=109.6MiB / 3.752GiB
+relativa-graph-2  cpu=0.16%  mem=40.56MiB / 3.752GiB
+relativa-graph-3  cpu=0.20%  mem=27.3MiB / 3.752GiB
+relativa-graph-lb  cpu=3.83%  mem=13.84MiB / 3.752GiB
+relativa-ml  cpu=75.58%  mem=450.6MiB / 3.752GiB
+relativa-postgres  cpu=83.43%  mem=160MiB / 3.752GiB
+relativa-rabbitmq  cpu=49.82%  mem=145.8MiB / 3.752GiB
+relativa-redis  cpu=0.50%  mem=12.21MiB / 3.752GiB
+# t=10s
+relativa-graph  cpu=99.27%  mem=131.4MiB / 3.752GiB
+relativa-graph-2  cpu=0.16%  mem=38.82MiB / 3.752GiB
+relativa-graph-3  cpu=0.40%  mem=27.27MiB / 3.752GiB
+relativa-graph-lb  cpu=4.94%  mem=13.79MiB / 3.752GiB
+relativa-ml  cpu=78.84%  mem=448.8MiB / 3.752GiB
+relativa-postgres  cpu=78.08%  mem=220.3MiB / 3.752GiB
+relativa-rabbitmq  cpu=17.81%  mem=143.1MiB / 3.752GiB
+relativa-redis  cpu=0.52%  mem=12.4MiB / 3.752GiB
+# t=15s
+relativa-graph  cpu=96.17%  mem=144.8MiB / 3.752GiB
+relativa-graph-2  cpu=0.16%  mem=37.32MiB / 3.752GiB
+relativa-graph-3  cpu=0.13%  mem=27.29MiB / 3.752GiB
+relativa-graph-lb  cpu=4.67%  mem=12.9MiB / 3.752GiB
+relativa-ml  cpu=81.84%  mem=448.6MiB / 3.752GiB
+relativa-postgres  cpu=55.81%  mem=222.2MiB / 3.752GiB
+relativa-rabbitmq  cpu=34.25%  mem=149.4MiB / 3.752GiB
+relativa-redis  cpu=0.47%  mem=12.67MiB / 3.752GiB
+# t=20s
+relativa-graph  cpu=96.89%  mem=149.7MiB / 3.752GiB
+relativa-graph-2  cpu=0.21%  mem=37.59MiB / 3.752GiB
+relativa-graph-3  cpu=0.29%  mem=27.46MiB / 3.752GiB
+relativa-graph-lb  cpu=2.89%  mem=12.4MiB / 3.752GiB
+relativa-ml  cpu=79.37%  mem=448.4MiB / 3.752GiB
+relativa-postgres  cpu=69.34%  mem=231.4MiB / 3.752GiB
+relativa-rabbitmq  cpu=41.09%  mem=172.7MiB / 3.752GiB
+relativa-redis  cpu=0.61%  mem=12.09MiB / 3.752GiB
+# t=25s
+relativa-graph  cpu=103.93%  mem=149.9MiB / 3.752GiB
+relativa-graph-2  cpu=0.15%  mem=36.33MiB / 3.752GiB
+relativa-graph-3  cpu=0.25%  mem=27.46MiB / 3.752GiB
+relativa-graph-lb  cpu=4.36%  mem=12.79MiB / 3.752GiB
+relativa-ml  cpu=85.65%  mem=447.7MiB / 3.752GiB
+relativa-postgres  cpu=55.24%  mem=232MiB / 3.752GiB
+relativa-rabbitmq  cpu=20.87%  mem=155.3MiB / 3.752GiB
+relativa-redis  cpu=0.82%  mem=12.19MiB / 3.752GiB
+# t=30s
+relativa-graph  cpu=99.02%  mem=168.4MiB / 3.752GiB
+relativa-graph-2  cpu=0.25%  mem=35.18MiB / 3.752GiB
+relativa-graph-3  cpu=0.14%  mem=27.42MiB / 3.752GiB
+relativa-graph-lb  cpu=3.09%  mem=12.76MiB / 3.752GiB
+relativa-ml  cpu=78.92%  mem=446.3MiB / 3.752GiB
+relativa-postgres  cpu=57.61%  mem=238.5MiB / 3.752GiB
+relativa-rabbitmq  cpu=102.09%  mem=157.4MiB / 3.752GiB
+relativa-redis  cpu=0.53%  mem=11.35MiB / 3.752GiB
+# t=35s
+relativa-graph  cpu=100.10%  mem=174.2MiB / 3.752GiB
+relativa-graph-2  cpu=0.12%  mem=35.21MiB / 3.752GiB
+relativa-graph-3  cpu=0.23%  mem=27.4MiB / 3.752GiB
+relativa-graph-lb  cpu=4.02%  mem=12.79MiB / 3.752GiB
+relativa-ml  cpu=78.87%  mem=446.8MiB / 3.752GiB
+relativa-postgres  cpu=62.22%  mem=242MiB / 3.752GiB
+relativa-rabbitmq  cpu=25.18%  mem=160.1MiB / 3.752GiB
+relativa-redis  cpu=5.48%  mem=11.88MiB / 3.752GiB
+# t=40s
+relativa-graph  cpu=98.74%  mem=180.1MiB / 3.752GiB
+relativa-graph-2  cpu=0.21%  mem=35.11MiB / 3.752GiB
+relativa-graph-3  cpu=0.25%  mem=27.41MiB / 3.752GiB
+relativa-graph-lb  cpu=1.12%  mem=12.16MiB / 3.752GiB
+relativa-ml  cpu=73.39%  mem=446.6MiB / 3.752GiB
+relativa-postgres  cpu=187.92%  mem=205.5MiB / 3.752GiB
+relativa-rabbitmq  cpu=33.47%  mem=164.4MiB / 3.752GiB
+relativa-redis  cpu=0.65%  mem=11.47MiB / 3.752GiB
+# t=45s
+relativa-graph  cpu=44.96%  mem=183.2MiB / 3.752GiB
+relativa-graph-2  cpu=0.31%  mem=34.82MiB / 3.752GiB
+relativa-graph-3  cpu=0.24%  mem=27.38MiB / 3.752GiB
+relativa-graph-lb  cpu=0.99%  mem=10.04MiB / 3.752GiB
+relativa-ml  cpu=76.32%  mem=446.7MiB / 3.752GiB
+relativa-postgres  cpu=39.90%  mem=143.2MiB / 3.752GiB
+relativa-rabbitmq  cpu=67.06%  mem=184.9MiB / 3.752GiB
+relativa-redis  cpu=0.65%  mem=10.98MiB / 3.752GiB
+# t=50s
+relativa-graph  cpu=1.16%  mem=193.9MiB / 3.752GiB
+relativa-graph-2  cpu=0.28%  mem=34.8MiB / 3.752GiB
+relativa-graph-3  cpu=0.21%  mem=27.42MiB / 3.752GiB
+relativa-graph-lb  cpu=0.00%  mem=9.668MiB / 3.752GiB
+relativa-ml  cpu=79.33%  mem=446.6MiB / 3.752GiB
+relativa-postgres  cpu=19.48%  mem=142.6MiB / 3.752GiB
+relativa-rabbitmq  cpu=2.83%  mem=200.7MiB / 3.752GiB
+relativa-redis  cpu=0.61%  mem=11.19MiB / 3.752GiB
+# t=55s
+relativa-graph  cpu=2.47%  mem=194.6MiB / 3.752GiB
+relativa-graph-2  cpu=0.14%  mem=34.78MiB / 3.752GiB
+relativa-graph-3  cpu=0.18%  mem=27.38MiB / 3.752GiB
+relativa-graph-lb  cpu=0.00%  mem=9.195MiB / 3.752GiB
+relativa-ml  cpu=69.60%  mem=446.9MiB / 3.752GiB
+relativa-postgres  cpu=21.32%  mem=143.4MiB / 3.752GiB
+relativa-rabbitmq  cpu=3.77%  mem=200.8MiB / 3.752GiB
+relativa-redis  cpu=0.37%  mem=11.19MiB / 3.752GiB
+# t=60s
+relativa-graph  cpu=2.50%  mem=194.5MiB / 3.752GiB
+relativa-graph-2  cpu=0.83%  mem=35.54MiB / 3.752GiB
+relativa-graph-3  cpu=1.09%  mem=28.15MiB / 3.752GiB
+relativa-graph-lb  cpu=0.00%  mem=9.191MiB / 3.752GiB
+relativa-ml  cpu=68.70%  mem=446.9MiB / 3.752GiB
+relativa-postgres  cpu=21.45%  mem=143.2MiB / 3.752GiB
+relativa-rabbitmq  cpu=3.95%  mem=203.1MiB / 3.752GiB
+relativa-redis  cpu=0.44%  mem=11.71MiB / 3.752GiB
+# t=65s
+relativa-graph  cpu=1.37%  mem=194.6MiB / 3.752GiB
+relativa-graph-2  cpu=0.08%  mem=34.83MiB / 3.752GiB
+relativa-graph-3  cpu=0.10%  mem=27.43MiB / 3.752GiB
+relativa-graph-lb  cpu=0.00%  mem=9.188MiB / 3.752GiB
+relativa-ml  cpu=67.36%  mem=446.7MiB / 3.752GiB
+relativa-postgres  cpu=21.48%  mem=143MiB / 3.752GiB
+relativa-rabbitmq  cpu=3.40%  mem=204.4MiB / 3.752GiB
+relativa-redis  cpu=0.45%  mem=11MiB / 3.752GiB
+# t=70s
+relativa-graph  cpu=1.31%  mem=193.9MiB / 3.752GiB
+relativa-graph-2  cpu=0.26%  mem=34.79MiB / 3.752GiB
+relativa-graph-3  cpu=0.26%  mem=27.43MiB / 3.752GiB
+relativa-graph-lb  cpu=0.00%  mem=9.18MiB / 3.752GiB
+relativa-ml  cpu=77.06%  mem=447.3MiB / 3.752GiB
+relativa-postgres  cpu=20.84%  mem=142.9MiB / 3.752GiB
+relativa-rabbitmq  cpu=120.23%  mem=205.4MiB / 3.752GiB
+relativa-redis  cpu=0.50%  mem=11MiB / 3.752GiB

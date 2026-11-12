@@ -1,0 +1,72 @@
+﻿  Determining projects to restore...
+C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\Relativa.Graph.Integration.Tests.csproj : warning NU1903: Package 'SSH.NET' 2024.2.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mggc-4xg6-vcxf
+C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\Relativa.Graph.Integration.Tests.csproj : warning NU1903: Package 'SSH.NET' 2024.2.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284
+  All projects are up-to-date for restore.
+C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\Relativa.Graph.Integration.Tests.csproj : warning NU1903: Package 'SSH.NET' 2024.2.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mggc-4xg6-vcxf
+C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\Relativa.Graph.Integration.Tests.csproj : warning NU1903: Package 'SSH.NET' 2024.2.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284
+  Sonar: (Relativa.Persistence.csproj) The analysis targets file not found: C:\Users\babay\myrepos\testing\Relativa\.sonarqube\bin\targets\SonarQube.Integration.targets
+  Relativa.Persistence -> C:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\bin\Debug\net10.0\Relativa.Persistence.dll
+  Sonar: (Relativa.Graph.csproj) The analysis targets file not found: C:\Users\babay\myrepos\testing\Relativa\.sonarqube\bin\targets\SonarQube.Integration.targets
+  Relativa.Graph -> C:\Users\babay\myrepos\testing\Relativa\Graph\src\Relativa.Graph\bin\Debug\net10.0\Relativa.Graph.dll
+  Sonar: (Relativa.Graph.Integration.Tests.csproj) The analysis targets file not found: C:\Users\babay\myrepos\testing\Relativa\.sonarqube\bin\targets\SonarQube.Integration.targets
+  Relativa.Graph.Integration.Tests -> C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\bin\Debug\net10.0\Relativa.Graph.Integration.Tests.dll
+Test run for C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\bin\Debug\net10.0\Relativa.Graph.Integration.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+dotnet : [xUnit.net 00:01:33.08]     Relativa.Graph.Integration.Tests.GraphDomainEventConsumerTests.WorkspaceLifecycle_
+ForwardsToSignalRAndRecordsProcessedDelivery [FAIL]
+At C:\Users\babay\AppData\Local\Temp\ps-script-d9902544-4fbf-4950-87fa-23b7ae6b84f0.ps1:80 char:1
++ dotnet test Graph/tests/Relativa.Graph.Integration.Tests 2>&1 | Out-F ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([xUnit.net 00:0...Delivery [FAIL]:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Failed Relativa.Graph.Integration.Tests.GraphDomainEventConsumerTests.WorkspaceLifecycle_ForwardsToSignalRAndRecordsProcessedDelivery [1 ms]
+  Error Message:
+   System.InvalidOperationException : An exception has been raised that is likely due to a transient failure.
+---- Npgsql.NpgsqlException : Exception while reading from stream
+-------- System.TimeoutException : Timeout during reading attempt
+  Stack Trace:
+     at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreatedAsync(CancellationToken cancellationToken)
+   at Relativa.Graph.Integration.Tests.GraphDomainEventConsumerTests.InitializeAsync() in C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\GraphDomainEventConsumerTests.cs:line 47
+   at Relativa.Graph.Integration.Tests.GraphDomainEventConsumerTests.InitializeAsync() in C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\GraphDomainEventConsumerTests.cs:line 48
+----- Inner Stack Trace -----
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|54_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.SetupEncryption(SslMode sslMode, GssEncryptionMode gssEncryptionMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|209_0(NpgsqlConnector conn, String username, SslMode sslMode, GssEncryptionMode gssEncMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|209_0(NpgsqlConnector conn, String username, SslMode sslMode, GssEncryptionMode gssEncMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlDatabaseCreator.<>c__DisplayClass18_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlDatabaseCreator.<>c__DisplayClass18_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+----- Inner Stack Trace -----
+
+[xUnit.net 00:02:14.34]     Relativa.Graph.Integration.Tests.GraphDataServiceTests.BuildGraphAsync_MlClientThrowsWithNo
+nNullRiskFilter_ExcludesAllDeals [FAIL]
+  Failed Relativa.Graph.Integration.Tests.GraphDataServiceTests.BuildGraphAsync_MlClientThrowsWithNonNullRiskFilter_ExcludesAllDeals [102 ms]
+  Error Message:
+   System.Net.Http.HttpRequestException : ML service unavailable
+  Stack Trace:
+     at Relativa.Graph.Graph.GraphDataService.BuildGraphAsync(Int32 userId, Int32 organizationId, String riskLevel, CancellationToken ct) in C:\Users\babay\myrepos\testing\Relativa\Graph\src\Relativa.Graph\Graph\GraphDataService.cs:line 222
+   at Relativa.Graph.Integration.Tests.GraphDataServiceTests.BuildGraphAsync_MlClientThrowsWithNonNullRiskFilter_ExcludesAllDeals() in C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\GraphDataServiceTests.cs:line 284
+--- End of stack trace from previous location ---
+[xUnit.net 00:02:16.05]     Relativa.Graph.Integration.Tests.GraphDataServiceTests.BuildGraphAsync_MlClientThrows_Retur
+nsDealNodesWithoutHighlightTags [FAIL]
+  Failed Relativa.Graph.Integration.Tests.GraphDataServiceTests.BuildGraphAsync_MlClientThrows_ReturnsDealNodesWithoutHighlightTags [101 ms]
+  Error Message:
+   System.Net.Http.HttpRequestException : ML service unavailable
+  Stack Trace:
+     at Relativa.Graph.Graph.GraphDataService.BuildGraphAsync(Int32 userId, Int32 organizationId, String riskLevel, CancellationToken ct) in C:\Users\babay\myrepos\testing\Relativa\Graph\src\Relativa.Graph\Graph\GraphDataService.cs:line 222
+   at Relativa.Graph.Integration.Tests.GraphDataServiceTests.BuildGraphAsync_MlClientThrows_ReturnsDealNodesWithoutHighlightTags() in C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\GraphDataServiceTests.cs:line 259
+--- End of stack trace from previous location ---
+
+Failed!  - Failed:     3, Passed:   173, Skipped:     0, Total:   176, Duration: 5 m 22 s - Relativa.Graph.Integration.Tests.dll (net10.0)

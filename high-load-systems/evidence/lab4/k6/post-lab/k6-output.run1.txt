@@ -1,0 +1,73 @@
+﻿k6 : time="2026-11-11T14:19:33-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:55057->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+At C:\Users\babay\myrepos\testing\Relativa\high-load-systems\evidence\lab4\scripts\run-k6.ps1:36 char:1
++ k6 run -q --summary-trend-stats="avg,min,med,max,p(90),p(95),p(99)" - ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (time="2026-11-1...e remote host.":String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+time="2026-11-11T14:19:36-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:55060->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T14:19:37-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:55061->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T14:19:39-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:55062->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T14:19:40-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:55063->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T14:19:42-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:55064->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T14:19:43-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:55065->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T14:19:45-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:55067->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+time="2026-11-11T14:19:46-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:55068->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+
+
+  Γûê TOTAL RESULTS 
+
+    checks_total.......: 8901   74.035899/s
+    checks_succeeded...: 99.89% 8892 out of 8901
+    checks_failed......: 0.10%  9 out of 8901
+
+    Γ£ù status is 200
+      Γå│  99% ΓÇö Γ£ô 8892 / Γ£ù 9
+
+    CUSTOM
+    cache_hit......................: 8812   73.295623/s
+    cache_miss.....................: 80     0.665416/s
+    cache_none.....................: 9      0.074859/s
+    duration_cache_hit.............: avg=7.59ms   min=1.59ms   med=5ms      max=487.14ms p(90)=14.57ms  p(95)=19.38ms  p(99)=31.09ms 
+    duration_cache_miss............: avg=2.07s    min=802.66ms med=1.13s    max=5.18s    p(90)=5.16s    p(95)=5.17s    p(99)=5.17s   
+    served_by_graph_1..............: 2964   24.65368/s
+    served_by_graph_2..............: 2964   24.65368/s
+    served_by_graph_3..............: 2964   24.65368/s
+    served_by_none.................: 9      0.074859/s
+
+    HTTP
+    http_req_duration..............: avg=56.51ms  min=1.59ms   med=5ms      max=30.01s   p(90)=15.16ms  p(95)=20.95ms  p(99)=487.14ms
+      { expected_response:true }...: avg=26.19ms  min=1.59ms   med=5ms      max=5.18s    p(90)=15.07ms  p(95)=20.73ms  p(99)=96.87ms 
+    http_req_failed................: 0.10%  9 out of 8901
+    http_reqs......................: 8901   74.035899/s
+
+    EXECUTION
+    iteration_duration.............: avg=557.45ms min=502.05ms med=505.91ms max=30.51s   p(90)=516.35ms p(95)=522.19ms p(99)=987.7ms 
+    iterations.....................: 8901   74.035899/s
+    vus............................: 1      min=1         max=50
+    vus_max........................: 50     min=50        max=50
+
+    NETWORK
+    data_received..................: 602 MB 5.0 MB/s
+    data_sent......................: 1.0 MB 8.4 kB/s
+
+
+

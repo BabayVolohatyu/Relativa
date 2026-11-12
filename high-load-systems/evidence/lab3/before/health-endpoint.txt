@@ -1,0 +1,6 @@
+﻿BEFORE (Lab 2 final code, Graph service): there is no readiness endpoint.
+The only "status-like" route in Graph/src/Relativa.Graph/Program.cs was:
+    app.MapGet("/", () => Results.Ok(new { service = "relativa-graph" }));
+It returns 200 whenever the process is up and says nothing about PostgreSQL, so a node that lost its database would still look healthy.
+GET /health did not exist (404). (Gateway has its own /health that only reports the gateway process.)
+AFTER: GET /health runs EF Core's DbContext check; see ../after/health-check.txt (200 Healthy, 503 Unhealthy when PostgreSQL is stopped).

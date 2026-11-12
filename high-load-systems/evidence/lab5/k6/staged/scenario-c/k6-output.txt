@@ -1,0 +1,41 @@
+﻿
+
+  Γûê TOTAL RESULTS 
+
+    checks_total.......: 5668    25.039458/s
+    checks_succeeded...: 100.00% 5668 out of 5668
+    checks_failed......: 0.00%   0 out of 5668
+
+    Γ£ô read: status is 200
+    Γ£ô write: status is 200
+
+    CUSTOM
+    stage_dur_10...................: avg=431.08ms min=4.19ms   med=177.79ms max=884.53ms p(90)=791.91ms p(95)=804.85ms p(99)=831.2ms
+    stage_dur_100..................: avg=3.13s    min=17.99ms  med=1.47s    max=7.11s    p(90)=6.09s    p(95)=6.61s    p(99)=6.97s  
+    stage_dur_200..................: avg=7.01s    min=27.1ms   med=1.22s    max=15.83s   p(90)=14.58s   p(95)=15.13s   p(99)=15.63s 
+    stage_dur_25...................: avg=415.34ms min=5.72ms   med=334.7ms  max=889.15ms p(90)=808.05ms p(95)=816.24ms p(99)=845.7ms
+    stage_dur_50...................: avg=1.17s    min=10.08ms  med=1.01s    max=3.85s    p(90)=1.95s    p(95)=2.05s    p(99)=3.05s  
+    stage_req_10...................: 410    1.811252/s
+    stage_req_100..................: 862    3.808047/s
+    stage_req_200..................: 765    3.379532/s
+    stage_req_25...................: 1047   4.62532/s
+    stage_req_50...................: 967    4.271905/s
+
+    HTTP
+    http_req_duration..............: avg=2.45s    min=3.17ms   med=827.57ms max=15.83s   p(90)=9.1s     p(95)=13.16s   p(99)=14.86s 
+      { expected_response:true }...: avg=2.45s    min=3.17ms   med=827.57ms max=15.83s   p(90)=9.1s     p(95)=13.16s   p(99)=14.86s 
+    http_req_failed................: 0.00%  0 out of 5668
+    http_reqs......................: 5668   25.039458/s
+
+    EXECUTION
+    iteration_duration.............: avg=5.51s    min=686.07ms med=3.15s    max=17.64s   p(90)=14.52s   p(95)=15.6s    p(99)=16.65s 
+    iterations.....................: 2834   12.519729/s
+    vus............................: 8      min=5         max=200
+    vus_max........................: 200    min=200       max=200
+
+    NETWORK
+    data_received..................: 1.4 GB 6.3 MB/s
+    data_sent......................: 1.1 MB 5.0 kB/s
+
+
+

@@ -1,0 +1,22 @@
+# Pre-lab stand for Lab 4: the THREE Graph instances run the ORIGINAL image (the code before the cache was added),
+# built from a git worktree of the commit before the Lab 4 change:
+#
+#   git worktree add --detach $env:TEMP\relativa-orig <commit-before-lab4>
+#   (in that folder)  docker build -t relativa-graph-orig -f Graph/Dockerfile .
+#   git worktree remove --force $env:TEMP\relativa-orig
+#
+# Use as the LAST -f file:
+#   docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f docker-compose.lab3.yml `
+#       -f high-load-systems/evidence/lab4/scripts/orig-image.override.yml up -d --no-build
+#
+# `build: !reset null` stops compose from rebuilding the image from the current (cached) source tree.
+services:
+  graph:
+    image: relativa-graph-orig
+    build: !reset null
+  graph-2:
+    image: relativa-graph-orig
+    build: !reset null
+  graph-3:
+    image: relativa-graph-orig
+    build: !reset null

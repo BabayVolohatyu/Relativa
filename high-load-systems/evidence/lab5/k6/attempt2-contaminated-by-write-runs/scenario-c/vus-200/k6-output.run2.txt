@@ -1,0 +1,361 @@
+﻿docker : time="2026-11-12T00:50:49Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+At C:\Users\babay\myrepos\testing\Relativa\high-load-systems\evidence\lab5\scripts\run-k6.ps1:61 char:5
++     docker run --rm --name lab5-k6 --network relativa_relativa_net `
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (time="2026-11-1...equest timeout":String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+time="2026-11-12T00:50:49Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:49Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:49Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:49Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:50Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:51Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:51Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:51Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:51Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:51Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:51Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:51Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:51Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:51Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:51Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:51Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:51Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:52Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:52Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:52Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:52Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:52Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:53Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:53Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:53Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:53Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:53Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:53Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:53Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:53Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:53Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:53Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:53Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:53Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:54Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:56Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:56Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:56Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:57Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:57Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:57Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:57Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:57Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:57Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:57Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:57Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:57Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:58Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:58Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:58Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:58Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:58Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:58Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:58Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:58Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:58Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:58Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:58Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:58Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:59Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:59Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:59Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:59Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:59Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:59Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:59Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:50:59Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:00Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:00Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:00Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:00Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:00Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:00Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:01Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:01Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:01Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:01Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:01Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:04Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:05Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:05Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:05Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:05Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:05Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:05Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:05Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:05Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:05Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:05Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:06Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:08Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:08Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:12Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:13Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:13Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:14Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:16Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:18Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+
+
+  Γûê TOTAL RESULTS 
+
+    checks_total.......: 1250   11.872234/s
+    checks_succeeded...: 18.55% 232 out of 1250
+    checks_failed......: 81.44% 1018 out of 1250
+
+    Γ£ù read: status is 200
+      Γå│  34% ΓÇö Γ£ô 220 / Γ£ù 414
+    Γ£ù write: status is 200
+      Γå│  1% ΓÇö Γ£ô 12 / Γ£ù 604
+
+    CUSTOM
+    cache_bypass...................: 14     0.132969/s
+    cache_hit......................: 39     0.370414/s
+    cache_miss.....................: 7      0.066485/s
+    cache_none.....................: 414    3.932084/s
+    duration_read..................: avg=3.23s  min=239.5┬╡s  med=16.32ms  max=45.09s p(90)=7.85s  p(95)=17.64s p(99)=27.78s
+    duration_write.................: avg=20.37s min=206.5┬╡s  med=5.65s    max=1m3s   p(90)=1m0s   p(95)=1m0s   p(99)=1m1s  
+    m_dur..........................: avg=12.9s  min=206.5┬╡s  med=87.41ms  max=1m3s   p(90)=1m0s   p(95)=1m0s   p(99)=1m1s  
+    m_dur_ok.......................: avg=7.65s  min=8.33ms   med=164.59ms max=57.17s p(90)=27.06s p(95)=48.51s p(99)=54.75s
+    m_failed.......................: 1018   9.668747/s
+    m_reqs.........................: 1087   10.324095/s
+    served_by_graph_1..............: 44     0.417903/s
+    served_by_graph_2..............: 40     0.379911/s
+    served_by_graph_3..............: 76     0.721832/s
+    served_by_other................: 927    8.804449/s
+
+    HTTP
+    http_req_duration..............: avg=11.29s min=206.5┬╡s  med=68.66ms  max=1m3s   p(90)=1m0s   p(95)=1m0s   p(99)=1m0s  
+      { expected_response:true }...: avg=2.66s  min=2.56ms   med=93.09ms  max=57.17s p(90)=7.12s  p(95)=9.19s  p(99)=52.77s
+    http_req_failed................: 81.44% 1018 out of 1250
+    http_reqs......................: 1250   11.872234/s
+
+    EXECUTION
+    iteration_duration.............: avg=23.41s min=601.24ms med=7.79s    max=1m30s  p(90)=1m2s   p(95)=1m7s   p(99)=1m23s 
+    iterations.....................: 616    5.850637/s
+    vus............................: 18     min=10           max=200
+time="2026-11-12T00:51:18Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:18Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:18Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:18Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:18Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:18Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:18Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:18Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:18Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:18Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:19Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:19Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:19Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:19Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:22Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:23Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:23Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:29Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:29Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:29Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:29Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:29Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:29Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+time="2026-11-12T00:51:29Z" level=warning msg="Request Failed" error="Post 
+\"http://relativa-graph-lb/api/v1/workspaces/1/entity-graph/create\": request timeout"
+    vus_max........................: 200    min=200          max=200
+
+    NETWORK
+    data_received..................: 15 MB  146 kB/s
+    data_sent......................: 256 kB 2.4 kB/s
+
+
+

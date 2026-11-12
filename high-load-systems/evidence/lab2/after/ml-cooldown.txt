@@ -1,0 +1,6 @@
+﻿ML container 'relativa-ml' stopped for the duration of the probe (deals look unscored).
+GET http://localhost:8083/api/v1/dashboard/workspace/3/risk-distribution -> HTTP 200  X-Instance-ID=graph-1
+GET http://localhost:8085/api/v1/dashboard/workspace/3/risk-distribution -> HTTP 200  X-Instance-ID=graph-2
+ML container 'relativa-ml' started again.
+
+RESULT ml.recalculate.enqueued messages published for workspace 3: 1   (correct shared cooldown => 1, per-instance cooldown => 2)

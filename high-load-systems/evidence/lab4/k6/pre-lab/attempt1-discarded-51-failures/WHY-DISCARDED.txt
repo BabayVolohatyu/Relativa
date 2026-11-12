@@ -1,0 +1,1 @@
+﻿Observed right after this run (before any purge): RabbitMQ queue ml.graph.score_request.v1 held 20920 messages, relativa-ml ran at ~80% CPU while idle. Run had 51 failed requests (30 s hangs / connection reset) out of 2635. Cause NOT isolated; the backlog is the suspect. Discarded; all later runs purge the queue first (scripts/run-k6.ps1).

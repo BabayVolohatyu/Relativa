@@ -1,0 +1,11 @@
+﻿keys:
+relativa-graph:graph:v1:1:1:high
+relativa-graph:graph:v1:1:1:all
+type of relativa-graph:graph:v1:1:1:all : hash
+hash fields: absexp, data, sldexp
+payload size (bytes, field data): 67389
+memory usage (bytes, whole key): 82216
+TTL (s): 56
+maxmemory-policy: maxmemory-policy noeviction
+maxmemory: maxmemory 0
+used_memory_human: used_memory_human:1.61M

@@ -1,0 +1,297 @@
+﻿docker :  Image relativa-graph-3 Building 
+At C:\Users\babay\AppData\Local\Temp\ps-script-6630e65d-ba90-4257-9b4a-795c53b05a15.ps1:80 char:1
++ docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f d ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Image relativa-graph-3 Building :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Image relativa-graph-2 Building 
+ Image relativa-migration Building 
+ Image relativa-graph Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.96kB 0.0s done
+#1 DONE 0.0s
+
+#2 [migration internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.10kB 0.0s done
+#2 DONE 0.1s
+
+#3 [graph-2 internal] load build definition from Dockerfile
+#3 transferring dockerfile: 723B 0.0s done
+#3 DONE 0.1s
+
+#4 [graph-3 internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0
+#4 DONE 0.6s
+
+#5 [graph-3 internal] load metadata for mcr.microsoft.com/dotnet/aspnet:10.0
+#5 DONE 0.5s
+
+#6 [migration internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [graph internal] load build context
+#7 DONE 0.0s
+
+#8 [migration internal] load build context
+#8 DONE 0.0s
+
+#9 [migration build 1/8] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:fe0fd4e93bd2fbb47c883b7a6369e5c8d3db8bf01cdc5981f6ee35fbdf3ff4fb
+#9 resolve mcr.microsoft.com/dotnet/sdk:10.0@sha256:fe0fd4e93bd2fbb47c883b7a6369e5c8d3db8bf01cdc5981f6ee35fbdf3ff4fb
+#9 resolve mcr.microsoft.com/dotnet/sdk:10.0@sha256:fe0fd4e93bd2fbb47c883b7a6369e5c8d3db8bf01cdc5981f6ee35fbdf3ff4fb 0.1s done
+#9 DONE 0.1s
+
+#10 [graph-3 runtime 1/3] FROM mcr.microsoft.com/dotnet/aspnet:10.0@sha256:bfd912c83295ce66d4b706ebb8541b9f14259b0e76fbb88b2751f58ce2399d2e
+#10 resolve mcr.microsoft.com/dotnet/aspnet:10.0@sha256:bfd912c83295ce66d4b706ebb8541b9f14259b0e76fbb88b2751f58ce2399d2e 0.1s done
+#10 resolve mcr.microsoft.com/dotnet/aspnet:10.0@sha256:bfd912c83295ce66d4b706ebb8541b9f14259b0e76fbb88b2751f58ce2399d2e 0.1s done
+#10 DONE 0.1s
+
+#7 [graph internal] load build context
+#7 transferring context: 16.92MB 4.7s
+#7 transferring context: 22.10MB 6.3s done
+#7 DONE 6.4s
+
+#8 [migration internal] load build context
+#8 ...
+
+#11 [graph build 4/8] COPY Graph/src/Relativa.Graph/Relativa.Graph.csproj Graph/src/Relativa.Graph/
+#11 CACHED
+
+#12 [graph build 2/8] WORKDIR /src
+#12 CACHED
+
+#13 [graph build 3/8] COPY Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj Persistence/src/Relativa.Persistence/
+#13 CACHED
+
+#14 [graph-3 build 5/8] RUN dotnet restore Graph/src/Relativa.Graph/Relativa.Graph.csproj
+#14 CACHED
+
+#8 [migration internal] load build context
+#8 ...
+
+#15 [graph-2 build 6/8] COPY Graph/src/ Graph/src/
+#15 DONE 0.7s
+
+#16 [graph build 7/8] COPY Persistence/src/ Persistence/src/
+#16 DONE 0.5s
+
+#17 [graph-2 build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#17 5.274   Determining projects to restore...
+#17 ...
+
+#8 [migration internal] load build context
+#8 transferring context: 67.59MB 13.1s
+#8 transferring context: 85.74MB 16.4s done
+#8 DONE 16.4s
+
+#18 [migration build 5/8] RUN dotnet restore Migration/src/Relativa.Migration/Relativa.Migration.csproj
+#18 CACHED
+
+#19 [migration build 2/8] WORKDIR /repo
+#19 CACHED
+
+#20 [migration build 3/8] COPY Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj Persistence/src/Relativa.Persistence/
+#20 CACHED
+
+#21 [migration build 4/8] COPY Migration/src/Relativa.Migration/Relativa.Migration.csproj Migration/src/Relativa.Migration/
+#21 CACHED
+
+#22 [migration build 6/8] COPY Migration/src/ Migration/src/
+#22 CACHED
+
+#17 [graph-2 build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#17 ...
+
+#23 [migration build 7/8] COPY Persistence/src/ Persistence/src/
+#23 DONE 0.4s
+
+#17 [graph-2 build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#17 ...
+
+#24 [migration build 8/8] RUN dotnet publish Migration/src/Relativa.Migration/Relativa.Migration.csproj -c Release -o /app/publish /p:UseAppHost=false
+#24 9.479   Determining projects to restore...
+#24 ...
+
+#17 [graph-2 build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#17 9.501   Restored /src/Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj (in 1.45 sec).
+#17 9.501   Restored /src/Graph/src/Relativa.Graph/Relativa.Graph.csproj (in 1.45 sec).
+#17 ...
+
+#24 [migration build 8/8] RUN dotnet publish Migration/src/Relativa.Migration/Relativa.Migration.csproj -c Release -o /app/publish /p:UseAppHost=false
+#24 12.94   Restored /repo/Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj (in 1.81 sec).
+#24 12.96   Restored /repo/Migration/src/Relativa.Migration/Relativa.Migration.csproj (in 1.92 sec).
+#24 ...
+
+#17 [graph-2 build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#17 24.28   Relativa.Persistence -> /src/Persistence/src/Relativa.Persistence/bin/Release/net10.0/Relativa.Persistence.dll
+#17 ...
+
+#24 [migration build 8/8] RUN dotnet publish Migration/src/Relativa.Migration/Relativa.Migration.csproj -c Release -o /app/publish /p:UseAppHost=false
+#24 113.5   Relativa.Persistence -> /repo/Persistence/src/Relativa.Persistence/bin/Release/net10.0/Relativa.Persistence.dll
+#24 ...
+
+#17 [graph-3 build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#17 122.7   Relativa.Graph -> /src/Graph/src/Relativa.Graph/bin/Release/net10.0/Relativa.Graph.dll
+#17 122.7   Relativa.Graph -> /app/publish/
+#17 DONE 122.8s
+
+#24 [migration build 8/8] RUN dotnet publish Migration/src/Relativa.Migration/Relativa.Migration.csproj -c Release -o /app/publish /p:UseAppHost=false
+#24 ...
+
+#25 [graph-2 runtime 2/3] WORKDIR /app
+#25 CACHED
+
+#26 [graph-2 runtime 3/3] COPY --from=build /app/publish .
+#26 DONE 0.3s
+
+#24 [migration build 8/8] RUN dotnet publish Migration/src/Relativa.Migration/Relativa.Migration.csproj -c Release -o /app/publish /p:UseAppHost=false
+#24 ...
+
+#26 [graph-3 runtime 3/3] COPY --from=build /app/publish .
+#26 DONE 0.3s
+
+#27 [graph-3] exporting to image
+#27 exporting layers
+#27 exporting layers 2.7s done
+#27 exporting manifest sha256:53501b7462fbc30cac44fdd61b548c006258482730e59d5db2474948581fc228
+#27 exporting manifest sha256:53501b7462fbc30cac44fdd61b548c006258482730e59d5db2474948581fc228 0.3s done
+#27 exporting config sha256:faca94b3117cc46f636e7a95ccaff7aac4072bb751843da62ad27c6123891d67
+#27 exporting config sha256:faca94b3117cc46f636e7a95ccaff7aac4072bb751843da62ad27c6123891d67 0.2s done
+#27 exporting attestation manifest sha256:7300b13317fd44ef1cc2140ac05eb448a347b23b5c8d5f0c56bb2125f8e3ffd4
+#27 exporting attestation manifest sha256:7300b13317fd44ef1cc2140ac05eb448a347b23b5c8d5f0c56bb2125f8e3ffd4 0.4s done
+#27 exporting manifest list sha256:bb9ec9b15edf78bbf54a50cc840dac77fc0c7c14f9860ebb47c81a2a4b3f29bc
+#27 exporting manifest list sha256:bb9ec9b15edf78bbf54a50cc840dac77fc0c7c14f9860ebb47c81a2a4b3f29bc 0.2s done
+#27 naming to docker.io/library/relativa-graph-3:latest
+#27 naming to docker.io/library/relativa-graph-3:latest 1.3s done
+#27 unpacking to docker.io/library/relativa-graph-3:latest
+#27 ...
+
+#28 [graph-2] exporting to image
+#28 exporting layers 2.7s done
+#28 exporting manifest sha256:31ffb4f1c86c4bd2596eaa8406023f795d6dd58c4f653745315d6a90a02431de 0.3s done
+#28 exporting config sha256:80240c5ba308e043eb0c20571949679c4976f5eaafa61fd0dbd7d4025382a4b2 0.2s done
+#28 exporting attestation manifest sha256:2b073c15d6fe528ac85567b8a787707e24adca5acaa53e2fc3902e8de76a6fd4 0.4s done
+#28 exporting manifest list sha256:1b25ff54337790c5930e4ff981abae36817fa0d472b81bfb05c2b744eb87af21 0.4s done
+#28 naming to docker.io/library/relativa-graph-2:latest 1.2s done
+#28 unpacking to docker.io/library/relativa-graph-2:latest
+#28 ...
+
+#29 [graph] exporting to image
+#29 exporting layers 2.7s done
+#29 exporting manifest sha256:35c8612c7aa95b91d514e251fa153985f132819746d4fda8b124bd3654fa9d82 0.2s done
+#29 exporting config sha256:8a40e285d39faace3e677ec87070503596762b31fa20cab9181dd829d1d4122c 0.3s done
+#29 exporting attestation manifest sha256:015518f59e2818481bfc94bcf14630b350370e4baf06c2f39af184a36999c525 0.4s done
+#29 exporting manifest list sha256:bb22182731d4229ff0d1317ab9f65e809052c3583b0bf292c034bbf6b2622308 0.6s done
+#29 naming to docker.io/library/relativa-graph:latest 1.0s done
+#29 unpacking to docker.io/library/relativa-graph:latest
+#29 ...
+
+#24 [migration build 8/8] RUN dotnet publish Migration/src/Relativa.Migration/Relativa.Migration.csproj -c Release -o /app/publish /p:UseAppHost=false
+#24 125.0   Relativa.Migration -> /repo/Migration/src/Relativa.Migration/bin/Release/net10.0/Relativa.Migration.dll
+#24 125.3   Relativa.Migration -> /app/publish/
+#24 DONE 125.8s
+
+#27 [graph-3] exporting to image
+#27 unpacking to docker.io/library/relativa-graph-3:latest 5.4s done
+#27 ...
+
+#28 [graph-2] exporting to image
+#28 unpacking to docker.io/library/relativa-graph-2:latest 5.4s done
+#28 DONE 11.2s
+
+#27 [graph-3] exporting to image
+#27 DONE 11.3s
+
+#29 [graph] exporting to image
+#29 unpacking to docker.io/library/relativa-graph:latest 5.4s done
+#29 DONE 11.3s
+
+#30 [migration runtime 2/5] WORKDIR /app
+#30 CACHED
+
+#31 [migration runtime 3/5] COPY --from=build /app/publish .
+#31 CACHED
+
+#32 [migration runtime 4/5] COPY Migration/entrypoint.sh /app/entrypoint.sh
+#32 CACHED
+
+#33 [migration runtime 5/5] RUN apt-get update     && apt-get install -y --no-install-recommends postgresql-client     && rm -rf /var/lib/apt/lists/*     && chmod +x /app/entrypoint.sh     && useradd --create-home --shell /usr/sbin/nologin relativa     && chown -R relativa:relativa /app
+#33 CACHED
+
+#34 [migration] exporting to image
+#34 exporting layers 0.0s done
+#34 exporting manifest sha256:7e2ebf9127ae87bb4b28f6fbafc871ec1924f44018a6a716019cbd75bfae0a29 0.1s done
+#34 exporting config sha256:eed2d3b0f018dc0715196bb08d4b4c08e7a048ebfeae7dd4f89a878aac4c2ad9 0.1s done
+#34 exporting attestation manifest sha256:3169bcba84a902b0804de8afb3e7c19091a98108d1b93d63d7e5dfbbdb8969cd
+#34 exporting attestation manifest sha256:3169bcba84a902b0804de8afb3e7c19091a98108d1b93d63d7e5dfbbdb8969cd 0.1s done
+#34 exporting manifest list sha256:efb7eb3b7d7c9c8a1891996b8af055f9d761a3b0b7eca636694356aefe0d74c2 0.1s done
+#34 naming to docker.io/library/relativa-migration:latest
+#34 naming to docker.io/library/relativa-migration:latest 0.0s done
+#34 unpacking to docker.io/library/relativa-migration:latest 0.0s done
+#34 DONE 0.7s
+
+#35 [graph-2] resolving provenance for metadata file
+#35 ...
+
+#36 [graph-3] resolving provenance for metadata file
+#36 DONE 0.1s
+
+#35 [graph-2] resolving provenance for metadata file
+#35 DONE 0.1s
+
+#37 [graph] resolving provenance for metadata file
+#37 DONE 0.1s
+
+#38 [migration] resolving provenance for metadata file
+#38 DONE 0.1s
+ Image relativa-graph-3 Built 
+ Image relativa-graph Built 
+ Image relativa-graph-2 Built 
+ Image relativa-migration Built 
+time="2026-11-11T14:17:49-08:00" level=warning msg="Found orphan containers (relativa-graph-lb-haproxy) for this 
+project. If you removed or renamed this service in your compose file, you can run this command with the 
+--remove-orphans flag to clean it up."
+ Container relativa-postgres Running 
+ Container relativa-rabbitmq Running 
+ Container relativa-graph-lb Running 
+ Container relativa-redis Running 
+ Container relativa-graph Recreate 
+ Container relativa-graph-2 Recreate 
+ Container relativa-graph-3 Recreate 
+ Container relativa-graph-3 Recreated 
+ Container relativa-graph Recreated 
+ Container relativa-graph-2 Recreated 
+ Container relativa-postgres Waiting 
+ Container relativa-postgres Healthy 
+ Container relativa-migration Starting 
+ Container relativa-migration Started 
+ Container relativa-redis Waiting 
+ Container relativa-postgres Waiting 
+ Container relativa-redis Waiting 
+ Container relativa-rabbitmq Waiting 
+ Container relativa-postgres Waiting 
+ Container relativa-migration Waiting 
+ Container relativa-rabbitmq Waiting 
+ Container relativa-migration Waiting 
+ Container relativa-migration Waiting 
+ Container relativa-redis Waiting 
+ Container relativa-postgres Waiting 
+ Container relativa-rabbitmq Waiting 
+ Container relativa-postgres Healthy 
+ Container relativa-postgres Healthy 
+ Container relativa-redis Healthy 
+ Container relativa-postgres Healthy 
+ Container relativa-redis Healthy 
+ Container relativa-rabbitmq Healthy 
+ Container relativa-rabbitmq Healthy 
+ Container relativa-rabbitmq Healthy 
+ Container relativa-redis Healthy 
+ Container relativa-migration Exited 
+ Container relativa-graph-3 Starting 
+ Container relativa-migration Exited 
+ Container relativa-graph-2 Starting 
+ Container relativa-migration Exited 
+ Container relativa-graph Starting 
+ Container relativa-graph-3 Started 
+ Container relativa-graph-2 Started 
+ Container relativa-graph Started 

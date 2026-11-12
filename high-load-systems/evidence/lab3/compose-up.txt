@@ -1,0 +1,526 @@
+﻿docker :  Image relativa-graph Building 
+At C:\Users\babay\AppData\Local\Temp\ps-script-50ccda22-9cab-4a39-a358-ce6ffe176007.ps1:80 char:1
++ docker compose -f docker-compose.yaml -f docker-compose.lab2.yml -f d ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Image relativa-graph Building :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Image relativa-auth Building 
+ Image relativa-ml Building 
+ Image relativa-graph-3 Building 
+ Image relativa-auth-2 Building 
+ Image relativa-graph-2 Building 
+ Image relativa-migration Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 3.34kB done
+#1 DONE 0.0s
+
+#2 [graph-2 internal] load build definition from Dockerfile
+#2 transferring dockerfile: 723B 0.0s done
+#2 DONE 0.1s
+
+#3 [auth-2 internal] load build definition from Dockerfile
+#3 transferring dockerfile: 1.55kB 0.0s done
+#3 DONE 0.1s
+
+#4 [ml internal] load build definition from Dockerfile
+#4 transferring dockerfile: 672B 0.0s done
+#4 DONE 0.1s
+
+#5 [migration internal] load build definition from Dockerfile
+#5 transferring dockerfile: 1.10kB 0.0s done
+#5 DONE 0.2s
+
+#6 [migration internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0
+#6 DONE 0.6s
+
+#7 [graph-2 internal] load metadata for mcr.microsoft.com/dotnet/aspnet:10.0
+#7 DONE 0.7s
+
+#8 [graph-3 internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [auth internal] load build context
+#9 DONE 0.0s
+
+#10 [graph internal] load build context
+#10 DONE 0.0s
+
+#11 [migration build 1/8] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:fe0fd4e93bd2fbb47c883b7a6369e5c8d3db8bf01cdc5981f6ee35fbdf3ff4fb
+#11 resolve mcr.microsoft.com/dotnet/sdk:10.0@sha256:fe0fd4e93bd2fbb47c883b7a6369e5c8d3db8bf01cdc5981f6ee35fbdf3ff4fb 0.1s done
+#11 DONE 0.1s
+
+#12 [migration internal] load build context
+#12 DONE 0.0s
+
+#13 [auth] library/python:pull token for registry-1.docker.io
+#13 DONE 0.0s
+
+#14 [graph-2 runtime 1/3] FROM mcr.microsoft.com/dotnet/aspnet:10.0@sha256:bfd912c83295ce66d4b706ebb8541b9f14259b0e76fbb88b2751f58ce2399d2e
+#14 resolve mcr.microsoft.com/dotnet/aspnet:10.0@sha256:bfd912c83295ce66d4b706ebb8541b9f14259b0e76fbb88b2751f58ce2399d2e 0.1s done
+#14 resolve mcr.microsoft.com/dotnet/aspnet:10.0@sha256:bfd912c83295ce66d4b706ebb8541b9f14259b0e76fbb88b2751f58ce2399d2e 0.1s done
+#14 DONE 0.1s
+
+#10 [graph-3 internal] load build context
+#10 ...
+
+#12 [migration internal] load build context
+#12 transferring context: 627.62kB 0.7s done
+#12 DONE 0.8s
+
+#15 [migration build 2/8] WORKDIR /repo
+#15 CACHED
+
+#16 [migration build 5/8] RUN dotnet restore Migration/src/Relativa.Migration/Relativa.Migration.csproj
+#16 CACHED
+
+#17 [migration build 3/8] COPY Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj Persistence/src/Relativa.Persistence/
+#17 CACHED
+
+#18 [migration build 4/8] COPY Migration/src/Relativa.Migration/Relativa.Migration.csproj Migration/src/Relativa.Migration/
+#18 CACHED
+
+#19 [migration build 6/8] COPY Migration/src/ Migration/src/
+#19 CACHED
+
+#10 [graph-3 internal] load build context
+#10 ...
+
+#9 [auth internal] load build context
+#9 transferring context: 642.49kB 0.6s done
+#9 DONE 1.2s
+
+#10 [graph-3 internal] load build context
+#10 transferring context: 4.53MB 1.3s done
+#10 DONE 1.3s
+
+#20 [ml internal] load metadata for docker.io/library/python:3.12-slim
+#20 DONE 2.2s
+
+#21 [graph-3 build 2/8] WORKDIR /src
+#21 CACHED
+
+#22 [graph-3 build 3/8] COPY Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj Persistence/src/Relativa.Persistence/
+#22 CACHED
+
+#23 [migration build 7/8] COPY Persistence/src/ Persistence/src/
+#23 DONE 0.7s
+
+#22 [graph-2 build 3/8] COPY Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj Persistence/src/Relativa.Persistence/
+#22 CACHED
+
+#21 [auth-2 build 2/8] WORKDIR /src
+#21 CACHED
+
+#24 [auth-2 build  4/13] COPY Authentication/src/Relativa.Authentication.Application/Relativa.Authentication.Application.csproj Authentication/src/Relativa.Authentication.Application/
+#24 CACHED
+
+#25 [auth-2 build  8/13] COPY Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj Authentication/src/Relativa.Authentication/
+#25 CACHED
+
+#26 [auth-2 build  3/13] COPY Authentication/src/Relativa.Authentication.Domain/Relativa.Authentication.Domain.csproj Authentication/src/Relativa.Authentication.Domain/
+#26 CACHED
+
+#27 [auth-2 build  5/13] COPY Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj Persistence/src/Relativa.Persistence/
+#27 CACHED
+
+#28 [auth-2 build  9/13] RUN dotnet restore Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj
+#28 CACHED
+
+#29 [auth-2 build  6/13] COPY Messaging/src/Relativa.Messaging/Relativa.Messaging.csproj Messaging/src/Relativa.Messaging/
+#29 CACHED
+
+#30 [auth-2 build  7/13] COPY Authentication/src/Relativa.Authentication.Infrastructure/Relativa.Authentication.Infrastructure.csproj Authentication/src/Relativa.Authentication.Infrastructure/
+#30 CACHED
+
+#31 [auth-2 build 10/13] COPY Authentication/src/ Authentication/src/
+#31 CACHED
+
+#32 [migration build 8/8] RUN dotnet publish Migration/src/Relativa.Migration/Relativa.Migration.csproj -c Release -o /app/publish /p:UseAppHost=false
+#32 ...
+
+#33 [ml internal] load .dockerignore
+#33 transferring context: 2B done
+#33 DONE 0.1s
+
+#34 [ml internal] load build context
+#34 DONE 0.0s
+
+#35 [graph-3 build 4/8] COPY Graph/src/Relativa.Graph/Relativa.Graph.csproj Graph/src/Relativa.Graph/
+#35 DONE 0.3s
+
+#36 [ml 1/8] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#36 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b 0.2s done
+#36 DONE 0.2s
+
+#34 [ml internal] load build context
+#34 transferring context: 1.36kB 0.0s done
+#34 DONE 0.2s
+
+#37 [graph-3 build 5/8] RUN dotnet restore Graph/src/Relativa.Graph/Relativa.Graph.csproj
+#37 ...
+
+#38 [auth-2 build 11/13] COPY Persistence/src/ Persistence/src/
+#38 DONE 0.6s
+
+#39 [ml 2/8] WORKDIR /app
+#39 CACHED
+
+#40 [ml 3/8] COPY pyproject.toml ./
+#40 CACHED
+
+#41 [ml 7/8] COPY manage.py ./
+#41 CACHED
+
+#42 [ml 4/8] COPY ml_api/ ml_api/
+#42 CACHED
+
+#43 [ml 6/8] COPY scripts/run_api_and_consumer.sh scripts/run_api_and_consumer.sh
+#43 CACHED
+
+#44 [ml 5/8] COPY relativa_ml/ relativa_ml/
+#44 CACHED
+
+#45 [ml 8/8] RUN python -m pip install --no-cache-dir --upgrade pip     && python -m pip install --no-cache-dir -e .     && chmod +x scripts/run_api_and_consumer.sh     && useradd --create-home --uid 10001 --shell /usr/sbin/nologin mluser     && chown -R mluser:mluser /app
+#45 CACHED
+
+#46 [ml] exporting to image
+#46 exporting layers done
+#46 exporting manifest sha256:a228f04689e49df4c9e6457dd48919de8302ae969747dd5c542a88291c9d35f0 0.0s done
+#46 exporting config sha256:bc9c5b32515a6cd6878abb393bffd4fcc42b3bb4d417e7cd4b02660e2a046b78 0.0s done
+#46 exporting attestation manifest sha256:5718ec06b681a5c236e51e58939d0013ea9cc34c3912bbbc963f4a0d094976a9
+#46 exporting attestation manifest sha256:5718ec06b681a5c236e51e58939d0013ea9cc34c3912bbbc963f4a0d094976a9 0.0s done
+#46 exporting manifest list sha256:9f03f0507517b09665646c7336ac371f13d3cfa55a29f7fa2e55608a1c41bbe2 0.0s done
+#46 naming to docker.io/library/relativa-ml:latest 0.0s done
+#46 unpacking to docker.io/library/relativa-ml:latest
+#46 unpacking to docker.io/library/relativa-ml:latest 0.0s done
+#46 DONE 0.3s
+
+#47 [auth build 12/13] COPY Messaging/src/ Messaging/src/
+#47 DONE 0.3s
+
+#48 [auth build 13/13] RUN dotnet publish Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj -c Release -o /app/publish /p:UseAppHost=false
+#48 ...
+
+#49 [ml] resolving provenance for metadata file
+#49 DONE 0.0s
+
+#32 [migration build 8/8] RUN dotnet publish Migration/src/Relativa.Migration/Relativa.Migration.csproj -c Release -o /app/publish /p:UseAppHost=false
+#32 3.821   Determining projects to restore...
+#32 6.896   Restored /repo/Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj (in 1.89 sec).
+#32 6.946   Restored /repo/Migration/src/Relativa.Migration/Relativa.Migration.csproj (in 1.97 sec).
+#32 ...
+
+#48 [auth build 13/13] RUN dotnet publish Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj -c Release -o /app/publish /p:UseAppHost=false
+#48 3.144   Determining projects to restore...
+#48 7.117 /src/Authentication/src/Relativa.Authentication.Infrastructure/Relativa.Authentication.Infrastructure.csproj : warning NU1902: Package 'MailKit' 4.11.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-9j88-vvj5-vhgr [/src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj]
+#48 7.117 /src/Authentication/src/Relativa.Authentication.Infrastructure/Relativa.Authentication.Infrastructure.csproj : warning NU1902: Package 'MimeKit' 4.11.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g7hc-96xr-gvvx [/src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj]
+#48 7.129 /src/Authentication/src/Relativa.Authentication.Infrastructure/Relativa.Authentication.Infrastructure.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 8.0.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7 [/src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj]
+#48 7.129 /src/Authentication/src/Relativa.Authentication.Infrastructure/Relativa.Authentication.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 8.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx [/src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj]
+#48 7.129 /src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj : warning NU1902: Package 'MailKit' 4.11.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-9j88-vvj5-vhgr
+#48 7.129 /src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
+#48 7.129 /src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj : warning NU1902: Package 'MimeKit' 4.11.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g7hc-96xr-gvvx
+#48 7.129 /src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 8.0.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
+#48 7.129 /src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 8.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+#48 7.289   Restored /src/Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj (in 1.63 sec).
+#48 7.294   Restored /src/Messaging/src/Relativa.Messaging/Relativa.Messaging.csproj (in 1.63 sec).
+#48 7.297   Restored /src/Authentication/src/Relativa.Authentication.Domain/Relativa.Authentication.Domain.csproj (in 1.63 sec).
+#48 7.354   Restored /src/Authentication/src/Relativa.Authentication.Application/Relativa.Authentication.Application.csproj (in 1.63 sec).
+#48 7.369   Restored /src/Authentication/src/Relativa.Authentication.Infrastructure/Relativa.Authentication.Infrastructure.csproj (in 1.7 sec).
+#48 7.382   Restored /src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj (in 1.74 sec).
+#48 8.453 /src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj : warning NU1902: Package 'MailKit' 4.11.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-9j88-vvj5-vhgr
+#48 8.453 /src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
+#48 8.453 /src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj : warning NU1902: Package 'MimeKit' 4.11.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g7hc-96xr-gvvx
+#48 8.453 /src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 8.0.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
+#48 8.453 /src/Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 8.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+#48 ...
+
+#37 [graph-3 build 5/8] RUN dotnet restore Graph/src/Relativa.Graph/Relativa.Graph.csproj
+#37 3.719   Determining projects to restore...
+#37 ...
+
+#48 [auth build 13/13] RUN dotnet publish Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj -c Release -o /app/publish /p:UseAppHost=false
+#48 13.45 /src/Authentication/src/Relativa.Authentication.Infrastructure/Relativa.Authentication.Infrastructure.csproj : warning NU1902: Package 'MailKit' 4.11.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-9j88-vvj5-vhgr
+#48 13.46 /src/Authentication/src/Relativa.Authentication.Infrastructure/Relativa.Authentication.Infrastructure.csproj : warning NU1902: Package 'MimeKit' 4.11.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g7hc-96xr-gvvx
+#48 13.46 /src/Authentication/src/Relativa.Authentication.Infrastructure/Relativa.Authentication.Infrastructure.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 8.0.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
+#48 13.46 /src/Authentication/src/Relativa.Authentication.Infrastructure/Relativa.Authentication.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 8.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+#48 ...
+
+#37 [graph-3 build 5/8] RUN dotnet restore Graph/src/Relativa.Graph/Relativa.Graph.csproj
+#37 15.89   Restored /src/Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj (in 10.73 sec).
+#37 15.96   Restored /src/Graph/src/Relativa.Graph/Relativa.Graph.csproj (in 10.75 sec).
+#37 DONE 16.7s
+
+#50 [graph-2 build 6/8] COPY Graph/src/ Graph/src/
+#50 DONE 1.1s
+
+#51 [graph build 7/8] COPY Persistence/src/ Persistence/src/
+#51 DONE 1.4s
+
+#52 [graph build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#52 ...
+
+#48 [auth build 13/13] RUN dotnet publish Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj -c Release -o /app/publish /p:UseAppHost=false
+#48 23.91   Relativa.Messaging -> /src/Messaging/src/Relativa.Messaging/bin/Release/net10.0/Relativa.Messaging.dll
+#48 24.40   Relativa.Persistence -> /src/Persistence/src/Relativa.Persistence/bin/Release/net10.0/Relativa.Persistence.dll
+#48 25.76   Relativa.Authentication.Domain -> /src/Authentication/src/Relativa.Authentication.Domain/bin/Release/net10.0/Relativa.Authentication.Domain.dll
+#48 ...
+
+#52 [graph build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#52 7.968   Determining projects to restore...
+#52 11.92   Restored /src/Graph/src/Relativa.Graph/Relativa.Graph.csproj (in 1.41 sec).
+#52 11.93   Restored /src/Persistence/src/Relativa.Persistence/Relativa.Persistence.csproj (in 1.41 sec).
+#52 ...
+
+#48 [auth build 13/13] RUN dotnet publish Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj -c Release -o /app/publish /p:UseAppHost=false
+#48 31.83   Relativa.Authentication.Application -> /src/Authentication/src/Relativa.Authentication.Application/bin/Release/net10.0/Relativa.Authentication.Application.dll
+#48 ...
+
+#32 [migration build 8/8] RUN dotnet publish Migration/src/Relativa.Migration/Relativa.Migration.csproj -c Release -o /app/publish /p:UseAppHost=false
+#32 24.78   Relativa.Persistence -> /repo/Persistence/src/Relativa.Persistence/bin/Release/net10.0/Relativa.Persistence.dll
+#32 ...
+
+#48 [auth build 13/13] RUN dotnet publish Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj -c Release -o /app/publish /p:UseAppHost=false
+#48 35.68   Relativa.Authentication.Infrastructure -> /src/Authentication/src/Relativa.Authentication.Infrastructure/bin/Release/net10.0/Relativa.Authentication.Infrastructure.dll
+#48 ...
+
+#32 [migration build 8/8] RUN dotnet publish Migration/src/Relativa.Migration/Relativa.Migration.csproj -c Release -o /app/publish /p:UseAppHost=false
+#32 44.27   Relativa.Migration -> /repo/Migration/src/Relativa.Migration/bin/Release/net10.0/Relativa.Migration.dll
+#32 44.85   Relativa.Migration -> /app/publish/
+#32 DONE 45.7s
+
+#52 [graph build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#52 ...
+
+#53 [migration runtime 2/5] WORKDIR /app
+#53 CACHED
+
+#54 [migration runtime 3/5] COPY --from=build /app/publish .
+#54 CACHED
+
+#55 [migration runtime 4/5] COPY Migration/entrypoint.sh /app/entrypoint.sh
+#55 CACHED
+
+#56 [migration runtime 5/5] RUN apt-get update     && apt-get install -y --no-install-recommends postgresql-client     && rm -rf /var/lib/apt/lists/*     && chmod +x /app/entrypoint.sh     && useradd --create-home --shell /usr/sbin/nologin relativa     && chown -R relativa:relativa /app
+#56 CACHED
+
+#57 [migration] exporting to image
+#57 exporting layers 0.0s done
+#57 exporting manifest sha256:7e2ebf9127ae87bb4b28f6fbafc871ec1924f44018a6a716019cbd75bfae0a29 done
+#57 exporting config sha256:eed2d3b0f018dc0715196bb08d4b4c08e7a048ebfeae7dd4f89a878aac4c2ad9 done
+#57 exporting attestation manifest sha256:8a17399eacef37a130c143a942697c283c9954e5c24990c3ae14af0b7ca75437
+#57 exporting attestation manifest sha256:8a17399eacef37a130c143a942697c283c9954e5c24990c3ae14af0b7ca75437 0.1s done
+#57 exporting manifest list sha256:554585cd0db635ae281c2bf514d6a8bc94ca626fb58c66718cd25b37853b9da3 0.0s done
+#57 naming to docker.io/library/relativa-migration:latest
+#57 naming to docker.io/library/relativa-migration:latest 0.0s done
+#57 unpacking to docker.io/library/relativa-migration:latest 0.0s done
+#57 DONE 0.4s
+
+#48 [auth build 13/13] RUN dotnet publish Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj -c Release -o /app/publish /p:UseAppHost=false
+#48 46.14   Relativa.Authentication -> /src/Authentication/src/Relativa.Authentication/bin/Release/net10.0/Relativa.Authentication.dll
+#48 46.68   Relativa.Authentication -> /app/publish/
+#48 ...
+
+#58 [migration] resolving provenance for metadata file
+#58 DONE 0.3s
+
+#52 [graph build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#52 27.97   Relativa.Persistence -> /src/Persistence/src/Relativa.Persistence/bin/Release/net10.0/Relativa.Persistence.dll
+#52 ...
+
+#48 [auth build 13/13] RUN dotnet publish Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj -c Release -o /app/publish /p:UseAppHost=false
+#48 DONE 47.4s
+
+#48 [auth-2 build 13/13] RUN dotnet publish Authentication/src/Relativa.Authentication/Relativa.Authentication.csproj -c Release -o /app/publish /p:UseAppHost=false
+#48 DONE 47.4s
+
+#52 [graph build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#52 ...
+
+#59 [auth runtime 2/3] WORKDIR /app
+#59 CACHED
+
+#60 [auth runtime 3/3] COPY --from=build /app/publish .
+#60 CACHED
+
+#59 [auth-2 runtime 2/3] WORKDIR /app
+#59 CACHED
+
+#60 [auth-2 runtime 3/3] COPY --from=build /app/publish .
+#60 CACHED
+
+#61 [auth] exporting to image
+#61 exporting layers 0.0s done
+#61 exporting manifest sha256:9c4475bfa078538bc97f4543ed16c668cd1e56482ab487d988aaf87354f3ced5 0.2s done
+#61 exporting config sha256:ba1775b3ccde41f928d2c6ce8293fcad0deda1d16c30e077b068cc3feed987b8
+#61 exporting config sha256:ba1775b3ccde41f928d2c6ce8293fcad0deda1d16c30e077b068cc3feed987b8 0.2s done
+#61 exporting attestation manifest sha256:fdfb4e3c7c93781da88a7b4efb96c04ae15810409e85ee41be03c15d494eb5ac
+#61 exporting attestation manifest sha256:fdfb4e3c7c93781da88a7b4efb96c04ae15810409e85ee41be03c15d494eb5ac 0.1s done
+#61 exporting manifest list sha256:2a147d924c0bf84402375e6cb704429aeec79dec132bc25ed5a66e8b9e856a17 0.1s done
+#61 naming to docker.io/library/relativa-auth:latest 0.0s done
+#61 unpacking to docker.io/library/relativa-auth:latest
+#61 unpacking to docker.io/library/relativa-auth:latest 0.0s done
+#61 DONE 0.8s
+
+#62 [auth-2] exporting to image
+#62 exporting layers 0.0s done
+#62 exporting manifest sha256:a9122dc319d769cba682f30dcc4c3db970208beb9f50e2216e64c1dc17ae91a1 0.1s done
+#62 exporting config sha256:0eb9326f1c3f98cc3bbe15de307799f1c16216e5c1fdd9065dd33c3aba760073 0.2s done
+#62 exporting attestation manifest sha256:28dd64394df976ca8d428efc9da9dad05b31f01114c7090f255a73a768cba6ff 0.1s done
+#62 exporting manifest list sha256:435453a16072b80ee75578d677b10c64527b7c48c57f9932c6508e39c2bc6efd 0.1s done
+#62 naming to docker.io/library/relativa-auth-2:latest 0.0s done
+#62 unpacking to docker.io/library/relativa-auth-2:latest 0.0s done
+#62 DONE 0.9s
+
+#52 [graph build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#52 ...
+
+#63 [auth-2] resolving provenance for metadata file
+#63 DONE 0.2s
+
+#64 [auth] resolving provenance for metadata file
+#64 DONE 0.0s
+
+#52 [graph build 8/8] RUN dotnet publish Graph/src/Relativa.Graph/Relativa.Graph.csproj -c Release -o /app/publish /p:UseAppHost=false
+#52 34.56   Relativa.Graph -> /src/Graph/src/Relativa.Graph/bin/Release/net10.0/Relativa.Graph.dll
+#52 34.65   Relativa.Graph -> /app/publish/
+#52 DONE 34.9s
+
+#59 [graph-3 runtime 2/3] WORKDIR /app
+#59 CACHED
+
+#65 [graph-3 runtime 3/3] COPY --from=build /app/publish .
+#65 DONE 0.2s
+
+#66 [graph-3] exporting to image
+#66 exporting layers
+#66 exporting layers 1.1s done
+#66 exporting manifest sha256:d22e4a796cd3732839e5e45a1d855e3f0f732c945840b0d7f93d60009843e778 0.1s done
+#66 exporting config sha256:543af1523e7329c031f090c8d0e77dcef4b40fcd58a008c9ee126c41ccf44551
+#66 exporting config sha256:543af1523e7329c031f090c8d0e77dcef4b40fcd58a008c9ee126c41ccf44551 0.1s done
+#66 exporting attestation manifest sha256:0337d0767cc68bf8ff5535563929f959ac73b31302815746d57f7aa4bea8240d
+#66 exporting attestation manifest sha256:0337d0767cc68bf8ff5535563929f959ac73b31302815746d57f7aa4bea8240d 0.5s done
+#66 exporting manifest list sha256:3f2a0d4a739c493c850c02a065152e8e992470377368fcc67a10f438ca5aa2e9
+#66 exporting manifest list sha256:3f2a0d4a739c493c850c02a065152e8e992470377368fcc67a10f438ca5aa2e9 0.2s done
+#66 naming to docker.io/library/relativa-graph-3:latest
+#66 naming to docker.io/library/relativa-graph-3:latest 0.1s done
+#66 unpacking to docker.io/library/relativa-graph-3:latest
+#66 unpacking to docker.io/library/relativa-graph-3:latest 0.6s done
+#66 DONE 2.9s
+
+#67 [graph-2] exporting to image
+#67 exporting layers 1.1s done
+#67 exporting manifest sha256:aeb8b127bab4b25d182a28fc173fe03e6855c42980946c6cfe4ac968eca47e92 0.1s done
+#67 exporting config sha256:bcddfb2f047a3e0fbeead3633459b8f4abc809f2854643210c9f109359a3828a 0.1s done
+#67 exporting attestation manifest sha256:bfa63d54b026d823d9b01a32551bc3b9c06b5e7c43889c5ba085632417bc0c9a 0.5s done
+#67 exporting manifest list sha256:786920ecd8bb9e0ef448fe55571efbf992f6b37992af55997ef660435cc9f3b1 0.2s done
+#67 naming to docker.io/library/relativa-graph-2:latest 0.0s done
+#67 unpacking to docker.io/library/relativa-graph-2:latest 0.6s done
+#67 DONE 2.9s
+
+#68 [graph] exporting to image
+#68 exporting layers 1.1s done
+#68 exporting manifest sha256:38016d5f9b14e7c6d442a44fc9e2a0a217413635b536b47bc7db5f45e4e9dbd7 0.1s done
+#68 exporting config sha256:ce9030e110fc30464f918a8b14dea36f7698074e84b75770fd76d5a5e1df886c 0.1s done
+#68 exporting attestation manifest sha256:8e173fa02fe7745ef565ab48741dc305417a61c501fe34803448b682c58016a1 0.5s done
+#68 exporting manifest list sha256:ceedf2a658669bde6f2bc9ad54a2e2bf05c1416c6389caa51a69132d74a75cea 0.2s done
+#68 naming to docker.io/library/relativa-graph:latest 0.0s done
+#68 unpacking to docker.io/library/relativa-graph:latest 0.6s done
+#68 DONE 3.0s
+
+#69 [graph-2] resolving provenance for metadata file
+#69 DONE 0.8s
+
+#70 [graph-3] resolving provenance for metadata file
+#70 DONE 0.4s
+
+#71 [graph] resolving provenance for metadata file
+#71 DONE 0.0s
+ Image relativa-migration Built 
+ Image relativa-graph-3 Built 
+ Image relativa-ml Built 
+ Image relativa-auth-2 Built 
+ Image relativa-graph Built 
+ Image relativa-graph-2 Built 
+ Image relativa-auth Built 
+ Container relativa-graph Recreate 
+ Container relativa-graph-3 Creating 
+ Container relativa-graph-2 Recreate 
+ Container relativa-graph-3 Created 
+ Container relativa-graph-2 Recreated 
+ Container relativa-graph Recreated 
+ Container relativa-graph-lb Recreate 
+ Container relativa-graph-lb Recreated 
+ Container relativa-rabbitmq Starting 
+ Container relativa-postgres Starting 
+ Container relativa-redis Starting 
+ Container relativa-mailhog Starting 
+ Container relativa-rabbitmq Started 
+ Container relativa-postgres Started 
+ Container relativa-postgres Waiting 
+ Container relativa-redis Started 
+ Container relativa-mailhog Started 
+ Container relativa-postgres Healthy 
+ Container relativa-migration Starting 
+ Container relativa-migration Started 
+ Container relativa-migration Waiting 
+ Container relativa-rabbitmq Waiting 
+ Container relativa-postgres Waiting 
+ Container relativa-redis Waiting 
+ Container relativa-rabbitmq Waiting 
+ Container relativa-migration Waiting 
+ Container relativa-migration Waiting 
+ Container relativa-rabbitmq Waiting 
+ Container relativa-redis Waiting 
+ Container relativa-migration Waiting 
+ Container relativa-postgres Waiting 
+ Container relativa-redis Waiting 
+ Container relativa-migration Waiting 
+ Container relativa-migration Waiting 
+ Container relativa-postgres Waiting 
+ Container relativa-rabbitmq Waiting 
+ Container relativa-postgres Waiting 
+ Container relativa-postgres Waiting 
+ Container relativa-rabbitmq Waiting 
+ Container relativa-postgres Waiting 
+ Container relativa-rabbitmq Waiting 
+ Container relativa-redis Waiting 
+ Container relativa-redis Waiting 
+ Container relativa-postgres Healthy 
+ Container relativa-postgres Healthy 
+ Container relativa-redis Healthy 
+ Container relativa-redis Healthy 
+ Container relativa-redis Healthy 
+ Container relativa-postgres Healthy 
+ Container relativa-postgres Healthy 
+ Container relativa-redis Healthy 
+ Container relativa-postgres Healthy 
+ Container relativa-postgres Healthy 
+ Container relativa-redis Healthy 
+ Container relativa-migration Exited 
+ Container relativa-migration Exited 
+ Container relativa-migration Exited 
+ Container relativa-migration Exited 
+ Container relativa-migration Exited 
+ Container relativa-migration Exited 
+ Container relativa-rabbitmq Healthy 
+ Container relativa-ml Starting 
+ Container relativa-rabbitmq Healthy 
+ Container relativa-auth Starting 
+ Container relativa-rabbitmq Healthy 
+ Container relativa-auth-2 Starting 
+ Container relativa-rabbitmq Healthy 
+ Container relativa-graph-3 Starting 
+ Container relativa-rabbitmq Healthy 
+ Container relativa-graph Starting 
+ Container relativa-rabbitmq Healthy 
+ Container relativa-graph-2 Starting 
+ Container relativa-ml Started 
+ Container relativa-auth Started 
+ Container relativa-auth-2 Started 
+ Container relativa-graph-3 Started 
+ Container relativa-graph Started 
+ Container relativa-graph-2 Started 
+ Container relativa-graph-lb Starting 
+ Container relativa-graph-lb Started 

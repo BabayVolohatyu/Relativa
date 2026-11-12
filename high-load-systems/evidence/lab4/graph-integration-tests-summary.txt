@@ -1,0 +1,16 @@
+Graph integration tests, final Lab 4 code (full log of the first run: graph-integration-tests.txt)
+
+Run 1 (whole suite, lab stack stopped): Total 176, Passed 173, Failed 3, duration 5 m 22 s
+  Failed (known, unrelated, fail identically on the original commit; see CONTEXT.md, Lab 2):
+    GraphDataServiceTests.BuildGraphAsync_MlClientThrowsWithNonNullRiskFilter_ExcludesAllDeals
+    GraphDataServiceTests.BuildGraphAsync_MlClientThrows_ReturnsDealNodesWithoutHighlightTags
+  Failed (environment flake, not a code failure):
+    GraphDomainEventConsumerTests.WorkspaceLifecycle_ForwardsToSignalRAndRecordsProcessedDelivery
+    -> Npgsql "Timeout during reading attempt" inside InitializeAsync (EnsureCreatedAsync) after 1 ms, i.e. the
+       Testcontainers PostgreSQL was not ready; the test never reached any Lab 4 code.
+
+Run 2 (only GraphDomainEventConsumerTests, same build): Total 4, Passed 4.
+
+Result: 174 of 176 pass, the only 2 failures are the known pre-existing ML-client ones.
+New in Lab 4: GraphCacheTests (6 tests: MISS then HIT, MISS after invalidation, BYPASS when the cache is unavailable,
+Redis service round trip, Redis failure never throws, key/pattern schema) - all 6 passed in run 1.

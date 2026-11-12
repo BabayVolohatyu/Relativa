@@ -1,0 +1,40 @@
+﻿  Determining projects to restore...
+C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\Relativa.Graph.Integration.Tests.csproj : warning NU1903: Package 'SSH.NET' 2024.2.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mggc-4xg6-vcxf
+C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\Relativa.Graph.Integration.Tests.csproj : warning NU1903: Package 'SSH.NET' 2024.2.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284
+  All projects are up-to-date for restore.
+C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\Relativa.Graph.Integration.Tests.csproj : warning NU1903: Package 'SSH.NET' 2024.2.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mggc-4xg6-vcxf
+C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\Relativa.Graph.Integration.Tests.csproj : warning NU1903: Package 'SSH.NET' 2024.2.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284
+  Sonar: (Relativa.Persistence.csproj) The analysis targets file not found: C:\Users\babay\myrepos\testing\Relativa\.sonarqube\bin\targets\SonarQube.Integration.targets
+  Relativa.Persistence -> C:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\bin\Debug\net10.0\Relativa.Persistence.dll
+  Sonar: (Relativa.Graph.csproj) The analysis targets file not found: C:\Users\babay\myrepos\testing\Relativa\.sonarqube\bin\targets\SonarQube.Integration.targets
+  Relativa.Graph -> C:\Users\babay\myrepos\testing\Relativa\Graph\src\Relativa.Graph\bin\Debug\net10.0\Relativa.Graph.dll
+  Sonar: (Relativa.Graph.Integration.Tests.csproj) The analysis targets file not found: C:\Users\babay\myrepos\testing\Relativa\.sonarqube\bin\targets\SonarQube.Integration.targets
+  Relativa.Graph.Integration.Tests -> C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\bin\Debug\net10.0\Relativa.Graph.Integration.Tests.dll
+Test run for C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\bin\Debug\net10.0\Relativa.Graph.Integration.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+dotnet : [xUnit.net 00:02:21.06]     Relativa.Graph.Integration.Tests.GraphDataServiceTests.BuildGraphAsync_MlClientThr
+owsWithNonNullRiskFilter_ExcludesAllDeals [FAIL]
+At C:\Users\babay\AppData\Local\Temp\ps-script-53f501db-8515-4286-8880-a359056efb0f.ps1:81 char:1
++ dotnet test Graph/tests/Relativa.Graph.Integration.Tests -nologo 2>&1 ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([xUnit.net 00:0...AllDeals [FAIL]:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Failed Relativa.Graph.Integration.Tests.GraphDataServiceTests.BuildGraphAsync_MlClientThrowsWithNonNullRiskFilter_ExcludesAllDeals [118 ms]
+  Error Message:
+   System.Net.Http.HttpRequestException : ML service unavailable
+  Stack Trace:
+     at Relativa.Graph.Graph.GraphDataService.BuildGraphAsync(Int32 userId, Int32 organizationId, String riskLevel, CancellationToken ct) in C:\Users\babay\myrepos\testing\Relativa\Graph\src\Relativa.Graph\Graph\GraphDataService.cs:line 222
+   at Relativa.Graph.Integration.Tests.GraphDataServiceTests.BuildGraphAsync_MlClientThrowsWithNonNullRiskFilter_ExcludesAllDeals() in C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\GraphDataServiceTests.cs:line 284
+--- End of stack trace from previous location ---
+[xUnit.net 00:02:22.74]     Relativa.Graph.Integration.Tests.GraphDataServiceTests.BuildGraphAsync_MlClientThrows_Retur
+nsDealNodesWithoutHighlightTags [FAIL]
+  Failed Relativa.Graph.Integration.Tests.GraphDataServiceTests.BuildGraphAsync_MlClientThrows_ReturnsDealNodesWithoutHighlightTags [111 ms]
+  Error Message:
+   System.Net.Http.HttpRequestException : ML service unavailable
+  Stack Trace:
+     at Relativa.Graph.Graph.GraphDataService.BuildGraphAsync(Int32 userId, Int32 organizationId, String riskLevel, CancellationToken ct) in C:\Users\babay\myrepos\testing\Relativa\Graph\src\Relativa.Graph\Graph\GraphDataService.cs:line 222
+   at Relativa.Graph.Integration.Tests.GraphDataServiceTests.BuildGraphAsync_MlClientThrows_ReturnsDealNodesWithoutHighlightTags() in C:\Users\babay\myrepos\testing\Relativa\Graph\tests\Relativa.Graph.Integration.Tests\GraphDataServiceTests.cs:line 259
+--- End of stack trace from previous location ---
+
+Failed!  - Failed:     2, Passed:   168, Skipped:     0, Total:   170, Duration: 5 m - Relativa.Graph.Integration.Tests.dll (net10.0)

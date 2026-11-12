@@ -1,0 +1,37 @@
+﻿
+
+  Γûê TOTAL RESULTS 
+
+    checks_total.......: 949     12.034973/s
+    checks_succeeded...: 100.00% 949 out of 949
+    checks_failed......: 0.00%   0 out of 949
+
+    Γ£ô write: status is 200
+
+    CUSTOM
+    duration_write.................: avg=3.7s  min=2.01s    med=3.5s  max=6.4s  p(90)=5.54s p(95)=5.87s p(99)=6.28s
+    m_dur..........................: avg=3.7s  min=2.01s    med=3.5s  max=6.4s  p(90)=5.54s p(95)=5.87s p(99)=6.28s
+    m_dur_ok.......................: avg=3.7s  min=2.01s    med=3.5s  max=6.4s  p(90)=5.54s p(95)=5.87s p(99)=6.28s
+    m_reqs.........................: 751    9.523988/s
+    served_by_graph_1..............: 250    3.170436/s
+    served_by_graph_2..............: 251    3.183117/s
+    served_by_graph_3..............: 250    3.170436/s
+
+    HTTP
+    http_req_duration..............: avg=3.15s min=73.13ms  med=3.12s max=6.4s  p(90)=5.33s p(95)=5.77s p(99)=6.26s
+      { expected_response:true }...: avg=3.15s min=73.13ms  med=3.12s max=6.4s  p(90)=5.33s p(95)=5.77s p(99)=6.26s
+    http_req_failed................: 0.00%  0 out of 949
+    http_reqs......................: 949    12.034973/s
+
+    EXECUTION
+    iteration_duration.............: avg=3.66s min=574.29ms med=3.62s max=6.95s p(90)=5.83s p(95)=6.28s p(99)=6.78s
+    iterations.....................: 949    12.034973/s
+    vus............................: 16     min=3        max=50
+    vus_max........................: 50     min=50       max=50
+
+    NETWORK
+    data_received..................: 587 kB 7.4 kB/s
+    data_sent......................: 272 kB 3.5 kB/s
+
+
+

@@ -1,0 +1,2 @@
+﻿Client connected to http://localhost:8090/hubs/graph and joined workspace-1
+RESULT hub=http://localhost:8090/hubs/graph published=20 delivered_to_client=20 lost=0

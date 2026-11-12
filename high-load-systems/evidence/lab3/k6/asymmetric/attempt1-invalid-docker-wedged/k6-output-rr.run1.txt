@@ -1,0 +1,50 @@
+﻿k6 : time="2026-11-11T12:18:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:50146->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+At C:\Users\babay\myrepos\testing\Relativa\high-load-systems\evidence\lab3\scripts\asymmetric-run.ps1:26 char:9
++         k6 run -q --summary-trend-stats="avg,min,med,max,p(90),p(95), ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (time="2026-11-1...e remote host.":String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+time="2026-11-11T12:18:21-08:00" level=warning msg="Request Failed" error="Get 
+\"http://localhost:8090/api/v1/graph?organizationId=1\": read tcp 127.0.0.1:50147->127.0.0.1:8090: wsarecv: An 
+existing connection was forcibly closed by the remote host."
+
+
+  Γûê TOTAL RESULTS 
+
+    checks_total.......: 1930   15.862316/s
+    checks_succeeded...: 99.89% 1928 out of 1930
+    checks_failed......: 0.10%  2 out of 1930
+
+    Γ£ù status is 200
+      Γå│  99% ΓÇö Γ£ô 1928 / Γ£ù 2
+
+    CUSTOM
+    duration_graph_1...............: avg=1.86s min=772.55ms med=1.16s max=9.99s  p(90)=4.09s p(95)=5.54s p(99)=7.59s
+    duration_graph_2...............: avg=2.43s min=1.27s    med=1.69s max=9.16s  p(90)=4.74s p(95)=5.8s  p(99)=7.52s
+    duration_graph_3...............: avg=1.86s min=774.55ms med=1.18s max=10.84s p(90)=3.9s  p(95)=5.69s p(99)=7.4s 
+    served_by_graph_1..............: 643    5.284699/s
+    served_by_graph_2..............: 643    5.284699/s
+    served_by_graph_3..............: 642    5.27648/s
+    served_by_none.................: 2      0.016438/s
+
+    HTTP
+    http_req_duration..............: avg=2.08s min=772.55ms med=1.38s max=30.02s p(90)=4.33s p(95)=5.74s p(99)=7.56s
+      { expected_response:true }...: avg=2.05s min=772.55ms med=1.38s max=10.84s p(90)=4.32s p(95)=5.71s p(99)=7.5s 
+    http_req_failed................: 0.10%  2 out of 1930
+    http_reqs......................: 1930   15.862316/s
+
+    EXECUTION
+    iteration_duration.............: avg=2.58s min=1.27s    med=1.88s max=30.55s p(90)=4.83s p(95)=6.25s p(99)=8.06s
+    iterations.....................: 1930   15.862316/s
+    vus............................: 1      min=1         max=50
+    vus_max........................: 50     min=50        max=50
+
+    NETWORK
+    data_received..................: 130 MB 1.1 MB/s
+    data_sent......................: 218 kB 1.8 kB/s
+
+
+

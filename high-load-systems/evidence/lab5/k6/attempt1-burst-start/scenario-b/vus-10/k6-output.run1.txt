@@ -1,0 +1,34 @@
+﻿
+
+  Γûê TOTAL RESULTS 
+
+    checks_total.......: 973     16.056597/s
+    checks_succeeded...: 100.00% 973 out of 973
+    checks_failed......: 0.00%   0 out of 973
+
+    Γ£ô write: status is 200
+
+    CUSTOM
+    duration_write.................: avg=118.36ms min=74.58ms  med=102.02ms max=567.98ms p(90)=180.08ms p(95)=218ms    p(99)=318.92ms
+    served_by_graph_1..............: 324    5.346698/s
+    served_by_graph_2..............: 324    5.346698/s
+    served_by_graph_3..............: 325    5.3632/s
+
+    HTTP
+    http_req_duration..............: avg=118.36ms min=74.58ms  med=102.02ms max=567.98ms p(90)=180.08ms p(95)=218ms    p(99)=318.92ms
+      { expected_response:true }...: avg=118.36ms min=74.58ms  med=102.02ms max=567.98ms p(90)=180.08ms p(95)=218ms    p(99)=318.92ms
+    http_req_failed................: 0.00%  0 out of 973
+    http_reqs......................: 973    16.056597/s
+
+    EXECUTION
+    iteration_duration.............: avg=619.48ms min=575.01ms med=602.96ms max=1.08s    p(90)=681.43ms p(95)=719.03ms p(99)=820.87ms
+    iterations.....................: 973    16.056597/s
+    vus............................: 10     min=10       max=10
+    vus_max........................: 10     min=10       max=10
+
+    NETWORK
+    data_received..................: 600 kB 9.9 kB/s
+    data_sent......................: 276 kB 4.6 kB/s
+
+
+

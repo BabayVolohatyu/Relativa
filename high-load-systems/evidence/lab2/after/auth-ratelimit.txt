@@ -1,0 +1,13 @@
+﻿Client IP used for the whole test: 198.51.100.94  (limit = 5 / hour / IP)
+request  1 -> instance 1 (http://localhost:8081) : HTTP 204
+request  2 -> instance 1 (http://localhost:8081) : HTTP 204
+request  3 -> instance 1 (http://localhost:8081) : HTTP 204
+request  4 -> instance 1 (http://localhost:8081) : HTTP 204
+request  5 -> instance 1 (http://localhost:8081) : HTTP 204
+request  6 -> instance 2 (http://localhost:8087) : HTTP 429
+request  7 -> instance 2 (http://localhost:8087) : HTTP 429
+request  8 -> instance 2 (http://localhost:8087) : HTTP 429
+request  9 -> instance 2 (http://localhost:8087) : HTTP 429
+request 10 -> instance 2 (http://localhost:8087) : HTTP 429
+
+RESULT accepted(204)=5 rejected(429)=5   (correct shared limit => accepted=5 rejected=5)

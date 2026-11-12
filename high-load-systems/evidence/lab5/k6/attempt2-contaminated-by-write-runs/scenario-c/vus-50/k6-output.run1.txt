@@ -1,0 +1,41 @@
+﻿
+
+  Γûê TOTAL RESULTS 
+
+    checks_total.......: 1370    18.186164/s
+    checks_succeeded...: 100.00% 1370 out of 1370
+    checks_failed......: 0.00%   0 out of 1370
+
+    Γ£ô read: status is 200
+    Γ£ô write: status is 200
+
+    CUSTOM
+    cache_hit......................: 181    2.402698/s
+    cache_miss.....................: 371    4.924866/s
+    duration_read..................: avg=627.28ms min=4.45ms   med=848.8ms max=1.38s p(90)=992.88ms p(95)=1.08s p(99)=1.24s
+    duration_write.................: avg=4s       min=205.68┬╡s med=4.17s   max=6.75s p(90)=5.65s    p(95)=6.09s p(99)=6.49s
+    m_dur..........................: avg=2.37s    min=205.68┬╡s med=1.24s   max=6.75s p(90)=5.15s    p(95)=5.66s p(99)=6.33s
+    m_dur_ok.......................: avg=2.37s    min=205.68┬╡s med=1.24s   max=6.75s p(90)=5.15s    p(95)=5.66s p(99)=6.33s
+    m_reqs.........................: 1143   15.172836/s
+    served_by_graph_1..............: 381    5.057612/s
+    served_by_graph_2..............: 383    5.084161/s
+    served_by_graph_3..............: 379    5.031063/s
+
+    HTTP
+    http_req_duration..............: avg=2.15s    min=205.68┬╡s med=1.03s   max=6.75s p(90)=5.04s    p(95)=5.51s p(99)=6.32s
+      { expected_response:true }...: avg=2.15s    min=205.68┬╡s med=1.03s   max=6.75s p(90)=5.04s    p(95)=5.51s p(99)=6.32s
+    http_req_failed................: 0.00%  0 out of 1370
+    http_reqs......................: 1370   18.186164/s
+
+    EXECUTION
+    iteration_duration.............: avg=5.11s    min=687.07ms med=5.33s   max=8.17s p(90)=6.89s    p(95)=7.33s p(99)=7.93s
+    iterations.....................: 685    9.093082/s
+    vus............................: 3      min=3         max=50
+    vus_max........................: 50     min=50        max=50
+
+    NETWORK
+    data_received..................: 113 MB 1.5 MB/s
+    data_sent......................: 276 kB 3.7 kB/s
+
+
+

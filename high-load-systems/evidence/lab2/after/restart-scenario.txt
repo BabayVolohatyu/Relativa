@@ -1,0 +1,17 @@
+﻿=== Part A: Graph via nginx while instance 1 (relativa-graph) is killed ===
+[11:23:18] docker kill relativa-graph  (instance 1 lost)
+[11:23:33] docker start relativa-graph (instance 1 back)
+before kill   ( 18 requests): graph-1 / HTTP 200 x9;  graph-2 / HTTP 200 x9
+instance dead ( 27 requests): graph-2 / HTTP 200 x27
+after restart ( 32 requests): graph-1 / HTTP 200 x13;  graph-2 / HTTP 200 x19
+RESULT total requests=77  failed(non-200)=0  served-by-graph-1-while-dead=0
+
+=== Part B: business state survives the loss of Auth instance 1 (relativa-auth) ===
+[11:23:59] write #1 through instance 1: lastName='Lab2-before-kill-112359'
+[11:23:59] docker kill relativa-auth  (instance 1 lost, JWT issued by it is still in use)
+[11:23:59] instance 2 reads : lastName='Lab2-before-kill-112359'   <- value written through the dead instance
+[11:23:59] write #2 through instance 2 (instance 1 is dead): lastName='Lab2-while-dead-112359'
+[11:23:59] docker start relativa-auth
+[11:24:02] instance 1 (restarted) reads : lastName='Lab2-while-dead-112359'
+RESULT no data lost: the restarted instance sees the write made while it was dead
+[11:24:03] (seed value lastName='Gray' restored)

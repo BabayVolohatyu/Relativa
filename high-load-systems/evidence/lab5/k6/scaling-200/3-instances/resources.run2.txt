@@ -1,0 +1,21 @@
+﻿docker stats stream, window 19:48:13-19:49:00 (CPU % of one core, avg / max over 94 samples):
+lab5-k6              cpu avg=  53.2% max=  64.8%  mem max=    121 MiB
+relativa-auth        cpu avg=   0.8% max=   9.1%  mem max=    116 MiB
+relativa-auth-2      cpu avg=   0.8% max=   7.9%  mem max=    115 MiB
+relativa-core        cpu avg=   0.8% max=   6.2%  mem max=    137 MiB
+relativa-graph       cpu avg=  62.8% max=  81.2%  mem max=    268 MiB
+relativa-graph-2     cpu avg=  73.9% max= 155.6%  mem max=    201 MiB
+relativa-graph-3     cpu avg=  72.9% max= 153.2%  mem max=    204 MiB
+relativa-graph-lb    cpu avg=  45.2% max=  61.5%  mem max=     14 MiB
+relativa-lab5-lb-1   cpu avg=   0.0% max=   0.0%  mem max=      8 MiB
+relativa-mailhog     cpu avg=   0.0% max=   0.0%  mem max=      3 MiB
+relativa-ml          cpu avg=  20.8% max=  85.5%  mem max=    439 MiB
+relativa-postgres    cpu avg=  30.3% max= 272.4%  mem max=    271 MiB
+relativa-rabbitmq    cpu avg=  29.1% max= 170.2%  mem max=    219 MiB
+relativa-redis       cpu avg=   9.2% max=  17.9%  mem max=     20 MiB
+PostgreSQL connections to the lab database (sampled in the hold):
+19:48:16 pg_connections total=60 active=1
+19:48:22 pg_connections total=60 active=1
+19:48:28 pg_connections total=60 active=1
+19:48:34 pg_connections total=60 active=1
+19:48:41 pg_connections total=60 active=1

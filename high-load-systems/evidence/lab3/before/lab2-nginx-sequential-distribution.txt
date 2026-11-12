@@ -1,0 +1,6 @@
+﻿BEFORE (Lab 2 nginx config infra/nginx/graph-lb.conf, 2 upstreams graph + graph-2, no shared-memory zone, worker_processes auto)
+12 sequential GET /api/v1/graph requests through it, one at a time, equal nodes:
+graph-1: 10 of 12
+graph-2: 2 of 12
+sequence: graph-1 graph-1 graph-1 graph-1 graph-1 graph-1 graph-1 graph-1 graph-2 graph-1 graph-2 graph-1
+(Lab 3 config with 'zone' and 3 nodes: exactly 10/10/10 of 30, see ../after/algorithm-distribution-equal-nodes.txt)

@@ -1,0 +1,5 @@
+﻿PostgreSQL counters (pg_stat_database) between k6 start and k6 end, whole run incl. ramp-up:
+  transactions: 28090
+  rows returned by queries (tup_returned): 427350
+  rows fetched (tup_fetched): 84200
+  blocks read+hit: 366041

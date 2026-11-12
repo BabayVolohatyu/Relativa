@@ -1,0 +1,37 @@
+﻿
+
+  Γûê TOTAL RESULTS 
+
+    checks_total.......: 12884   170.750215/s
+    checks_succeeded...: 100.00% 12884 out of 12884
+    checks_failed......: 0.00%   0 out of 12884
+
+    Γ£ô read: status is 200
+
+    CUSTOM
+    cache_hit......................: 11274  149.413064/s
+    cache_miss.....................: 100    1.325289/s
+    duration_read..................: avg=25.06ms  min=2.03ms   med=7.89ms   max=1.24s p(90)=33.96ms  p(95)=59.28ms  p(99)=333.38ms
+    m_dur..........................: avg=25.06ms  min=2.03ms   med=7.89ms   max=1.24s p(90)=33.96ms  p(95)=59.28ms  p(99)=333.38ms
+    m_dur_ok.......................: avg=25.06ms  min=2.03ms   med=7.89ms   max=1.24s p(90)=33.96ms  p(95)=59.28ms  p(99)=333.38ms
+    m_reqs.........................: 11374  150.738353/s
+    served_by_graph_1..............: 11374  150.738353/s
+
+    HTTP
+    http_req_duration..............: avg=22.92ms  min=2.02ms   med=6.61ms   max=1.24s p(90)=30.79ms  p(95)=54.88ms  p(99)=302.28ms
+      { expected_response:true }...: avg=22.92ms  min=2.02ms   med=6.61ms   max=1.24s p(90)=30.79ms  p(95)=54.88ms  p(99)=302.28ms
+    http_req_failed................: 0.00%  0 out of 12884
+    http_reqs......................: 12884  170.750215/s
+
+    EXECUTION
+    iteration_duration.............: avg=524.52ms min=502.32ms med=507.96ms max=1.74s p(90)=533.67ms p(95)=558.18ms p(99)=804.88ms
+    iterations.....................: 12884  170.750215/s
+    vus............................: 100    min=6          max=100
+    vus_max........................: 100    min=100        max=100
+
+    NETWORK
+    data_received..................: 872 MB 12 MB/s
+    data_sent......................: 1.5 MB 20 kB/s
+
+
+

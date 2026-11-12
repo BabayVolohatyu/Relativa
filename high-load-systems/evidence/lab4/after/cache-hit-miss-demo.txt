@@ -1,0 +1,41 @@
+﻿=== Lab 4 demo 1: Cache-Aside MISS -> HIT ===
+Topology: nginx (Round Robin) -> graph-1/2/3 -> shared Redis + PostgreSQL. Request: GET /api/v1/graph?organizationId=1 (X-User-Id: 1)
+
+--- Redis keys (before the first request)
+    (none)
+
+--- 1 cold request + 8 requests more (Round Robin: they land on graph-1, graph-2, graph-3, graph-1 ...)
+request 1 (cold)                   status=200 X-Cache=MISS   served by graph-1     230 ms   nodes=183 edges=291 body=67607 B
+request 2                          status=200 X-Cache=HIT    served by graph-2       8 ms   nodes=183 edges=291 body=67607 B
+request 3                          status=200 X-Cache=HIT    served by graph-3       8 ms   nodes=183 edges=291 body=67607 B
+request 4                          status=200 X-Cache=HIT    served by graph-1      13 ms   nodes=183 edges=291 body=67607 B
+request 5                          status=200 X-Cache=HIT    served by graph-2       7 ms   nodes=183 edges=291 body=67607 B
+request 6                          status=200 X-Cache=HIT    served by graph-3      37 ms   nodes=183 edges=291 body=67607 B
+request 7                          status=200 X-Cache=HIT    served by graph-1       9 ms   nodes=183 edges=291 body=67607 B
+request 8                          status=200 X-Cache=HIT    served by graph-2      16 ms   nodes=183 edges=291 body=67607 B
+request 9                          status=200 X-Cache=HIT    served by graph-3       6 ms   nodes=183 edges=291 body=67607 B
+
+--- Redis keys (after the requests)
+    relativa-graph:graph:v1:1:1:all   TTL=58s
+
+SUMMARY  cold (MISS) = 230 ms   hot (HIT) median = 9 ms   HIT count = 8/8   HITs served by instances: graph-2, graph-3, graph-1
+Same body in MISS and HIT: nodes=183/183 edges=291/291
+
+--- 8 repeated cold/hot pairs (keys deleted before every cold request). The cold time varies because the ML scoring RPC
+    (200 ms budget, 3 attempts) sometimes answers and sometimes times out; the hot time does not depend on it.
+1: cold   182 ms (MISS)   hot    7 ms (HIT)
+2: cold   197 ms (MISS)   hot    6 ms (HIT)
+3: cold   154 ms (MISS)   hot   27 ms (HIT)
+4: cold   154 ms (MISS)   hot    7 ms (HIT)
+5: cold   153 ms (MISS)   hot    9 ms (HIT)
+6: cold   185 ms (MISS)   hot    7 ms (HIT)
+7: cold   229 ms (MISS)   hot   13 ms (HIT)
+8: cold   777 ms (MISS)   hot    7 ms (HIT)
+cold: min=153 median=182 max=777 ms   hot: min=6 median=7 max=27 ms   -> median speed-up x26
+
+--- Expiration (TTL, not invalidation): wait for the key to expire by itself
+key relativa-graph:graph:v1:1:1:all has 62 s left; waiting 64 s ...
+--- Redis keys (after the TTL elapsed)
+    (none)
+request after expiry               status=200 X-Cache=MISS   served by graph-2     166 ms   nodes=183 edges=291 body=67607 B
+next request                       status=200 X-Cache=HIT    served by graph-3       7 ms   nodes=183 edges=291 body=67607 B

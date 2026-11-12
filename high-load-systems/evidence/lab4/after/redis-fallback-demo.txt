@@ -1,0 +1,46 @@
+﻿=== Lab 4 demo 3: Redis failure (graceful degradation) ===
+redis UP   request 1               status=200 X-Cache=HIT    served by graph-3       8 ms   nodes=183 edges=291 body=67607 B
+redis UP   request 2               status=200 X-Cache=HIT    served by graph-1       8 ms   nodes=183 edges=291 body=67607 B
+
+--- docker stop relativa-redis
+redis DOWN request 1               status=200 X-Cache=BYPASS served by graph-2     203 ms   nodes=183 edges=291 body=67607 B
+redis DOWN request 2               status=200 X-Cache=BYPASS served by graph-3     442 ms   nodes=183 edges=291 body=67607 B
+redis DOWN request 3               status=200 X-Cache=BYPASS served by graph-1     239 ms   nodes=183 edges=291 body=67607 B
+redis DOWN request 4               status=200 X-Cache=BYPASS served by graph-2     223 ms   nodes=183 edges=291 body=67607 B
+redis DOWN request 5               status=200 X-Cache=BYPASS served by graph-3     155 ms   nodes=183 edges=291 body=67607 B
+redis DOWN request 6               status=200 X-Cache=BYPASS served by graph-1     177 ms   nodes=183 edges=291 body=67607 B
+redis DOWN request 7               status=200 X-Cache=BYPASS served by graph-2     178 ms   nodes=183 edges=291 body=67607 B
+redis DOWN request 8               status=200 X-Cache=BYPASS served by graph-3     151 ms   nodes=183 edges=291 body=67607 B
+redis DOWN request 9               status=200 X-Cache=BYPASS served by graph-1     175 ms   nodes=183 edges=291 body=67607 B
+redis DOWN request 10              status=200 X-Cache=BYPASS served by graph-2     152 ms   nodes=183 edges=291 body=67607 B
+redis DOWN request 11              status=200 X-Cache=BYPASS served by graph-3     153 ms   nodes=183 edges=291 body=67607 B
+redis DOWN request 12              status=200 X-Cache=BYPASS served by graph-1     151 ms   nodes=183 edges=291 body=67607 B
+
+SUMMARY while Redis is down: non-200 = 0/12, X-Cache=BYPASS = 12/12, latency min/median/max = 151/177/442 ms
+GET /health on graph-1 (PostgreSQL check) while Redis is down: HTTP 200
+
+--- A WRITE while Redis is down: invalidation is best effort, so the create must still succeed
+create answer: id=1450  HTTP 200 0.187345s
+cleanup: entity 1450 archived.
+
+--- Graph log (last cache warnings):
+    [relativa-graph] Graph cache read failed (org 1); falling back to the database.
+    [relativa-graph] Graph cache read failed (org 1); falling back to the database.
+    [relativa-graph-2] Graph cache read failed (org 1); falling back to the database.
+    [relativa-graph-2] Graph cache invalidation failed (org 1); entries expire by TTL.
+    [relativa-graph-3] Graph cache read failed (org 1); falling back to the database.
+    [relativa-graph-3] Graph cache read failed (org 1); falling back to the database.
+
+--- docker start relativa-redis
+  0.3s after start, request 1      status=200 X-Cache=BYPASS served by graph-3     213 ms   nodes=183 edges=291 body=67607 B
+  1.3s after start, request 2      status=200 X-Cache=BYPASS served by graph-1     218 ms   nodes=183 edges=291 body=67607 B
+  2.2s after start, request 3      status=200 X-Cache=MISS   served by graph-2     186 ms   nodes=183 edges=291 body=67607 B
+  3.0s after start, request 4      status=200 X-Cache=HIT    served by graph-3      16 ms   nodes=183 edges=291 body=67607 B
+  3.8s after start, request 5      status=200 X-Cache=HIT    served by graph-1      10 ms   nodes=183 edges=291 body=67607 B
+  4.6s after start, request 6      status=200 X-Cache=HIT    served by graph-2       7 ms   nodes=183 edges=291 body=67607 B
+  5.4s after start, request 7      status=200 X-Cache=HIT    served by graph-3       7 ms   nodes=183 edges=291 body=67607 B
+  6.2s after start, request 8      status=200 X-Cache=HIT    served by graph-1       6 ms   nodes=183 edges=291 body=67607 B
+  6.9s after start, request 9      status=200 X-Cache=HIT    served by graph-2       8 ms   nodes=183 edges=291 body=67607 B
+  7.7s after start, request 10     status=200 X-Cache=HIT    served by graph-3       8 ms   nodes=183 edges=291 body=67607 B
+  8.5s after start, request 11     status=200 X-Cache=HIT    served by graph-1       9 ms   nodes=183 edges=291 body=67607 B
+recovery: 9 consecutive answers without BYPASS (3 per instance) reached 9.2 s after "docker start"
