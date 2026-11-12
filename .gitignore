@@ -69,7 +69,6 @@ tests/e2e/results.json
 
 # University coursework folders (kept local, not tracked)
 high-load-systems/context/
-high-load-systems/defence/
 high-load-systems/description/
 testing-labs/
 devops/
