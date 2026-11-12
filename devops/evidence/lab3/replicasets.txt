@@ -1,0 +1,15 @@
+NAME                           IMAGE                    DESIRED   READY
+relativa-gateway-6445459444    relativa-gateway:1.1.0   0
+relativa-gateway-7ffd96797c    relativa-gateway:9.9.9   0
+relativa-gateway-878685b65     relativa-gateway:1.0.0   2         2
+relativa-postgres-6c9b64ccd8   postgres:16-alpine       1         1
+
+kubectl top pods -n relativa
+NAME                                 CPU(cores)   MEMORY(bytes)
+relativa-gateway-878685b65-sb2wd     41m          30Mi
+relativa-gateway-878685b65-wzxjs     43m          28Mi
+relativa-postgres-6c9b64ccd8-8dm8b   9m           22Mi
+
+kubectl top nodes
+NAME       CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)
+minikube   412m         5%       1357Mi          35%

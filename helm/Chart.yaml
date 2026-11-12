@@ -1,0 +1,8 @@
+apiVersion: v2
+name: relativa
+description: Relativa gateway and its PostgreSQL database packaged as a Helm chart (lab 4, replaces the k8s/ manifests from lab 3)
+type: application
+# version: version of the chart itself (templates, values schema). Bump it whenever the chart changes.
+version: 1.0.0
+# appVersion: version of the application the chart ships by default (gateway image tag).
+appVersion: "1.0.0"

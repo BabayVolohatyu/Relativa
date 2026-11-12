@@ -1,0 +1,27 @@
+deployment.apps/relativa-gateway scaled
+pods at 4:
+NAME                               READY   STATUS    RESTARTS   AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+relativa-gateway-878685b65-dmtlh   1/1     Running   0          21s   10.244.0.22   minikube   <none>           <none>
+relativa-gateway-878685b65-f9swh   1/1     Running   0          14s   10.244.0.23   minikube   <none>           <none>
+relativa-gateway-878685b65-n5pm4   1/1     Running   0          7s    10.244.0.25   minikube   <none>           <none>
+relativa-gateway-878685b65-tkq9p   1/1     Running   0          7s    10.244.0.24   minikube   <none>           <none>
+health via NodePort 30080:
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-tkq9p","appName":"Relativa"}
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-tkq9p","appName":"Relativa"}
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-dmtlh","appName":"Relativa"}
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-dmtlh","appName":"Relativa"}
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-n5pm4","appName":"Relativa"}
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-n5pm4","appName":"Relativa"}
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-tkq9p","appName":"Relativa"}
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-n5pm4","appName":"Relativa"}
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-n5pm4","appName":"Relativa"}
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-f9swh","appName":"Relativa"}
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-tkq9p","appName":"Relativa"}
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-f9swh","appName":"Relativa"}
+deployment.apps/relativa-gateway scaled
+pods back at 2:
+NAME                               READY   STATUS        RESTARTS   AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+relativa-gateway-878685b65-dmtlh   1/1     Running       0          27s   10.244.0.22   minikube   <none>           <none>
+relativa-gateway-878685b65-f9swh   1/1     Running       0          20s   10.244.0.23   minikube   <none>           <none>
+relativa-gateway-878685b65-n5pm4   1/1     Terminating   0          13s   10.244.0.25   minikube   <none>           <none>
+relativa-gateway-878685b65-tkq9p   1/1     Terminating   0          13s   10.244.0.24   minikube   <none>           <none>

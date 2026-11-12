@@ -1,0 +1,21 @@
+deployment.apps/relativa-gateway image updated
+samples during update:
+01:46:42 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-f9swh","appName":"Relativa"}
+01:46:43 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-dmtlh","appName":"Relativa"}
+01:46:44 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-dmtlh","appName":"Relativa"}
+01:46:44 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-f9swh","appName":"Relativa"}
+01:46:44 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-f9swh","appName":"Relativa"}
+01:46:45 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-f9swh","appName":"Relativa"}
+01:46:45 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-f9swh","appName":"Relativa"}
+01:46:46 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-dmtlh","appName":"Relativa"}
+01:46:46 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-dmtlh","appName":"Relativa"}
+01:46:47 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-f9swh","appName":"Relativa"}
+01:46:47 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-dmtlh","appName":"Relativa"}
+01:46:48 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-dmtlh","appName":"Relativa"}
+01:46:48 {"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-dmtlh","appName":"Relativa"}
+01:46:49 {"status":"ok","service":"relativa-gateway","version":"1.1.0","pod":"relativa-gateway-6445459444-jwg6b","appName":"Relativa"}
+Waiting for deployment "relativa-gateway" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "relativa-gateway" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "relativa-gateway" rollout to finish: 1 old replicas are pending termination...
+deployment "relativa-gateway" successfully rolled out
+image after: relativa-gateway:1.1.0

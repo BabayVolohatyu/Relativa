@@ -1,0 +1,9 @@
+namespace/relativa created
+configmap/relativa-config created
+secret/relativa-secret created
+persistentvolumeclaim/postgres-data created
+deployment.apps/relativa-postgres created
+service/relativa-postgres created
+deployment.apps/relativa-gateway created
+service/relativa-gateway created
+ingress.networking.k8s.io/relativa-gateway created

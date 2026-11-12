@@ -1,0 +1,45 @@
+ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+Γöé         ADDON NAME          Γöé PROFILE  Γöé   STATUS   Γöé               MAINTAINER               Γöé
+Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
+Γöé ambassador                  Γöé minikube Γöé disabled   Γöé 3rd party (Ambassador)                 Γöé
+Γöé amd-gpu-device-plugin       Γöé minikube Γöé disabled   Γöé 3rd party (AMD)                        Γöé
+Γöé auto-pause                  Γöé minikube Γöé disabled   Γöé minikube                               Γöé
+Γöé cloud-spanner               Γöé minikube Γöé disabled   Γöé Google                                 Γöé
+Γöé csi-hostpath-driver         Γöé minikube Γöé disabled   Γöé Kubernetes                             Γöé
+Γöé dashboard                   Γöé minikube Γöé disabled   Γöé Kubernetes                             Γöé
+Γöé [32mdefault-storageclass[0m        Γöé [32mminikube[0m Γöé [32menabled Γ£à[0m Γöé [32mKubernetes[0m                             Γöé
+Γöé efk                         Γöé minikube Γöé disabled   Γöé 3rd party (Elastic)                    Γöé
+Γöé freshpod                    Γöé minikube Γöé disabled   Γöé Google                                 Γöé
+Γöé gcp-auth                    Γöé minikube Γöé disabled   Γöé Google                                 Γöé
+Γöé gvisor                      Γöé minikube Γöé disabled   Γöé minikube                               Γöé
+Γöé headlamp                    Γöé minikube Γöé disabled   Γöé 3rd party (kinvolk.io)                 Γöé
+Γöé inaccel                     Γöé minikube Γöé disabled   Γöé 3rd party (InAccel [info@inaccel.com]) Γöé
+Γöé [32mingress[0m                     Γöé [32mminikube[0m Γöé [32menabled Γ£à[0m Γöé [32mKubernetes[0m                             Γöé
+Γöé ingress-dns                 Γöé minikube Γöé disabled   Γöé minikube                               Γöé
+Γöé inspektor-gadget            Γöé minikube Γöé disabled   Γöé 3rd party (inspektor-gadget.io)        Γöé
+Γöé istio                       Γöé minikube Γöé disabled   Γöé 3rd party (Istio)                      Γöé
+Γöé istio-provisioner           Γöé minikube Γöé disabled   Γöé 3rd party (Istio)                      Γöé
+Γöé kong                        Γöé minikube Γöé disabled   Γöé 3rd party (Kong HQ)                    Γöé
+Γöé kubeflow                    Γöé minikube Γöé disabled   Γöé 3rd party                              Γöé
+Γöé kubetail                    Γöé minikube Γöé disabled   Γöé 3rd party (kubetail.com)               Γöé
+Γöé kubevirt                    Γöé minikube Γöé disabled   Γöé 3rd party (KubeVirt)                   Γöé
+Γöé logviewer                   Γöé minikube Γöé disabled   Γöé 3rd party (unknown)                    Γöé
+Γöé metallb                     Γöé minikube Γöé disabled   Γöé 3rd party (MetalLB)                    Γöé
+Γöé [32mmetrics-server[0m              Γöé [32mminikube[0m Γöé [32menabled Γ£à[0m Γöé [32mKubernetes[0m                             Γöé
+Γöé nvidia-device-plugin        Γöé minikube Γöé disabled   Γöé 3rd party (NVIDIA)                     Γöé
+Γöé nvidia-driver-installer     Γöé minikube Γöé disabled   Γöé 3rd party (NVIDIA)                     Γöé
+Γöé nvidia-gpu-device-plugin    Γöé minikube Γöé disabled   Γöé 3rd party (NVIDIA)                     Γöé
+Γöé olm                         Γöé minikube Γöé disabled   Γöé 3rd party (Operator Framework)         Γöé
+Γöé pod-security-policy         Γöé minikube Γöé disabled   Γöé 3rd party (unknown)                    Γöé
+Γöé portainer                   Γöé minikube Γöé disabled   Γöé 3rd party (Portainer.io)               Γöé
+Γöé registry                    Γöé minikube Γöé disabled   Γöé minikube                               Γöé
+Γöé registry-aliases            Γöé minikube Γöé disabled   Γöé 3rd party (unknown)                    Γöé
+Γöé registry-creds              Γöé minikube Γöé disabled   Γöé 3rd party (UPMC Enterprises)           Γöé
+Γöé [32mstorage-provisioner[0m         Γöé [32mminikube[0m Γöé [32menabled Γ£à[0m Γöé [32mminikube[0m                               Γöé
+Γöé storage-provisioner-rancher Γöé minikube Γöé disabled   Γöé 3rd party (Rancher)                    Γöé
+Γöé traefik                     Γöé minikube Γöé disabled   Γöé 3rd party (Traefik Labs)               Γöé
+Γöé volcano                     Γöé minikube Γöé disabled   Γöé third-party (volcano)                  Γöé
+Γöé volumesnapshots             Γöé minikube Γöé disabled   Γöé Kubernetes                             Γöé
+Γöé yakd                        Γöé minikube Γöé disabled   Γöé 3rd party (marcnuri.com)               Γöé
+ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö┤ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö┤ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö┤ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+

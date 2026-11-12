@@ -1,0 +1,1 @@
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-94w6q","appName":"Relativa"}

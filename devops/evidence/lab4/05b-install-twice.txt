@@ -1,0 +1,38 @@
+﻿
+$ helm install second helm/ -n relativa-helm --wait --timeout 5m | Select-Object -First 6
+NAME: second
+LAST DEPLOYED: Wed Nov 11 23:40:42 2026
+NAMESPACE: relativa-helm
+STATUS: deployed
+REVISION: 1
+NOTES:
+
+$ helm list -n relativa-helm
+NAME    	NAMESPACE    	REVISION	UPDATED                              	STATUS  	CHART         	APP VERSION
+relativa	relativa-helm	1       	2026-11-11 23:40:31.7475962 -0800 PST	deployed	relativa-1.0.0	1.0.0      
+second  	relativa-helm	1       	2026-11-11 23:40:42.8654112 -0800 PST	deployed	relativa-1.0.0	1.0.0      
+
+$ kubectl get deploy,svc,pvc -n relativa-helm
+NAME                                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/relativa-gateway           1/1     1            1           21s
+deployment.apps/relativa-postgres          1/1     1            1           21s
+deployment.apps/second-relativa-gateway    1/1     1            1           10s
+deployment.apps/second-relativa-postgres   1/1     1            1           10s
+
+NAME                               TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+service/relativa-gateway           NodePort    10.106.201.133   <none>        8080:32336/TCP   21s
+service/relativa-postgres          ClusterIP   10.110.74.199    <none>        5432/TCP         21s
+service/second-relativa-gateway    NodePort    10.108.169.178   <none>        8080:31134/TCP   10s
+service/second-relativa-postgres   ClusterIP   10.102.156.118   <none>        5432/TCP         10s
+
+NAME                                                  STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/relativa-postgres-data          Bound    pvc-e4970bae-ce1b-4ec7-8162-2ac88e0418bc   1Gi        RWO            standard       <unset>                 21s
+persistentvolumeclaim/second-relativa-postgres-data   Bound    pvc-8e885a1c-c92f-448a-8a55-81a64111bc15   1Gi        RWO            standard       <unset>                 10s
+
+$ helm uninstall second -n relativa-helm
+release "second" uninstalled
+
+$ helm list -n relativa-helm
+NAME    	NAMESPACE    	REVISION	UPDATED                              	STATUS  	CHART         	APP VERSION
+relativa	relativa-helm	1       	2026-11-11 23:40:31.7475962 -0800 PST	deployed	relativa-1.0.0	1.0.0      
+

@@ -1,0 +1,57 @@
+﻿
+$ helm upgrade relativa helm/ -n relativa-helm --set gateway.image.tag=1.1.0 --wait --timeout 5m | Select-Object -First 6
+Release "relativa" has been upgraded. Happy Helming!
+NAME: relativa
+LAST DEPLOYED: Wed Nov 11 23:40:54 2026
+NAMESPACE: relativa-helm
+STATUS: deployed
+REVISION: 2
+
+$ helm get values relativa -n relativa-helm
+USER-SUPPLIED VALUES:
+gateway:
+  image:
+    tag: 1.1.0
+
+$ kubectl get deploy relativa-gateway -n relativa-helm -o jsonpath='{.spec.template.spec.containers[0].image}'
+relativa-gateway:1.1.0
+
+$ kubectl get pods -n relativa-helm
+NAME                                 READY   STATUS    RESTARTS   AGE
+relativa-gateway-cf445ff76-dmt7l     1/1     Running   0          10s
+relativa-postgres-6998855c48-l4w4n   1/1     Running   0          36s
+
+$ minikube ssh -- curl -sS -m 5 http://127.0.0.1:$(kubectl get svc -n relativa-helm relativa-gateway -o jsonpath='{.spec.ports[0].nodePort}')/health
+{"status":"ok","service":"relativa-gateway","version":"1.1.0","pod":"relativa-gateway-cf445ff76-dmt7l","appName":"Relativa"}
+
+$ kubectl get events -n relativa-helm --field-selector involvedObject.name=relativa-pre-upgrade-check --sort-by=.lastTimestamp
+LAST SEEN   TYPE     REASON      OBJECT                           MESSAGE
+8m47s       Normal   Scheduled   pod/relativa-pre-upgrade-check   Successfully assigned relativa-helm/relativa-pre-upgrade-check to minikube
+8m46s       Normal   Pulled      pod/relativa-pre-upgrade-check   Container image "postgres:16-alpine" already present on machine and can be accessed by the pod
+8m46s       Normal   Created     pod/relativa-pre-upgrade-check   Container created
+8m46s       Normal   Started     pod/relativa-pre-upgrade-check   Container started
+8m28s       Normal   Scheduled   pod/relativa-pre-upgrade-check   Successfully assigned relativa-helm/relativa-pre-upgrade-check to minikube
+8m28s       Normal   Pulled      pod/relativa-pre-upgrade-check   Container image "postgres:16-alpine" already present on machine and can be accessed by the pod
+8m28s       Normal   Created     pod/relativa-pre-upgrade-check   Container created
+8m28s       Normal   Started     pod/relativa-pre-upgrade-check   Container started
+7m17s       Normal   Scheduled   pod/relativa-pre-upgrade-check   Successfully assigned relativa-helm/relativa-pre-upgrade-check to minikube
+7m16s       Normal   Pulled      pod/relativa-pre-upgrade-check   Container image "postgres:16-alpine" already present on machine and can be accessed by the pod
+7m16s       Normal   Created     pod/relativa-pre-upgrade-check   Container created
+7m16s       Normal   Started     pod/relativa-pre-upgrade-check   Container started
+5m52s       Normal   Scheduled   pod/relativa-pre-upgrade-check   Successfully assigned relativa-helm/relativa-pre-upgrade-check to minikube
+5m52s       Normal   Pulled      pod/relativa-pre-upgrade-check   Container image "postgres:16-alpine" already present on machine and can be accessed by the pod
+5m52s       Normal   Created     pod/relativa-pre-upgrade-check   Container created
+5m52s       Normal   Started     pod/relativa-pre-upgrade-check   Container started
+5m39s       Normal   Scheduled   pod/relativa-pre-upgrade-check   Successfully assigned relativa-helm/relativa-pre-upgrade-check to minikube
+5m39s       Normal   Pulled      pod/relativa-pre-upgrade-check   Container image "postgres:16-alpine" already present on machine and can be accessed by the pod
+5m39s       Normal   Created     pod/relativa-pre-upgrade-check   Container created
+5m39s       Normal   Started     pod/relativa-pre-upgrade-check   Container started
+4m46s       Normal   Scheduled   pod/relativa-pre-upgrade-check   Successfully assigned relativa-helm/relativa-pre-upgrade-check to minikube
+4m45s       Normal   Pulled      pod/relativa-pre-upgrade-check   Container image "postgres:16-alpine" already present on machine and can be accessed by the pod
+4m45s       Normal   Created     pod/relativa-pre-upgrade-check   Container created
+4m45s       Normal   Started     pod/relativa-pre-upgrade-check   Container started
+14s         Normal   Scheduled   pod/relativa-pre-upgrade-check   Successfully assigned relativa-helm/relativa-pre-upgrade-check to minikube
+13s         Normal   Pulled      pod/relativa-pre-upgrade-check   Container image "postgres:16-alpine" already present on machine and can be accessed by the pod
+13s         Normal   Created     pod/relativa-pre-upgrade-check   Container created
+13s         Normal   Started     pod/relativa-pre-upgrade-check   Container started
+

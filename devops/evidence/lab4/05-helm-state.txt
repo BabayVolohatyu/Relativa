@@ -1,0 +1,48 @@
+﻿
+$ kubectl get secrets -n relativa-helm -l owner=helm
+NAME                             TYPE                 DATA   AGE
+sh.helm.release.v1.relativa.v1   helm.sh/release.v1   1      10s
+
+$ kubectl describe secret sh.helm.release.v1.relativa.v1 -n relativa-helm
+Name:         sh.helm.release.v1.relativa.v1
+Namespace:    relativa-helm
+Labels:       modifiedAt=1794469240
+              name=relativa
+              owner=helm
+              status=deployed
+              version=1
+Annotations:  <none>
+
+Type:  helm.sh/release.v1
+
+Data
+====
+release:  16572 bytes
+
+$ decode the 'release' key: base64 -> base64 -> gunzip -> JSON (selected fields)
+{
+  "name": "relativa",
+  "namespace": "relativa-helm",
+  "revision": 1,
+  "info.status": "deployed",
+  "chart.name": "relativa",
+  "chart.version": "1.0.0",
+  "chart.appVersion": "1.0.0",
+  "user_values": null,
+  "manifest_bytes": 7870,
+  "templates": [
+    "templates/NOTES.txt",
+    "templates/_helpers.tpl",
+    "templates/configmap.yaml",
+    "templates/gateway-deployment.yaml",
+    "templates/gateway-service.yaml",
+    "templates/ingress.yaml",
+    "templates/postgres-deployment.yaml",
+    "templates/postgres-pvc.yaml",
+    "templates/postgres-service.yaml",
+    "templates/pre-upgrade-check.yaml",
+    "templates/secret.yaml",
+    "templates/tests/test-health.yaml"
+  ]
+}
+

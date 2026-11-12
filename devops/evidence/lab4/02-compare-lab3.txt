@@ -1,0 +1,35 @@
+﻿# Objects of the lab3 manifests (k8s/) vs objects rendered by the chart
+
+## lab3: kubectl create --dry-run=client -f k8s/ -o name
+namespace/relativa
+configmap/relativa-config
+secret/relativa-secret
+persistentvolumeclaim/postgres-data
+deployment.apps/relativa-postgres
+service/relativa-postgres
+deployment.apps/relativa-gateway
+service/relativa-gateway
+ingress.networking.k8s.io/relativa-gateway
+
+## chart, dev values: kind/name
+Secret/relativa-secret
+ConfigMap/relativa-config
+PersistentVolumeClaim/relativa-postgres-data
+Service/relativa-gateway
+Service/relativa-postgres
+Deployment/relativa-gateway
+Deployment/relativa-postgres
+Pod/relativa-pre-upgrade-check
+Pod/relativa-test-health
+
+## chart, prod values: kind/name (adds Ingress)
+Secret/relativa-secret
+ConfigMap/relativa-config
+PersistentVolumeClaim/relativa-postgres-data
+Service/relativa-gateway
+Service/relativa-postgres
+Deployment/relativa-gateway
+Deployment/relativa-postgres
+Ingress/relativa-gateway
+Pod/relativa-pre-upgrade-check
+Pod/relativa-test-health

@@ -1,0 +1,82 @@
+﻿# helm template (dev defaults) vs helm template -f values-prod.yaml, nothing installed in the cluster
+$ helm template relativa helm/ > dev.yaml
+$ helm template relativa helm/ -f helm/values-prod.yaml > prod.yaml
+$ diff dev.yaml prod.yaml
+diff --git "a/devops\\evidence\\lab4\\02-template-dev.yaml" "b/devops\\evidence\\lab4\\02-template-prod.yaml"
+index 627fe21..7d19cf1 100644
+--- "a/devops\\evidence\\lab4\\02-template-dev.yaml"
++++ "b/devops\\evidence\\lab4\\02-template-prod.yaml"
+@@ -32,3 +32,3 @@ data:
+   APP_NAME: "Relativa"
+-  LOG_LEVEL: "Information"
++  LOG_LEVEL: "Warning"
+   JWT_ISSUER: "relativa-auth"
+@@ -116,3 +116,3 @@ metadata:
+ spec:
+-  replicas: 1
++  replicas: 3
+   selector:
+@@ -135,3 +135,3 @@ spec:
+         # Pods restart when configuration or secret values change.
+-        checksum/config: ec93f3721bb73ea2f34f809d44c58d16665dd7ece5280c397a5846a7c425fc8a
++        checksum/config: 15217a59c0b44b999375169c9d49a18507fb294cee7a03aa50f5c3d66fdc1633
+         checksum/secret: 9206d8814253010fd9dc62d40134af027dd7320c5373bc81098bf254aa080275
+@@ -140,3 +140,3 @@ spec:
+         - name: gateway
+-          image: "relativa-gateway:1.0.0"
++          image: "relativa-gateway:1.1.0"
+           imagePullPolicy: IfNotPresent
+@@ -191,7 +191,7 @@ spec:
+             limits:
+-              cpu: 300m
+-              memory: 512Mi
++              cpu: 750m
++              memory: 768Mi
+             requests:
+-              cpu: 50m
+-              memory: 128Mi
++              cpu: 150m
++              memory: 256Mi
+ ---
+@@ -261,7 +261,7 @@ spec:
+             limits:
+-              cpu: 500m
+-              memory: 512Mi
++              cpu: 750m
++              memory: 768Mi
+             requests:
+-              cpu: 100m
+-              memory: 256Mi
++              cpu: 150m
++              memory: 384Mi
+       volumes:
+@@ -271,2 +271,28 @@ spec:
+ ---
++# Source: relativa/templates/ingress.yaml
++apiVersion: networking.k8s.io/v1
++kind: Ingress
++metadata:
++  name: relativa-gateway
++  labels:
++    helm.sh/chart: relativa-1.0.0
++    app.kubernetes.io/name: relativa
++    app.kubernetes.io/instance: relativa
++    app.kubernetes.io/component: gateway
++    app.kubernetes.io/version: "1.0.0"
++    app.kubernetes.io/managed-by: Helm
++spec:
++  ingressClassName: nginx
++  rules:
++    - host: "relativa.local"
++      http:
++        paths:
++          - path: /
++            pathType: Prefix
++            backend:
++              service:
++                name: relativa-gateway
++                port:
++                  number: 8080
++---
+ # Source: relativa/templates/pre-upgrade-check.yaml
+

@@ -71,4 +71,6 @@ tests/e2e/results.json
 high-load-systems/context/
 high-load-systems/description/
 testing-labs/
-devops/
+
+# LibreOffice lock files
+.~lock.*#

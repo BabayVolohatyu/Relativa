@@ -1,0 +1,22 @@
+NAME                                     READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+pod/relativa-gateway-878685b65-6pz2m     1/1     Running   0          28s   10.244.0.8   minikube   <none>           <none>
+pod/relativa-gateway-878685b65-94w6q     1/1     Running   0          28s   10.244.0.7   minikube   <none>           <none>
+pod/relativa-postgres-6c9b64ccd8-qh7jm   1/1     Running   0          28s   10.244.0.9   minikube   <none>           <none>
+
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                   SELECTOR
+deployment.apps/relativa-gateway    2/2     2            2           28s   gateway      relativa-gateway:1.0.0   app=relativa-gateway
+deployment.apps/relativa-postgres   1/1     1            1           28s   postgres     postgres:16-alpine       app=relativa-postgres
+
+NAME                                           DESIRED   CURRENT   READY   AGE   CONTAINERS   IMAGES                   SELECTOR
+replicaset.apps/relativa-gateway-878685b65     2         2         2       28s   gateway      relativa-gateway:1.0.0   app=relativa-gateway,pod-template-hash=878685b65
+replicaset.apps/relativa-postgres-6c9b64ccd8   1         1         1       28s   postgres     postgres:16-alpine       app=relativa-postgres,pod-template-hash=6c9b64ccd8
+
+NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE   SELECTOR
+service/relativa-gateway    NodePort    10.101.50.29    <none>        8080:30080/TCP   28s   app=relativa-gateway
+service/relativa-postgres   ClusterIP   10.101.55.108   <none>        5432/TCP         28s   app=relativa-postgres
+
+NAME                                  STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE   VOLUMEMODE
+persistentvolumeclaim/postgres-data   Bound    pvc-a2db748c-1ebe-4650-a149-95888a87cf18   1Gi        RWO            standard       <unset>                 28s   Filesystem
+
+NAME                                         CLASS   HOSTS            ADDRESS   PORTS   AGE
+ingress.networking.k8s.io/relativa-gateway   nginx   relativa.local             80      28s

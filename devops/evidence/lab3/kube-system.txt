@@ -1,0 +1,10 @@
+NAME                               READY   STATUS    RESTARTS   AGE     IP             NODE       NOMINATED NODE   READINESS GATES
+coredns-559f6c778d-6hdzp           1/1     Running   0          2m38s   10.244.0.2     minikube   <none>           <none>
+etcd-minikube                      1/1     Running   0          2m43s   192.168.49.2   minikube   <none>           <none>
+kindnet-6hmbj                      1/1     Running   0          2m38s   192.168.49.2   minikube   <none>           <none>
+kube-apiserver-minikube            1/1     Running   0          2m43s   192.168.49.2   minikube   <none>           <none>
+kube-controller-manager-minikube   1/1     Running   0          2m43s   192.168.49.2   minikube   <none>           <none>
+kube-proxy-rq5xd                   1/1     Running   0          2m38s   192.168.49.2   minikube   <none>           <none>
+kube-scheduler-minikube            1/1     Running   0          2m46s   192.168.49.2   minikube   <none>           <none>
+metrics-server-768f9f6999-4rspr    0/1     Running   0          54s     10.244.0.3     minikube   <none>           <none>
+storage-provisioner                1/1     Running   0          2m40s   192.168.49.2   minikube   <none>           <none>

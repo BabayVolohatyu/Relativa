@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ include "relativa.fullname" . }}-test-health
+  labels:
+    {{- include "relativa.labels" (dict "ctx" . "component" "test") | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+    # Hook Pods are not owned by the release, so they would survive "helm uninstall".
+    # Deleting them on success keeps the namespace clean.
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  restartPolicy: Never
+  containers:
+    - name: wget
+      image: "{{ .Values.hooks.image.repository }}:{{ .Values.hooks.image.tag }}"
+      imagePullPolicy: {{ .Values.hooks.image.pullPolicy }}
+      command:
+        - sh
+        - -c
+        - |
+          set -e
+          body="$(wget -qO- -T 10 http://{{ include "relativa.fullname" . }}-gateway:{{ .Values.gateway.service.port }}{{ .Values.gateway.probes.path }})"
+          echo "$body"
+          echo "$body" | grep -q '"status":"ok"'

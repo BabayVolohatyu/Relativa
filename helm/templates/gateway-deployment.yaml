@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "relativa.fullname" . }}-gateway
+  labels:
+    {{- include "relativa.labels" (dict "ctx" . "component" "gateway") | nindent 4 }}
+spec:
+  replicas: {{ .Values.gateway.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "relativa.selectorLabels" (dict "ctx" . "component" "gateway") | nindent 6 }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: {{ .Values.gateway.strategy.maxUnavailable }}
+      maxSurge: {{ .Values.gateway.strategy.maxSurge }}
+  template:
+    metadata:
+      labels:
+        {{- include "relativa.selectorLabels" (dict "ctx" . "component" "gateway") | nindent 8 }}
+      annotations:
+        # Pods restart when configuration or secret values change.
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+    spec:
+      containers:
+        - name: gateway
+          image: "{{ .Values.gateway.image.repository }}:{{ .Values.gateway.image.tag }}"
+          imagePullPolicy: {{ .Values.gateway.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.gateway.service.port }}
+          env:
+            - name: ASPNETCORE_URLS
+              value: {{ printf "http://+:%v" .Values.gateway.service.port | quote }}
+            - name: Relativa__AppName
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "relativa.fullname" . }}-config
+                  key: APP_NAME
+            - name: Relativa__LogLevel
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "relativa.fullname" . }}-config
+                  key: LOG_LEVEL
+            - name: Jwt__Issuer
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "relativa.fullname" . }}-config
+                  key: JWT_ISSUER
+            - name: Jwt__Audience
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "relativa.fullname" . }}-config
+                  key: JWT_AUDIENCE
+            - name: Jwt__SecretKey
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "relativa.fullname" . }}-secret
+                  key: JWT_SECRET
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.gateway.probes.path }}
+              port: http
+            initialDelaySeconds: {{ .Values.gateway.probes.readiness.initialDelaySeconds }}
+            periodSeconds: {{ .Values.gateway.probes.readiness.periodSeconds }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.gateway.probes.path }}
+              port: http
+            initialDelaySeconds: {{ .Values.gateway.probes.liveness.initialDelaySeconds }}
+            periodSeconds: {{ .Values.gateway.probes.liveness.periodSeconds }}
+          resources:
+            {{- toYaml .Values.gateway.resources | nindent 12 }}

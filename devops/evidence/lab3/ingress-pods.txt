@@ -1,0 +1,4 @@
+NAME                                       READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-49m9b       0/1     Completed   0          4m51s
+ingress-nginx-admission-patch-spg6h        0/1     Completed   0          4m51s
+ingress-nginx-controller-d7cd8c989-qgzl9   1/1     Running     0          4m51s

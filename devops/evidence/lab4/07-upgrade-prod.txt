@@ -1,0 +1,57 @@
+﻿
+$ helm upgrade relativa helm/ -n relativa-helm -f helm/values-prod.yaml --wait --timeout 6m | Select-Object -First 6
+Release "relativa" has been upgraded. Happy Helming!
+NAME: relativa
+LAST DEPLOYED: Wed Nov 11 23:41:09 2026
+NAMESPACE: relativa-helm
+STATUS: deployed
+REVISION: 3
+
+$ helm get values relativa -n relativa-helm
+USER-SUPPLIED VALUES:
+config:
+  logLevel: Warning
+gateway:
+  image:
+    tag: 1.1.0
+  replicaCount: 3
+  resources:
+    limits:
+      cpu: 750m
+      memory: 768Mi
+    requests:
+      cpu: 150m
+      memory: 256Mi
+ingress:
+  enabled: true
+  host: relativa.local
+postgres:
+  resources:
+    limits:
+      cpu: 750m
+      memory: 768Mi
+    requests:
+      cpu: 150m
+      memory: 384Mi
+
+$ kubectl get deploy,pods,ingress -n relativa-helm
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/relativa-gateway    3/3     3            3           63s
+deployment.apps/relativa-postgres   1/1     1            1           63s
+
+NAME                                    READY   STATUS      RESTARTS   AGE
+pod/relativa-gateway-cf445ff76-dmt7l    0/1     Completed   0          37s
+pod/relativa-gateway-d6f9fdc8d-lzwvq    1/1     Running     0          13s
+pod/relativa-gateway-d6f9fdc8d-n8652    1/1     Running     0          6s
+pod/relativa-gateway-d6f9fdc8d-wrhjm    1/1     Running     0          22s
+pod/relativa-postgres-b96b44798-bw8qk   1/1     Running     0          22s
+
+NAME                                         CLASS   HOSTS            ADDRESS   PORTS   AGE
+ingress.networking.k8s.io/relativa-gateway   nginx   relativa.local             80      22s
+
+$ kubectl get deploy relativa-gateway -n relativa-helm -o jsonpath='{.spec.template.spec.containers[0].resources}'
+{"limits":{"cpu":"750m","memory":"768Mi"},"requests":{"cpu":"150m","memory":"256Mi"}}
+
+$ minikube ssh -- curl -sS -m 5 http://127.0.0.1:$(kubectl get svc -n relativa-helm relativa-gateway -o jsonpath='{.spec.ports[0].nodePort}')/health
+{"status":"ok","service":"relativa-gateway","version":"1.1.0","pod":"relativa-gateway-d6f9fdc8d-lzwvq","appName":"Relativa"}
+

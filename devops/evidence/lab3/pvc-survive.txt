@@ -1,0 +1,22 @@
+create:
+CREATE TABLE
+insert:
+INSERT 0 1
+select before delete:
+id 
+----
+  1
+(1 row)
+deleted pod: relativa-postgres-6c9b64ccd8-l4qc6
+pod "relativa-postgres-6c9b64ccd8-l4qc6" deleted from relativa namespace
+pods after:
+NAME                                 READY   STATUS    RESTARTS   AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+relativa-postgres-6c9b64ccd8-8dm8b   1/1     Running   0          7s    10.244.0.21   minikube   <none>           <none>
+pvc:
+NAME            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+postgres-data   Bound    pvc-a2db748c-1ebe-4650-a149-95888a87cf18   1Gi        RWO            standard       <unset>                 8m11s
+select after new pod:
+id 
+----
+  1
+(1 row)

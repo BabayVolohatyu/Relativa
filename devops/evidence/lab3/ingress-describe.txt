@@ -1,0 +1,16 @@
+Name:             relativa-gateway
+Labels:           <none>
+Namespace:        relativa
+Address:          192.168.49.2
+Ingress Class:    nginx
+Default backend:  <default>
+Rules:
+  Host            Path  Backends
+  ----            ----  --------
+  relativa.local  
+                  /   relativa-gateway:8080 (10.244.0.8:8080,10.244.0.7:8080)
+Annotations:      <none>
+Events:
+  Type    Reason  Age                    From                      Message
+  ----    ------  ----                   ----                      -------
+  Normal  Sync    3m14s (x2 over 3m47s)  nginx-ingress-controller  Scheduled for sync

@@ -1,0 +1,30 @@
+{{- if .Values.hooks.preUpgradeCheck.enabled }}
+# Hook: before every "helm upgrade" the database must answer. If this Pod fails,
+# Helm aborts the upgrade and the running revision stays untouched.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ include "relativa.fullname" . }}-pre-upgrade-check
+  labels:
+    {{- include "relativa.labels" (dict "ctx" . "component" "hook") | nindent 4 }}
+  annotations:
+    "helm.sh/hook": pre-upgrade
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  restartPolicy: Never
+  containers:
+    - name: pg-isready
+      image: "{{ .Values.hooks.image.repository }}:{{ .Values.hooks.image.tag }}"
+      imagePullPolicy: {{ .Values.hooks.image.pullPolicy }}
+      command:
+        - pg_isready
+        - -h
+        - {{ include "relativa.fullname" . }}-postgres
+        - -p
+        - {{ .Values.postgres.service.port | quote }}
+        - -U
+        - {{ .Values.config.dbUser | quote }}
+        - -d
+        - {{ .Values.config.dbName | quote }}
+{{- end }}

@@ -1,0 +1,4 @@
+host access: kubectl port-forward -n relativa svc/relativa-gateway 18080:8080
+url: http://127.0.0.1:18080/health
+nodePort: 30080
+note: minikube service --url on the docker driver kept the tunnel process open and did not print a URL, so the browser uses this port-forward.

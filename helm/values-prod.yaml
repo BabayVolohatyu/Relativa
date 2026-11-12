@@ -1,0 +1,30 @@
+# Production-like environment: more replicas, the newer image, bigger resource
+# envelope and an Ingress. Secrets are NOT stored here; pass them with
+#   --set secret.jwtSecretKey=... --set secret.postgresPassword=...
+gateway:
+  image:
+    tag: "1.1.0"
+  replicaCount: 3
+  resources:
+    requests:
+      cpu: 150m
+      memory: 256Mi
+    limits:
+      cpu: 750m
+      memory: 768Mi
+
+postgres:
+  resources:
+    requests:
+      cpu: 150m
+      memory: 384Mi
+    limits:
+      cpu: 750m
+      memory: 768Mi
+
+config:
+  logLevel: Warning
+
+ingress:
+  enabled: true
+  host: relativa.local

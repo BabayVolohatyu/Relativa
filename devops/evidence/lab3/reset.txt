@@ -1,0 +1,60 @@
+kubectl apply -f k8s/
+namespace/relativa unchanged
+configmap/relativa-config unchanged
+secret/relativa-secret configured
+persistentvolumeclaim/postgres-data unchanged
+deployment.apps/relativa-postgres unchanged
+service/relativa-postgres unchanged
+deployment.apps/relativa-gateway configured
+service/relativa-gateway unchanged
+ingress.networking.k8s.io/relativa-gateway unchanged
+deployment "relativa-postgres" successfully rolled out
+Waiting for deployment "relativa-gateway" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "relativa-gateway" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "relativa-gateway" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "relativa-gateway" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "relativa-gateway" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "relativa-gateway" rollout to finish: 1 old replicas are pending termination...
+deployment "relativa-gateway" successfully rolled out
+health after reset:
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-wzxjs","appName":"Relativa"}
+objects:
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/relativa-gateway-878685b65-sb2wd     1/1     Running   0          15s
+pod/relativa-gateway-878685b65-wzxjs     1/1     Running   0          9s
+pod/relativa-postgres-6c9b64ccd8-8dm8b   1/1     Running   0          2m35s
+
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/relativa-gateway    2/2     2            2           10m
+deployment.apps/relativa-postgres   1/1     1            1           10m
+
+NAME                                           DESIRED   CURRENT   READY   AGE
+replicaset.apps/relativa-gateway-6445459444    0         0         0       4m49s
+replicaset.apps/relativa-gateway-7ffd96797c    0         0         0       4m21s
+replicaset.apps/relativa-gateway-878685b65     2         2         2       10m
+replicaset.apps/relativa-postgres-6c9b64ccd8   1         1         1       10m
+
+NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/relativa-gateway    NodePort    10.101.50.29    <none>        8080:30080/TCP   10m
+service/relativa-postgres   ClusterIP   10.101.55.108   <none>        5432/TCP         10m
+
+NAME                                  STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/postgres-data   Bound    pvc-a2db748c-1ebe-4650-a149-95888a87cf18   1Gi        RWO            standard       <unset>                 10m
+
+NAME                                         CLASS   HOSTS            ADDRESS        PORTS   AGE
+ingress.networking.k8s.io/relativa-gateway   nginx   relativa.local   192.168.49.2   80      10m
+history:
+deployment.apps/relativa-gateway 
+REVISION  CHANGE-CAUSE
+9         <none>
+10        <none>
+11        <none>
+image:
+relativa-gateway:1.0.0 replicas=2
+
+top pods:
+NAME                                 CPU(cores)   MEMORY(bytes)   
+relativa-postgres-6c9b64ccd8-8dm8b   8m           19Mi
+top nodes:
+NAME       CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+minikube   412m         5%       1357Mi          35%

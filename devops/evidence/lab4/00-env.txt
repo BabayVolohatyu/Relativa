@@ -1,0 +1,71 @@
+﻿
+# Lab 4 - environment (Helm 3 installed with: winget install -e --id Helm.Helm --version 3.20.0)
+
+$ helm version
+version.BuildInfo{Version:"v3.20.0", GitCommit:"b2e4314fa0f229a1de7b4c981273f61d69ee5a59", GitTreeState:"clean", GoVersion:"go1.25.6"}
+
+
+$ minikube version
+minikube version: v1.39.0
+commit: 7a9f6a841470a207de8cf4bafcccee0969d8ba10
+
+
+$ minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+
+
+$ kubectl get nodes -o wide
+NAME       STATUS   ROLES           AGE   VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION                              CONTAINER-RUNTIME
+minikube   Ready    control-plane   13d   v1.37.0   192.168.49.2   <none>        Debian GNU/Linux 12 (bookworm)   6.18.58.1-microsoft-standard-WSL2 (amd64)   containerd://2.3.4
+
+
+# Lab3 release still running before cleanup
+
+$ kubectl get deploy,svc,pvc,ingress -n relativa
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/relativa-gateway    2/2     2            2           13d
+deployment.apps/relativa-postgres   1/1     1            1           13d
+
+NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/relativa-gateway    NodePort    10.101.50.29    <none>        8080:30080/TCP   13d
+service/relativa-postgres   ClusterIP   10.101.55.108   <none>        5432/TCP         13d
+
+NAME                                  STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/postgres-data   Bound    pvc-a2db748c-1ebe-4650-a149-95888a87cf18   1Gi        RWO            standard       <unset>                 13d
+
+NAME                                         CLASS   HOSTS            ADDRESS        PORTS   AGE
+ingress.networking.k8s.io/relativa-gateway   nginx   relativa.local   192.168.49.2   80      13d
+
+
+$ minikube ssh -- curl -sS -m 5 http://127.0.0.1:30080/health
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-878685b65-sb2wd","appName":"Relativa"}
+
+
+# Delete the lab3 release (task 1d)
+
+$ kubectl delete -f k8s/
+namespace "relativa" deleted
+configmap "relativa-config" deleted from relativa namespace
+secret "relativa-secret" deleted from relativa namespace
+persistentvolumeclaim "postgres-data" deleted from relativa namespace
+deployment.apps "relativa-postgres" deleted from relativa namespace
+service "relativa-postgres" deleted from relativa namespace
+deployment.apps "relativa-gateway" deleted from relativa namespace
+service "relativa-gateway" deleted from relativa namespace
+ingress.networking.k8s.io "relativa-gateway" deleted from relativa namespace
+
+
+$ kubectl get ns
+NAME              STATUS   AGE
+default           Active   13d
+ingress-nginx     Active   13d
+kube-node-lease   Active   13d
+kube-public       Active   13d
+kube-system       Active   13d
+

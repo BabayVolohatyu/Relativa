@@ -1,0 +1,54 @@
+﻿
+$ helm install relativa helm/ -n relativa-helm --create-namespace --wait --timeout 5m
+NAME: relativa
+LAST DEPLOYED: Wed Nov 11 23:40:31 2026
+NAMESPACE: relativa-helm
+STATUS: deployed
+REVISION: 1
+NOTES:
+Release "relativa" (chart relativa-1.0.0, app 1.0.0) is installed in namespace "relativa-helm".
+
+Gateway image: relativa-gateway:1.0.0, replicas: 1
+
+How to open the application:
+
+  kubectl port-forward -n relativa-helm svc/relativa-gateway 18080:8080
+
+Then open http://127.0.0.1:18080/health in a browser.
+
+NodePort from the minikube node:
+
+  minikube ssh -- curl -sS http://127.0.0.1:$(kubectl get svc -n relativa-helm relativa-gateway -o jsonpath='{.spec.ports[0].nodePort}')/health
+
+Run the release test:
+
+  helm test relativa -n relativa-helm
+
+$ kubectl get all,pvc,configmap,secret -n relativa-helm
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/relativa-gateway-d655456f7-bd7bg     1/1     Running   0          8s
+pod/relativa-postgres-6998855c48-l4w4n   1/1     Running   0          8s
+
+NAME                        TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+service/relativa-gateway    NodePort    10.106.201.133   <none>        8080:32336/TCP   8s
+service/relativa-postgres   ClusterIP   10.110.74.199    <none>        5432/TCP         8s
+
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/relativa-gateway    1/1     1            1           8s
+deployment.apps/relativa-postgres   1/1     1            1           8s
+
+NAME                                           DESIRED   CURRENT   READY   AGE
+replicaset.apps/relativa-gateway-d655456f7     1         1         1       8s
+replicaset.apps/relativa-postgres-6998855c48   1         1         1       8s
+
+NAME                                           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/relativa-postgres-data   Bound    pvc-e4970bae-ce1b-4ec7-8162-2ac88e0418bc   1Gi        RWO            standard       <unset>                 8s
+
+NAME                         DATA   AGE
+configmap/kube-root-ca.crt   1      9m25s
+configmap/relativa-config    6      8s
+
+NAME                                    TYPE                 DATA   AGE
+secret/relativa-secret                  Opaque               2      8s
+secret/sh.helm.release.v1.relativa.v1   helm.sh/release.v1   1      8s
+

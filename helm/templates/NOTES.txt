@@ -1,0 +1,24 @@
+Release "{{ .Release.Name }}" (chart {{ .Chart.Name }}-{{ .Chart.Version }}, app {{ .Chart.AppVersion }}) is installed in namespace "{{ .Release.Namespace }}".
+
+Gateway image: {{ .Values.gateway.image.repository }}:{{ .Values.gateway.image.tag }}, replicas: {{ .Values.gateway.replicaCount }}
+
+How to open the application:
+
+  kubectl port-forward -n {{ .Release.Namespace }} svc/{{ include "relativa.fullname" . }}-gateway 18080:{{ .Values.gateway.service.port }}
+
+Then open http://127.0.0.1:18080/health in a browser.
+{{- if eq .Values.gateway.service.type "NodePort" }}
+
+NodePort from the minikube node:
+
+  minikube ssh -- curl -sS http://127.0.0.1:$(kubectl get svc -n {{ .Release.Namespace }} {{ include "relativa.fullname" . }}-gateway -o jsonpath='{.spec.ports[0].nodePort}')/health
+{{- end }}
+{{- if .Values.ingress.enabled }}
+
+Ingress is enabled for host {{ .Values.ingress.host }}. Add "<minikube ip> {{ .Values.ingress.host }}" to your hosts file
+(on the docker driver on Windows run "minikube tunnel" and use 127.0.0.1).
+{{- end }}
+
+Run the release test:
+
+  helm test {{ .Release.Name }} -n {{ .Release.Namespace }}

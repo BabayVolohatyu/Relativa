@@ -1,0 +1,27 @@
+﻿
+$ # Priority: values.yaml < -f file < --set (the last one wins)
+
+$ helm template relativa helm/ | Select-String 'replicas:|image: .relativa-gateway'
+
+  replicas: 1
+          image: "relativa-gateway:1.0.0"
+  replicas: 1
+
+
+
+$ helm template relativa helm/ -f helm/values-prod.yaml | Select-String 'replicas:|image: .relativa-gateway'
+
+  replicas: 3
+          image: "relativa-gateway:1.1.0"
+  replicas: 1
+
+
+
+$ helm template relativa helm/ -f helm/values-prod.yaml --set gateway.replicaCount=5 --set gateway.image.tag=9.9.9 | Select-String 'replicas:|image: .relativa-gateway'
+
+  replicas: 5
+          image: "relativa-gateway:9.9.9"
+  replicas: 1
+
+
+

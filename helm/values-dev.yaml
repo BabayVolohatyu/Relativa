@@ -1,0 +1,25 @@
+# Development environment. Mirrors the chart defaults on purpose, so the file
+# shows exactly which knobs differ from values-prod.yaml.
+gateway:
+  image:
+    tag: "1.0.0"
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      cpu: 300m
+      memory: 512Mi
+
+postgres:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+ingress:
+  enabled: false

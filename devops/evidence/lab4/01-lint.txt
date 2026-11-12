@@ -1,0 +1,19 @@
+﻿
+$ helm lint helm/
+==> Linting helm/
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+
+$ helm lint helm/ -f helm/values-dev.yaml
+==> Linting helm/
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+
+$ helm lint helm/ -f helm/values-prod.yaml
+==> Linting helm/
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+

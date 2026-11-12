@@ -1,0 +1,10 @@
+pods before:
+NAME                               READY   STATUS    RESTARTS   AGE     IP           NODE       NOMINATED NODE   READINESS GATES
+relativa-gateway-878685b65-6pz2m   1/1     Running   0          5m23s   10.244.0.8   minikube   <none>           <none>
+relativa-gateway-878685b65-94w6q   1/1     Running   0          5m23s   10.244.0.7   minikube   <none>           <none>
+deleted: relativa-gateway-878685b65-6pz2m
+pod "relativa-gateway-878685b65-6pz2m" deleted from relativa namespace
+pods after:
+NAME                               READY   STATUS    RESTARTS   AGE     IP            NODE       NOMINATED NODE   READINESS GATES
+relativa-gateway-878685b65-94w6q   1/1     Running   0          5m30s   10.244.0.7    minikube   <none>           <none>
+relativa-gateway-878685b65-hqq7k   1/1     Running   0          7s      10.244.0.10   minikube   <none>           <none>

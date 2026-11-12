@@ -1,0 +1,172 @@
+﻿
+$ helm list -n relativa-helm
+NAME    	NAMESPACE    	REVISION	UPDATED                              	STATUS  	CHART         	APP VERSION
+relativa	relativa-helm	1       	2026-11-11 23:40:31.7475962 -0800 PST	deployed	relativa-1.0.0	1.0.0      
+
+$ helm list -A
+NAME    	NAMESPACE    	REVISION	UPDATED                              	STATUS  	CHART         	APP VERSION
+relativa	relativa-helm	1       	2026-11-11 23:40:31.7475962 -0800 PST	deployed	relativa-1.0.0	1.0.0      
+
+$ helm status relativa -n relativa-helm --show-resources
+NAME: relativa
+LAST DEPLOYED: Wed Nov 11 23:40:31 2026
+NAMESPACE: relativa-helm
+STATUS: deployed
+REVISION: 1
+RESOURCES:
+==> v1/PersistentVolumeClaim
+NAME                     STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+relativa-postgres-data   Bound    pvc-e4970bae-ce1b-4ec7-8162-2ac88e0418bc   1Gi        RWO            standard       <unset>                 8s
+
+==> v1/Service
+NAME               TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+relativa-gateway   NodePort   10.106.201.133   <none>        8080:32336/TCP   8s
+relativa-postgres   ClusterIP   10.110.74.199   <none>   5432/TCP   8s
+
+==> v1/Deployment
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+relativa-gateway   1/1     1            1           8s
+relativa-postgres   1/1   1     1     8s
+
+==> v1/Pod(related)
+NAME                               READY   STATUS    RESTARTS   AGE
+relativa-gateway-d655456f7-bd7bg   1/1     Running   0          8s
+relativa-postgres-6998855c48-l4w4n   1/1   Running   0     8s
+
+==> v1/Secret
+NAME              TYPE     DATA   AGE
+relativa-secret   Opaque   2      8s
+
+==> v1/ConfigMap
+NAME              DATA   AGE
+relativa-config   6      8s
+
+
+NOTES:
+Release "relativa" (chart relativa-1.0.0, app 1.0.0) is installed in namespace "relativa-helm".
+
+Gateway image: relativa-gateway:1.0.0, replicas: 1
+
+How to open the application:
+
+  kubectl port-forward -n relativa-helm svc/relativa-gateway 18080:8080
+
+Then open http://127.0.0.1:18080/health in a browser.
+
+NodePort from the minikube node:
+
+  minikube ssh -- curl -sS http://127.0.0.1:$(kubectl get svc -n relativa-helm relativa-gateway -o jsonpath='{.spec.ports[0].nodePort}')/health
+
+Run the release test:
+
+  helm test relativa -n relativa-helm
+
+$ helm get values relativa -n relativa-helm
+USER-SUPPLIED VALUES:
+null
+
+$ helm get values relativa -n relativa-helm --all
+COMPUTED VALUES:
+config:
+  appName: Relativa
+  dbName: relativa
+  dbUser: relativa
+  jwtAudience: relativa
+  jwtIssuer: relativa-auth
+  logLevel: Information
+fullnameOverride: ""
+gateway:
+  image:
+    pullPolicy: IfNotPresent
+    repository: relativa-gateway
+    tag: 1.0.0
+  probes:
+    liveness:
+      initialDelaySeconds: 15
+      periodSeconds: 10
+    path: /health
+    readiness:
+      initialDelaySeconds: 5
+      periodSeconds: 5
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 300m
+      memory: 512Mi
+    requests:
+      cpu: 50m
+      memory: 128Mi
+  service:
+    nodePort: ""
+    port: 8080
+    type: NodePort
+  strategy:
+    maxSurge: 1
+    maxUnavailable: 0
+hooks:
+  image:
+    pullPolicy: IfNotPresent
+    repository: postgres
+    tag: 16-alpine
+  preUpgradeCheck:
+    enabled: true
+ingress:
+  annotations: {}
+  className: nginx
+  enabled: false
+  host: relativa.local
+  path: /
+  pathType: Prefix
+nameOverride: ""
+postgres:
+  image:
+    pullPolicy: IfNotPresent
+    repository: postgres
+    tag: 16-alpine
+  pvc:
+    accessMode: ReadWriteOnce
+    enabled: true
+    size: 1Gi
+    storageClassName: ""
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  service:
+    port: 5432
+secret:
+  jwtSecretKey: lab4-helm-signing-key-not-for-production-use
+  postgresPassword: lab4-synthetic-db-password
+
+$ helm get manifest relativa -n relativa-helm | Select-String '^kind:|^  name:'
+
+kind: Secret
+  name: relativa-secret
+kind: ConfigMap
+  name: relativa-config
+kind: PersistentVolumeClaim
+  name: relativa-postgres-data
+kind: Service
+  name: relativa-gateway
+kind: Service
+  name: relativa-postgres
+kind: Deployment
+  name: relativa-gateway
+kind: Deployment
+  name: relativa-postgres
+
+
+
+$ kubectl exec -n relativa-helm deploy/relativa-gateway -- printenv Relativa__AppName Jwt__Issuer Jwt__Audience POD_NAME
+Relativa
+relativa-auth
+relativa
+relativa-gateway-d655456f7-bd7bg
+
+$ minikube ssh -- curl -sS -m 5 http://127.0.0.1:$(kubectl get svc -n relativa-helm relativa-gateway -o jsonpath='{.spec.ports[0].nodePort}')/health
+{"status":"ok","service":"relativa-gateway","version":"1.0.0","pod":"relativa-gateway-d655456f7-bd7bg","appName":"Relativa"}
+

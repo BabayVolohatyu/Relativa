@@ -1,0 +1,58 @@
+﻿
+$ helm history relativa -n relativa-helm
+REVISION	UPDATED                 	STATUS    	CHART         	APP VERSION	DESCRIPTION     
+1       	Wed Nov 11 23:40:31 2026	superseded	relativa-1.0.0	1.0.0      	Install complete
+2       	Wed Nov 11 23:40:54 2026	superseded	relativa-1.0.0	1.0.0      	Upgrade complete
+3       	Wed Nov 11 23:41:09 2026	deployed  	relativa-1.0.0	1.0.0      	Upgrade complete
+
+$ helm get values relativa -n relativa-helm --revision 1
+USER-SUPPLIED VALUES:
+null
+
+$ helm get values relativa -n relativa-helm --revision 2
+USER-SUPPLIED VALUES:
+gateway:
+  image:
+    tag: 1.1.0
+
+$ helm get values relativa -n relativa-helm --revision 3
+USER-SUPPLIED VALUES:
+config:
+  logLevel: Warning
+gateway:
+  image:
+    tag: 1.1.0
+  replicaCount: 3
+  resources:
+    limits:
+      cpu: 750m
+      memory: 768Mi
+    requests:
+      cpu: 150m
+      memory: 256Mi
+ingress:
+  enabled: true
+  host: relativa.local
+postgres:
+  resources:
+    limits:
+      cpu: 750m
+      memory: 768Mi
+    requests:
+      cpu: 150m
+      memory: 384Mi
+
+$ kubectl get secrets -n relativa-helm -l owner=helm
+NAME                             TYPE                 DATA   AGE
+sh.helm.release.v1.relativa.v1   helm.sh/release.v1   1      64s
+sh.helm.release.v1.relativa.v2   helm.sh/release.v1   1      41s
+sh.helm.release.v1.relativa.v3   helm.sh/release.v1   1      26s
+
+$ kubectl get rs -n relativa-helm
+NAME                           DESIRED   CURRENT   READY   AGE
+relativa-gateway-cf445ff76     0         0         0       39s
+relativa-gateway-d655456f7     0         0         0       65s
+relativa-gateway-d6f9fdc8d     3         3         3       24s
+relativa-postgres-6998855c48   0         0         0       65s
+relativa-postgres-b96b44798    1         1         1       24s
+

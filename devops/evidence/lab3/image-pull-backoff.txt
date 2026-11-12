@@ -1,0 +1,78 @@
+deployment.apps/relativa-gateway image updated
+bad pod: relativa-gateway-7ffd96797c-vs9rt
+pods:
+NAME                                READY   STATUS             RESTARTS   AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+relativa-gateway-7ffd96797c-vs9rt   0/1     ImagePullBackOff   0          17s   10.244.0.30   minikube   <none>           <none>
+relativa-gateway-878685b65-gl6vv    1/1     Running            0          30s   10.244.0.29   minikube   <none>           <none>
+relativa-gateway-878685b65-z4cjc    1/1     Running            0          36s   10.244.0.28   minikube   <none>           <none>
+describe:
+Name:             relativa-gateway-7ffd96797c-vs9rt
+Namespace:        relativa
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Thu, 29 Oct 2026 01:47:16 -0700
+Labels:           app=relativa-gateway
+                  pod-template-hash=7ffd96797c
+Annotations:      <none>
+Status:           Pending
+IP:               10.244.0.30
+IPs:
+  IP:           10.244.0.30
+Controlled By:  ReplicaSet/relativa-gateway-7ffd96797c
+Containers:
+  gateway:
+    Container ID:   
+    Image:          relativa-gateway:9.9.9
+    Image ID:       
+    Port:           8080/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Waiting
+      Reason:       ImagePullBackOff
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  512Mi
+    Requests:
+      cpu:      100m
+      memory:   256Mi
+    Liveness:   http-get http://:8080/health delay=15s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:8080/health delay=5s timeout=1s period=5s #success=1 #failure=3
+    Environment:
+      ASPNETCORE_URLS:     http://+:8080
+      Relativa__AppName:   <set to the key 'APP_NAME' of config map 'relativa-config'>      Optional: false
+      Relativa__LogLevel:  <set to the key 'LOG_LEVEL' of config map 'relativa-config'>     Optional: false
+      Jwt__Issuer:         <set to the key 'JWT_ISSUER' of config map 'relativa-config'>    Optional: false
+      Jwt__Audience:       <set to the key 'JWT_AUDIENCE' of config map 'relativa-config'>  Optional: false
+      Jwt__SecretKey:      <set to the key 'JWT_SECRET' in secret 'relativa-secret'>        Optional: false
+      POD_NAME:            relativa-gateway-7ffd96797c-vs9rt (v1:metadata.name)
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-9l2w5 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-9l2w5:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age               From               Message
+  ----     ------     ----              ----               -------
+  Normal   Scheduled  17s               default-scheduler  Successfully assigned relativa/relativa-gateway-7ffd96797c-vs9rt to minikube
+  Warning  Failed     16s               kubelet            spec.containers{gateway}: Failed to pull image "relativa-gateway:9.9.9": failed to pull and unpack image "docker.io/library/relativa-gateway:9.9.9": failed to resolve reference "docker.io/library/relativa-gateway:9.9.9": pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+  Warning  Failed     16s               kubelet            spec.containers{gateway}: Error: ErrImagePull
+  Normal   BackOff    15s               kubelet            spec.containers{gateway}: Back-off pulling image "relativa-gateway:9.9.9"
+  Warning  Failed     15s               kubelet            spec.containers{gateway}: Error: ImagePullBackOff
+  Normal   Pulling    0s (x2 over 17s)  kubelet            spec.containers{gateway}: Pulling image "relativa-gateway:9.9.9"

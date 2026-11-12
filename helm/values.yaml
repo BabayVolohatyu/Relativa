@@ -1,0 +1,97 @@
+# Default values of the relativa chart. The defaults describe the DEVELOPMENT environment.
+# Production overrides live in values-prod.yaml, explicit dev values in values-dev.yaml.
+
+# Optional overrides of the generated object names.
+nameOverride: ""
+fullnameOverride: ""
+
+gateway:
+  image:
+    repository: relativa-gateway
+    # Never "latest": a fixed tag keeps rollbacks deterministic.
+    tag: "1.0.0"
+    pullPolicy: IfNotPresent
+  replicaCount: 1
+  service:
+    type: NodePort
+    port: 8080
+    # Empty = Kubernetes picks a free port. A fixed value would stop the chart
+    # from being installed twice in one cluster.
+    nodePort: ""
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      cpu: 300m
+      memory: 512Mi
+  probes:
+    path: /health
+    readiness:
+      initialDelaySeconds: 5
+      periodSeconds: 5
+    liveness:
+      initialDelaySeconds: 15
+      periodSeconds: 10
+  strategy:
+    maxUnavailable: 0
+    maxSurge: 1
+
+postgres:
+  image:
+    repository: postgres
+    tag: "16-alpine"
+    pullPolicy: IfNotPresent
+  # A single database instance on a ReadWriteOnce volume. Do not raise it:
+  # a second replica would fight for the same data directory.
+  replicaCount: 1
+  service:
+    port: 5432
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  # Optional object: without a PVC the data directory is an emptyDir.
+  pvc:
+    enabled: true
+    size: 1Gi
+    accessMode: ReadWriteOnce
+    # Empty = default StorageClass of the cluster ("standard" in minikube).
+    storageClassName: ""
+
+# Non-secret application configuration (goes to the ConfigMap).
+config:
+  appName: Relativa
+  logLevel: Information
+  jwtIssuer: relativa-auth
+  jwtAudience: relativa
+  dbName: relativa
+  dbUser: relativa
+
+# Sensitive values (go to the Secret). The defaults are synthetic lab values.
+# For anything real pass them at install time:
+#   helm install ... --set secret.jwtSecretKey=... --set secret.postgresPassword=...
+secret:
+  jwtSecretKey: lab4-helm-signing-key-not-for-production-use
+  postgresPassword: lab4-synthetic-db-password
+
+# Optional object: Ingress.
+ingress:
+  enabled: false
+  className: nginx
+  host: relativa.local
+  path: /
+  pathType: Prefix
+  annotations: {}
+
+# Release hook and test (task 9b).
+hooks:
+  preUpgradeCheck:
+    enabled: true
+  image:
+    repository: postgres
+    tag: "16-alpine"
+    pullPolicy: IfNotPresent

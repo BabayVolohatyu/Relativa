@@ -1,0 +1,20 @@
+running pod: relativa-gateway-878685b65-gl6vv
+logs:
+[08:47:04 WRN] Storing keys in a directory '/home/app/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+[08:47:04 INF] Loading proxy data from config.
+[08:47:04 WRN] No XML encryptor configured. Key {fef027eb-2d40-47f2-aea2-89e28778187c} may be persisted to storage in unencrypted form.
+[08:47:04 WRN] Overriding HTTP_PORTS '8080' and HTTPS_PORTS ''. Binding to values defined by URLS instead 'http://*:8080'.
+[08:47:04 INF] Now listening on: http://[::]:8080
+[08:47:04 INF] Application started. Press Ctrl+C to shut down.
+[08:47:04 INF] Hosting environment: Production
+[08:47:04 INF] Content root path: /app
+[08:47:10 INF] HTTP GET /health responded 200 in 105.8903 ms
+[08:47:15 INF] HTTP GET /health responded 200 in 1.6330 ms
+[08:47:20 INF] HTTP GET /health responded 200 in 3.2582 ms
+[08:47:23 INF] HTTP GET /health responded 200 in 0.3589 ms
+[08:47:25 INF] HTTP GET /health responded 200 in 0.4031 ms
+[08:47:30 INF] HTTP GET /health responded 200 in 0.3721 ms
+exec printenv App__Version POD_NAME Relativa__AppName:
+1.0.0
+relativa-gateway-878685b65-gl6vv
+Relativa

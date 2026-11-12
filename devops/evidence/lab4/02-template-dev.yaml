@@ -1,0 +1,337 @@
+﻿---
+# Source: relativa/templates/secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: relativa-secret
+  labels:
+    helm.sh/chart: relativa-1.0.0
+    app.kubernetes.io/name: relativa
+    app.kubernetes.io/instance: relativa
+    app.kubernetes.io/component: secret
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+type: Opaque
+stringData:
+  JWT_SECRET: "lab4-helm-signing-key-not-for-production-use"
+  POSTGRES_PASSWORD: "lab4-synthetic-db-password"
+---
+# Source: relativa/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: relativa-config
+  labels:
+    helm.sh/chart: relativa-1.0.0
+    app.kubernetes.io/name: relativa
+    app.kubernetes.io/instance: relativa
+    app.kubernetes.io/component: config
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+data:
+  APP_NAME: "Relativa"
+  LOG_LEVEL: "Information"
+  JWT_ISSUER: "relativa-auth"
+  JWT_AUDIENCE: "relativa"
+  DB_NAME: "relativa"
+  DB_USER: "relativa"
+---
+# Source: relativa/templates/postgres-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: relativa-postgres-data
+  labels:
+    helm.sh/chart: relativa-1.0.0
+    app.kubernetes.io/name: relativa
+    app.kubernetes.io/instance: relativa
+    app.kubernetes.io/component: postgres
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+# Source: relativa/templates/gateway-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: relativa-gateway
+  labels:
+    helm.sh/chart: relativa-1.0.0
+    app.kubernetes.io/name: relativa
+    app.kubernetes.io/instance: relativa
+    app.kubernetes.io/component: gateway
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: relativa
+    app.kubernetes.io/instance: relativa
+    app.kubernetes.io/component: gateway
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+---
+# Source: relativa/templates/postgres-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: relativa-postgres
+  labels:
+    helm.sh/chart: relativa-1.0.0
+    app.kubernetes.io/name: relativa
+    app.kubernetes.io/instance: relativa
+    app.kubernetes.io/component: postgres
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: relativa
+    app.kubernetes.io/instance: relativa
+    app.kubernetes.io/component: postgres
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: postgres
+---
+# Source: relativa/templates/gateway-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: relativa-gateway
+  labels:
+    helm.sh/chart: relativa-1.0.0
+    app.kubernetes.io/name: relativa
+    app.kubernetes.io/instance: relativa
+    app.kubernetes.io/component: gateway
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: relativa
+      app.kubernetes.io/instance: relativa
+      app.kubernetes.io/component: gateway
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: relativa
+        app.kubernetes.io/instance: relativa
+        app.kubernetes.io/component: gateway
+      annotations:
+        # Pods restart when configuration or secret values change.
+        checksum/config: ec93f3721bb73ea2f34f809d44c58d16665dd7ece5280c397a5846a7c425fc8a
+        checksum/secret: 9206d8814253010fd9dc62d40134af027dd7320c5373bc81098bf254aa080275
+    spec:
+      containers:
+        - name: gateway
+          image: "relativa-gateway:1.0.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: ASPNETCORE_URLS
+              value: "http://+:8080"
+            - name: Relativa__AppName
+              valueFrom:
+                configMapKeyRef:
+                  name: relativa-config
+                  key: APP_NAME
+            - name: Relativa__LogLevel
+              valueFrom:
+                configMapKeyRef:
+                  name: relativa-config
+                  key: LOG_LEVEL
+            - name: Jwt__Issuer
+              valueFrom:
+                configMapKeyRef:
+                  name: relativa-config
+                  key: JWT_ISSUER
+            - name: Jwt__Audience
+              valueFrom:
+                configMapKeyRef:
+                  name: relativa-config
+                  key: JWT_AUDIENCE
+            - name: Jwt__SecretKey
+              valueFrom:
+                secretKeyRef:
+                  name: relativa-secret
+                  key: JWT_SECRET
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          resources:
+            limits:
+              cpu: 300m
+              memory: 512Mi
+            requests:
+              cpu: 50m
+              memory: 128Mi
+---
+# Source: relativa/templates/postgres-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: relativa-postgres
+  labels:
+    helm.sh/chart: relativa-1.0.0
+    app.kubernetes.io/name: relativa
+    app.kubernetes.io/instance: relativa
+    app.kubernetes.io/component: postgres
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: relativa
+      app.kubernetes.io/instance: relativa
+      app.kubernetes.io/component: postgres
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: relativa
+        app.kubernetes.io/instance: relativa
+        app.kubernetes.io/component: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: "postgres:16-alpine"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: postgres
+              containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: relativa-config
+                  key: DB_NAME
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: relativa-config
+                  key: DB_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: relativa-secret
+                  key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+          readinessProbe:
+            exec:
+              command: ["pg_isready", "-U", "relativa", "-d", "relativa"]
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            exec:
+              command: ["pg_isready", "-U", "relativa", "-d", "relativa"]
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: relativa-postgres-data
+---
+# Source: relativa/templates/pre-upgrade-check.yaml
+# Hook: before every "helm upgrade" the database must answer. If this Pod fails,
+# Helm aborts the upgrade and the running revision stays untouched.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: relativa-pre-upgrade-check
+  labels:
+    helm.sh/chart: relativa-1.0.0
+    app.kubernetes.io/name: relativa
+    app.kubernetes.io/instance: relativa
+    app.kubernetes.io/component: hook
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": pre-upgrade
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  restartPolicy: Never
+  containers:
+    - name: pg-isready
+      image: "postgres:16-alpine"
+      imagePullPolicy: IfNotPresent
+      command:
+        - pg_isready
+        - -h
+        - relativa-postgres
+        - -p
+        - "5432"
+        - -U
+        - "relativa"
+        - -d
+        - "relativa"
+---
+# Source: relativa/templates/tests/test-health.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: relativa-test-health
+  labels:
+    helm.sh/chart: relativa-1.0.0
+    app.kubernetes.io/name: relativa
+    app.kubernetes.io/instance: relativa
+    app.kubernetes.io/component: test
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": test
+    # Hook Pods are not owned by the release, so they would survive "helm uninstall".
+    # Deleting them on success keeps the namespace clean.
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  restartPolicy: Never
+  containers:
+    - name: wget
+      image: "postgres:16-alpine"
+      imagePullPolicy: IfNotPresent
+      command:
+        - sh
+        - -c
+        - |
+          set -e
+          body="$(wget -qO- -T 10 http://relativa-gateway:8080/health)"
+          echo "$body"
+          echo "$body" | grep -q '"status":"ok"'

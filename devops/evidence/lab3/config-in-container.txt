@@ -1,0 +1,6 @@
+Relativa
+Information
+relativa-auth
+relativa
+relativa-gateway-878685b65-6pz2m
+1.0.0
