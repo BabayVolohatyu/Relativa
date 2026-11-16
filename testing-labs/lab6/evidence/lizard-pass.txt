@@ -1,0 +1,22 @@
+================================================
+  NLOC    CCN   token  PARAM  length  location  
+------------------------------------------------
+       6      1     27      0       6 DealCommercialOption::new@7-12@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       7      1     33      0       7 DealCommercialOption::new@14-20@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       6      1     28      0       6 DealCommercialOption::new@22-27@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       6      1     27      0       6 DealCommercialOption::new@29-34@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       4      1     16      0       4 DealCommercialOption::new@36-39@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       9      1     71      0       9 DealCommercialOption::new@43-51@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+      15      1     78      6      15 DealCommercialOption::Evaluate@53-67@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+1 file analyzed.
+==============================================================
+NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
+--------------------------------------------------------------
+     57       7.6     1.0       40.0         7     Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+
+==================================================================================================================
+No thresholds exceeded (cyclomatic_complexity > 15 or length > 99999 or nloc > 1000000 or parameter_count > 99999)
+==========================================================================================
+Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
+------------------------------------------------------------------------------------------
+        57       7.6     1.0       40.0        7            0      0.00    0.00

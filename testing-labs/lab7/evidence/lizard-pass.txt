@@ -1,0 +1,25 @@
+﻿================================================
+  NLOC    CCN   token  PARAM  length  location  
+------------------------------------------------
+      21      3     96      6      22 struct::From@8-29@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       6      1     27      0       6 struct::new@31-36@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       7      1     33      0       7 struct::new@38-44@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       6      1     28      0       6 struct::new@46-51@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       6      1     27      0       6 struct::new@53-58@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       9      1     71      0       9 struct::new@62-70@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+      18      1     52      6      18 DealCommercialOption::Evaluate@75-92@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       1      1     12      1       1 DealCommercialOption::RecordTrace@94-94@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+      14      1     71      0      14 DealCommercialOption::new@96-109@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       2      1     16      1       2 DealCommercialOption::ScoreLegacyTier@111-112@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+1 file analyzed.
+==============================================================
+NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
+--------------------------------------------------------------
+     97       9.0     1.2       43.3        10     Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+
+=================================================================================================================
+No thresholds exceeded (cyclomatic_complexity > 5 or length > 99999 or nloc > 1000000 or parameter_count > 99999)
+==========================================================================================
+Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
+------------------------------------------------------------------------------------------
+        97       9.0     1.2       43.3       10            0      0.00    0.00

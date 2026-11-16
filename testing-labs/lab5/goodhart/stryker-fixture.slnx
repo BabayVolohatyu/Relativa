@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CoverageTrap.Tests/CoverageTrap.Tests.csproj" />
+  <Project Path="CoverageTrap/CoverageTrap.csproj" />
+</Solution>

@@ -1,0 +1,8 @@
+{
+  "dotnetStryker": "5.0.0",
+  "lizard": "1.24.3",
+  "k6Image": "grafana/k6:2.2.0@sha256:9bd01d6941fca969cb61bb57d2da5ee9b385fe2aa8881df3798c196564d6ace6",
+  "pythonLts": "python:3.11-slim@sha256:b7a9e5f6a93d6d4a31f129bbd4bdee69efccb6ded0fb230d78aafaf37af98377",
+  "pythonCurrent": "python:3.14-slim@sha256:35caba83af2fe6da9a5d922f9b0156f21d1246a48278c58a08bd253303ba42e8",
+  "analyzerImage": "relativa-lab5-analyzer:1.24.3"
+}

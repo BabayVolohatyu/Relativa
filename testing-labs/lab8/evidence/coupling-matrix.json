@@ -1,0 +1,72 @@
+{
+  "source": "DealDesk",
+  "cbo": 16,
+  "lcom": 1,
+  "wmc": 17,
+  "edges": [
+    {
+      "from": "DealDesk",
+      "to": "AccessWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "DeskClock"
+    },
+    {
+      "from": "DealDesk",
+      "to": "FullAccessWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "LowRiskWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "MediumRiskWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "NegotiationWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "OpenWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "OrgAccessWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "PendingWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "ProposalWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "ProspectWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "QualificationWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "RevokeWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "RiskWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "StageWeight"
+    },
+    {
+      "from": "DealDesk",
+      "to": "StatusWeight"
+    }
+  ]
+}

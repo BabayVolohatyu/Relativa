@@ -1,0 +1,5 @@
+﻿run,functions,nloc,ccn_total,ccn_max,ccn_median,tokens
+scenario-a-lf,17,556,172,37,6,5218
+scenario-a-crlf,17,556,172,37,6,5218
+scenario-b-py311,17,556,172,37,6,5218
+scenario-b-py314,17,556,172,37,6,5218

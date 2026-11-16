@@ -1,0 +1,14 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Sonar: (Relativa.Persistence.csproj) The analysis targets file not found: C:\Users\babay\myrepos\testing\Relativa\.sonarqube\bin\targets\SonarQube.Integration.targets
+  Relativa.Persistence -> C:\Users\babay\myrepos\testing\Relativa\Persistence\src\Relativa.Persistence\bin\Debug\net10.0\Relativa.Persistence.dll
+  Sonar: (Relativa.Graph.csproj) The analysis targets file not found: C:\Users\babay\myrepos\testing\Relativa\.sonarqube\bin\targets\SonarQube.Integration.targets
+C:\Users\babay\myrepos\testing\Relativa\Graph\src\Relativa.Graph\DesignAudit\Hierarchy\StageQuoteRule.cs(5,29): error CS0115: 'StageQuoteRule.Status(string)': no suitable method found to override [C:\Users\babay\myrepos\testing\Relativa\Graph\src\Relativa.Graph\Relativa.Graph.csproj]
+
+Build FAILED.
+
+C:\Users\babay\myrepos\testing\Relativa\Graph\src\Relativa.Graph\DesignAudit\Hierarchy\StageQuoteRule.cs(5,29): error CS0115: 'StageQuoteRule.Status(string)': no suitable method found to override [C:\Users\babay\myrepos\testing\Relativa\Graph\src\Relativa.Graph\Relativa.Graph.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:02.40

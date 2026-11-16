@@ -1,0 +1,9 @@
+﻿target=messaging
+line_coverage_percent=93.93
+mutation_score_percent=100
+min_line_coverage_percent=80
+min_mutation_score_percent=65
+coverage_pass=True
+mutation_pass=True
+verdict=PASS
+formula=(line coverage >= 80%) AND (mutation score >= 65%)

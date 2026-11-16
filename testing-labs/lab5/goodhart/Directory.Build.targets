@@ -1,0 +1,7 @@
+<Project>
+  <!-- See Messaging/Directory.Build.targets. Active only when LAB5_STRYKER is set. -->
+  <PropertyGroup Condition="'$(LAB5_STRYKER)' == 'true'">
+    <OutputPath>bin\Any CPU\$(Configuration)\$(TargetFramework)\</OutputPath>
+    <OutDir>$(OutputPath)</OutDir>
+  </PropertyGroup>
+</Project>

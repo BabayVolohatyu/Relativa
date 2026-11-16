@@ -1,0 +1,14 @@
+{
+  "stryker-config": {
+    "solution": "lab5/goodhart/stryker-fixture.slnx",
+    "project": "CoverageTrap.csproj",
+    "test-projects": [
+      "lab5/goodhart/CoverageTrap.Tests/CoverageTrap.Tests.csproj"
+    ],
+    "mutate": [
+      "**/DiscountGate.cs"
+    ],
+    "configuration": "Release",
+    "concurrency": 2
+  }
+}

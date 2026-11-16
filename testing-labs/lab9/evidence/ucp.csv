@@ -1,0 +1,13 @@
+kind,name,basis,weight
+actor,GUI user,human through GUI,3
+actor,HTTP client,HTTP protocol,2
+actor_total,UAW,,5
+use_case,Authenticate,4 steps,10
+use_case,ChangePassword,3 steps,5
+use_case,StartForgotPasswordProcess,6 steps,10
+use_case,RedeemPasswordResetPin,3 steps,5
+use_case_total,UUCW,,30
+size,UUCP,UAW+UUCW,35
+coefficient,TCF,industrial base,1.0
+coefficient,ECF,industrial base,1.0
+size,UCP,UUCP*TCF*ECF,35

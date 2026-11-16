@@ -1,0 +1,28 @@
+git log --no-merges --date=short --pretty=format:"%H %ad %an %s" -- MediaBrowser.Controller/Authentication
+source: GitHub commits API, path=MediaBrowser.Controller/Authentication. Rows below are tab-separated hash, date, author, subject. Merges (two parents) are omitted.
+non_merge_commits=23
+authors=13
+
+1ccd10863e24485978a2f5fd7650b2bcf42168d3	2025-11-03	thornbill	Backport pull request #15254 from jellyfin/release-10.11.z
+0fb6d930e1ca14d1d3af06ecee310869d2e86dfe	2025-10-05	Niels van Velzen	Deprecate HasPassword property on UserDto
+42bdb22bfb690a6af37d70f12844881d884927b1	2025-03-25	JPVenson	Fixed namespaces
+7a2427bf07f9036d62c88a75855cd6dc7e8e3064	2024-09-05	Shadowghost	Add SessionInfoDto, DeviceInfoDto and implement JsonDelimitedArrayConverter.Write
+a963bce9beb16f0d66ec0cef8d92f0d4f6536730	2023-08-21	Bond_009	Reduce log spam on failed logins
+fb090df0b59b71d7f143d2181d46f18943bbc35e	2021-05-06	Bond_009	Enable nullable reference types for MediaBrowser.Controller
+5ec1a979b2bb501edb8836c0170cd10e5dd2d292	2020-08-22	Bond_009	Remove extra newline
+404bb4f83521760b3e9eeb748ab21d9056c4c023	2020-08-22	Bond_009	Enable TreatWarningsAsErrors for MediaBrowser.Controller in Release
+247f9c61e60ef774675cb4d6d1734d2ccdc6ee7a	2020-06-15	telans	fix SA1513/SA1516
+68e1ecaaf9626c9596c833571bb591a326449dc8	2020-06-07	crobibero	Remove EasyPassword from Authentication providers
+9ad839c7766bd5d6121a10b2c306d6fef9666c52	2020-05-13	Patrick Barron	Initial migration code
+daed41815f23795aad7f54965a8ef7eae44a1e08	2020-04-15	Mark Monteiro	Add missing punctuation in xml comment
+98044e77935afdd4ff00a65d43b17d285fea82c7	2020-04-13	Mark Monteiro	Document AuthenticationException correctly
+07cc4be6a747cfea40ee7a540385d6d8f38de726	2020-02-23	Bond_009	Fix some warnings
+2ef4ffd698fb4ae95754f76238e52cfb6162db24	2019-12-10	Bond_009	More warnings (removed)
+8d3b5c851ded74b9f34eb2cd963187761a3f6f61	2019-06-09	Bond_009	Improvements to UserManager
+0f897589ed6349bb3c88919b06861daa80aec1be	2019-05-21	Bond_009	Streamline authentication proccess
+69ee49bee607d716a857a1525f503575ebf6db7f	2019-05-25	DrPandemic	Format correctly the PIN when updating it
+09921a00aaad31c0ea4a0650e8d0ddb890dca735	2019-03-22	Phallacy	made password resets an interface and per user
+ba610b5094c3ca606287585218a88467a44874d3	2019-01-13	Erwin de Haan	Find+Sed BOM removal *.cs: Jellyfin.Server-MediaBrowser.Controller
+ec1f5dc317182582ebff843c9e8a4d5277405469	2019-01-06	Erwin de Haan	Mayor code cleanup
+340a2c651276d911285a6ff09944c5eba2384a51	2018-12-27	Bond_009	Post GPL cleanup
+a86b71899ec52c44ddc6c3018e8cc5e9d7ff4d62	2018-12-27	Andrew Rabert	Add GPL modules

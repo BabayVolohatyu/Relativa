@@ -1,0 +1,10 @@
+tool=NuGet (dotnet list package --vulnerable)
+dotnet=10.0.402
+command=dotnet list Graph/Relativa.Graph.sln package --vulnerable --include-transitive --format json
+files=Graph/**/*.csproj (solution Graph/Relativa.Graph.sln)
+components=9
+critical=0
+high=0
+medium=0
+low=0
+note=NuGet severity Moderate is reported here as Medium.

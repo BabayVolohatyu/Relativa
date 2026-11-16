@@ -1,0 +1,3633 @@
+{
+  "window": "90 days",
+  "high_ccn_above": 10,
+  "high_churn_at": 3,
+  "low_churn_at_most": 1,
+  "quadrant_counts": {
+    "High Risk": 0,
+    "Sleeping Danger": 20,
+    "Active Development": 1,
+    "Stable": 380,
+    "unclassified": 1
+  },
+  "files": [
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs",
+      "function_count": 10,
+      "max_ccn": 3,
+      "max_ccn_function": "struct::From",
+      "nloc": 97,
+      "commits": 7,
+      "category": "Active Development"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication/Program.cs",
+      "function_count": 2,
+      "max_ccn": 1,
+      "max_ccn_function": "if",
+      "nloc": 127,
+      "commits": 2,
+      "category": null
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Graph/GraphDataService.cs",
+      "function_count": 5,
+      "max_ccn": 55,
+      "max_ccn_function": "GraphDataService::BuildGraphAsync",
+      "nloc": 362,
+      "commits": 1,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/WorkspaceDashboardService.cs",
+      "function_count": 17,
+      "max_ccn": 37,
+      "max_ccn_function": "struct::GetTopEntitiesAsync",
+      "nloc": 556,
+      "commits": 1,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Logging/PrivacyLogTextFormatter.cs",
+      "function_count": 3,
+      "max_ccn": 17,
+      "max_ccn_function": "PrivacyLogTextFormatter::Box",
+      "nloc": 69,
+      "commits": 1,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Privacy/PrivacyWorkflow.cs",
+      "function_count": 14,
+      "max_ccn": 17,
+      "max_ccn_function": "PrivacyWorkflow::ChangeConsentAsync",
+      "nloc": 390,
+      "commits": 1,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Services/JoinRequestService.cs",
+      "function_count": 5,
+      "max_ccn": 14,
+      "max_ccn_function": "JoinRequestService::ReviewAsync",
+      "nloc": 217,
+      "commits": 1,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Gateway/src/Relativa.Gateway/OpenApi/AggregatedOpenApiEndpoint.cs",
+      "function_count": 14,
+      "max_ccn": 13,
+      "max_ccn_function": "AggregatedOpenApiEndpoint::ApplyLabPrivacyExamples",
+      "nloc": 602,
+      "commits": 1,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Services/OrgInvitationService.cs",
+      "function_count": 11,
+      "max_ccn": 12,
+      "max_ccn_function": "OrgInvitationService::GetMyPendingInvitationsAsync",
+      "nloc": 275,
+      "commits": 1,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Services/OpenIdConnectIdentityVerifier.cs",
+      "function_count": 9,
+      "max_ccn": 11,
+      "max_ccn_function": "OpenIdConnectIdentityVerifier::VerifyAccessTokenAsync",
+      "nloc": 144,
+      "commits": 1,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Services/OrganizationService.cs",
+      "function_count": 10,
+      "max_ccn": 11,
+      "max_ccn_function": "OrganizationService::GetByIdAsync",
+      "nloc": 362,
+      "commits": 1,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/EntityEndpoints.cs",
+      "function_count": 3,
+      "max_ccn": 11,
+      "max_ccn_function": "EntityEndpoints::MapEntityEndpoints",
+      "nloc": 150,
+      "commits": 1,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/ML/ResilientMlScoringClient.cs",
+      "function_count": 3,
+      "max_ccn": 11,
+      "max_ccn_function": "ResilientMlScoringClient::ScoreBatchAsync",
+      "nloc": 73,
+      "commits": 1,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Services/OrganizationUserAdminService.cs",
+      "function_count": 5,
+      "max_ccn": 10,
+      "max_ccn_function": "OrganizationUserAdminService::DeleteOrgUserAsync",
+      "nloc": 148,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Services/OrgRoleService.cs",
+      "function_count": 4,
+      "max_ccn": 9,
+      "max_ccn_function": "OrgRoleService::UpdateAsync",
+      "nloc": 173,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/ML/RabbitMqMlScoringClient.cs",
+      "function_count": 4,
+      "max_ccn": 9,
+      "max_ccn_function": "RabbitMqMlScoringClient::SendRpcAsync",
+      "nloc": 106,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Services/AuthService.cs",
+      "function_count": 13,
+      "max_ccn": 8,
+      "max_ccn_function": "AuthService::LoginAsync",
+      "nloc": 233,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Logging/PrivacyLogSanitizer.cs",
+      "function_count": 6,
+      "max_ccn": 8,
+      "max_ccn_function": "PrivacyLogSanitizer::IsSecretName",
+      "nloc": 60,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Services/UserProvisioningService.cs",
+      "function_count": 4,
+      "max_ccn": 7,
+      "max_ccn_function": "UserProvisioningService::CreateUserAsync",
+      "nloc": 187,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication/Endpoints/PrivacyEndpoints.cs",
+      "function_count": 5,
+      "max_ccn": 7,
+      "max_ccn_function": "PrivacyEndpoints::MapPrivacyEndpoints",
+      "nloc": 149,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Services/EmailAddressService.cs",
+      "function_count": 10,
+      "max_ccn": 6,
+      "max_ccn_function": "EmailAddressService::VerifyAsync",
+      "nloc": 180,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Services/SupportService.cs",
+      "function_count": 1,
+      "max_ccn": 6,
+      "max_ccn_function": "SupportService::SendContactAsync",
+      "nloc": 44,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Services/OrgAccess.cs",
+      "function_count": 2,
+      "max_ccn": 5,
+      "max_ccn_function": "OrgAccess::RequirePermission",
+      "nloc": 29,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Services/WorkspaceAccessEvaluator.cs",
+      "function_count": 6,
+      "max_ccn": 5,
+      "max_ccn_function": "WorkspaceAccessEvaluator::IsOrgOwnerOfWorkspaceAsync",
+      "nloc": 103,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Services/ConsentPolicyGate.cs",
+      "function_count": 1,
+      "max_ccn": 3,
+      "max_ccn_function": "ConsentPolicyGate::Allows",
+      "nloc": 15,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Services/JsonEmailLocalizer.cs",
+      "function_count": 4,
+      "max_ccn": 3,
+      "max_ccn_function": "JsonEmailLocalizer::JsonEmailLocalizer",
+      "nloc": 59,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication/Middleware/CorrelationIdMiddleware.cs",
+      "function_count": 1,
+      "max_ccn": 2,
+      "max_ccn_function": "CorrelationIdMiddleware::InvokeAsync",
+      "nloc": 18,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Options/ConsentOptions.cs",
+      "function_count": 2,
+      "max_ccn": 1,
+      "max_ccn_function": "ConsentOptions::RequiredVersion",
+      "nloc": 13,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Privacy/ConsentTypes.cs",
+      "function_count": 2,
+      "max_ccn": 1,
+      "max_ccn_function": "ConsentPurpose::IsKnown",
+      "nloc": 31,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Privacy/PrivacyContracts.cs",
+      "function_count": 2,
+      "max_ccn": 1,
+      "max_ccn_function": "PrivacyDecision::Missing",
+      "nloc": 65,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Data/AuthDbContext.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "AuthDbContext::OnModelCreating",
+      "nloc": 23,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Program.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "catch",
+      "nloc": 113,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/ML/IAsyncDelay.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "SystemAsyncDelay::DelayAsync",
+      "nloc": 9,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Program.cs",
+      "function_count": 2,
+      "max_ccn": 1,
+      "max_ccn_function": "if",
+      "nloc": 59,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Migration/src/Relativa.Migration/Data/MigrationDbContext.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "MigrationDbContext::OnModelCreating",
+      "nloc": 47,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/MarketingDispatchConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "MarketingDispatchConfiguration::Configure",
+      "nloc": 24,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/UserConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UserConfiguration::Configure",
+      "nloc": 33,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/UserConsentConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UserConsentConfiguration::Configure",
+      "nloc": 29,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/UserConsentEventConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UserConsentEventConfiguration::Configure",
+      "nloc": 26,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/ModelBuilderExtensions.cs",
+      "function_count": 2,
+      "max_ccn": 1,
+      "max_ccn_function": "PersistenceModelBuilderExtensions::ApplyAuthEntityConfigurations",
+      "nloc": 66,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Interfaces/IPrivacyServices.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 43,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/ML/MlScoringFailedException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/ML/MlScoringResilienceOptions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/MarketingDispatch.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/User.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 29,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/UserConsent.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 14,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/UserConsentEvent.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 12,
+      "commits": 1,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/EntityRepository.cs",
+      "function_count": 19,
+      "max_ccn": 40,
+      "max_ccn_function": "EntityRepository::GetByWorkspaceAsync",
+      "nloc": 271,
+      "commits": 0,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/DashboardService.cs",
+      "function_count": 12,
+      "max_ccn": 36,
+      "max_ccn_function": "DashboardService::GetTopEntitiesAsync",
+      "nloc": 579,
+      "commits": 0,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Services/EntityService.cs",
+      "function_count": 30,
+      "max_ccn": 29,
+      "max_ccn_function": "EntityService::ReassignRelationshipAsync",
+      "nloc": 739,
+      "commits": 0,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Infrastructure/Services/AuditLogReadRepository.cs",
+      "function_count": 20,
+      "max_ccn": 18,
+      "max_ccn_function": "AuditLogReadRepository::BuildPropertyChanges",
+      "nloc": 504,
+      "commits": 0,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Messaging/DomainEventConsumerHostedService.cs",
+      "function_count": 3,
+      "max_ccn": 17,
+      "max_ccn_function": "DomainEventConsumerHostedService::ExecuteAsync",
+      "nloc": 253,
+      "commits": 0,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Services/WorkspaceMemberService.cs",
+      "function_count": 9,
+      "max_ccn": 16,
+      "max_ccn_function": "WorkspaceMemberService::UpdateRoleAsync",
+      "nloc": 215,
+      "commits": 0,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Middleware/GlobalExceptionHandler.cs",
+      "function_count": 4,
+      "max_ccn": 13,
+      "max_ccn_function": "GlobalExceptionHandler::TryHandleAsync",
+      "nloc": 66,
+      "commits": 0,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit/Endpoints/AuditEndpoints.cs",
+      "function_count": 5,
+      "max_ccn": 12,
+      "max_ccn_function": "AuditEndpoints::BuildQuery",
+      "nloc": 183,
+      "commits": 0,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Services/EntityTypeService.cs",
+      "function_count": 1,
+      "max_ccn": 11,
+      "max_ccn_function": "EntityTypeService::GetAllAsync",
+      "nloc": 62,
+      "commits": 0,
+      "category": "Sleeping Danger"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit/Middleware/GlobalExceptionHandler.cs",
+      "function_count": 3,
+      "max_ccn": 10,
+      "max_ccn_function": "GlobalExceptionHandler::TryHandleAsync",
+      "nloc": 51,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Services/WorkspaceService.cs",
+      "function_count": 8,
+      "max_ccn": 10,
+      "max_ccn_function": "WorkspaceService::CreateAsync",
+      "nloc": 361,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication/Endpoints/AuthEndpoints.cs",
+      "function_count": 2,
+      "max_ccn": 9,
+      "max_ccn_function": "AuthEndpoints::MapAuthEndpoints",
+      "nloc": 345,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Services/RoleService.cs",
+      "function_count": 5,
+      "max_ccn": 9,
+      "max_ccn_function": "RoleService::UpdateAsync",
+      "nloc": 169,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Services/EmailVerificationService.cs",
+      "function_count": 8,
+      "max_ccn": 8,
+      "max_ccn_function": "EmailVerificationService::SendAsync",
+      "nloc": 127,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/WorkspaceRepository.cs",
+      "function_count": 6,
+      "max_ccn": 7,
+      "max_ccn_function": "WorkspaceRepository::GetByUserIdAsync",
+      "nloc": 78,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Infrastructure/Services/AuditEventConsumer.cs",
+      "function_count": 3,
+      "max_ccn": 6,
+      "max_ccn_function": "AuditEventConsumer::PersistAsync",
+      "nloc": 155,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Options/OAuthOptions.cs",
+      "function_count": 1,
+      "max_ccn": 6,
+      "max_ccn_function": "OAuthOptionsValidator::Validate",
+      "nloc": 40,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Services/TwoFactorService.cs",
+      "function_count": 13,
+      "max_ccn": 6,
+      "max_ccn_function": "TwoFactorService::VerifyAsync",
+      "nloc": 156,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication/Middleware/GlobalExceptionHandler.cs",
+      "function_count": 5,
+      "max_ccn": 6,
+      "max_ccn_function": "GlobalExceptionHandler::TryHandleAsync",
+      "nloc": 110,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Messaging/EntityGraphCommandConsumerHostedService.cs",
+      "function_count": 3,
+      "max_ccn": 6,
+      "max_ccn_function": "EntityGraphCommandConsumerHostedService::HandleAsync",
+      "nloc": 148,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/EntityGraphEndpoints.cs",
+      "function_count": 4,
+      "max_ccn": 6,
+      "max_ccn_function": "EntityGraphEndpoints::MapEntityGraphEndpoints",
+      "nloc": 120,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Authorization/RolePermissionEvaluator.cs",
+      "function_count": 4,
+      "max_ccn": 5,
+      "max_ccn_function": "RolePermissionEvaluator::HasAllPermissions",
+      "nloc": 31,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Graph/GraphQueryEndpoints.cs",
+      "function_count": 3,
+      "max_ccn": 5,
+      "max_ccn_function": "GraphQueryEndpoints::MapGraphQueryEndpoints",
+      "nloc": 41,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/ML/HttpMlScoringClient.cs",
+      "function_count": 1,
+      "max_ccn": 5,
+      "max_ccn_function": "ScoreBatchRequest::ScoreBatchAsync",
+      "nloc": 43,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Services/HttpSmsSender.cs",
+      "function_count": 2,
+      "max_ccn": 4,
+      "max_ccn_function": "HttpSmsSender::SendAsync",
+      "nloc": 37,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Services/OtpNetTotpProvider.cs",
+      "function_count": 3,
+      "max_ccn": 4,
+      "max_ccn_function": "OtpNetTotpProvider::VerifyCode",
+      "nloc": 33,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/OrganizationRepository.cs",
+      "function_count": 5,
+      "max_ccn": 4,
+      "max_ccn_function": "OrganizationRepository::SearchAsync",
+      "nloc": 47,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/UserRoleWorkspaceRepository.cs",
+      "function_count": 6,
+      "max_ccn": 4,
+      "max_ccn_function": "UserRoleWorkspaceRepository::GetRolePrioritiesByUserIdsAsync",
+      "nloc": 55,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/WorkspaceRoleRepository.cs",
+      "function_count": 6,
+      "max_ccn": 4,
+      "max_ccn_function": "WorkspaceRoleRepository::GetSystemRoleWithPermissionsSupersetAsync",
+      "nloc": 63,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Application/Services/AuditLogReadService.cs",
+      "function_count": 1,
+      "max_ccn": 3,
+      "max_ccn_function": "AuditLogReadService::GetAsync",
+      "nloc": 42,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Application/Validators/GetAuditLogQueryValidator.cs",
+      "function_count": 2,
+      "max_ccn": 3,
+      "max_ccn_function": "GetAuditLogQueryValidator::GetAuditLogQueryValidator",
+      "nloc": 35,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Repositories/UserRepository.cs",
+      "function_count": 18,
+      "max_ccn": 3,
+      "max_ccn_function": "UserRepository::GetByExternalLoginAsync",
+      "nloc": 113,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Services/Audit/AuditOutboxDispatcher.cs",
+      "function_count": 2,
+      "max_ccn": 3,
+      "max_ccn_function": "AuditOutboxDispatcher::ExecuteAsync",
+      "nloc": 75,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Services/SmtpEmailSender.cs",
+      "function_count": 1,
+      "max_ccn": 3,
+      "max_ccn_function": "SmtpEmailSender::SendAsync",
+      "nloc": 41,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication/Endpoints/ClientIp.cs",
+      "function_count": 1,
+      "max_ccn": 3,
+      "max_ccn_function": "ClientIp::From",
+      "nloc": 14,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/JoinRequestRepository.cs",
+      "function_count": 6,
+      "max_ccn": 3,
+      "max_ccn_function": "JoinRequestRepository::GetPendingAsync",
+      "nloc": 47,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/OrgInvitationRepository.cs",
+      "function_count": 7,
+      "max_ccn": 3,
+      "max_ccn_function": "OrgInvitationRepository::GetByEmailAsync",
+      "nloc": 62,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/OrganizationRoleRepository.cs",
+      "function_count": 6,
+      "max_ccn": 3,
+      "max_ccn_function": "OrganizationRoleRepository::GetByOrganizationIdAsync",
+      "nloc": 46,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/UserRoleOrganizationRepository.cs",
+      "function_count": 6,
+      "max_ccn": 3,
+      "max_ccn_function": "UserRoleOrganizationRepository::GetAsync",
+      "nloc": 52,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Services/Audit/AuditOutboxDispatcher.cs",
+      "function_count": 2,
+      "max_ccn": 3,
+      "max_ccn_function": "AuditOutboxDispatcher::ExecuteAsync",
+      "nloc": 75,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/OrganizationEndpoints.cs",
+      "function_count": 1,
+      "max_ccn": 3,
+      "max_ccn_function": "OrganizationEndpoints::MapOrganizationEndpoints",
+      "nloc": 77,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/WorkspaceEndpoints.cs",
+      "function_count": 3,
+      "max_ccn": 3,
+      "max_ccn_function": "WorkspaceEndpoints::GetUserId",
+      "nloc": 103,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/DashboardEndpoints.cs",
+      "function_count": 2,
+      "max_ccn": 3,
+      "max_ccn_function": "DashboardEndpoints::GetUserIdOrThrow",
+      "nloc": 88,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/WorkspaceDashboardEndpoints.cs",
+      "function_count": 2,
+      "max_ccn": 3,
+      "max_ccn_function": "WorkspaceDashboardEndpoints::GetUserIdOrThrow",
+      "nloc": 89,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/GraphGlobalExceptionHandler.cs",
+      "function_count": 1,
+      "max_ccn": 3,
+      "max_ccn_function": "GraphGlobalExceptionHandler::TryHandleAsync",
+      "nloc": 35,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/ML/RabbitMqMlRecalculationClient.cs",
+      "function_count": 2,
+      "max_ccn": 3,
+      "max_ccn_function": "RabbitMqMlRecalculationClient::EnqueueAsync",
+      "nloc": 76,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Services/UserSettingsService.cs",
+      "function_count": 3,
+      "max_ccn": 2,
+      "max_ccn_function": "UserSettingsService::GetOrCreateSettingsAsync",
+      "nloc": 32,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Validators/UpdateMyProfileRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 2,
+      "max_ccn_function": "UpdateMyProfileRequestValidator::UpdateMyProfileRequestValidator",
+      "nloc": 25,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Services/MemoryEmailRateLimiter.cs",
+      "function_count": 1,
+      "max_ccn": 2,
+      "max_ccn_function": "Window::TryConsume",
+      "nloc": 36,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Utilities/DisplayNameHelper.cs",
+      "function_count": 1,
+      "max_ccn": 2,
+      "max_ccn_function": "DisplayNameHelper::Humanize",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/CreateEntityRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 2,
+      "max_ccn_function": "CreateEntityRequestValidator::CreateEntityRequestValidator",
+      "nloc": 30,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/ReviewJoinRequestRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 2,
+      "max_ccn_function": "ReviewJoinRequestRequestValidator::ReviewJoinRequestRequestValidator",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/UpdateOrgRoleRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 2,
+      "max_ccn_function": "UpdateOrgRoleRequestValidator::UpdateOrgRoleRequestValidator",
+      "nloc": 15,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/PermissionRepository.cs",
+      "function_count": 2,
+      "max_ccn": 2,
+      "max_ccn_function": "PermissionRepository::GetByIdsAsync",
+      "nloc": 21,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Messaging/src/Relativa.Messaging/RabbitMqExchangeRouter.cs",
+      "function_count": 1,
+      "max_ccn": 2,
+      "max_ccn_function": "RabbitMqExchangeRouter::ResolvePublishExchange",
+      "nloc": 12,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Migration/src/Relativa.Migration/Program.cs",
+      "function_count": 1,
+      "max_ccn": 2,
+      "max_ccn_function": "using",
+      "nloc": 35,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/DomainRouting.cs",
+      "function_count": 4,
+      "max_ccn": 2,
+      "max_ccn_function": "DomainRouting::RoutingKeyCoreWorkspace",
+      "nloc": 31,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Infrastructure/Data/AuditDbContext.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "AuditDbContext::OnModelCreating",
+      "nloc": 18,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit/Program.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "catch",
+      "nloc": 85,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/EmailNormalizer.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EmailNormalizer::Normalize",
+      "nloc": 8,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Emails/EmailLayout.cs",
+      "function_count": 3,
+      "max_ccn": 1,
+      "max_ccn_function": "EmailLayout::ToHtml",
+      "nloc": 87,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Emails/EmailVerificationEmail.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EmailVerificationEmail::Build",
+      "nloc": 19,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Emails/PasswordResetEmail.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "PasswordResetEmail::Build",
+      "nloc": 21,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Validators/ForgotPasswordRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "ForgotPasswordRequestValidator::ForgotPasswordRequestValidator",
+      "nloc": 12,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Validators/LoginRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "LoginRequestValidator::LoginRequestValidator",
+      "nloc": 14,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Validators/RegisterRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "RegisterRequestValidator::RegisterRequestValidator",
+      "nloc": 21,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Validators/ResetPasswordRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "ResetPasswordRequestValidator::ResetPasswordRequestValidator",
+      "nloc": 14,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Validators/SupportContactRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "SupportContactRequestValidator::SupportContactRequestValidator",
+      "nloc": 20,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Validators/UpdateUserSettingsRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UpdateUserSettingsRequestValidator::UpdateUserSettingsRequestValidator",
+      "nloc": 16,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Repositories/UserSettingsRepository.cs",
+      "function_count": 3,
+      "max_ccn": 1,
+      "max_ccn_function": "UserSettingsRepository::GetByUserIdAsync",
+      "nloc": 20,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Services/Audit/OutboxWriter.cs",
+      "function_count": 2,
+      "max_ccn": 1,
+      "max_ccn_function": "OutboxWriter::EnqueueAuditAsync",
+      "nloc": 23,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Services/BcryptPasswordHasher.cs",
+      "function_count": 2,
+      "max_ccn": 1,
+      "max_ccn_function": "BcryptPasswordHasher::Hash",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Services/JwtTokenService.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "JwtTokenService::GenerateAccessToken",
+      "nloc": 38,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Infrastructure/Services/SmtpSmsSender.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "SmtpSmsSender::SendAsync",
+      "nloc": 14,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication/Endpoints/SupportEndpoints.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "SupportEndpoints::MapSupportEndpoints",
+      "nloc": 23,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Organization/CreateOrgUserRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "CreateOrgUserRequestValidator::CreateOrgUserRequestValidator",
+      "nloc": 24,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/AddWorkspaceMemberRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "AddWorkspaceMemberRequestValidator::AddWorkspaceMemberRequestValidator",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/ChangeOrgMemberRoleRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "ChangeOrgMemberRoleRequestValidator::ChangeOrgMemberRoleRequestValidator",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/CreateOrgRoleRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "CreateOrgRoleRequestValidator::CreateOrgRoleRequestValidator",
+      "nloc": 14,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/CreateOrganizationRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "CreateOrganizationRequestValidator::CreateOrganizationRequestValidator",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/CreateRoleRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "CreateRoleRequestValidator::CreateRoleRequestValidator",
+      "nloc": 14,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/CreateWorkspaceRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "CreateWorkspaceRequestValidator::CreateWorkspaceRequestValidator",
+      "nloc": 12,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/InviteToOrgRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "InviteToOrgRequestValidator::InviteToOrgRequestValidator",
+      "nloc": 15,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/UpdateEntityRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UpdateEntityRequestValidator::UpdateEntityRequestValidator",
+      "nloc": 17,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/UpdateMemberRoleRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UpdateMemberRoleRequestValidator::UpdateMemberRoleRequestValidator",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/UpdateOrgUserProfileRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UpdateOrgUserProfileRequestValidator::UpdateOrgUserProfileRequestValidator",
+      "nloc": 15,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/UpdateOrganizationRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UpdateOrganizationRequestValidator::UpdateOrganizationRequestValidator",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/UpdateOrganizationSettingsRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UpdateOrganizationSettingsRequestValidator::UpdateOrganizationSettingsRequestValidator",
+      "nloc": 22,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/UpdateWorkspaceRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UpdateWorkspaceRequestValidator::UpdateWorkspaceRequestValidator",
+      "nloc": 12,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Validators/UpdateWorkspaceSettingsRequestValidator.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UpdateWorkspaceSettingsRequestValidator::UpdateWorkspaceSettingsRequestValidator",
+      "nloc": 20,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Data/RelativaDbContext.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "RelativaDbContext::OnModelCreating",
+      "nloc": 43,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/EntityTypeRepository.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EntityTypeRepository::GetAllWithPropertiesAsync",
+      "nloc": 22,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/OrganizationSettingsRepository.cs",
+      "function_count": 3,
+      "max_ccn": 1,
+      "max_ccn_function": "OrganizationSettingsRepository::AddAsync",
+      "nloc": 22,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Repositories/WorkspaceSettingsRepository.cs",
+      "function_count": 3,
+      "max_ccn": 1,
+      "max_ccn_function": "WorkspaceSettingsRepository::AddAsync",
+      "nloc": 20,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Infrastructure/Services/Audit/OutboxWriter.cs",
+      "function_count": 2,
+      "max_ccn": 1,
+      "max_ccn_function": "OutboxWriter::EnqueueAuditAsync",
+      "nloc": 34,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/EntityRelationshipEndpoints.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EntityRelationshipEndpoints::MapEntityRelationshipEndpoints",
+      "nloc": 57,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/EntityTypeEndpoints.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EntityTypeEndpoints::MapEntityTypeEndpoints",
+      "nloc": 20,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/InvitationEndpoints.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "InvitationEndpoints::MapInvitationEndpoints",
+      "nloc": 51,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/JoinRequestEndpoints.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "JoinRequestEndpoints::MapJoinRequestEndpoints",
+      "nloc": 60,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/MemberEndpoints.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "MemberEndpoints::MapMemberEndpoints",
+      "nloc": 48,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/OrgInvitationEndpoints.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "OrgInvitationEndpoints::MapOrgInvitationEndpoints",
+      "nloc": 49,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/OrgMemberEndpoints.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "OrgMemberEndpoints::MapOrgMemberEndpoints",
+      "nloc": 39,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/OrgRoleEndpoints.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "OrgRoleEndpoints::MapOrgRoleEndpoints",
+      "nloc": 50,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/OrganizationUserEndpoints.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "OrganizationUserEndpoints::MapOrganizationUserEndpoints",
+      "nloc": 44,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Endpoints/RoleEndpoints.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "RoleEndpoints::MapRoleEndpoints",
+      "nloc": 59,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Hubs/CoreHub.cs",
+      "function_count": 3,
+      "max_ccn": 1,
+      "max_ccn_function": "CoreHub::JoinEntity",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Hubs/EntityRelationshipNotifier.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EntityRelationshipNotifier::NotifyChangedAsync",
+      "nloc": 16,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Gateway/src/Relativa.Gateway/Middleware/GlobalExceptionHandler.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "GlobalExceptionHandler::TryHandleAsync",
+      "nloc": 20,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Gateway/src/Relativa.Gateway/Program.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "catch",
+      "nloc": 142,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Data/GraphDbContext.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "GraphDbContext::OnModelCreating",
+      "nloc": 12,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Data/GraphQueryDbContext.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "GraphQueryDbContext::OnModelCreating",
+      "nloc": 29,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Hubs/GraphHub.cs",
+      "function_count": 3,
+      "max_ccn": 1,
+      "max_ccn_function": "GraphHub::OnConnectedAsync",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Messaging/src/Relativa.Messaging/OutboxRabbitMqPublisher.cs",
+      "function_count": 5,
+      "max_ccn": 1,
+      "max_ccn_function": "OutboxRabbitMqPublisher::EnsureTopicExchangesAsync",
+      "nloc": 36,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/AuditLogs/EntityAuditLogConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EntityAuditLogConfiguration::Configure",
+      "nloc": 38,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/AuditLogs/OrganizationAuditLogConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "OrganizationAuditLogConfiguration::Configure",
+      "nloc": 37,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/AuditLogs/UserAuditLogConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UserAuditLogConfiguration::Configure",
+      "nloc": 37,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/AuditLogs/WorkspaceAuditLogConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "WorkspaceAuditLogConfiguration::Configure",
+      "nloc": 37,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/AuditOutboxMessageConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "AuditOutboxMessageConfiguration::Configure",
+      "nloc": 50,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/AuditProcessedEventConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "AuditProcessedEventConfiguration::Configure",
+      "nloc": 18,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/EntityConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EntityConfiguration::Configure",
+      "nloc": 28,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/EntityPropertyValueConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EntityPropertyValueConfiguration::Configure",
+      "nloc": 30,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/EntityRelationshipConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EntityRelationshipConfiguration::Configure",
+      "nloc": 37,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/EntityRelationshipTypeConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EntityRelationshipTypeConfiguration::Configure",
+      "nloc": 36,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/EntityTypeConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EntityTypeConfiguration::Configure",
+      "nloc": 17,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/EntityTypePropertyConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EntityTypePropertyConfiguration::Configure",
+      "nloc": 25,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/EntityWorkspaceConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "EntityWorkspaceConfiguration::Configure",
+      "nloc": 29,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/OrganizationConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "OrganizationConfiguration::Configure",
+      "nloc": 15,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/OrganizationInvitationConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "OrganizationInvitationConfiguration::Configure",
+      "nloc": 43,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/OrganizationJoinRequestConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "OrganizationJoinRequestConfiguration::Configure",
+      "nloc": 39,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/OrganizationRoleConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "OrganizationRoleConfiguration::Configure",
+      "nloc": 26,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/OrganizationRolePermissionConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "OrganizationRolePermissionConfiguration::Configure",
+      "nloc": 25,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/OrganizationSettingsConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "OrganizationSettingsConfiguration::Configure",
+      "nloc": 42,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/PermissionConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "PermissionConfiguration::Configure",
+      "nloc": 17,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/PropertyAllowedValueConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "PropertyAllowedValueConfiguration::Configure",
+      "nloc": 20,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/PropertyConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "PropertyConfiguration::Configure",
+      "nloc": 26,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/RabbitMqProcessedDeliveryConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "RabbitMqProcessedDeliveryConfiguration::Configure",
+      "nloc": 23,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/UserBackupCodeConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UserBackupCodeConfiguration::Configure",
+      "nloc": 23,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/UserEmailConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UserEmailConfiguration::Configure",
+      "nloc": 26,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/UserExternalLoginConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UserExternalLoginConfiguration::Configure",
+      "nloc": 25,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/UserRoleOrganizationConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UserRoleOrganizationConfiguration::Configure",
+      "nloc": 38,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/UserRoleWorkspaceConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UserRoleWorkspaceConfiguration::Configure",
+      "nloc": 38,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/UserSettingsConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "UserSettingsConfiguration::Configure",
+      "nloc": 27,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/WorkspaceConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "WorkspaceConfiguration::Configure",
+      "nloc": 27,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/WorkspaceRoleConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "WorkspaceRoleConfiguration::Configure",
+      "nloc": 26,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/WorkspaceRolePermissionConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "WorkspaceRolePermissionConfiguration::Configure",
+      "nloc": 25,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Configurations/WorkspaceSettingsConfiguration.cs",
+      "function_count": 1,
+      "max_ccn": 1,
+      "max_ccn_function": "WorkspaceSettingsConfiguration::Configure",
+      "nloc": 46,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/RelationshipCardinality.cs",
+      "function_count": 4,
+      "max_ccn": 1,
+      "max_ccn_function": "RelationshipCardinalityExtensions::ToDatabaseValue",
+      "nloc": 30,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Application/DTOs/AuditLogDtos.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 69,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Application/Exceptions/AppException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Application/Exceptions/ForbiddenAccessException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Application/Interfaces/IAuditLogReadRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 61,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Application/Interfaces/IAuditLogReadService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Application/Options/AuditLogReadOptions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Application/Validators/GetAuditLogQuery.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 14,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Audit/src/Relativa.Audit.Infrastructure/Services/RabbitMqAuditOptions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/EmailAddressDtos.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/ForgotPasswordRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/LoginRequestDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/LoginResponseDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/OAuthLoginRequestDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/RegisterRequestDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/RegisterResponseDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/ResendVerificationRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/ResetPasswordRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/SupportContactRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/TwoFactorDtos.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/UpdateMyProfileRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/UpdateUserSettingsRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/UserProfileDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/UserSettingsDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/DTOs/VerifyEmailRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Exceptions/AuthException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Exceptions/ConfigurationException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Exceptions/EmailAddressTakenException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 3,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Exceptions/EmailNotVerifiedException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Exceptions/InvalidTwoFactorCodeException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 3,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Exceptions/InvalidVerificationCodeException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 3,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Exceptions/RateLimitExceededException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Exceptions/TwoFactorRequiredException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 3,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Interfaces/IAuthService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 16,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Interfaces/IEmailAddressService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Interfaces/IEmailLocalizer.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Interfaces/IEmailRateLimiter.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Interfaces/IEmailVerificationService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Interfaces/IExternalIdentityVerifier.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Interfaces/ISupportService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Interfaces/ITwoFactorService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 13,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Interfaces/IUserProvisioningService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Interfaces/IUserSettingsService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Interfaces/VerificationChannel.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Options/EmailVerificationOptions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 12,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Options/SmsOptions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Options/SmtpOptions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Options/SupportOptions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Options/TwoFactorOptions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Application/Validators/EmailValidation.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Domain/Interfaces/IEmailSender.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Domain/Interfaces/IPasswordHasher.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Domain/Interfaces/ISmsSender.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Domain/Interfaces/ITokenService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Domain/Interfaces/ITotpProvider.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Domain/Interfaces/IUserRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 23,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Authentication/src/Relativa.Authentication.Domain/Interfaces/IUserSettingsRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 8,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Authorization/OrganizationPermissions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 15,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Authorization/WorkspacePermissions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 31,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/CreateEntityRelationshipRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/CreateEntityRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/EntityDetailDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/EntityFilterCondition.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/EntityListItemDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/EntityPagedResult.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/EntityPropertyValueDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 8,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/EntityRelationshipLinkInput.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/EntityRelationshipRefDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/EntitySortField.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 0,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/PropertyValueInput.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/ReassignEntityRelationshipRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 4,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/ResolvedFilterCondition.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 0,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Entity/UpdateEntityRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/EntityType/AllowedValueDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/EntityType/EntityTypeDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/EntityType/EntityTypePropertyDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/EntityType/IncomingRelationshipDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/EntityType/OutgoingRelationshipDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Invitation/MyInvitationsDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 3,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/JoinRequest/CreateJoinRequestRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/JoinRequest/JoinRequestDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/JoinRequest/ReviewJoinRequestRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Member/AddWorkspaceMemberRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Member/UpdateMemberRoleRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Member/WorkspaceMemberDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/OrgInvitation/AcceptOrgInvitationRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/OrgInvitation/InviteToOrgRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/OrgInvitation/OrgInvitationDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/OrgRole/CreateOrgRoleRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/OrgRole/OrgRoleDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 3,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/OrgRole/UpdateOrgRoleRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Organization/ChangeOrgMemberRoleRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Organization/CreateOrgUserRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Organization/CreateOrganizationRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Organization/OrgMemberDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Organization/OrganizationDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 8,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Organization/OrganizationSearchResultDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Organization/OrganizationSettingsDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 8,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Organization/UpdateOrgUserProfileRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Organization/UpdateOrganizationRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Organization/UpdateOrganizationSettingsRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Role/CreateRoleRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Role/PermissionDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Role/RoleDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Role/UpdateRoleRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Workspace/CreateWorkspaceRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Workspace/UpdateWorkspaceRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Workspace/UpdateWorkspaceSettingsRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Workspace/WorkspaceDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/DTOs/Workspace/WorkspaceSettingsDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 8,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Exceptions/AppException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Exceptions/EntityNotFoundException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 3,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Exceptions/ForbiddenAccessException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Interfaces/IEntityRelationshipNotifier.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Interfaces/IEntityService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 25,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Interfaces/IEntityTypeService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Interfaces/IJoinRequestService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Interfaces/IOrgInvitationService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 12,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Interfaces/IOrgRoleService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Interfaces/IOrganizationService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 15,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Interfaces/IOrganizationUserAdminService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Interfaces/IRoleService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Interfaces/IWorkspaceAccessEvaluator.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 8,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Interfaces/IWorkspaceMemberService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Application/Interfaces/IWorkspaceService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 12,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/EntitySortField.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IEntityRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 40,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IEntityTypeRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IJoinRequestRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IOrgInvitationRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 12,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IOrganizationRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IOrganizationRoleRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IOrganizationSettingsRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 8,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IPermissionRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IUserRoleOrganizationRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IUserRoleWorkspaceRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 14,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IWorkspaceRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IWorkspaceRoleRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 13,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/IWorkspaceSettingsRepository.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 8,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core.Domain/Interfaces/ResolvedFilterCondition.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Core/src/Relativa.Core/Hubs/CoreSignalREvents.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/Dto/DashboardSummaryDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 17,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/Dto/MemberActivityDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/Dto/PipelineDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 13,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/Dto/RiskDistributionDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 18,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/Dto/TopEntitiesDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 23,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/Dto/TrendsDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/Dto/WorkspaceComparisonDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/Dto/WorkspaceSummaryDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 18,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/IDashboardService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Dashboard/IWorkspaceDashboardService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/ForbiddenAccessException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 2,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Graph/GraphDtos.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 24,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Graph/IGraphDataService.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/ML/IMlRecalculationClient.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/ML/IMlScoringClient.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/ML/MlScoreDto.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Messaging/GraphSignalREvents.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/Messaging/RabbitMqGraphConsumerOptions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 19,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Graph/src/Relativa.Graph/WorkspaceNotFoundException.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 3,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Messaging/src/Relativa.Messaging/RabbitMqPublishingOptions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 16,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/AuditEventContract.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 23,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/DomainMessageEnvelope.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/DomainPayloadTypes.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/EntityAnalysisRefreshPayloadV1.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 8,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/EntityGraphRouting.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 15,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/IOutboxWriter.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/MessagingSchemaVersions.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/MlRecalculateCompletedPayloadV1.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/MlRecalculateEnqueuedPayloadV1.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/MlRecalculateProgressPayloadV1.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/MlScoringRouting.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 18,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/OrganizationSettingsUpdatedPayloadV1.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 4,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/WorkspaceLifecyclePayloadV1.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Contracts/WorkspaceSettingsUpdatedPayloadV1.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 5,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/AuditLogs/AuditLog.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 13,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/AuditLogs/EntityAuditLog.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/AuditLogs/OrganizationAuditLog.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/AuditLogs/UserAuditLog.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/AuditLogs/WorkspaceAuditLog.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/AuditOutboxMessage.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 13,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/AuditProcessedEvent.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 6,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/Entity.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 14,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/EntityPropertyValue.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 13,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/EntityRelationship.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/EntityRelationshipType.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 14,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/EntityType.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 12,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/EntityTypeProperty.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/EntityWorkspace.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/Organization.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 13,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/OrganizationInvitation.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 16,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/OrganizationJoinRequest.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 15,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/OrganizationRole.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 13,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/OrganizationRolePermission.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/OrganizationSettings.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/Permission.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/Property.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 22,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/PropertyAllowedValue.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 8,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/RabbitMqProcessedDelivery.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 7,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/UserBackupCode.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/UserEmail.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 13,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/UserExternalLogin.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 10,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/UserRoleOrganization.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 13,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/UserRoleWorkspace.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 13,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/UserSettings.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 8,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/Workspace.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 15,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/WorkspaceRole.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 13,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/WorkspaceRolePermission.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 9,
+      "commits": 0,
+      "category": "Stable"
+    },
+    {
+      "path": "Persistence/src/Relativa.Persistence/Entities/WorkspaceSettings.cs",
+      "function_count": 0,
+      "max_ccn": 0,
+      "max_ccn_function": "",
+      "nloc": 11,
+      "commits": 0,
+      "category": "Stable"
+    }
+  ]
+}

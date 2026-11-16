@@ -1,0 +1,6 @@
+﻿git_sha=b71a8fe7a003b633658b0d4149b1eaf6a35a33a7
+graph_image=sha256:2c08047c79bac9cb2a2359f971a84c348bd71511c09ffd2f34da5512ce607425
+original_nano_cpus=0
+k6_image=grafana/k6:2.2.0
+gateway=http://host.docker.internal:8080
+restored_nano_cpus=0

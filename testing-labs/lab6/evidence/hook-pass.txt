@@ -1,0 +1,41 @@
+$ git add -- Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs Graph/tests/Relativa.Graph.Integration.Tests/DealCommercialOptionTests.cs
+$ git commit -m "refactor(audit): linearize legacy tier probe, PASS"
+10:32AM INF 0 commits scanned.
+10:32AM INF scanned ~681 bytes (681 bytes) in 233ms
+10:32AM INF no leaks found
+lizard cyclomatic gate (CC>10 blocks the commit)
+================================================
+  NLOC    CCN   token  PARAM  length  location  
+------------------------------------------------
+       6      1     27      0       6 DealCommercialOption::new@7-12@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       7      1     33      0       7 DealCommercialOption::new@14-20@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       6      1     28      0       6 DealCommercialOption::new@22-27@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       6      1     27      0       6 DealCommercialOption::new@29-34@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       4      1     16      0       4 DealCommercialOption::new@36-39@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       9      1     71      0       9 DealCommercialOption::new@43-51@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+      15      1     78      6      15 DealCommercialOption::Evaluate@53-67@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+      14      1     71      0      14 DealCommercialOption::new@69-82@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       2      1     16      1       2 DealCommercialOption::ScoreLegacyTier@84-85@Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+       5      1     32      0       5 DealCommercialOptionTests::Evaluate_ClosedProspectingHighBasic_AppliesClosedBonusWithoutClosingPair@10-14@Graph/tests/Relativa.Graph.Integration.Tests/DealCommercialOptionTests.cs
+       5      1     32      0       5 DealCommercialOptionTests::Evaluate_RevokedNegotiationMediumFull_AppliesBothCompoundRules@17-21@Graph/tests/Relativa.Graph.Integration.Tests/DealCommercialOptionTests.cs
+       5      1     32      0       5 DealCommercialOptionTests::Evaluate_OpenProposalLowFullOrg_SkipsBothCompoundRules@24-28@Graph/tests/Relativa.Graph.Integration.Tests/DealCommercialOptionTests.cs
+       5      1     32      0       5 DealCommercialOptionTests::Evaluate_ClosedNegotiationLowFullOrg_StacksClosingPairAndClosedBonus@31-35@Graph/tests/Relativa.Graph.Integration.Tests/DealCommercialOptionTests.cs
+       5      1     32      0       5 DealCommercialOptionTests::Evaluate_UnknownStatusOnProspecting_AddsOnlyTheKnownDeltas@38-42@Graph/tests/Relativa.Graph.Integration.Tests/DealCommercialOptionTests.cs
+       4      1     21      0       4 DealCommercialOptionTests::ScoreLegacyTier_KnownTier_ReadsTheTable@45-48@Graph/tests/Relativa.Graph.Integration.Tests/DealCommercialOptionTests.cs
+       4      1     22      0       4 DealCommercialOptionTests::ScoreLegacyTier_UnknownTier_ReturnsSentinel@51-54@Graph/tests/Relativa.Graph.Integration.Tests/DealCommercialOptionTests.cs
+2 file analyzed.
+==============================================================
+NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
+--------------------------------------------------------------
+     73       7.7     1.0       40.8         9     Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+     47       4.7     1.0       29.0         7     Graph/tests/Relativa.Graph.Integration.Tests/DealCommercialOptionTests.cs
+
+==================================================================================================================
+No thresholds exceeded (cyclomatic_complexity > 10 or length > 99999 or nloc > 1000000 or parameter_count > 99999)
+==========================================================================================
+Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
+------------------------------------------------------------------------------------------
+       120       6.4     1.0       35.6       16            0      0.00    0.00
+[lab5 a4af9d2] refactor(audit): linearize legacy tier probe, PASS
+ 2 files changed, 30 insertions(+)
+exit=0

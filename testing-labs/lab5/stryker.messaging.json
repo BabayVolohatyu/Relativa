@@ -1,0 +1,15 @@
+{
+  "stryker-config": {
+    "solution": "lab5/stryker-messaging.slnx",
+    "project": "Relativa.Messaging.csproj",
+    "test-projects": [
+      "Messaging/tests/Relativa.Messaging.Tests/Relativa.Messaging.Tests.csproj"
+    ],
+    "mutate": [
+      "**/RabbitMqExchangeRouter.cs"
+    ],
+    "test-case-filter": "FullyQualifiedName~RabbitMqExchangeRouterTests",
+    "configuration": "Release",
+    "concurrency": 2
+  }
+}

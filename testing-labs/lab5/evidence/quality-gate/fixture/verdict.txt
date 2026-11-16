@@ -1,0 +1,9 @@
+﻿target=fixture
+line_coverage_percent=100
+mutation_score_percent=33.33
+min_line_coverage_percent=80
+min_mutation_score_percent=65
+coverage_pass=True
+mutation_pass=False
+verdict=FAIL
+formula=(line coverage >= 80%) AND (mutation score >= 65%)

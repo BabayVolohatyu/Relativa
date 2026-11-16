@@ -1,0 +1,10 @@
+﻿resilience_enabled=true
+warmup_status=200 warmup_time=2.723388
+status=200
+time_total=0.853304
+
+--- graph logs ---
+      ml_scoring_degraded attempts=3 reason=ML scoring attempt exceeded 200ms.
+      System.TimeoutException: ML scoring attempt exceeded 200ms.
+      ml_scoring_degraded attempts=3 reason=ML scoring attempt exceeded 200ms.
+      System.TimeoutException: ML scoring attempt exceeded 200ms.

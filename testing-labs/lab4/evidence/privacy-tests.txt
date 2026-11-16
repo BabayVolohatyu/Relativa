@@ -1,0 +1,16 @@
+Command:
+dotnet test Authentication/tests/Relativa.Authentication.Application.Tests/Relativa.Authentication.Application.Tests.csproj --filter FullyQualifiedName~Privacy
+
+Passed!  - Failed: 0, Passed: 5, Skipped: 0, Total: 5
+
+PrivacyLogFormatterTests.Positive_MasksIdentifiers_AndRedactsSecrets
+PrivacyLogFormatterTests.Negative_NestedDtoAndException_DoNotLeakOriginalValues
+PrivacyIntegrationTests.Export_IncludesEverySource_OmitsSecrets_AndDeniesForeignAndMissingIds
+PrivacyIntegrationTests.Anonymize_RemovesPii_KeepsRetainedRows_IsIdempotent_AndRollsBack
+PrivacyIntegrationTests.Consent_GrantAllows_RevokeDenies_AndPurposesStayIsolated
+
+Full Authentication suite after the same changes:
+
+dotnet test Authentication/tests/Relativa.Authentication.Application.Tests/Relativa.Authentication.Application.Tests.csproj
+
+Passed!  - Failed: 0, Passed: 261, Skipped: 0, Total: 261, Duration: 1 m 34 s

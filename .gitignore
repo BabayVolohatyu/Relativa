@@ -67,10 +67,5 @@ test-results/
 tests/e2e/results.json
 .claude/
 
-# University coursework folders (kept local, not tracked)
-high-load-systems/context/
-high-load-systems/description/
-testing-labs/
-
 # LibreOffice lock files
 .~lock.*#
