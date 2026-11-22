@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - testing/lab11
+      - testing/lab12
       - main
   pull_request:
 

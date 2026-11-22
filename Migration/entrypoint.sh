@@ -16,6 +16,11 @@ DB_USER="${DB_USER:-relativa}"
 DB_PASS="${DB_PASS:-relativa}"
 
 if [ "${TRUNCATE_DB}" = "true" ] || [ "${MIGRATION_TRUNCATE_DB:-false}" = "true" ]; then
+  if [ "${RELATIVA_TRUNCATE_I_HAVE_A_DUMP:-}" != "yes" ]; then
+    echo "Refusing to drop database '${DB_NAME}'. Take a dump with RB-001, then set RELATIVA_TRUNCATE_I_HAVE_A_DUMP=yes." >&2
+    exit 1
+  fi
+
   echo "Force truncation requested. Waiting for PostgreSQL at ${DB_HOST}:${DB_PORT}..."
   until pg_isready -h "${DB_HOST}" -p "${DB_PORT}" -U "${DB_USER}" -d postgres >/dev/null 2>&1; do
     sleep 1

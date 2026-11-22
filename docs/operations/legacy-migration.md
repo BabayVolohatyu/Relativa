@@ -50,7 +50,7 @@ flowchart LR
 | `entrypoint.sh`, гілка truncate | Знищити базу `DB_NAME` до міграції | verified, читання коду |
 | `Relativa.Migration.csproj` | Посилання на `Relativa.Persistence` | verified, csproj |
 | README каже `exit 0` і міграції в Core | Суперечить коду | verified, порівняння з README |
-| Повний перелік таблиць outbox у живому postgres | Лежить у знімку EF, не звірявся командою `\dt` до drill | assumed, до першого успішного drill |
+| Повний перелік таблиць outbox у живому postgres | Імена таблиць outbox цим файлом не переписані. Число таблиць `public` = 38 перевірене drill | verified для числа 38, assumed для імен outbox |
 
 ## Реєстр боргу
 

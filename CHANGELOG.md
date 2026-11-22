@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- RFC-001: `Migration/entrypoint.sh` відмовляється робити `DROP DATABASE`, доки не виставлено `RELATIVA_TRUNCATE_I_HAVE_A_DUMP=yes`. Дамп і drill — `ops/pg-dump.ps1` і `ops/pg-restore-drill.ps1`.
+
 ## docs-v1.0 — 2026-11-22
 
 - База знань MkDocs: чотири рівні, паспорт SDD / ISD / ADR з ЛР10, front matter.
