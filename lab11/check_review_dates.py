@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-SKIP = ("ai-guides", "runbooks", "PROMOTION-STRATEGY.md")
+SKIP = ("ai-guides", "PROMOTION-STRATEGY.md")
 
 
 def front_matter(text: str) -> dict[str, str]:

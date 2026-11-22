@@ -1,3 +1,11 @@
+---
+owner: Babay
+status: published
+review_date: 2027-02-20
+tags:
+  - ops
+---
+
 # RabbitMQ choreography, DLQ, and operations
 
 > **Last verified:** 2026-05-15 (added `relativa.graph_ml` exchange for Graph→ML RPC scoring; `run_graph_score_consumer` added to ML.)

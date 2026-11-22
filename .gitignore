@@ -65,6 +65,9 @@ Thumbs.db
 # MkDocs build output
 site/
 
+# Local PostgreSQL dumps. A dump is not documentation and is not committed.
+backups/
+
 # Playwright output
 test-results/
 tests/e2e/results.json

@@ -1,0 +1,60 @@
+# Контракт рівня послуг Relativa. Числа — цілі, не звіт Prometheus:
+# у репозиторії немає Grafana. Джерело SLI назване в definition.
+# Вікно 30 діб = 30 * 24 * 60 = 43200 хвилин.
+# Error budget minutes = (1 - slo) * window_minutes.
+# SLA консервативніша за SLO: зовнішня обіцянка гірша, різниця — буфер команди.
+
+window_days: 30
+window_minutes: 43200
+
+indicators:
+  - id: gateway-availability
+    definition: >
+      Частка запитів GET /health за 30 діб, у яких HTTP-код 200
+      і JSON-поле status дорівнює ok. Знаменник — усі такі запити,
+      включно з таймаутом і відмовою з'єднання. Джерело: проба шлюзу
+      на порту 8080, той самий маршрут, що в docs/api/openapi.yaml.
+    slo: 0.995
+    sla: 0.99
+    error_budget_minutes: 216
+    sla_budget_minutes: 432
+    reliability_buffer_minutes: 216
+
+  - id: gateway-latency
+    definition: >
+      Частка запитів шлюзу за 30 діб, у яких тривалість запису
+      Serilog request logging менша за 300 мс. Знаменник — усі
+      запити, які шлюз встиг залогувати, плюс ті, що обірвалися
+      до відповіді (їх рахуємо як повільні). Гістограми Prometheus немає,
+      тож це модельна ціль для майбутнього підрахунку по логу.
+    slo: 0.99
+    sla: 0.95
+    error_budget_minutes: 432
+    sla_budget_minutes: 2160
+    reliability_buffer_minutes: 1728
+
+  - id: migration-completion
+    definition: >
+      Частка запусків контейнера migration за 30 діб, які завершилися
+      кодом 0 за умови, що postgres вже healthy. Знаменник — такі запуски.
+      Запуск, коли postgres не healthy, у цей SLI не входить: це інший збій.
+      Джерело: код виходу relativa-migration.
+    slo: 0.99
+    sla: 0.95
+    error_budget_minutes: 432
+    sla_budget_minutes: 2160
+    reliability_buffer_minutes: 1728
+
+error_budget_policy:
+  rule: >
+    Бюджет, який стереже заморозку, — внутрішній (SLO), не зовнішній (SLA).
+    Якщо за вікно 30 діб спожито 100% error_budget_minutes хоча б одного
+    індикатора, Change Control Board не погоджує стандартну і нормальну
+    зміну, яка не є роботою зі стабільності. Термінова зміна, що зупиняє
+    втрату даних або повертає SLI, лишається допустимою.
+  lift: >
+    Заморозка спадає, коли ковзне вікно знову нижче 100% бюджету
+    або коли перевірка ефективності CAPA для цього індикатора зафіксована
+    зеленим прогоном.
+  alignment: >
+    Той самий change freeze записаний у протоколі CCB від 2026-11-22.

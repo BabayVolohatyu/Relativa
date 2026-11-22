@@ -3,7 +3,7 @@ site_description: База знань Relativa. Призначення і шви
 site_url: https://babayvolohatyu.github.io/Relativa/
 repo_url: https://github.com/BabayVolohatyu/Relativa
 repo_name: BabayVolohatyu/Relativa
-edit_uri: edit/testing/lab11/docs/
+edit_uri: edit/testing/lab12/docs/
 docs_dir: docs
 
 theme:
@@ -41,7 +41,6 @@ validation:
 
 exclude_docs: |
   ai-guides/
-  runbooks/
   PROMOTION-STRATEGY.md
 
 nav:
@@ -64,3 +63,11 @@ nav:
       - ADR-0001 PostgreSQL: architecture/adr/ADR-0001-shared-postgresql.md
       - ADR-0002 Черга: architecture/adr/ADR-0002-asynchronous-messaging.md
     - Застарілі README сервісів: architecture/deprecated-service-readmes.md
+  - Експлуатація:
+    - Дамп PostgreSQL: runbooks/RB-001.md
+    - Черга RabbitMQ: runbooks/RABBITMQ-CHOREOGRAPHY.md
+    - Заявка RFC-001: operations/rfc-001.md
+    - Оцінка впливу: operations/impact-analysis.md
+    - Протокол CCB: operations/ccb-2026-11-22.md
+    - Чек-лист релізу: operations/release-checklist.md
+    - Legacy Migration: operations/legacy-migration.md
