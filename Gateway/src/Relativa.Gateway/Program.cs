@@ -3,6 +3,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.IdentityModel.Tokens;
+using Relativa.Gateway;
 using Relativa.Gateway.Middleware;
 using Relativa.Gateway.OpenApi;
 using Scalar.AspNetCore;
@@ -157,6 +158,8 @@ try
 
     app.MapGet("/health", () => Results.Ok(new { status = "ok", service = "relativa-gateway" }))
         .AllowAnonymous();
+
+    OperatorDigestEndpoints.Map(app);
 
     app.UseAuthentication();
     app.UseAuthorization();
