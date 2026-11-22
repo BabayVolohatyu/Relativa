@@ -40,9 +40,10 @@ if ! "$PYTHON" -c "import lizard" >/dev/null 2>&1; then
 fi
 
 set --
+# sdk/client is generated from docs/api/openapi.yaml. The gate stays on hand-written C#.
 while IFS= read -r file; do
   case "$file" in
-    ''|*/Migrations/*|*.Designer.cs|*/bin/*|*/obj/*) continue ;;
+    ''|*/Migrations/*|*.Designer.cs|*/bin/*|*/obj/*|sdk/client/*) continue ;;
   esac
   set -- "$@" "$file"
 done <<EOF

@@ -1,8 +1,16 @@
+---
+owner: Babay
+status: published
+review_date: 2027-05-21
+tags:
+  - architecture
+---
+
 # Документ проєктування (SDD)
 
-Relativa — мультиорендна CRM для B2B-команд продажів. Оператор бачить угоди, клієнтів і зв'язки на одному графі, а оцінки закриття та відтоку рахує окремий ML-сервіс. Цей документ описує контейнери, відповідальність і контракти між ними. Порядок запуску, змінні оточення і відновлення — у [isd.md](isd.md). Чому обрані база і шина — у [ADR 0001](architecture/adr/0001-shared-postgresql.md) і [ADR 0002](architecture/adr/0002-asynchronous-messaging.md).
+Relativa — мультиорендна CRM для B2B-команд продажів. Оператор бачить угоди, клієнтів і зв'язки на одному графі, а оцінки закриття та відтоку рахує окремий ML-сервіс. Цей документ описує контейнери, відповідальність і контракти між ними. Порядок запуску, змінні оточення і відновлення — у [isd.md](isd.md). Чому обрані база і шина — у [ADR 0001](adr/ADR-0001-shared-postgresql.md) і [ADR 0002](adr/ADR-0002-asynchronous-messaging.md).
 
-Дата паспорта: 2026-11-22. Глибший розбір шарів .NET лишається в [docs/ai-guides/ARCHITECTURE.md](ai-guides/ARCHITECTURE.md). Схема таблиць — у [DATABASE.md](../DATABASE.md).
+Дата паспорта: 2026-11-22. Глибший розбір шарів .NET лишається в [docs/ai-guides/ARCHITECTURE.md](../ai-guides/ARCHITECTURE.md). Схема таблиць — у [DATABASE.md](https://github.com/BabayVolohatyu/Relativa/blob/testing/lab11/DATABASE.md).
 
 ## C4, рівень контейнерів
 
@@ -105,15 +113,15 @@ Django. HTTP: `GET /api/ml/health/`, `POST /api/ml/recalculate/`, `POST /api/ml/
 
 ### PostgreSQL
 
-Одна база на всі сервіси. Зрізи DbContext різні: Auth бачить користувача, Core і Migration — повну модель, Graph має окремий контекст ідемпотентності і окремий контекст читання графа. Це зафіксовано в [ADR 0001](architecture/adr/0001-shared-postgresql.md).
+Одна база на всі сервіси. Зрізи DbContext різні: Auth бачить користувача, Core і Migration — повну модель, Graph має окремий контекст ідемпотентності і окремий контекст читання графа. Це зафіксовано в [ADR 0001](adr/ADR-0001-shared-postgresql.md).
 
 ### RabbitMQ
 
-Повідомлення не є другим джерелом істини. Істина — рядок у PostgreSQL, включно з рядком outbox. Брокер доставляє копію. Обміни та наслідки вибору — в [ADR 0002](architecture/adr/0002-asynchronous-messaging.md). Операційні команди черг — у [runbook](runbooks/RABBITMQ-CHOREOGRAPHY.md).
+Повідомлення не є другим джерелом істини. Істина — рядок у PostgreSQL, включно з рядком outbox. Брокер доставляє копію. Обміни та наслідки вибору — в [ADR 0002](adr/ADR-0002-asynchronous-messaging.md). Операційні команди черг — у [runbook](../runbooks/RABBITMQ-CHOREOGRAPHY.md).
 
 ## Модель даних
 
-Фрагмент, не повний перелік колонок. Повний перелік таблиць — у [DATABASE.md](../DATABASE.md) і в `Persistence/src/Relativa.Persistence/Entities/`.
+Фрагмент, не повний перелік колонок. Повний перелік таблиць — у [DATABASE.md](https://github.com/BabayVolohatyu/Relativa/blob/testing/lab11/DATABASE.md) і в `Persistence/src/Relativa.Persistence/Entities/`.
 
 Організація — межа орендаря. Робочий простір належить одній організації. Користувач не має глобальної ролі: роль задає рядок членства в організації або в просторі. Бізнес-записи (клієнт, угода, контакт, контракт) — це рядки `entity` з типом `entity_type`. Значення полів лежать у `entity_property_value` (один із п'яти типізованих стовпців заповнений). Зв'язок «угода → клієнт» — рядок `entity_relationship`, не зовнішній ключ у таблиці угод.
 
@@ -158,4 +166,4 @@ erDiagram
 
 ## Покриття аудиторій
 
-Питання новачка, розробника, QA, DevOps і бізнесу зібрані в [audience-matrix.md](audience-matrix.md). Прогалин після паспорта немає: запуск і призначення закриває [README](../README.md), контракти — цей файл, розгортання і RTO/RPO — [isd.md](isd.md).
+Питання новачка, розробника, QA, DevOps і бізнесу зібрані в [audience-matrix.md](../audience-matrix.md). Прогалин після паспорта немає: запуск і призначення закриває [README](https://github.com/BabayVolohatyu/Relativa/blob/testing/lab11/README.md), контракти — цей файл, розгортання і RTO/RPO — [isd.md](isd.md).

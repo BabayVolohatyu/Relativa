@@ -1,3 +1,11 @@
+---
+owner: Babay
+status: published
+review_date: 2027-02-20
+tags:
+  - ops
+---
+
 # Пакет передачі знань
 
 Стан після коміту `docs(maintenance): restore documentation currency, PASS`. Система на рівні структури, запуску і контрактів передається без усного носія. Колонки EAV далі читаються з `DATABASE.md`, не з пам'яті автора.
@@ -7,8 +15,8 @@
 | Документ | Власник | Цикл | Актуальність після PASS |
 |---|---|---|---|
 | `README.md` | Babay | 90 днів | Звірено 2026-11-22. Є швидкий старт, призначення і `GET /api/v1/operator/digest` |
-| `docs/sdd.md` | Babay | 180 днів | Звірено 2026-11-22. Є Operator digest і залежність Graph від старту ML |
-| `docs/isd.md` | Babay | 90 днів | Звірено 2026-11-22. Крок 4 фіксує `graph` → `ml` `service_started` |
+| `docs/architecture/sdd.md` | Babay | 180 днів | Звірено 2026-11-22. Є Operator digest і залежність Graph від старту ML |
+| `docs/architecture/isd.md` | Babay | 90 днів | Звірено 2026-11-22. Крок 4 фіксує `graph` → `ml` `service_started` |
 | ADR 0001, ADR 0002 | Babay | 180 днів | Accepted. Нове рішення — новий номер, ці файли не переписуються |
 | `docs/maintenance.md` | Babay | 90 днів | Правило «зміна коду = зміна документації» |
 | `docs/audience-matrix.md` | Babay | 90 днів | Прогалин немає |
@@ -21,7 +29,7 @@
 2. Скопіювати `.env.example` у `.env`. Файл `.env` не комітити.
 3. З кореня виконати `docker compose up --build -d`. Відкрити http://localhost:3000 і зареєструватися. Перевірити http://localhost:8080/health (`status` = `ok`).
 4. Без токена відкрити http://localhost:8080/api/v1/operator/digest. У тілі `kind` = `operator-digest`, у `includes` — `openDeals`, `highRiskDeals`, `pendingInvitations`. Чисел угод там немає. Створити організацію і робочий простір у UI. Схему вже поклав контейнер `migration`.
-5. Карта сервісів і контракти — `docs/sdd.md`. Порядок підняття, імена змінних, RTO/RPO — `docs/isd.md`. Якщо сервісний README суперечить цим двом, правий паспорт.
+5. Карта сервісів і контракти — `docs/architecture/sdd.md`. Порядок підняття, імена змінних, RTO/RPO — `docs/architecture/isd.md`. Якщо сервісний README суперечить цим двом, правий паспорт.
 
 ## Bus Factor
 

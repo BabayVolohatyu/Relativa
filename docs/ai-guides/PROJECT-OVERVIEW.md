@@ -2,7 +2,7 @@
 
 > **Last verified:** 2026-05-15
 
-> **Passport:** the current container map is [docs/sdd.md](../sdd.md) (2026-11-22). This overview was not rewritten in that pass. The service READMEs it lists below were marked deprecated where they still describe stubs.
+> **Passport:** the current container map is [docs/architecture/sdd.md](../architecture/sdd.md) (2026-11-22). This overview was not rewritten in that pass. The service READMEs it lists below were marked deprecated where they still describe stubs.
 
 > **Maintenance obligation:** If you change the general purpose, domain model, tech stack, or repo layout, update this file and its "Last verified" date before finishing your task. See [AI-GUIDES-INDEX.md](../../AI-GUIDES-INDEX.md) for the full update matrix.
 

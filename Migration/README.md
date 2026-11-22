@@ -1,6 +1,6 @@
 # relativa-migrations
 
-> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still says `entrypoint.sh` exits 0 and that migrations stay in Core. The process calls `MigrateAsync` from this project. Design: [docs/sdd.md](../docs/sdd.md). Run and recovery: [docs/isd.md](../docs/isd.md).
+> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still says `entrypoint.sh` exits 0 and that migrations stay in Core. The process calls `MigrateAsync` from this project. Design: [docs/architecture/sdd.md](../docs/architecture/sdd.md). Run and recovery: [docs/architecture/isd.md](../docs/architecture/isd.md).
 
 
 

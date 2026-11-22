@@ -330,7 +330,7 @@ Five steps from a fresh clone to a working map of the system. Commands for the f
 2. Copy `.env.example` to `.env`. Do not commit `.env`.
 3. `docker compose up --build -d`, then open http://localhost:3000 and register. Check the gateway with http://localhost:8080/health (`status` is `ok`). The same host serves an anonymous operator digest at http://localhost:8080/api/v1/operator/digest. The JSON has `kind` = `operator-digest`, `audience` = `sales-operator`, and `includes` lists `openDeals`, `highRiskDeals`, and `pendingInvitations`. The gateway process answers this route itself. It is not proxied to Core, and it does not return deal counts.
 4. Create an organization and a workspace in the UI. The migration container has already applied the schema and demo rows.
-5. For the service map and the contracts between them, read [docs/sdd.md](docs/sdd.md). For startup order, environment names, and recovery targets, read [docs/isd.md](docs/isd.md). Owners and review cycles are in [docs/maintenance.md](docs/maintenance.md).
+5. For the service map and the contracts between them, read [docs/architecture/sdd.md](docs/architecture/sdd.md). For startup order, environment names, and recovery targets, read [docs/architecture/isd.md](docs/architecture/isd.md). Owners and review cycles are in [docs/maintenance.md](docs/maintenance.md).
 
 | Command | What it does |
 |---|---|
@@ -435,10 +435,21 @@ Every backend service ships interactive **Scalar** API docs and a raw OpenAPI sp
 | [DOCKER-BUILD.md](DOCKER-BUILD.md) | Local Docker manual — start, stop, troubleshoot |
 | [DATABASE.md](DATABASE.md) | Full schema, EAV model, RBAC, audit tables |
 | [SCALAR-GUIDE.md](SCALAR-GUIDE.md) | Interactive API walkthrough |
-| [docs/sdd.md](docs/sdd.md) | System design: containers, components, data model, contracts |
-| [docs/isd.md](docs/isd.md) | Infrastructure: environments, startup order, CI, RTO/RPO |
+| [docs/architecture/sdd.md](docs/architecture/sdd.md) | System design: containers, components, data model, contracts |
+| [docs/architecture/isd.md](docs/architecture/isd.md) | Infrastructure: environments, startup order, CI, RTO/RPO |
 | [docs/maintenance.md](docs/maintenance.md) | Documentation owners and review cycles |
 | [AI-GUIDES-INDEX.md](AI-GUIDES-INDEX.md) | Deep technical guides (architecture, microservices, runbooks) |
+
+The published site is built from `docs/` (`mkdocs build --strict`). Level 1 of the pyramid stays this README. Levels 2–4 are the site nav: Developer, API (rendered from `docs/api/openapi.yaml`), Architecture.
+
+## Definition of Done
+
+| Check | Tool | What blocks the merge |
+|---|---|---|
+| Contract | Spectral (`spectral lint docs/api/openapi.yaml`) | Any error. Warnings need a sentence in the lab report |
+| Markup | markdownlint-cli2 | A violation in `docs/`, `CONTRIBUTING.md`, or `CHANGELOG.md` |
+| Links and nav | `mkdocs build --strict` | A dead link, a page left out of `nav`, or broken Markdown |
+| Currency | `python lab11/check_review_dates.py` | A `published` page whose `review_date` is in the past. `deprecated` pages are listed and kept |
 
 ---
 

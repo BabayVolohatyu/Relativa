@@ -1,0 +1,27 @@
+extends: ["spectral:oas"]
+rules:
+  info-contact: off
+  info-description: warn
+  oas3-unused-component: off
+  operation-tags: off
+  operation-singular-tag: off
+  openapi-tags: off
+  operation-tag-defined: off
+  array-items: warn
+  operation-description: error
+  schema-has-example:
+    description: Кожна схема в components.schemas має example.
+    severity: error
+    given: "$.components.schemas.*"
+    then:
+      field: example
+      function: truthy
+  error-body-uses-shared-schema:
+    description: Тіло 4xx і 5xx посилається на спільну схему Error.
+    severity: error
+    given: "$.paths.*.*.responses[?(@property >= '400')].content[*].schema"
+    then:
+      field: $ref
+      function: pattern
+      functionOptions:
+        match: "^#/components/schemas/Error$"

@@ -1,6 +1,6 @@
 # relativa-client
 
-> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still describes a Vite scaffold and a graph placeholder. The client ships onboarding, entities, and the graph view. Design: [docs/sdd.md](../docs/sdd.md). Local run: [README](../README.md#onboarding).
+> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still describes a Vite scaffold and a graph placeholder. The client ships onboarding, entities, and the graph view. Design: [docs/architecture/sdd.md](../docs/architecture/sdd.md). Local run: [README](../README.md#onboarding).
 
 
 

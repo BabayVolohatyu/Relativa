@@ -1,3 +1,11 @@
+---
+owner: Babay
+status: published
+review_date: 2027-02-20
+tags:
+  - ops
+---
+
 # Специфікація інфраструктури (ISD)
 
 Де і в якому порядку працює система з [sdd.md](sdd.md). Секретів тут немає: назви змінних є, значення беруться з локального `.env`, який у git не входить.
@@ -49,7 +57,7 @@
 
 ## CI/CD
 
-Файл продукту — [.github/workflows/ci.yaml](../.github/workflows/ci.yaml).
+Файл продукту — [.github/workflows/ci.yaml](https://github.com/BabayVolohatyu/Relativa/blob/testing/lab11/.github/workflows/ci.yaml).
 
 Тригери:
 

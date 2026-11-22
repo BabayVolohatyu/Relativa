@@ -1,6 +1,6 @@
 # relativa-core
 
-> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still says the EF model is empty and that migrations live in Core. Both statements are false. Design: [docs/sdd.md](../docs/sdd.md). Run and recovery: [docs/isd.md](../docs/isd.md).
+> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still says the EF model is empty and that migrations live in Core. Both statements are false. Design: [docs/architecture/sdd.md](../docs/architecture/sdd.md). Run and recovery: [docs/architecture/isd.md](../docs/architecture/isd.md).
 
 
 

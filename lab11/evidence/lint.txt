@@ -1,0 +1,5 @@
+markdownlint-cli2 v0.22.1 (markdownlint v0.40.0)
+Finding: docs/**/*.md CONTRIBUTING.md CHANGELOG.md !docs/ai-guides/** !docs/runbooks/** !docs/PROMOTION-STRATEGY.md
+Linting: 17 file(s)
+Summary: 0 error(s)
+No results with a severity of 'error' found!

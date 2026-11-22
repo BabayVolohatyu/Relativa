@@ -1,6 +1,6 @@
 # Relativa -- AI Agent Context Guides
 
-> **Last verified:** 2026-11-22 (Design and infrastructure passport added: `docs/sdd.md`, `docs/isd.md`, two ADRs. Older guides were not rewritten; pointers name SDD/ISD as the source when they disagree.)
+> **Last verified:** 2026-11-22 (Design and infrastructure passport added: `docs/architecture/sdd.md`, `docs/architecture/isd.md`, two ADRs. Older guides were not rewritten; pointers name SDD/ISD as the source when they disagree.)
 
 Relativa is a multi-tenant CRM / sales-workspace platform built as a microservice monorepo. It includes .NET 10 backend services, a Vue 3 SPA client, a Django ML service, PostgreSQL 16, a YARP API gateway, and SignalR for real-time graph updates. Everything runs locally via Docker Compose.
 
@@ -17,9 +17,9 @@ Relativa is a multi-tenant CRM / sales-workspace platform built as a microservic
 | Added or removed a **service** | [MICROSERVICES.md](docs/ai-guides/MICROSERVICES.md), [DOCKER-SETUP.md](docs/ai-guides/DOCKER-SETUP.md), [PROJECT-OVERVIEW.md](docs/ai-guides/PROJECT-OVERVIEW.md) |
 | Changed **Docker Compose, Dockerfiles, networking, or env vars** | [DOCKER-SETUP.md](docs/ai-guides/DOCKER-SETUP.md) |
 | Changed **Rabbit choreography topology / DLQs / ops playbooks** | [RABBITMQ-CHOREOGRAPHY.md](docs/runbooks/RABBITMQ-CHOREOGRAPHY.md), plus [ARCHITECTURE.md](docs/ai-guides/ARCHITECTURE.md) |
-| Changed **architecture patterns, layers, persistence model, validation, or auth flows** | [ARCHITECTURE.md](docs/ai-guides/ARCHITECTURE.md), [sdd.md](docs/sdd.md) |
-| Changed an **endpoint the user or another service can call** | [sdd.md](docs/sdd.md), and [README.md](README.md) when the visible behavior changes |
-| Changed **startup order, environments, CI, backup, RTO/RPO** | [isd.md](docs/isd.md) |
+| Changed **architecture patterns, layers, persistence model, validation, or auth flows** | [ARCHITECTURE.md](docs/ai-guides/ARCHITECTURE.md), [sdd.md](docs/architecture/sdd.md) |
+| Changed an **endpoint the user or another service can call** | [sdd.md](docs/architecture/sdd.md), and [README.md](README.md) when the visible behavior changes |
+| Changed **startup order, environments, CI, backup, RTO/RPO** | [isd.md](docs/architecture/isd.md) |
 | **Implemented a feature** that was listed as stub/TODO, or introduced a **new known issue** | [PROJECT-STATUS.md](docs/ai-guides/PROJECT-STATUS.md) |
 | **Added or changed the audit read API** | [AUDIT-LOG-API.md](docs/ai-guides/AUDIT-LOG-API.md), [MICROSERVICES.md](docs/ai-guides/MICROSERVICES.md) |
 | Changed the **general purpose, domain model, or tech stack** | [PROJECT-OVERVIEW.md](docs/ai-guides/PROJECT-OVERVIEW.md) |
@@ -45,8 +45,8 @@ Relativa is a multi-tenant CRM / sales-workspace platform built as a microservic
 | **Audit Agent Requirements** | [docs/ai-guides/AUDIT-AGENT-REQUIREMENTS.md](docs/ai-guides/AUDIT-AGENT-REQUIREMENTS.md) | Mandatory rules for AI agents when creating/changing DB entities/tables |
 | **Audit log API** | [docs/ai-guides/AUDIT-LOG-API.md](docs/ai-guides/AUDIT-LOG-API.md) | `GET /audit-log` / RBAC, query params, response shape, errors |
 | **RabbitMQ choreography runbook** | [docs/runbooks/RABBITMQ-CHOREOGRAPHY.md](docs/runbooks/RABBITMQ-CHOREOGRAPHY.md) | Exchange names, DLQ purge/idempotency, env keys, automated tests pointer |
-| **System design (SDD)** | [docs/sdd.md](docs/sdd.md) | C4 containers, component responsibilities, data fragment, inter-service contracts |
-| **Infrastructure (ISD)** | [docs/isd.md](docs/isd.md) | Environments, startup order, CI quality gates, RTO/RPO |
+| **System design (SDD)** | [docs/architecture/sdd.md](docs/architecture/sdd.md) | C4 containers, component responsibilities, data fragment, inter-service contracts |
+| **Infrastructure (ISD)** | [docs/architecture/isd.md](docs/architecture/isd.md) | Environments, startup order, CI quality gates, RTO/RPO |
 | **Architecture decisions** | [docs/architecture/adr/](docs/architecture/adr/) | ADR 0001 shared PostgreSQL, ADR 0002 outbox and RabbitMQ |
 | **Doc maintenance** | [docs/maintenance.md](docs/maintenance.md) | Owners, review cycles, rule that a code change updates the doc |
 

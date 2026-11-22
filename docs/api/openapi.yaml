@@ -1,0 +1,221 @@
+openapi: 3.0.3
+info:
+  title: Relativa Gateway
+  version: 1.0.0
+  description: >
+    Публічний контракт шлюзу Relativa на порту 8080.
+    Довідка MkDocs рендериться з цього файлу.
+    Версія 1.0.0 фіксує три маршрути, які є в коді гілки testing/lab11.
+servers:
+  - url: http://localhost:8080
+    description: Локальний процес Gateway
+paths:
+  /health:
+    get:
+      operationId: getHealth
+      summary: Стан процесу шлюзу
+      description: >
+        Анонімний маршрут процесу Gateway. Тіло збігається з анонімним
+        об'єктом у Program.cs. Метод не проксується в інші сервіси.
+      responses:
+        "200":
+          description: Процес шлюзу відповідає.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Health"
+              example:
+                status: ok
+                service: relativa-gateway
+        "502":
+          description: Необроблений виняток шлюзу. Пише GlobalExceptionHandler.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                status: 502
+                title: Bad Gateway
+                detail: An error occurred while processing your request.
+  /api/v1/operator/digest:
+    get:
+      operationId: getOperatorDigest
+      summary: Поля операторського зрізу
+      description: >
+        Анонімний маршрут OperatorDigestEndpoints. Чисел угод у тілі немає.
+        Маршрут додано в краш-тесті ЛР10 і лишився в коді після відновлення
+        документації.
+      responses:
+        "200":
+          description: Перелік полів зрізу.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OperatorDigest"
+              example:
+                kind: operator-digest
+                audience: sales-operator
+                includes:
+                  - openDeals
+                  - highRiskDeals
+                  - pendingInvitations
+        "502":
+          description: Необроблений виняток шлюзу. Пише GlobalExceptionHandler.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                status: 502
+                title: Bad Gateway
+                detail: An error occurred while processing your request.
+  /auth/api/v1/auth/login:
+    post:
+      operationId: login
+      summary: Вхід і видача JWT
+      description: >
+        Публічний шлях шлюзу. YARP знімає префікс /auth, Authentication
+        приймає POST /api/v1/auth/login. Тіло 200 — LoginResponseDto.
+        400 і 401 пише GlobalExceptionHandler сервісу Authentication
+        з полів status, title, detail.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+            example:
+              email: admin@relativa.com
+              password: secret
+      responses:
+        "200":
+          description: Токен видано.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResponse"
+              example:
+                accessToken: header.payload.signature
+                expiresAt: "2026-11-23T20:00:00Z"
+        "400":
+          description: FluentValidation відхилив тіло. Title Validation Failed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                status: 400
+                title: Validation Failed
+                detail: Email is required.
+        "401":
+          description: AuthException invalid_credentials.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                status: 401
+                title: Unauthorized
+                detail: Invalid email or password.
+        "502":
+          description: >
+            Кластер Authentication не відповідає. Живий шлюз без цього процесу
+            повертає 502 і порожнє тіло (Content-Length 0). YARP завершує
+            відповідь сам, тож JSON GlobalExceptionHandler тут не пишеться.
+components:
+  schemas:
+    Health:
+      type: object
+      required:
+        - status
+        - service
+      properties:
+        status:
+          type: string
+          enum:
+            - ok
+        service:
+          type: string
+          enum:
+            - relativa-gateway
+      example:
+        status: ok
+        service: relativa-gateway
+    OperatorDigest:
+      type: object
+      required:
+        - kind
+        - audience
+        - includes
+      properties:
+        kind:
+          type: string
+          enum:
+            - operator-digest
+        audience:
+          type: string
+          enum:
+            - sales-operator
+        includes:
+          type: array
+          items:
+            type: string
+            enum:
+              - openDeals
+              - highRiskDeals
+              - pendingInvitations
+      example:
+        kind: operator-digest
+        audience: sales-operator
+        includes:
+          - openDeals
+          - highRiskDeals
+          - pendingInvitations
+    LoginRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+        twoFactorCode:
+          type: string
+          nullable: true
+      example:
+        email: admin@relativa.com
+        password: secret
+    LoginResponse:
+      type: object
+      required:
+        - accessToken
+        - expiresAt
+      properties:
+        accessToken:
+          type: string
+        expiresAt:
+          type: string
+          format: date-time
+      example:
+        accessToken: header.payload.signature
+        expiresAt: "2026-11-23T20:00:00Z"
+    Error:
+      type: object
+      required:
+        - status
+        - title
+        - detail
+      properties:
+        status:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+      example:
+        status: 401
+        title: Unauthorized
+        detail: Invalid email or password.

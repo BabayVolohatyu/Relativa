@@ -131,7 +131,7 @@ Dead Documentation — документ є, споживача за останн
 
 Коміт паспорта: `80c9cac` `docs(architecture): deliver design and infrastructure passport`.
 
-Повний текст: [docs/sdd.md](../docs/sdd.md), [docs/isd.md](../docs/isd.md), [ADR 0001](../docs/architecture/adr/0001-shared-postgresql.md), [ADR 0002](../docs/architecture/adr/0002-asynchronous-messaging.md).
+Повний текст на момент ЛР10 лежав у `docs/sdd.md` і `docs/isd.md`. Після міграції ЛР11 ті самі файли: [SDD](../docs/architecture/sdd.md), [ISD](../docs/architecture/isd.md), [ADR-0001](../docs/architecture/adr/ADR-0001-shared-postgresql.md), [ADR-0002](../docs/architecture/adr/ADR-0002-asynchronous-messaging.md). Команди нижче лишаються з шляхами комітів ЛР10.
 
 ### C4, контейнери
 

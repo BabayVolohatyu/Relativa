@@ -1,0 +1,6 @@
+Generated from docs/api/openapi.yaml.
+Do not edit these files. The next generator run overwrites this directory.
+Command: openapi-generator-cli generate -i docs/api/openapi.yaml -g csharp -o sdk/client
+Package: Relativa.Gateway.Client
+Target framework of the generator template: net8.0
+Operations: GetHealth, GetOperatorDigest, Login

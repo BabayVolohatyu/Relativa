@@ -1,0 +1,66 @@
+site_name: Relativa
+site_description: База знань Relativa. Призначення і швидкий старт лишаються в кореневому README.
+site_url: https://babayvolohatyu.github.io/Relativa/
+repo_url: https://github.com/BabayVolohatyu/Relativa
+repo_name: BabayVolohatyu/Relativa
+edit_uri: edit/testing/lab11/docs/
+docs_dir: docs
+
+theme:
+  name: material
+  language: uk
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - content.code.copy
+
+plugins:
+  - search
+  - meta
+  - mermaid2
+  - git-revision-date-localized:
+      enable_creation_date: false
+      type: date
+      fallback_to_build_date: true
+      locale: uk
+      enable_git_follow: false
+  - swagger-ui-tag
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+validation:
+  absolute_links: ignore
+  unrecognized_links: warn
+  omitted_files: warn
+  anchors: ignore
+
+exclude_docs: |
+  ai-guides/
+  runbooks/
+  PROMOTION-STRATEGY.md
+
+nav:
+  - Головна: index.md
+  - Розробнику:
+    - developer/index.md
+    - Як долучитися: developer/contributing.md
+    - Локальне середовище: developer/local-setup.md
+    - Стандарти коду: developer/standards.md
+    - Регламент перегляду: maintenance.md
+    - Передача знань: handover.md
+  - API:
+    - api/index.md
+  - Архітектура:
+    - architecture/index.md
+    - Проєктування (SDD): architecture/sdd.md
+    - Інфраструктура (ISD): architecture/isd.md
+    - Покриття аудиторій: audience-matrix.md
+    - ADR:
+      - ADR-0001 PostgreSQL: architecture/adr/ADR-0001-shared-postgresql.md
+      - ADR-0002 Черга: architecture/adr/ADR-0002-asynchronous-messaging.md
+    - Застарілі README сервісів: architecture/deprecated-service-readmes.md

@@ -1,6 +1,6 @@
 # relativa-graph
 
-> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still calls the SignalR hub an empty stub. Graph query and the dashboard are implemented. Design: [docs/sdd.md](../docs/sdd.md). Run and recovery: [docs/isd.md](../docs/isd.md).
+> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still calls the SignalR hub an empty stub. Graph query and the dashboard are implemented. Design: [docs/architecture/sdd.md](../docs/architecture/sdd.md). Run and recovery: [docs/architecture/isd.md](../docs/architecture/isd.md).
 
 
 

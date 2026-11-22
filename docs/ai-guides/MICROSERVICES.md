@@ -2,7 +2,7 @@
 
 > **Last verified:** 2026-05-29 (Added `PUT /entity-relationships/{id}` endpoint for generic relationship reassignment; also documented existing `POST`/`DELETE` entity-relationship endpoints that were missing from this guide.)
 
-> **Passport:** component contracts as of 2026-11-22 are in [docs/sdd.md](../sdd.md). This catalog was not rewritten in that pass. Where it disagrees with SDD (gateway health body, client status), follow SDD.
+> **Passport:** component contracts as of 2026-11-22 are in [docs/architecture/sdd.md](../architecture/sdd.md). This catalog was not rewritten in that pass. Where it disagrees with SDD (gateway health body, client status), follow SDD.
 
 > **Maintenance obligation:** If you add, remove, or change any endpoint or service, update this file and its "Last verified" date before finishing your task. If you add or remove an entire service, also update [DOCKER-SETUP.md](DOCKER-SETUP.md) and [PROJECT-OVERVIEW.md](PROJECT-OVERVIEW.md). See [AI-GUIDES-INDEX.md](../../AI-GUIDES-INDEX.md) for the full update matrix.
 

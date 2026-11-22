@@ -1,0 +1,83 @@
+name: Docs
+
+on:
+  push:
+    branches:
+      - testing/lab11
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Lint and strict build
+    runs-on: ubuntu-latest
+    steps:
+      # Стадія 1. Код і історія комітів для дати редагування сторінки.
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Стадія 2. Python для MkDocs і Node для лінтерів.
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Стадія 3. Тема Material, mermaid2, дата з Git, Swagger UI, markdownlint, Spectral.
+      - name: Install MkDocs and linters
+        run: |
+          pip install -r docs/requirements.txt
+          npm install -g markdownlint-cli2 @stoplight/spectral-cli
+
+      # Стадія 4. Стиль Markdown. Помилка тут зупиняє збірку.
+      - name: markdownlint
+        run: markdownlint-cli2
+
+      # Стадія 5. Контракт OpenAPI. Поріг — нуль errors.
+      - name: Spectral
+        run: spectral lint docs/api/openapi.yaml
+
+      # Стадія 6. Аудит review_date. Прострочений published валить крок. Deprecated лишається.
+      - name: Review dates
+        run: python lab11/check_review_dates.py
+
+      # Стадія 7. Strict-збірка. Попередження (мертве посилання, сторінка поза nav) дає Exit Code 1.
+      - name: Strict MkDocs build
+        run: mkdocs build --strict
+        env:
+          NO_MKDOCS_2_WARNING: "1"
+
+      # Стадія 8. Артефакт сайту для GitHub Pages.
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  # Стадія 9. Публікація лише з гілки testing/lab11 після зеленої збірки.
+  deploy:
+    name: Deploy GitHub Pages
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/testing/lab11'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,1 +1,4 @@
-* @kostenuksoft
+# Owner of the published knowledge base.
+# GitHub requests this review for any change under docs/.
+# The merge stays blocked when the repository requires a review from code owners.
+/docs/ @BabayVolohatyu
