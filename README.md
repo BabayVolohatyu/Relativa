@@ -102,6 +102,7 @@ Every feature below is **already implemented in Relativa** but missing — or lo
 ### 📊 Workspace dashboard
 - Built-in organization dashboard on the Graph service: summary, pipeline, risk distribution, trends, top entities, and member activity (`GET /api/v1/dashboard/...` through the gateway).
 - User-defined dashboard layouts are still on the roadmap. The built-in views are not a placeholder.
+- Anonymous operator digest on the gateway itself: `GET /api/v1/operator/digest` names the fields a sales operator looks at (`openDeals`, `highRiskDeals`, `pendingInvitations`) and does not require a token.
 
 ### 🔐 Role-Based Access Control
 - Separate, granular permissions at the **organization** and **workspace** levels.
@@ -327,7 +328,7 @@ Five steps from a fresh clone to a working map of the system. Commands for the f
 
 1. Read [What is Relativa?](#what-is-relativa) — who the product is for (B2B sales teams) and what it already does.
 2. Copy `.env.example` to `.env`. Do not commit `.env`.
-3. `docker compose up --build -d`, then open http://localhost:3000 and register. Check the gateway with http://localhost:8080/health (`status` is `ok`).
+3. `docker compose up --build -d`, then open http://localhost:3000 and register. Check the gateway with http://localhost:8080/health (`status` is `ok`). The same host serves an anonymous operator digest at http://localhost:8080/api/v1/operator/digest. The JSON has `kind` = `operator-digest`, `audience` = `sales-operator`, and `includes` lists `openDeals`, `highRiskDeals`, and `pendingInvitations`. The gateway process answers this route itself. It is not proxied to Core, and it does not return deal counts.
 4. Create an organization and a workspace in the UI. The migration container has already applied the schema and demo rows.
 5. For the service map and the contracts between them, read [docs/sdd.md](docs/sdd.md). For startup order, environment names, and recovery targets, read [docs/isd.md](docs/isd.md). Owners and review cycles are in [docs/maintenance.md](docs/maintenance.md).
 

@@ -14,3 +14,4 @@
 | DevOps | Які RTO і RPO, і чи виконані вони зараз? | [ISD, RTO і RPO](isd.md#rto-і-rpo) | покрито |
 | Бізнес | Що система робить і для кого? | [README, What is Relativa](../README.md#what-is-relativa) | покрито |
 | Бізнес | Яка поведінка вже є в продукті, а не в плані? | [README, Features](../README.md#features) | покрито |
+| Новачок | Де без токена побачити, які поля входять в операторський зріз? | [README, Onboarding](../README.md#onboarding), [SDD, operator digest](sdd.md#operator-digest) | покрито |

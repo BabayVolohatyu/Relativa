@@ -40,6 +40,7 @@ flowchart LR
   mq -->|relativa.domain| graph
   mq -->|relativa.domain| ml
   graph -->|RPC relativa.graph_ml| ml
+  gateway -->|локальний маршрут| digest["Operator digest<br/>GET /api/v1/operator/digest"]
 ```
 
 Синхронного HTTP між бекендами немає. Виняток за формою, не за транспортом: Graph просить оцінку в ML через чергу `relativa.graph_ml`, це RPC поверх AMQP, не HTTP.
@@ -52,6 +53,7 @@ flowchart LR
 |---|---|---|---|
 | [Client](#client) | Екрани реєстрації, організацій, робочих просторів, графа | Gateway | [ISD, Client](isd.md#client) |
 | [Gateway](#gateway) | JWT, CORS, префікси маршрутів, заголовки особи | Client, Auth, Core, Graph, ML, Audit | [ISD, Gateway](isd.md#gateway) |
+| [Operator digest](#operator-digest) | Анонімний зріз для оператора, який шлюз віддає сам | Gateway | [ISD, Gateway](isd.md#gateway) |
 | [Authentication](#authentication) | Обліковий запис, пароль, JWT | Gateway, PostgreSQL, RabbitMQ | [ISD, Authentication](isd.md#authentication) |
 | [Core](#core) | Організації, робочі простори, RBAC, сутності EAV | Gateway, PostgreSQL, RabbitMQ | [ISD, Core](isd.md#core) |
 | [Graph](#graph) | Граф зв'язків, дашборд, SignalR, споживач подій | Gateway, PostgreSQL, RabbitMQ, ML | [ISD, Graph](isd.md#graph) |
@@ -69,7 +71,11 @@ Vue 3, Vite, Pinia, Vue Router. Усі виклики API йдуть на `VITE_
 
 ### Gateway
 
-YARP знімає префікс `/auth`, `/core`, `/graph`, `/ml`, `/audit` і проксує на порти 8081, 8082, 8083, 8084, 8086. Після перевірки JWT у запит до сервісу додаються `X-User-Id` і `X-User-Email`. Маршрути реєстрації та логіну анонімні. Власний маршрут шлюзу, не проксі: `GET /health` повертає JSON `status` = `ok`, `service` = `relativa-gateway`.
+YARP знімає префікс `/auth`, `/core`, `/graph`, `/ml`, `/audit` і проксує на порти 8081, 8082, 8083, 8084, 8086. Після перевірки JWT у запит до сервісу додаються `X-User-Id` і `X-User-Email`. Маршрути реєстрації та логіну анонімні. Власні маршрути шлюзу, не проксі: `GET /health` повертає JSON `status` = `ok`, `service` = `relativa-gateway`; [operator digest](#operator-digest) описаний нижче.
+
+### Operator digest
+
+Окремий тип у процесі Gateway: `OperatorDigestEndpoints` у `Gateway/src/Relativa.Gateway/OperatorDigestEndpoints.cs`. Це не окремий контейнер і не виклик Core. `GET /api/v1/operator/digest` анонімний. Тіло: `kind` = `operator-digest`, `audience` = `sales-operator`, `includes` = `openDeals`, `highRiskDeals`, `pendingInvitations`. Числа угод цей маршрут не рахує: він називає поля зрізу, який оператор очікує побачити в продукті.
 
 ### Authentication
 
@@ -83,7 +89,7 @@ YARP знімає префікс `/auth`, `/core`, `/graph`, `/ml`, `/audit` і 
 
 `GET /api/v1/graph` збирає граф, видимий користувачу в організації. `GET /api/v1/dashboard/summary`, `/pipeline`, `/risk-distribution`, `/trends`, `/top-entities`, `/member-activity` і організаційні зрізи дашборда читають ті самі таблиці. Хаб SignalR: `/hubs/graph`. Споживач `relativa.domain` оновлює живі клієнти. Оцінку угоди просить в ML через `relativa.graph_ml`.
 
-Graph стартує після PostgreSQL, RabbitMQ і успішного завершення Migration. Контейнер ML для старту Graph не потрібен: оцінка йде вже після підняття обох процесів.
+Graph стартує після PostgreSQL, RabbitMQ, успішного завершення Migration і старту контейнера ML (`condition: service_started`). Оцінка через `relativa.graph_ml` йде вже після цього порядку: процес Graph не піднімається, доки контейнер ML не стартував.
 
 ### ML
 
@@ -135,7 +141,8 @@ erDiagram
 
 | Звідки | Куди | Контракт | Що вважається збоєм |
 |---|---|---|---|
-| Client | Gateway | HTTP на `VITE_GATEWAY_URL`. Захищені шляхи несуть `Authorization: Bearer` | 401, якщо секрет або issuer JWT на шлюзі і в Authentication розійшлися |
+| Gateway | Client | HTTP на шлюзі, без проксі: `GET /health`; `GET /api/v1/operator/digest` з тілом `kind` = `operator-digest` | Будь-який інший шлях `/api/v1/operator/*` не існує |
+| Client | Gateway | HTTP на `VITE_GATEWAY_URL`. Захищені шляхи несуть `Authorization: Bearer`. Анонімний зріз оператора — рядок вище | 401, якщо секрет або issuer JWT на шлюзі і в Authentication розійшлися |
 | Gateway | Authentication | Префікс `/auth` знято. Анонімно: `POST /api/v1/auth/login`, `POST /api/v1/auth/register` | 401 на `/api/v1/auth/me` без токена |
 | Gateway | Core | Префікс `/core` знято. Анонімно: `GET /health`, `GET /api/v1/entity-types` | 403, якщо членство не дає права |
 | Gateway | Graph | Префікс `/graph` знято. `GET /api/v1/graph?organizationId=`, `GET /api/v1/dashboard/*`, WebSocket `/hubs/graph` | Порожній граф, якщо користувача немає в організації. Це не 500 |

@@ -20,11 +20,12 @@
 
 1. `postgres`, `rabbitmq`, `mailhog` стартують без залежностей. `pgadmin` чекає здоровий `postgres`.
 2. `migration` чекає здоровий `postgres`, застосовує EF (`MigrateAsync`) і завершується.
-3. `auth`, `core`, `graph`, `ml`, `audit` чекають здоровий `postgres`, здоровий `rabbitmq` і успішне завершення `migration`.
-4. `gateway` чекає здоровий `auth`, здоровий `core` і старт контейнерів `graph`, `ml`, `audit` (`service_started`, не health).
-5. `client` чекає здоровий `gateway`.
+3. `auth`, `core`, `ml`, `audit` чекають здоровий `postgres`, здоровий `rabbitmq` і успішне завершення `migration`.
+4. `graph` чекає ті самі три умови і ще старт контейнера `ml` (`condition: service_started`). Процес Graph не піднімається, доки контейнер ML не стартував.
+5. `gateway` чекає здоровий `auth`, здоровий `core` і старт контейнерів `graph`, `ml`, `audit` (`service_started`, не health).
+6. `client` чекає здоровий `gateway`.
 
-Graph не чекає ML. Обидва кроки 3 йдуть паралельно. Оцінка через `relativa.graph_ml` можлива лише коли обидва контейнери вже запущені; порядок між ними Compose не фіксує.
+Крок 4 змінює попередній паралельний старт. Оцінка через `relativa.graph_ml` можлива лише після старту ML, і Compose тепер це фіксує: Graph стоїть у черзі за контейнером ML.
 
 Здоров'я HTTP: Gateway `GET /health` на порту 8080. Перевірка в Compose для auth, core і gateway — відкритий TCP-порт, не розбір тіла `/health`.
 
