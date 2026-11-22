@@ -1,0 +1,20 @@
+FAIL
+commit a254377
+message: docs(ci): inject broken reference into strict build, FAIL
+run: https://github.com/BabayVolohatyu/Relativa/actions/runs/45066940593
+job: Lint and strict build — failure
+step Strict MkDocs build — failure
+annotation: Process completed with exit code 1.
+local strict build, same link, exit code 1:
+WARNING - Doc file 'developer/local-setup.md' contains a link 'missing-page.md', but the target 'developer/missing-page.md' is not found among documentation files.
+Aborted with 1 warnings in strict mode!
+
+PASS
+commit 96d2bf4
+message: docs(ci): restore strict build pipeline, PASS
+run: https://github.com/BabayVolohatyu/Relativa/actions/runs/45067220777
+job: Lint and strict build — success (markdownlint, Spectral, review dates, mkdocs build --strict, upload artifact)
+job: Deploy GitHub Pages — failure
+annotation: Error: Failed to create deployment (status: 404) with build version 96d2bf455b2c848190f47842625b047de49ecd74. Ensure GitHub Pages has been enabled: https://github.com/BabayVolohatyu/Relativa/settings/pages
+
+tag: docs-v1.0 -> 96d2bf4

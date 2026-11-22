@@ -1,0 +1,64 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Relativa knowledge graph</title>
+<style>
+body { margin:0; background:#1b1b1b; color:#eee; font-family:Segoe UI,sans-serif; }
+h1 { font-size:16px; margin:12px 16px; font-weight:600; }
+canvas { width:100vw; height:calc(100vh - 44px); display:block; }
+</style>
+<h1>Граф бази знань: SDD, ISD, ADR, API і розділ розробника з'єднані</h1>
+<canvas id="c"></canvas>
+<script>
+const nodes = ["api/index.md", "architecture/adr/ADR-0001-shared-postgresql.md", "architecture/adr/ADR-0002-asynchronous-messaging.md", "architecture/deprecated-service-readmes.md", "architecture/index.md", "architecture/isd.md", "architecture/sdd.md", "audience-matrix.md", "developer/contributing.md", "developer/index.md", "developer/local-setup.md", "developer/standards.md", "handover.md", "index.md", "maintenance.md"];
+const links = [["architecture/adr/ADR-0001-shared-postgresql.md", "architecture/isd.md"], ["architecture/adr/ADR-0002-asynchronous-messaging.md", "architecture/isd.md"], ["architecture/adr/ADR-0002-asynchronous-messaging.md", "runbooks/RABBITMQ-CHOREOGRAPHY.md"], ["architecture/deprecated-service-readmes.md", "architecture/sdd.md"], ["architecture/deprecated-service-readmes.md", "architecture/isd.md"], ["architecture/index.md", "architecture/sdd.md"], ["architecture/index.md", "architecture/isd.md"], ["architecture/index.md", "architecture/adr/ADR-0001-shared-postgresql.md"], ["architecture/index.md", "architecture/adr/ADR-0002-asynchronous-messaging.md"], ["architecture/index.md", "api/index.md"], ["architecture/index.md", "developer/local-setup.md"], ["architecture/index.md", "developer/contributing.md"], ["architecture/index.md", "maintenance.md"], ["architecture/index.md", "handover.md"], ["architecture/index.md", "audience-matrix.md"], ["architecture/index.md", "architecture/deprecated-service-readmes.md"], ["architecture/index.md", "developer/index.md"], ["architecture/isd.md", "architecture/sdd.md"], ["architecture/sdd.md", "architecture/isd.md"], ["architecture/sdd.md", "architecture/adr/ADR-0001-shared-postgresql.md"], ["architecture/sdd.md", "architecture/adr/ADR-0002-asynchronous-messaging.md"], ["architecture/sdd.md", "ai-guides/ARCHITECTURE.md"], ["architecture/sdd.md", "runbooks/RABBITMQ-CHOREOGRAPHY.md"], ["architecture/sdd.md", "audience-matrix.md"], ["audience-matrix.md", "architecture/sdd.md"], ["audience-matrix.md", "architecture/isd.md"], ["developer/contributing.md", "architecture/sdd.md"], ["developer/contributing.md", "architecture/isd.md"], ["developer/index.md", "developer/contributing.md"], ["developer/index.md", "developer/local-setup.md"], ["developer/index.md", "developer/standards.md"], ["developer/index.md", "architecture/sdd.md"], ["developer/index.md", "architecture/isd.md"], ["developer/index.md", "api/index.md"], ["developer/index.md", "maintenance.md"], ["developer/index.md", "handover.md"], ["developer/index.md", "architecture/index.md"], ["developer/local-setup.md", "architecture/isd.md"], ["developer/standards.md", "developer/contributing.md"], ["developer/standards.md", "architecture/sdd.md"], ["index.md", "developer/index.md"], ["index.md", "api/index.md"], ["index.md", "architecture/index.md"]];
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+function size() { canvas.width = innerWidth; canvas.height = innerHeight - 44; }
+size();
+const pts = nodes.map((id, i) => {
+  const ang = (i / nodes.length) * Math.PI * 2;
+  return {id, x: canvas.width / 2 + Math.cos(ang) * 320, y: canvas.height / 2 + Math.sin(ang) * 240, vx: 0, vy: 0};
+});
+const byId = Object.fromEntries(pts.map(p => [p.id, p]));
+function tick() {
+  for (const a of pts) { a.vx += (canvas.width / 2 - a.x) * 0.008; a.vy += (canvas.height / 2 - a.y) * 0.008; }
+  for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+    const a = pts[i], b = pts[j];
+    let dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy) || 1;
+    const f = 900 / (d * d);
+    a.vx += dx / d * f; a.vy += dy / d * f; b.vx -= dx / d * f; b.vy -= dy / d * f;
+  }
+  for (const [s, t] of links) {
+    const a = byId[s], b = byId[t];
+    if (!a || !b) continue;
+    let dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy) || 1;
+    const f = (d - 150) * 0.02;
+    a.vx += dx / d * f; a.vy += dy / d * f; b.vx -= dx / d * f; b.vy -= dy / d * f;
+  }
+  for (const a of pts) { a.vx *= 0.7; a.vy *= 0.7; a.x += a.vx; a.y += a.vy; }
+}
+function color(id) {
+  if (id.includes("adr/")) return "#c792ea";
+  if (id.startsWith("api/")) return "#82aaff";
+  if (id.startsWith("developer/")) return "#c3e88d";
+  if (id.startsWith("architecture/")) return "#ffcb6b";
+  return "#89ddff";
+}
+function frame() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = "#777";
+  ctx.lineWidth = 1.2;
+  for (const [s, t] of links) {
+    const a = byId[s], b = byId[t];
+    if (!a || !b) continue;
+    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+  }
+  for (const a of pts) {
+    ctx.beginPath(); ctx.fillStyle = color(a.id); ctx.arc(a.x, a.y, 7, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#eee"; ctx.font = "13px Segoe UI";
+    ctx.fillText(a.id.replace(".md", ""), a.x + 10, a.y + 4);
+  }
+}
+for (let i = 0; i < 240; i++) tick();
+frame();
+</script>

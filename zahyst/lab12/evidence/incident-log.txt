@@ -1,0 +1,14 @@
+﻿incident simulation UTC
+2026-11-22T21:12:02Z detect: backups dump missing = True
+2026-11-22T21:12:02Z cmd: docker exec pg_restore missing file
+2026-11-22T21:12:03Z restore_stderr: pg_restore: error: could not open input file "/tmp/no-such-dump.dump": No such file or directory
+2026-11-22T21:12:03Z cmd: docker stop relativa-postgres
+2026-11-22T21:12:03Z postgres_stopped
+2026-11-22T21:12:04Z isready_while_stopped: Error response from daemon: container 4e161cbb1369e393a59a6a0b9a3be2ad773c8b9b3bf445b4448de4633644d1b1 is not running
+2026-11-22T21:12:24Z cmd: docker start relativa-postgres
+2026-11-22T21:12:25Z postgres_ready=True
+2026-11-22T21:12:25Z tables:  public_tables 
+2026-11-22T21:12:25Z tables: ---------------
+2026-11-22T21:12:25Z tables:             38
+2026-11-22T21:12:25Z tables: (1 row)
+2026-11-22T21:12:26Z tables: 

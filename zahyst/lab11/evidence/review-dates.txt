@@ -1,0 +1,5 @@
+﻿review_date audit 2026-11-22
+overdue published:
+  (none)
+overdue deprecated (kept, not a failure):
+  architecture/deprecated-service-readmes.md status=deprecated review_date=2026-04-08

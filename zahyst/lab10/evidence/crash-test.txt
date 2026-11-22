@@ -1,0 +1,115 @@
+﻿FAIL commit 22a20dfafed3b2d0586deaf8ddcf2a739d8c6671
+PASS commit e8f1346 (full hash below)
+PASS e8f1346b83d8849fb708f2e818cfbed0dda64f62
+
+=== git show --stat 22a20df ===
+commit 22a20dfafed3b2d0586deaf8ddcf2a739d8c6671
+Author:     babay <babayvolohatyu@gmail.com>
+AuthorDate: Sun Nov 22 21:56:59 2026 +0200
+Commit:     babay <babayvolohatyu@gmail.com>
+CommitDate: Sun Nov 22 21:56:59 2026 +0200
+
+    docs(audit): simulate documentation decay, FAIL
+    
+    Co-authored-by: Cursor <cursoragent@cursor.com>
+
+ Gateway/src/Relativa.Gateway/OperatorDigestEndpoints.cs | 17 +++++++++++++++++
+ Gateway/src/Relativa.Gateway/Program.cs                 |  3 +++
+ docker-compose.yaml                                     |  2 ++
+ 3 files changed, 22 insertions(+)
+
+=== git diff 80c9cac 22a20df ===
+diff --git a/Gateway/src/Relativa.Gateway/OperatorDigestEndpoints.cs b/Gateway/src/Relativa.Gateway/OperatorDigestEndpoints.cs
+new file mode 100644
+index 0000000..c963cc8
+--- /dev/null
++++ b/Gateway/src/Relativa.Gateway/OperatorDigestEndpoints.cs
+@@ -0,0 +1,17 @@
++using Microsoft.AspNetCore.Builder;
++using Microsoft.AspNetCore.Http;
++
++namespace Relativa.Gateway;
++
++public static class OperatorDigestEndpoints
++{
++    public static void Map(WebApplication app)
++    {
++        app.MapGet("/api/v1/operator/digest", () => Results.Ok(new
++        {
++            kind = "operator-digest",
++            audience = "sales-operator",
++            includes = new[] { "openDeals", "highRiskDeals", "pendingInvitations" }
++        })).AllowAnonymous();
++    }
++}
+diff --git a/Gateway/src/Relativa.Gateway/Program.cs b/Gateway/src/Relativa.Gateway/Program.cs
+index 0fc7c98..d817020 100644
+--- a/Gateway/src/Relativa.Gateway/Program.cs
++++ b/Gateway/src/Relativa.Gateway/Program.cs
+@@ -3,6 +3,7 @@ using System.Text;
+ using Microsoft.AspNetCore.Authentication.JwtBearer;
+ using Microsoft.AspNetCore.HttpOverrides;
+ using Microsoft.IdentityModel.Tokens;
++using Relativa.Gateway;
+ using Relativa.Gateway.Middleware;
+ using Relativa.Gateway.OpenApi;
+ using Scalar.AspNetCore;
+@@ -158,6 +159,8 @@ try
+     app.MapGet("/health", () => Results.Ok(new { status = "ok", service = "relativa-gateway" }))
+         .AllowAnonymous();
+ 
++    OperatorDigestEndpoints.Map(app);
++
+     app.UseAuthentication();
+     app.UseAuthorization();
+ 
+diff --git a/docker-compose.yaml b/docker-compose.yaml
+index ff8e001..2e17741 100644
+--- a/docker-compose.yaml
++++ b/docker-compose.yaml
+@@ -175,6 +175,8 @@ services:
+         condition: service_healthy
+       migration:
+         condition: service_completed_successfully
++      ml:
++        condition: service_started
+     networks:
+       - relativa_net
+ 
+
+=== counts ===
+gateway at passport 24
+gateway at FAIL 25
+gateway at PASS 25
+sdd at passport 1
+sdd at FAIL 1
+sdd at PASS 2
+isd at FAIL 1
+isd at PASS 2
+readme at FAIL 5
+readme at PASS 6
+gateway commits after sdd at FAIL 1
+gateway commits after sdd at PASS 0
+Gateway/src at passport (80c9cac) 21
+Gateway/src at FAIL (22a20df) 22
+Gateway/src at PASS (e8f1346) 22
+docs/sdd.md commits at passport 1, at FAIL 1, at PASS 2
+Gateway/src commits after the SDD commit: 1 at FAIL, 0 at PASS
+The path Gateway/ (without /src) also counts Gateway/README.md, which the passport commit edited, so that wider count is 24 / 25 / 25 and is not the code-doc ratio.
+sdd last date at FAIL 2026-11-22
+sdd last date at PASS 2026-11-22
+compose last date at FAIL 2026-11-22
+isd last date at FAIL 2026-11-22
+
+=== operator-digest mentions at FAIL (expect none) ===
+=== operator-digest mentions at PASS ===
+e8f1346:README.md:331:3. `docker compose up --build -d`, then open http://localhost:3000 and register. Check the gateway with http://localhost:8080/health (`status` is `ok`). The same host serves an anonymous operator digest at http://localhost:8080/api/v1/operator/digest. The JSON has `kind` = `operator-digest`, `audience` = `sales-operator`, and `includes` lists `openDeals`, `highRiskDeals`, and `pendingInvitations`. The gateway process answers this route itself. It is not proxied to Core, and it does not return deal counts.
+e8f1346:docs/sdd.md:56:| [Operator digest](#operator-digest) | Анонімний зріз для оператора, який шлюз віддає сам | Gateway | [ISD, Gateway](isd.md#gateway) |
+e8f1346:docs/sdd.md:74:YARP знімає префікс `/auth`, `/core`, `/graph`, `/ml`, `/audit` і проксує на порти 8081, 8082, 8083, 8084, 8086. Після перевірки JWT у запит до сервісу додаються `X-User-Id` і `X-User-Email`. Маршрути реєстрації та логіну анонімні. Власні маршрути шлюзу, не проксі: `GET /health` повертає JSON `status` = `ok`, `service` = `relativa-gateway`; [operator digest](#operator-digest) описаний нижче.
+e8f1346:docs/sdd.md:78:Окремий тип у процесі Gateway: `OperatorDigestEndpoints` у `Gateway/src/Relativa.Gateway/OperatorDigestEndpoints.cs`. Це не окремий контейнер і не виклик Core. `GET /api/v1/operator/digest` анонімний. Тіло: `kind` = `operator-digest`, `audience` = `sales-operator`, `includes` = `openDeals`, `highRiskDeals`, `pendingInvitations`. Числа угод цей маршрут не рахує: він називає поля зрізу, який оператор очікує побачити в продукті.
+e8f1346:docs/sdd.md:144:| Gateway | Client | HTTP на шлюзі, без проксі: `GET /health`; `GET /api/v1/operator/digest` з тілом `kind` = `operator-digest` | Будь-який інший шлях `/api/v1/operator/*` не існує |
+=== ISD phrase at FAIL ===
+22a20df:docs/isd.md:27:Graph не чекає ML. Обидва кроки 3 йдуть паралельно. Оцінка через `relativa.graph_ml` можлива лише коли обидва контейнери вже запущені; порядок між ними Compose не фіксує.
+=== graph waits for ml at PASS ISD ===
+e8f1346:docs/isd.md:24:4. `graph` чекає ті самі три умови і ще старт контейнера `ml` (`condition: service_started`). Процес Graph не піднімається, доки контейнер ML не стартував.
+e8f1346:docs/isd.md:25:5. `gateway` чекає здоровий `auth`, здоровий `core` і старт контейнерів `graph`, `ml`, `audit` (`service_started`, не health).

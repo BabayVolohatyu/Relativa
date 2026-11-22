@@ -1,0 +1,28 @@
+Gateway process: dotnet run --project Gateway/src/Relativa.Gateway/Relativa.Gateway.csproj
+Environment for the browser call only: Cors__AllowAnyOriginForDev=true
+Date: 2026-11-22
+Authentication container was not running.
+
+GET /health
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+{"status":"ok","service":"relativa-gateway"}
+
+GET /api/v1/operator/digest
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+{"kind":"operator-digest","audience":"sales-operator","includes":["openDeals","highRiskDeals","pendingInvitations"]}
+
+POST /auth/api/v1/auth/login
+body: {}
+HTTP/1.1 502 Bad Gateway
+Content-Length: 0
+
+POST /auth/api/v1/auth/login
+body: {"email":"not-an-email","password":"x"}
+HTTP/1.1 502 Bad Gateway
+Content-Length: 0
+
+Health and digest match docs/api/openapi.yaml examples.
+Login 502 matches the contract: empty body when the auth cluster is down.
+Login 400 and 401 are the Authentication handler (status, title, detail) and were not called live, because that process was not up.
