@@ -1,5 +1,9 @@
 # Relativa Local Docker Manual
 
+> Startup order, environment names, and recovery targets (RTO/RPO) are specified in [docs/isd.md](docs/isd.md) as of 2026-11-22. This manual stays the troubleshooting companion. If the two disagree, ISD is the one to follow.
+
+
+
 This repository runs locally with Docker, so you do not need to install PostgreSQL or application servers directly on the OS.
 
 ## Quick Start

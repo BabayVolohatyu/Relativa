@@ -2,6 +2,8 @@
 
 > **Last verified:** 2026-05-15 (ML startup script now also launches `run_graph_score_consumer`; no new env vars needed — ML already has `RABBITMQ_*`.)
 
+> **Passport:** startup order and RTO/RPO as of 2026-11-22 are in [docs/isd.md](../isd.md). This guide was not rewritten in that pass. If the two disagree, follow ISD.
+
 > **Maintenance obligation:** If you change Docker Compose, Dockerfiles, networking, volumes, or environment variables, update this file and its "Last verified" date before finishing your task. See [AI-GUIDES-INDEX.md](../../AI-GUIDES-INDEX.md) for the full update matrix.
 
 > **Note:** For operational instructions (how to start/stop the stack, pgAdmin setup, troubleshooting), see [DOCKER-BUILD.md](../../DOCKER-BUILD.md) at the repo root. This guide explains the architectural "why" and "how things connect."

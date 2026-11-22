@@ -99,6 +99,10 @@ Every feature below is **already implemented in Relativa** but missing — or lo
 - Structured **"why is this score unavailable"** explanations so reps know what to fill in.
 - Per-workspace, configurable risk thresholds.
 
+### 📊 Workspace dashboard
+- Built-in organization dashboard on the Graph service: summary, pipeline, risk distribution, trends, top entities, and member activity (`GET /api/v1/dashboard/...` through the gateway).
+- User-defined dashboard layouts are still on the roadmap. The built-in views are not a placeholder.
+
 ### 🔐 Role-Based Access Control
 - Separate, granular permissions at the **organization** and **workspace** levels.
 - System roles (`org_owner`, `org_admin`, `org_member`, `ws_admin`, `ws_manager`, `ws_analyst`, `ws_member`) plus fully **custom roles**.
@@ -317,6 +321,16 @@ docker compose logs -f gateway
 
 Then open **http://localhost:3000** and register your first account. 🎉
 
+### Onboarding
+
+Five steps from a fresh clone to a working map of the system. Commands for the first three are in the blocks above.
+
+1. Read [What is Relativa?](#what-is-relativa) — who the product is for (B2B sales teams) and what it already does.
+2. Copy `.env.example` to `.env`. Do not commit `.env`.
+3. `docker compose up --build -d`, then open http://localhost:3000 and register. Check the gateway with http://localhost:8080/health (`status` is `ok`).
+4. Create an organization and a workspace in the UI. The migration container has already applied the schema and demo rows.
+5. For the service map and the contracts between them, read [docs/sdd.md](docs/sdd.md). For startup order, environment names, and recovery targets, read [docs/isd.md](docs/isd.md). Owners and review cycles are in [docs/maintenance.md](docs/maintenance.md).
+
 | Command | What it does |
 |---|---|
 | `docker compose up -d` | Daily restart (no rebuild) |
@@ -420,7 +434,9 @@ Every backend service ships interactive **Scalar** API docs and a raw OpenAPI sp
 | [DOCKER-BUILD.md](DOCKER-BUILD.md) | Local Docker manual — start, stop, troubleshoot |
 | [DATABASE.md](DATABASE.md) | Full schema, EAV model, RBAC, audit tables |
 | [SCALAR-GUIDE.md](SCALAR-GUIDE.md) | Interactive API walkthrough |
-| [docs/USER-GUIDE.md](docs/USER-GUIDE.md) | End-user scenarios for every feature |
+| [docs/sdd.md](docs/sdd.md) | System design: containers, components, data model, contracts |
+| [docs/isd.md](docs/isd.md) | Infrastructure: environments, startup order, CI, RTO/RPO |
+| [docs/maintenance.md](docs/maintenance.md) | Documentation owners and review cycles |
 | [AI-GUIDES-INDEX.md](AI-GUIDES-INDEX.md) | Deep technical guides (architecture, microservices, runbooks) |
 
 ---

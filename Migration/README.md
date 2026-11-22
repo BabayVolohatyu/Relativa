@@ -1,5 +1,9 @@
 # relativa-migrations
 
+> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still says `entrypoint.sh` exits 0 and that migrations stay in Core. The process calls `MigrateAsync` from this project. Design: [docs/sdd.md](../docs/sdd.md). Run and recovery: [docs/isd.md](../docs/isd.md).
+
+
+
 Запуск у стилі **init-container** для **EF Core** проти **PostgreSQL**. **Solution** у корені; опційний **console**-проєкт у `src/Relativa.Migration/` посилається на `Microsoft.EntityFrameworkCore.Design` для документування інструментів — **без дублювання DbContext**; міграції залишаються в **relativa-core**.
 
 ## Структура

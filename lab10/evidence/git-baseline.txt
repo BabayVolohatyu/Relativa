@@ -1,0 +1,153 @@
+Documentation decay baseline
+As-of date for age: 2026-11-22
+Branch: testing/lab10 at 5b0722705c227791633bcb6943b2d49e139f239f (lab9)
+Age days = 2026-11-22 minus git log -1 --format=%cs
+Window for access evidence: commits with --since=2026-10-23
+
+Command (PowerShell). wc is not required; the same counts are repeated with git rev-list and with bash wc below.
+
+git log -1 --format=%cs -- <file>
+
+README.md                                          2026-06-19
+docs/ai-guides/ARCHITECTURE.md                     2026-10-25
+docs/ai-guides/PROJECT-OVERVIEW.md                 2026-05-15
+docs/ai-guides/MICROSERVICES.md                    2026-05-29
+docs/ai-guides/DOCKER-SETUP.md                     2026-05-15
+docs/ai-guides/PROJECT-STATUS.md                   2026-05-29
+docs/ai-guides/AUDIT-LOG-API.md                    2026-05-08
+docs/runbooks/RABBITMQ-CHOREOGRAPHY.md             2026-05-15
+DOCKER-BUILD.md                                    2026-04-23
+DATABASE.md                                        2026-10-25
+SETUP-GUIDE.md                                     2026-06-12
+SCALAR-GUIDE.md                                    2026-05-08
+.env.example                                       2026-06-10
+docker-compose.yaml                                2026-10-18
+.github/workflows/ci.yaml                          2026-10-18
+Core/README.md                                     2026-04-08
+Graph/README.md                                    2026-04-08
+Gateway/README.md                                  2026-04-08
+ML/README.md                                       2026-04-08
+Migration/README.md                                2026-04-08
+Authentication/README.md                           2026-05-08
+Client/README.md                                   2026-04-08
+Audit/README.md                                    2026-05-02
+
+Full inventory (age, last date, commits since 2026-10-23, last author, path):
+
+165	2026-06-10	0	Vlad Antoniuk	.env.example
+228	2026-04-08	0	Babay	.github/pull_request_template.md
+35	2026-10-18	0	babay	.github/workflows/ci.yaml
+28	2026-10-25	1	babay	.github/workflows/lab5-quality-gate.yaml
+28	2026-10-25	1	babay	.github/workflows/lab7-hotspots.yaml
+28	2026-10-25	1	babay	.github/workflows/lab8-design.yaml
+177	2026-05-29	0	Babay	AI-GUIDES-INDEX.md
+204	2026-05-02	0	Babay	Audit/README.md
+198	2026-05-08	0	Vladyslav Kostenuk	Authentication/README.md
+156	2026-06-19	0	Babay	BENEFITS.md
+156	2026-06-19	0	Babay	BENEFITS_UA.md
+248	2026-03-19	0	Vlad Antoniuk	CONTRIBUTORS.md
+228	2026-04-08	0	Babay	Client/.env.example
+228	2026-04-08	0	Babay	Client/README.md
+228	2026-04-08	0	Babay	Core/README.md
+28	2026-10-25	1	babay	DATABASE.md
+213	2026-04-23	0	Babay	DOCKER-BUILD.md
+161	2026-06-14	0	Babay	ENDPOINTS/ENDPOINTS_ENG.md
+161	2026-06-14	0	Babay	ENDPOINTS/ENDPOINTS_UA.md
+156	2026-06-19	0	Babay	ENDPOINTS/POSSIBLE_PRO_VERSION_ENDPOINTS.md
+156	2026-06-19	0	Babay	ENDPOINTS/POSSIBLE_PRO_VERSION_ENDPOINTS_UA.md
+228	2026-04-08	0	Babay	Gateway/README.md
+228	2026-04-08	0	Babay	Graph/README.md
+228	2026-04-08	0	Babay	ML/README.md
+228	2026-04-08	0	Babay	Migration/README.md
+156	2026-06-19	0	Vlad Antoniuk	README.md
+198	2026-05-08	0	Babay	SCALAR-GUIDE.md
+163	2026-06-12	0	Vlad Antoniuk	SETUP-GUIDE.md
+35	2026-10-18	0	babay	docker-compose.yaml
+156	2026-06-19	0	NatalieShostak6	docs/PROMOTION-STRATEGY.md
+28	2026-10-25	1	babay	docs/ai-guides/ARCHITECTURE.md
+198	2026-05-08	0	Babay	docs/ai-guides/AUDIT-AGENT-REQUIREMENTS.md
+177	2026-05-29	0	Babay	docs/ai-guides/AUDIT-COVERAGE-MATRIX.md
+198	2026-05-08	0	Babay	docs/ai-guides/AUDIT-LOG-API.md
+191	2026-05-15	0	Babay	docs/ai-guides/DOCKER-SETUP.md
+172	2026-06-03	0	NatalieShostak6	docs/ai-guides/FRONTEND-UI.md
+177	2026-05-29	0	Babay	docs/ai-guides/MICROSERVICES.md
+191	2026-05-15	0	Babay	docs/ai-guides/PROJECT-OVERVIEW.md
+177	2026-05-29	0	Babay	docs/ai-guides/PROJECT-STATUS.md
+191	2026-05-15	0	Babay	docs/runbooks/RABBITMQ-CHOREOGRAPHY.md
+35	2026-10-18	0	babay	lab2/REPORT.md
+35	2026-10-18	0	babay	lab3/REPORT.md
+28	2026-10-25	1	babay	lab4/DEMO.md
+28	2026-10-25	1	babay	lab4/REPORT.md
+28	2026-10-25	1	babay	lab5/MUST_READ_REVIEW_CHANGE.md
+28	2026-10-25	1	babay	lab5/REPORT.md
+28	2026-10-25	1	babay	lab6/REPORT.md
+28	2026-10-25	1	babay	lab7/MUST_READ_REVIEW_CHANGE.md
+28	2026-10-25	1	babay	lab7/REPORT.md
+28	2026-10-25	1	babay	lab8/MUST_READ_REVIEW_CHANGE.md
+28	2026-10-25	1	babay	lab8/REPORT.md
+28	2026-10-25	1	babay	lab9/FINANCIAL_LEDGER.md
+28	2026-10-25	1	babay	lab9/MUST_READ_REVIEW_CHANGE.md
+28	2026-10-25	1	babay	lab9/REPORT.md
+
+Code versus documentation, git rev-list --count HEAD -- <path>
+and the same numbers from bash: git log --oneline -- <path> | wc -l
+
+core            100
+core-readme       1
+graph            43
+graph-readme      1
+ml               24
+ml-readme         1
+migration        61
+migration-readme  1
+gateway          23
+gateway-readme    1
+auth             35
+auth-readme       3
+client          113
+client-readme     1
+compose          22
+docker-build      2
+database          2
+persistence      38
+architecture     29
+docs             65
+readme            4
+ci.yaml          16
+
+bash wc -l (Git Bash):
+
+git log --oneline -- Core | wc -l            => 100
+git log --oneline -- Core/README.md | wc -l  => 1
+git log --oneline -- Graph | wc -l           => 43
+git log --oneline -- Graph/README.md | wc -l => 1
+
+Commits reachable from HEAD after the document's last commit
+(git rev-list --count <doc-commit>..HEAD -- <code>):
+
+docs/ai-guides/ARCHITECTURE.md  b71a8fe  Graph            13
+docs/ai-guides/ARCHITECTURE.md  b71a8fe  Core              0
+docs/ai-guides/ARCHITECTURE.md  b71a8fe  Authentication    0
+docs/ai-guides/ARCHITECTURE.md  b71a8fe  ML                0
+README.md                       fcfbcbb  Core             10
+README.md                       fcfbcbb  Client           13
+DOCKER-BUILD.md                 a50b581  docker-compose   17
+DATABASE.md                     b71a8fe  Persistence       0
+docs/ai-guides/PROJECT-OVERVIEW.md aed735d Core           37
+docs/ai-guides/MICROSERVICES.md 9500268  Graph            27
+docs/ai-guides/AUDIT-LOG-API.md 3b4d03d  Audit            12
+Authentication/README.md        f5b5c45  Authentication   12
+
+The 13 Graph commits after b71a8fe are lab audit fixtures, not a new service.
+git diff --stat b71a8fe..HEAD -- Graph:
+
+Graph/src/Relativa.Graph/Dashboard/DealCommercialOption.cs
+Graph/src/Relativa.Graph/DesignAudit/**
+Graph/tests/Relativa.Graph.Integration.Tests/DealCommercialOptionTests.cs
+Graph/tests/Relativa.Graph.Integration.Tests/DesignAuditTests.cs
+9 files, 635 insertions
+
+Missing file referenced by README.md: docs/USER-GUIDE.md (Test-Path = False).
+
+Access evidence outside git: this repository has no issue-tracker export and no team chat log.
+A document with zero commits since 2026-10-23 has no in-repo access evidence for the last month.

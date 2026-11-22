@@ -1,5 +1,9 @@
 # relativa-client
 
+> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still describes a Vite scaffold and a graph placeholder. The client ships onboarding, entities, and the graph view. Design: [docs/sdd.md](../docs/sdd.md). Local run: [README](../README.md#onboarding).
+
+
+
 SPA на **Vue 3.5** та **Vite 6** для Relativa. Ініціалізовано офіційним ланцюжком `create-vue` (TypeScript, Vue Router, Pinia), далі закріплено версії **Vite 6.x**, **Vue Router 4.x**, **Pinia 2.x**. **D3 7** зазначено для майбутньої роботи з графом; у скелеті використано **vis-network 9** як мінімальний force-directed placeholder.
 
 ## Порт

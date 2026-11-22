@@ -1,5 +1,9 @@
 # relativa-ml
 
+> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still describes only a stub `recalculate` endpoint. Health, batch score, and the RabbitMQ consumer exist. Design: [docs/sdd.md](../docs/sdd.md). Run and recovery: [docs/isd.md](../docs/isd.md).
+
+
+
 ML-мікросервіс на **Django 5.1**. Структуру проєкту створено через `django-admin startproject`; додаток **`ml_api`** — через `startapp`.
 
 ## Порт

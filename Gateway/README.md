@@ -1,5 +1,9 @@
 # relativa-gateway
 
+> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still calls JWT validation a stub. The gateway validates the token and injects identity headers. Design: [docs/sdd.md](../docs/sdd.md). Run and recovery: [docs/isd.md](../docs/isd.md).
+
+
+
 Зворотний проксі на **ASP.NET Core 10** для Relativa. **Solution** у корені репозиторію (`Relativa.Gateway.sln`); **веб-проєкт** у `src/Relativa.Gateway/` (файли `.sln` та основного `.csproj` не в одній теці).
 
 ## Порт

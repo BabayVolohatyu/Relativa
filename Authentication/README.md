@@ -1,5 +1,9 @@
 # relativa-auth
 
+> **Incomplete endpoint list (documentation audit 2026-11-22).** Login, register, profile, and password reset below are still the right shape. Later routes (verification, two-factor, extra emails, privacy export) are not in this table. The contract map is [docs/sdd.md](../docs/sdd.md).
+
+
+
 Authentication microservice on **ASP.NET Core 10**. Solution at the root; Web API project at `src/Relativa.Authentication/`.
 
 ## Port

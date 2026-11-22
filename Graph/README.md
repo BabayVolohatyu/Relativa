@@ -1,5 +1,9 @@
 # relativa-graph
 
+> **Deprecated as an operational description (documentation audit 2026-11-22).** The text below still calls the SignalR hub an empty stub. Graph query and the dashboard are implemented. Design: [docs/sdd.md](../docs/sdd.md). Run and recovery: [docs/isd.md](../docs/isd.md).
+
+
+
 Сервіс графа на **ASP.NET Core 10**. **Solution** у корені; **Web API** у `src/Relativa.Graph/`.
 
 ## Порт
